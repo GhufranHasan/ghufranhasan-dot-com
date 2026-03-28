@@ -1,26 +1,78 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* 1. Google Fonts Import */
+/* @import url('https://fonts.googleapis.com'); */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+  /* 2. Custom Colors (Use --color-* prefix) */
+  --color-purple-900: #60054a;
+  --color-purple-800: #330d3e;
+  --color-purple-950: #0a1332;
+  --color-white: #fefefe;
+  --color-orange-500: #ff8403;
+  --color-orange-600: #ff9500;
+  --color-background: #050814;
+  --color-background-card: rgba(10, 19, 50, 0.6);
+  --color-border: rgba(255, 132, 3, 0.2);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* 3. Custom Fonts (Use --font-* prefix) */
+  --font-bebas: "Bebas Neue", cursive;
+  --font-lato: "Lato", sans-serif;
+
+  /* 4. Animations & Keyframes */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-rotate-slow: rotate 20s linear infinite;
+  --animate-fade-in-up: fadeInUp 0.6s ease forwards;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
   }
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* 5. Custom Box Shadows */
+  --shadow-glow: 0 0 20px rgba(255, 132, 3, 0.2);
+  --shadow-glow-hover: 0 0 30px rgba(255, 132, 3, 0.4);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* 6. Base Styles & Custom Scrollbar */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-linear-to-br from-purple-900 via-purple-800 to-purple-950 text-white font-lato;
+  }
+
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { @apply bg-purple-950; }
+  ::-webkit-scrollbar-thumb { @apply bg-orange-500 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-orange-600; }
+}
+
+/* 7. Custom Component Classes */
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 md:px-8;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-24;
+  }
+
+  .gradient-text {
+    @apply bg-linear-to-r from-white to-orange-500 bg-clip-text text-transparent;
+  }
+
+  .glass-card {
+    @apply bg-background-card backdrop-blur-md border border-orange-500/20 rounded-2xl;
+  }
 }
