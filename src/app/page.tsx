@@ -2,9 +2,10 @@
 
 import Hero from '@/components/sections/Hero'
 import AuthorityBar from '@/components/sections/AuthorityBar'
+import PainAgitation from '@/components/sections/PainAgitation'
 import Services from '@/components/sections/Services'
-import CaseStudies from '@/components/sections/CaseStudies'
 import About from '@/components/sections/About'
+import CaseStudies from '@/components/sections/CaseStudies'
 import WhyChooseMe from '@/components/sections/WhyChooseMe'
 import DifferentView from '@/components/sections/DifferentView'
 import Packages from '@/components/sections/Packages'
@@ -17,13 +18,14 @@ export default function Home() {
     <>
       <Hero />
       <AuthorityBar />
+      <PainAgitation />
       <Services />
-      <CaseStudies />
       <About />
+      <CaseStudies />
       <WhyChooseMe />
-      <DifferentView />
       <Packages />
       <Process />
+      <DifferentView />
       <FAQ />
       <Contact />
     </>

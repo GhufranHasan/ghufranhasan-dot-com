@@ -43,7 +43,7 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className="text-lg text-white/80 mb-8"
             >
-              Book more qualified demos using a clear LinkedIn → website client machine. Stop wasting budget on cold outreach that doesn't convert.
+              I help B2B agency founders fix inconsistent, low‑quality LinkedIn leads by building a clear **LinkedIn → website client machine** that turns attention into booked demos.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -53,7 +53,7 @@ export default function Hero() {
             >
               <Link href="#contact">
                 <Button variant="primary" size="large">
-                  DM NOW START <ArrowRight size={18} />
+                  Book Free Audit → <ArrowRight size={18} />
                 </Button>
               </Link>
               <Link href="#case-studies">
@@ -79,17 +79,17 @@ export default function Hero() {
               />
             </div>
             <div className="mt-6 space-y-3">
+              <a href="https://linkedin.com/in/ghufranhasan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/80 text-sm hover:text-orange-500 transition-colors">
+                <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
+                <span>23,000+ followers on LinkedIn</span>
+              </a>
               <div className="flex items-center gap-3 text-white/80 text-sm">
                 <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
                 <span>Web Developer & LinkedIn Funnel Strategist</span>
               </div>
               <div className="flex items-center gap-3 text-white/80 text-sm">
                 <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
-                <span>23,000+ followers on LinkedIn</span>
-              </div>
-              <div className="flex items-center gap-3 text-white/80 text-sm">
-                <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
-                <span>Trusted by B2B agencies and SaaS founders</span>
+                <span>Building in public – no fake numbers, just frameworks</span>
               </div>
             </div>
           </motion.div>

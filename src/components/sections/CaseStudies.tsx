@@ -8,39 +8,33 @@ import Link from 'next/link'
 const caseStudies = [
   {
     id: 1,
-    client: 'B2B SaaS Agency',
-    metric: '+147 qualified demos',
-    result: 'LinkedIn engagement up 340%, cost per lead down 62% in 90 days',
-    testimonial: {
-      text: "Ghufran built a system that consistently delivers qualified leads. Within 90 days, we had more demos than our sales team could handle.",
-      author: "Sarah Chen, Founder",
-    },
+    pattern: 'Pattern A',
+    title: 'Active on LinkedIn, website is generic',
+    description: "Client had strong LinkedIn presence but generic website that didn't convert attention into action.",
+    fix: 'LinkedIn profile optimization + custom conversion website with clear CTA flow.',
+    outcome: '+40% demo requests within 30 days',
     color: 'from-orange-500/20 to-transparent',
     gradient: 'from-orange-500 to-orange-600',
   },
   {
     id: 2,
-    client: 'Marketing Agency Founder',
-    metric: '23 discovery calls',
-    result: 'Booked 23 qualified discovery calls in the first month',
-    testimonial: {
-      text: "From sending 5 cold DMs a day to receiving 50+ inbound leads weekly. This system changed everything.",
-      author: "Marcus Rodriguez, Agency Owner",
-    },
+    pattern: 'Pattern B',
+    title: 'Strong LinkedIn presence, no clear demo path',
+    description: 'High engagement on LinkedIn but no clear path from profile to booked call.',
+    fix: 'Authority positioning + LinkedIn → website funnel architecture.',
+    outcome: '15 qualified leads in first month',
     color: 'from-purple-500/20 to-transparent',
     gradient: 'from-purple-500 to-pink-500',
   },
   {
     id: 3,
-    client: 'Tech Consulting Firm',
-    metric: '$180K closed',
-    result: '$180,000 in closed deals from LinkedIn leads in 6 months',
-    testimonial: {
-      text: "Scaled from 2 to 15 clients in 6 months. The LinkedIn → website machine is now our primary revenue channel.",
-      author: "Jennifer Walsh, Managing Partner",
-    },
-    color: 'from-blue-500/20 to-transparent',
-    gradient: 'from-blue-500 to-cyan-500',
+    pattern: 'Pattern C',
+    title: "Website is fine, LinkedIn doesn't point to it",
+    description: "Good website but LinkedIn profile didn't drive traffic or set expectations.",
+    fix: "LinkedIn profile rebrand + traffic-driving CTA structure.",
+    outcome: "200+ clicks to site per week",
+    color: "from-blue-500/20 to-transparent",
+    gradient: "from-blue-500 to-cyan-500",
   },
 ]
 
@@ -82,29 +76,23 @@ export default function CaseStudies() {
                   {/* Left Side - Metric */}
                   <div className="md:w-1/3 text-center md:text-left">
                     <div className={`inline-block px-3 py-1 rounded-full bg-linear-to-r ${study.gradient} text-white text-xs font-bold mb-4`}>
-                      Case Study {String(index + 1).padStart(3, '0')}
+                      {study.pattern}
                     </div>
-                    <div className="text-2xl md:text-3xl font-bold text-orange-500 mb-2">
-                      {study.metric}
-                    </div>
-                    <div className="text-white/60 text-sm">{study.result}</div>
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-3">{study.title}</h3>
+                    <p className="text-white/70 mb-4">{study.description}</p>
+                    <div className="text-orange-500 font-bold text-lg">{study.outcome}</div>
                   </div>
 
-                  {/* Right Side - Testimonial */}
-                  <div className="md:w-2/3 relative">
-                    <Quote size={32} className="text-orange-500/30 absolute -top-2 -left-2" />
-                    <p className="text-white/80 italic mb-4 pl-6 leading-relaxed">
-                      "{study.testimonial.text}"
-                    </p>
-                    <div className="flex items-center justify-between pl-6">
-                      <div className="font-semibold text-white">{study.testimonial.author}</div>
-                      <Link
-                        href="#contact"
-                        className="text-orange-500 hover:text-orange-400 text-sm font-semibold flex items-center gap-1"
-                      >
-                        See full story <ArrowRight size={14} />
-                      </Link>
-                    </div>
+                  {/* Right Side - Fix */}
+                  <div className="md:w-2/3">
+                    <h4 className="font-bold text-orange-500 mb-3 uppercase tracking-wider text-sm">The Fix</h4>
+                    <p className="text-white/80 mb-6">{study.fix}</p>
+                    <Link
+                      href="#contact"
+                      className="text-orange-500 hover:text-orange-400 font-semibold flex items-center gap-1"
+                    >
+                      Book your audit <ArrowRight size={14} />
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -114,6 +102,15 @@ export default function CaseStudies() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ delay: 0.8 }}
+          className="text-center mt-12 italic text-white/60 text-sm"
+        >
+          *All metrics are directional examples based on client work anonymized by request.
+        </motion.div>
 
         {/* CTA */}
         <motion.div

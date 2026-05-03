@@ -8,6 +8,7 @@ import Link from 'next/link'
 const packages = [
   {
     title: 'Complete Funnel Build',
+    stage: 'Stage 1 – Build your client machine from scratch',
     price: '$2,500',
     audience: 'For: LinkedIn + Website (Both from scratch)',
     badge: 'Most Popular',
@@ -24,6 +25,7 @@ const packages = [
   },
   {
     title: 'Funnel Alignment',
+    stage: 'Stage 2 – Fix misaligned data',
     price: '$1,800',
     audience: 'For: LinkedIn + Website (Data Not Consistent)',
     badge: 'Strategic Fix',
@@ -40,6 +42,7 @@ const packages = [
   },
   {
     title: 'Website Conversion Build',
+    stage: 'Stage 3 – Turn attention into demos',
     price: '$1,500',
     audience: 'For: Only Website (Needs to Align with LinkedIn)',
     features: [
@@ -92,8 +95,13 @@ export default function Packages() {
                 </span>
               )}
 
-              <div className="text-center pb-6 mb-6 border-b border-orange-500/20">
+                <div className="text-center pb-6 mb-6 border-b border-orange-500/20">
                 <h3 className="text-2xl font-bebas mb-2">{pkg.title}</h3>
+                {pkg.stage && (
+                  <span className="text-xs uppercase text-orange-400 font-semibold bg-orange-500/10 px-3 py-1 rounded-full block mb-2">
+                    {pkg.stage}
+                  </span>
+                )}
                 <div className="text-3xl font-bold text-orange-500">{pkg.price}</div>
                 <div className="text-xs bg-orange-500/10 inline-block px-3 py-1 rounded-full mt-2">
                   {pkg.audience}

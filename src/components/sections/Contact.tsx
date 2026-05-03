@@ -170,17 +170,7 @@ export default function Contact() {
               </div>
             </motion.div>
 
-            {/* Testimonial Snippet */}
-            <motion.div
-              variants={itemVariants}
-              className="relative p-6 rounded-xl bg-orange-500/5 border border-orange-500/20"
-            >
-              <MessageCircle size={24} className="text-orange-500 mb-3" />
-              <p className="text-white/80 text-sm italic">
-                "Ghufran built a system that consistently delivers qualified leads. Within 90 days, we had more demos than our sales team could handle."
-              </p>
-              <div className="mt-3 text-xs text-orange-500">— Sarah Chen, B2B SaaS Founder</div>
-            </motion.div>
+            {/* Testimonial Snippet Removed to avoid duplicate */}
           </motion.div>
 
           {/* Right Column - Calendly Embed */}

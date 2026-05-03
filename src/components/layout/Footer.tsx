@@ -2,10 +2,10 @@ import Link from 'next/link'
 import { Github, Linkedin, Twitter, Calendar } from 'lucide-react'
 
 const socialLinks = [
-  { icon: Github, href: '#', label: 'GitHub' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Calendar, href: '#', label: 'Calendar' },
+  { icon: Github, href: 'https://github.com/ghufranhasan', label: 'GitHub' },
+  { icon: Linkedin, href: 'https://linkedin.com/in/ghufranhasan', label: 'LinkedIn' },
+  { icon: Twitter, href: 'https://twitter.com/ghufranhasan', label: 'Twitter' },
+  { icon: Calendar, href: '/#contact', label: 'Calendar' },
 ]
 
 export default function Footer() {
@@ -30,8 +30,8 @@ export default function Footer() {
             </a>
           ))}
         </div>
-        <div className="text-white/60 text-sm">
-          &copy; {new Date().getFullYear()} Ghufran Hasan. All rights reserved.
+<div className="text-white/60 text-sm">
+          &copy; {new Date().getFullYear()} Ghufran Hasan. All rights reserved. <Link href="#faqs">FAQs</Link>
         </div>
       </div>
     </footer>

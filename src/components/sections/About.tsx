@@ -48,7 +48,7 @@ export default function About() {
     { value: 5, suffix: '+', label: 'Years Experience', icon: Clock, description: 'Building conversion-focused systems' },
     { value: 100, suffix: '+', label: 'B2B Clients', icon: Users, description: 'Across various industries' },
     { value: 23, suffix: 'K+', label: 'LinkedIn Followers', icon: Linkedin, description: 'Growing authority network' },
-    { value: 500, suffix: '+', label: 'Qualified Demos', icon: Target, description: 'Generated for clients' },
+    { value: 500, suffix: '+', label: 'Systems Built', icon: Target, description: 'For B2B founders' },
   ]
 
   return (

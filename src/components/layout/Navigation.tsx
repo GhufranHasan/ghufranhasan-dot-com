@@ -10,11 +10,9 @@ const navItems = [
   { name: 'Home', href: '#home' },
   { name: 'Services', href: '#services' },
   { name: 'Results', href: '#case-studies' },
-  { name: 'Why Me', href: '#why-choose' },
-  { name: 'Beliefs', href: '#different-view' },
   { name: 'Packages', href: '#packages' },
   { name: 'Process', href: '#process' },
-  { name: 'FAQs', href: '#faqs' },
+  { name: 'Contact', href: '#contact' }
 ]
 
 export default function Navigation() {

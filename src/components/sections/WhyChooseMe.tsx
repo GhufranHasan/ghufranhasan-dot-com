@@ -6,7 +6,8 @@ const comparisons = [
   { feature: 'Strategy Focus', typical: 'Write posts to generic templates, track followers & engagement', me: 'Positioning strategist who extracts YOUR expertise and frameworks' },
   { feature: 'What We Track', typical: 'Impressions, likes, follower count', me: 'Qualified leads, calls booked, close rate, LinkedIn-sourced revenue' },
   { feature: 'Time Required', typical: '5–6 hours per week of YOUR time', me: 'System runs on under 90 minutes per week' },
-  { feature: 'Outbound Strategy', typical: 'Content only, no outbound integration', me: 'Inbound authority + warm outbound working together' },
+  { feature: 'Outbound Strategy', typical: 'Content only, no outbound integration', me: 'Inbound authority content + warm outbound triggered by profile visits/DM intros' },
+  { feature: 'Reporting & Transparency', typical: 'Impressions, likes, monthly vanity reports', me: 'Weekly updates + pipeline metrics (leads, calls booked, revenue influenced)' },
 ]
 
 export default function WhyChooseMe() {
@@ -26,7 +27,7 @@ export default function WhyChooseMe() {
         <div className="overflow-x-auto">
           <div className="min-w-3xl border border-orange-500/20 rounded-2xl overflow-hidden">
             <div className="grid grid-cols-3 bg-linear-to-r from-orange-500/20 to-purple-800/20">
-              <div className="p-5 font-bold">What You Get</div>
+<div className="p-5 font-bold">Feature</div>
               <div className="p-5 font-bold">Typical Agencies/Ghostwriters</div>
               <div className="p-5 font-bold text-orange-500">Ghufran Hasan</div>
             </div>
