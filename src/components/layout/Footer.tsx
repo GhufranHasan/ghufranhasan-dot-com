@@ -30,7 +30,7 @@ export default function Footer() {
             </a>
           ))}
         </div>
-<div className="text-white/60 text-sm">
+        <div className="text-white/60 text-sm">
           &copy; {new Date().getFullYear()} Ghufran Hasan. All rights reserved. <Link href="#faqs">FAQs</Link>
         </div>
       </div>

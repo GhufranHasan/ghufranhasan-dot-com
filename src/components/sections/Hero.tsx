@@ -43,7 +43,7 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className="text-lg text-white/80 mb-8"
             >
-              I help B2B agency founders fix inconsistent, low‑quality LinkedIn leads by building a clear **LinkedIn → website client machine** that turns attention into booked demos.
+              I help B2B agency founders fix inconsistent, low‑quality LinkedIn leads by building a clear <b>LinkedIn → website client machine</b> that turns attention into booked demos.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -53,7 +53,7 @@ export default function Hero() {
             >
               <Link href="#contact">
                 <Button variant="primary" size="large">
-                  Book Free Audit → <ArrowRight size={18} />
+                  Book Free Audit <ArrowRight size={18} />
                 </Button>
               </Link>
               <Link href="#case-studies">
