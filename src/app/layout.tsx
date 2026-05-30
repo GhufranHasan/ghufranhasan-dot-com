@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Bebas_Neue, Lato } from 'next/font/google'
 import './globals.css'
+import StickyCTA from '@/components/layout/StickyCTA'
 import Navigation from '@/components/layout/Navigation'
 import Footer from '@/components/layout/Footer'
 
@@ -40,6 +41,7 @@ export default function RootLayout({
         <Navigation />
         <main>{children}</main>
         <Footer />
+        <StickyCTA />
       </body>
     </html>
   )
