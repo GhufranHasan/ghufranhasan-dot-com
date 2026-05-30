@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Github, Linkedin, Twitter, Calendar } from 'lucide-react'
+import LeadMagnet from '@/components/sections/LeadMagnet'
 
 const socialLinks = [
   { icon: Github, href: 'https://github.com/ghufranhasan', label: 'GitHub' },
@@ -30,6 +31,7 @@ export default function Footer() {
             </a>
           ))}
         </div>
+        <LeadMagnet />
         <div className="text-white/60 text-sm">
           &copy; {new Date().getFullYear()} Ghufran Hasan. All rights reserved. <Link href="#faqs">FAQs</Link>
         </div>
