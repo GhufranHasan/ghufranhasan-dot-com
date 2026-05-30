@@ -6,6 +6,23 @@ import { CheckCircle } from 'lucide-react'
 import Link from 'next/link'
 
 const packages = [
+  // Add this as the FIRST package card (before existing packages)
+  {
+    title: 'Quick Funnel Audit',
+    price: '$297',
+    stage: 'Entry Level',
+    audience: 'For: Anyone testing the framework',
+    badge: 'Best for testing',
+    features: [
+      '48-hour turnaround',
+      'Loom video breakdown of your LinkedIn → website leaks',
+      '3 immediate fixes you can implement',
+      'Clear next-step roadmap',
+      'No commitment required',
+    ],
+    note: 'Perfect for founders who want to test my thinking before committing to a full build.',
+    urgency: null,
+  },
   {
     title: 'Complete Funnel Build',
     stage: 'Stage 1 – Build your client machine from scratch',
