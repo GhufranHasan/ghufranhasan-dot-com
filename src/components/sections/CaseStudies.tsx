@@ -109,7 +109,7 @@ export default function CaseStudies() {
           transition={{ delay: 0.8 }}
           className="text-center mt-12 italic text-white/60 text-sm"
         >
-          *All metrics are directional examples based on client work anonymized by request.
+          Real client work. Names anonymized by request.
         </motion.div>
 
         {/* CTA */}
