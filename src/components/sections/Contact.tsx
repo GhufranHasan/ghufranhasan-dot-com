@@ -84,7 +84,7 @@ export default function Contact() {
 
   const guarantees = [
     { icon: Shield, text: 'No spam, ever' },
-    { icon: Clock, text: '30-min strategy call' },
+    { icon: Clock, text: '90-min strategy call' },
     { icon: Sparkles, text: 'Free actionable insights' },
   ]
 
