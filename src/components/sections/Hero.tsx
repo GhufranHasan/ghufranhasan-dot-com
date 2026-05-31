@@ -1,21 +1,51 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
-import { ArrowRight } from 'lucide-react'
+import SocialLinksModal from '@/components/layout/SocialLinksModal'
+import { ArrowRight, CheckCircle2, Github, Linkedin, Mail, MessageCircle } from 'lucide-react'
+
+const proofPoints = [
+  'LinkedIn profile and website message alignment',
+  'Clear audit CTA instead of vague contact buttons',
+  'Built with React and Next.js for fast launches',
+]
+
+const primarySocials = [
+  {
+    label: 'LinkedIn',
+    href: 'https://linkedin.com/in/ghufranhasan',
+    icon: Linkedin,
+  },
+  {
+    label: 'GitHub',
+    href: 'https://github.com/ghufranhasan',
+    icon: Github,
+  },
+  {
+    label: 'Email',
+    href: 'mailto:hello@ghufranhasan.com',
+    icon: Mail,
+  },
+  {
+    label: 'WhatsApp',
+    href: 'https://wa.me/?text=Hi%20Ghufran%2C%20I%20want%20to%20talk%20about%20my%20LinkedIn%20to%20website%20funnel.',
+    icon: MessageCircle,
+  },
+]
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Animated Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 right-1/2 w-[200%] h-[200%] bg-radial from-orange-500/10 via-transparent to-transparent animate-rotate-slow" />
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 pb-16">
+      <div className="hero-premium-bg" aria-hidden="true">
+        <div className="hero-silk" />
+        <div className="hero-scanline" />
+        <div className="hero-vignette" />
       </div>
-
       <div className="container-custom relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left Column */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -27,7 +57,7 @@ export default function Hero() {
               transition={{ delay: 0.2 }}
               className="inline-block bg-orange-500/20 text-orange-500 px-4 py-2 rounded-full text-sm font-bebas tracking-wider mb-6"
             >
-              B2B LinkedIn Funnel Specialist
+              LinkedIn to website conversion strategist
             </motion.span>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -35,7 +65,7 @@ export default function Hero() {
               transition={{ delay: 0.3 }}
               className="text-4xl md:text-6xl lg:text-7xl font-bebas leading-tight mb-6"
             >
-              I help B2B agency founders fix inconsistent, low‑quality LinkedIn leads
+              I build websites that turn LinkedIn attention into qualified demo bookings
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -43,8 +73,21 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className="text-lg text-white/80 mb-8"
             >
-              I help B2B agency founders fix inconsistent, low‑quality LinkedIn leads by building a clear <b>LinkedIn → website client machine</b> that turns attention into booked demos.
+              For B2B agency founders who are getting visibility, profile visits, and warm curiosity, but still do not have a clear path from LinkedIn to booked calls.
             </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45 }}
+              className="space-y-3 mb-8"
+            >
+              {proofPoints.map((point) => (
+                <div key={point} className="flex items-start gap-3 text-white/75 text-sm">
+                  <CheckCircle2 size={17} className="text-orange-500 mt-0.5 shrink-0" />
+                  <span>{point}</span>
+                </div>
+              ))}
+            </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -53,29 +96,54 @@ export default function Hero() {
             >
               <Link href="#contact">
                 <Button variant="primary" size="large">
-                  Book Free Audit <ArrowRight size={18} />
+                  Book Free Funnel Audit <ArrowRight size={18} />
                 </Button>
               </Link>
               <Link href="#case-studies">
                 <Button variant="secondary" size="large">
-                  See Case Studies
+                  See The Framework
                 </Button>
               </Link>
             </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.58 }}
+              className="mt-6 flex flex-wrap items-center gap-3"
+              aria-label="Primary social links"
+            >
+              {primarySocials.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target={social.href.startsWith('mailto:') ? undefined : '_blank'}
+                  rel={social.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                  aria-label={social.label}
+                  title={social.label}
+                  className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-2 text-sm font-semibold text-white hover:border-orange-500 hover:bg-orange-500/20 transition-all"
+                >
+                  <social.icon size={17} />
+                  <span>{social.label}</span>
+                </a>
+              ))}
+              <SocialLinksModal />
+            </motion.div>
           </motion.div>
 
-          {/* Right Column - Photo */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden bg-linear-to-r from-orange-500 to-purple-900 p-0.5 animate-float">
-              <img
+            <div className="premium-frame relative rounded-2xl overflow-hidden bg-linear-to-r from-orange-500 to-purple-900 p-0.5 animate-float">
+              <Image
                 src="/images/profile.png"
                 alt="Ghufran Hasan"
-                className="w-full rounded-2xl"
+                width={620}
+                height={720}
+                priority
+                className="w-full h-auto rounded-2xl"
               />
             </div>
             <div className="mt-6 space-y-3">
@@ -85,11 +153,11 @@ export default function Hero() {
               </a>
               <div className="flex items-center gap-3 text-white/80 text-sm">
                 <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
-                <span>Web Developer & LinkedIn Funnel Strategist</span>
+                <span>Frontend developer and LinkedIn funnel strategist</span>
               </div>
               <div className="flex items-center gap-3 text-white/80 text-sm">
                 <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
-                <span>Building in public – no fake numbers, just frameworks</span>
+                <span>Building in public with no fake client numbers</span>
               </div>
             </div>
           </motion.div>

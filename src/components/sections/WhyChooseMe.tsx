@@ -12,7 +12,7 @@ const comparisons = [
 
 export default function WhyChooseMe() {
   return (
-    <section id="why-choose" className="section-padding bg-purple-950/40">
+    <section id="why-choose" className="texture-band neon-purple section-padding">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

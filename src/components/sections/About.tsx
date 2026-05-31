@@ -2,33 +2,37 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Quote, CheckCircle2, Target, TrendingUp, Clock } from 'lucide-react'
+import { CheckCircle2, Clock, Quote, Target, TrendingUp } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+
+const stats = [
+  { value: '23K+', label: 'LinkedIn followers', icon: TrendingUp },
+  { value: '10', label: 'Day launch sprint', icon: Clock },
+  { value: '1', label: 'Clear conversion path', icon: Target },
+]
+
+const thinkingSteps = [
+  'Audit where LinkedIn attention leaks before it becomes a conversation.',
+  'Align the profile promise with the website headline and offer.',
+  'Design one path toward a free audit, DM, or strategy call.',
+]
 
 export default function About() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
-  // Real stats (update with actual numbers)
-  const stats = [
-    { value: '23K+', label: 'LinkedIn Followers', icon: TrendingUp },
-    { value: '10', label: 'Days to Launch', icon: Clock, suffix: 'days' },
-    { value: '100%', label: 'Frameworks > Templates', icon: Target },
-  ]
-
   return (
-    <section ref={ref} id="about" className="relative overflow-hidden py-20 md:py-28">
+    <section ref={ref} id="about" className="texture-dots neon-magenta relative overflow-hidden py-20 md:py-28">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Column - Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden bg-linear-to-r from-orange-500 to-purple-900 p-0.5">
+            <div className="premium-frame relative rounded-2xl overflow-hidden bg-linear-to-r from-orange-500 to-purple-900 p-0.5">
               <div className="relative rounded-2xl overflow-hidden bg-purple-950/50">
                 <Image
                   src="/images/about-profile.png"
@@ -41,7 +45,6 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Right Column - Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -49,53 +52,44 @@ export default function About() {
             className="space-y-6"
           >
             <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-sm font-semibold">
-              My Story
+              My story
             </span>
 
             <h2 className="text-3xl md:text-4xl font-bebas leading-tight">
-              I noticed most founders struggle not with visibility,
+              I am not just building websites.
               <br />
-              <span className="text-orange-500">but with converting attention into clients</span>
+              <span className="text-orange-500">I am building the bridge between attention and action.</span>
             </h2>
 
             <div className="space-y-4 text-white/70">
               <p>
-                After spending <span className="text-orange-500 font-semibold">5+ years building web applications</span>, I watched countless B2B agencies pour time into LinkedIn — posting daily, chasing engagement — only to hear crickets when it came to actual demos.
+                I am Ghufran, a frontend developer focused on building websites that do more than look good. They clarify the offer, support the founder&apos;s authority, and help warm prospects take the next step.
               </p>
               <p>
-                The problem wasn't their content. It was <span className="text-orange-500 font-semibold">what happened AFTER someone clicked</span>. No clear path. No conversion flow. Just a generic website and crossed fingers.
+                The pattern I kept seeing was simple: founders were getting attention on LinkedIn, but the website did not continue the conversation. That gap is where I focus.
               </p>
             </div>
 
-            {/* Process Proof - My Thinking */}
             <div className="bg-orange-500/5 rounded-xl p-5 border-l-4 border-orange-500">
-              <p className="text-white/90 text-sm font-medium mb-2">🧠 My thinking process:</p>
-              <div className="space-y-2 text-sm text-white/70">
-                <div className="flex items-start gap-2">
-                  <CheckCircle2 size={14} className="text-orange-500 mt-0.5 shrink-0" />
-                  <span><strong className="text-white">Step 1:</strong> Audit where your LinkedIn traffic leaks</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <CheckCircle2 size={14} className="text-orange-500 mt-0.5 shrink-0" />
-                  <span><strong className="text-white">Step 2:</strong> Rebuild the bridge between profile → website</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <CheckCircle2 size={14} className="text-orange-500 mt-0.5 shrink-0" />
-                  <span><strong className="text-white">Step 3:</strong> Turn on the system that converts attention into demos</span>
-                </div>
+              <p className="text-white/90 text-sm font-medium mb-3">My audit process:</p>
+              <div className="space-y-3 text-sm text-white/70">
+                {thinkingSteps.map((step, index) => (
+                  <div key={step} className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-orange-500 mt-0.5 shrink-0" />
+                    <span><strong className="text-white">Step {index + 1}:</strong> {step}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Pull Quote */}
             <div className="relative p-5 bg-orange-500/5 border-l-4 border-orange-500 rounded-r-xl">
               <Quote size={24} className="text-orange-500/30 absolute top-3 right-3" />
               <p className="text-white font-medium text-base leading-relaxed">
-                "Most agencies waste 80% of their marketing budget on outreach that doesn't work. I fix that by building systems that make LinkedIn work for them."
+                &quot;You do not need a prettier portfolio. You need a clearer path from LinkedIn curiosity to a qualified conversation.&quot;
               </p>
-              <div className="mt-2 text-orange-500 font-semibold text-sm">— Ghufran Hasan</div>
+              <div className="mt-2 text-orange-500 font-semibold text-sm">- Ghufran Hasan</div>
             </div>
 
-            {/* Stats - Removed "0+" values */}
             <div className="grid grid-cols-3 gap-4 pt-2">
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center p-3 rounded-xl glass-card">
@@ -106,13 +100,12 @@ export default function About() {
               ))}
             </div>
 
-            {/* CTA */}
             <div className="pt-2">
               <Link
                 href="#contact"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-linear-to-r from-orange-500 to-orange-600 text-white font-semibold hover:shadow-glow-hover transition-all group"
               >
-                <span>Book a Free Audit →</span>
+                Book a Free Audit
               </Link>
             </div>
           </motion.div>
