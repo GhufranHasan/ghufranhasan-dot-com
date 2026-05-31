@@ -55,7 +55,7 @@ export default function Navigation() {
               </Link>
             ))}
             <Link href="#contact">
-              <Button variant="primary">Book a Call</Button>
+              <Button variant="primary">Free Audit</Button>
             </Link>
           </div>
 
@@ -90,7 +90,7 @@ export default function Navigation() {
                   </Link>
                 ))}
                 <Link href="#contact" onClick={() => setIsOpen(false)}>
-                  <Button variant="primary" className="w-full">Book a Call</Button>
+                  <Button variant="primary" className="w-full">Free Audit</Button>
                 </Link>
               </div>
             </motion.div>
