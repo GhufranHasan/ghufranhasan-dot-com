@@ -71,10 +71,6 @@ export default function AuthorityBar() {
             </motion.div>
           ))}
         </div>
-
-        <div className="text-center mt-6 text-white/40 text-xs">
-          Transparent note: social proof is only shown when it can be verified.
-        </div>
       </div>
     </section>
   )
