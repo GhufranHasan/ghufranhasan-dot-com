@@ -8,7 +8,7 @@ const packages = [
   {
     title: 'Starter Audit',
     price: '$300',
-    stage: 'Low-risk entry point',
+    stage: 'Start with clarity',
     audience: 'For founders who want clarity before a build',
     badge: 'Start here',
     features: [
