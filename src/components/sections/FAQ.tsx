@@ -3,9 +3,12 @@
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { ChevronDown, MessageCircle, Sparkles } from 'lucide-react'
-import Link from 'next/link'
 
 const faqs = [
+  {
+    question: 'What\'s the difference between the Free Audit and the Starter Audit?',
+    answer: 'The Free Audit is a 15-minute review to identify your biggest conversion opportunity with high-level feedback. The Starter Audit ($300) provides a complete conversion-focused breakdown with a recorded Loom video, detailed recommendations, copy suggestions, and a prioritized roadmap. Start with a free audit and I\'ll help you decide if a Starter Audit makes sense for your situation.',
+  },
   {
     question: 'Why do I need a website if LinkedIn is already working?',
     answer: 'LinkedIn creates discovery. Your website should create trust, explain the offer, and give warm prospects a clear next step. Without that bridge, attention leaks before it becomes a conversation.',
@@ -103,13 +106,13 @@ export default function FAQ() {
             <Sparkles size={24} className="text-orange-500 mx-auto mb-3" />
             <h3 className="text-xl font-bold text-white mb-2">Still unsure where the leak is?</h3>
             <p className="text-white/70 mb-6">I can review your current profile and website path and show you the first fixes.</p>
-            <Link
+            <a
               href="#contact"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-linear-to-r from-orange-500 to-orange-600 text-white font-semibold hover:shadow-glow-hover transition-all"
             >
               <MessageCircle size={18} />
-              Book Free Audit
-            </Link>
+              Get Your Free Audit
+            </a>
           </div>
         </div>
       </div>
