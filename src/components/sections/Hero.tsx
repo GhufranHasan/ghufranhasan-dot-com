@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
@@ -94,17 +93,21 @@ export default function Hero() {
               transition={{ delay: 0.5 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Link href="#contact">
-                <Button variant="primary" size="large">
-                  Book Free Funnel Audit <ArrowRight size={18} />
-                </Button>
-              </Link>
-              <Link href="#case-studies">
-                <Button variant="secondary" size="large">
-                  See The Framework
-                </Button>
-              </Link>
+              <Button href="#contact" variant="primary" size="large">
+                Get Your Free Audit <ArrowRight size={18} />
+              </Button>
+              <Button href="#case-studies" variant="secondary" size="large">
+                See The Framework
+              </Button>
             </motion.div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.55 }}
+              className="text-sm text-white/60 mt-4"
+            >
+              ✓ 15-minute review • ✓ Identify your biggest conversion opportunity • ✓ No obligation
+            </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

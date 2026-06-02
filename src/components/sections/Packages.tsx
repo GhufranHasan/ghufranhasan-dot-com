@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { CheckCircle } from 'lucide-react'
-import Link from 'next/link'
 
 const packages = [
   {
@@ -19,7 +18,7 @@ const packages = [
       'CTA and hero copy recommendations',
       'Simple next-step roadmap',
     ],
-    note: 'Best when you want to test the thinking before committing to implementation.',
+    note: 'A complete conversion-focused review with Loom breakdown, copy recommendations, and implementation roadmap.',
   },
   {
     title: 'LinkedIn + Landing Page',
@@ -116,15 +115,50 @@ export default function Packages() {
 
               <div className="text-center">
                 <p className="text-xs text-white/60 italic mb-4">{pkg.note}</p>
-                <Link href="#contact">
-                  <Button variant="primary" className="w-full">
-                    Book Free Audit
-                  </Button>
-                </Link>
+                <Button href="#contact" variant="primary" className="w-full">
+                  Get Started
+                </Button>
               </div>
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="mt-16 pt-12 border-t border-orange-500/20"
+        >
+          <h3 className="text-2xl font-bebas mb-8 text-center">Choosing where to start</h3>
+          <div className="max-w-3xl mx-auto bg-orange-500/5 rounded-lg p-8 border border-orange-500/20">
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 className="text-orange-500 font-bold mb-4">✓ Free Audit</h4>
+                <ul className="space-y-2 text-sm text-white/80">
+                  <li>• 15-minute review</li>
+                  <li>• Identify your biggest opportunity</li>
+                  <li>• High-level feedback</li>
+                  <li>• No deliverables</li>
+                  <li>• No obligation</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-orange-500 font-bold mb-4">✓ Starter Audit ($300)</h4>
+                <ul className="space-y-2 text-sm text-white/80">
+                  <li>• Comprehensive review</li>
+                  <li>• Full analysis & breakdown</li>
+                  <li>• Recorded Loom video</li>
+                  <li>• Detailed recommendations</li>
+                  <li>• Implementation roadmap</li>
+                </ul>
+              </div>
+            </div>
+            <p className="text-center text-sm text-white/70 mt-6 pt-6 border-t border-orange-500/20">
+              Not sure where to start? Begin with a free audit—I'll help you determine if a Starter Audit makes sense for your situation.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
