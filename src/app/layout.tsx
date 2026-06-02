@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import ClientProviders from './providers'
 import StickyCTA from '@/components/layout/StickyCTA'
 import Navigation from '@/components/layout/Navigation'
 import Footer from '@/components/layout/Footer'
@@ -62,10 +63,12 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className="antialiased">
         <div className="site-backdrop" aria-hidden="true" />
-        <Navigation />
-        <main>{children}</main>
-        <Footer />
-        <StickyCTA />
+        <ClientProviders>
+          <Navigation />
+          <main>{children}</main>
+          <Footer />
+          <StickyCTA />
+        </ClientProviders>
       </body>
     </html>
   )
