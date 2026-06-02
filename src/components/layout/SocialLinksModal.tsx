@@ -12,6 +12,7 @@ import {
   Radio,
   X,
 } from 'lucide-react'
+import { useModal } from '@/contexts/ModalContext'
 
 const extraLinks = [
   {
@@ -73,22 +74,28 @@ type SocialLinksModalProps = {
 export default function SocialLinksModal({ className, label = 'Connect', iconOnly = false }: SocialLinksModalProps) {
   const [isOpen, setIsOpen] = useState(false)
   const titleId = useId()
+  const { openModal, closeModal } = useModal()
 
   useEffect(() => {
     if (!isOpen) return
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setIsOpen(false)
+      if (event.key === 'Escape') {
+        setIsOpen(false)
+        closeModal()
+      }
     }
 
+    openModal()
     document.body.style.overflow = 'hidden'
     window.addEventListener('keydown', handleKeyDown)
 
     return () => {
       document.body.style.overflow = ''
       window.removeEventListener('keydown', handleKeyDown)
+      closeModal()
     }
-  }, [isOpen])
+  }, [isOpen, openModal, closeModal])
 
   return (
     <>
@@ -107,7 +114,7 @@ export default function SocialLinksModal({ className, label = 'Connect', iconOnl
 
       {isOpen && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-8"
+          className="fixed inset-0 z-100 flex items-center justify-center px-4 py-8"
           role="dialog"
           aria-modal="true"
           aria-labelledby={titleId}
@@ -116,7 +123,10 @@ export default function SocialLinksModal({ className, label = 'Connect', iconOnl
             type="button"
             aria-label="Close social links"
             className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-            onClick={() => setIsOpen(false)}
+            onClick={() => {
+              setIsOpen(false)
+              closeModal()
+            }}
           />
 
           <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-orange-500/30 bg-purple-950 p-5 shadow-glow">
@@ -128,7 +138,10 @@ export default function SocialLinksModal({ className, label = 'Connect', iconOnl
               </div>
               <button
                 type="button"
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false)
+                  closeModal()
+                }}
                 className="w-10 h-10 rounded-full border border-orange-500/20 text-white/70 hover:text-white hover:bg-orange-500/10 flex items-center justify-center"
                 aria-label="Close modal"
               >
@@ -144,7 +157,10 @@ export default function SocialLinksModal({ className, label = 'Connect', iconOnl
                   target={link.href.startsWith('#') ? undefined : '_blank'}
                   rel={link.href.startsWith('#') ? undefined : 'noopener noreferrer'}
                   onClick={() => {
-                    if (link.href.startsWith('#')) setIsOpen(false)
+                    if (link.href.startsWith('#')) {
+                      setIsOpen(false)
+                      closeModal()
+                    }
                   }}
                   className="flex items-center gap-4 rounded-xl border border-orange-500/20 bg-orange-500/5 p-4 text-left hover:border-orange-500 hover:bg-orange-500/10 transition-all"
                 >

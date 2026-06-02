@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { useModal } from '@/contexts/ModalContext'
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -18,6 +19,7 @@ const navItems = [
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { isModalOpen } = useModal()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,13 +29,15 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  if (isModalOpen) return null
+
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-purple-950/95 backdrop-blur-md border-b border-orange-500/20' : 'bg-transparent'
+        scrolled || isOpen ? 'bg-purple-950/95 backdrop-blur-md border-b border-orange-500/20' : 'bg-transparent'
       }`}
     >
       <div className="container-custom">
@@ -54,9 +58,7 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
-            <Link href="#contact">
-              <Button variant="primary">Free Audit</Button>
-            </Link>
+            <Button href="#contact" variant="primary">Free Audit</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -89,9 +91,7 @@ export default function Navigation() {
                     {item.name}
                   </Link>
                 ))}
-                <Link href="#contact" onClick={() => setIsOpen(false)}>
-                  <Button variant="primary" className="w-full">Free Audit</Button>
-                </Link>
+                <Button href="#contact" variant="primary" className="w-full" onClick={() => setIsOpen(false)}>Free Audit</Button>
               </div>
             </motion.div>
           )}

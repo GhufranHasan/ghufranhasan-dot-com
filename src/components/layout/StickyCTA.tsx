@@ -1,8 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
 import { Calendar, Linkedin, X } from 'lucide-react'
+import { Button } from '@/components/ui/Button'
 
 export default function StickyCTA() {
   const [isVisible, setIsVisible] = useState(true)
@@ -23,18 +23,15 @@ export default function StickyCTA() {
     <div className="fixed bottom-4 left-4 right-4 z-50 md:hidden">
       <div className="bg-linear-to-r from-purple-900 to-purple-950 border border-orange-500/30 rounded-xl p-3 shadow-glow backdrop-blur-sm">
         <div className="flex items-center justify-between gap-2">
-          <Link
-            href="#contact"
-            className="flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 text-white font-semibold text-sm"
-          >
+          <Button href="#contact" variant="primary" className="flex-1">
             <Calendar size={16} />
             Free Audit
-          </Link>
+          </Button>
           <a
             href="https://linkedin.com/in/ghufranhasan"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg border border-orange-500/30 text-white font-semibold text-sm"
+            className="flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg border border-orange-500/30 text-white font-semibold text-sm hover:bg-orange-500/10 transition-all"
           >
             <Linkedin size={16} />
             DM AUDIT
