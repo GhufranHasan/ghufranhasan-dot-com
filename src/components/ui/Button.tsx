@@ -3,24 +3,26 @@
 import { motion, HTMLMotionProps } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import React from 'react'
-import Link from 'next/link'
 
-interface ButtonProps extends Omit<HTMLMotionProps<"button">, "onDrag" | "onDragStart" | "onDragEnd"> {
+type SharedButtonProps = {
   variant?: 'primary' | 'secondary'
   size?: 'default' | 'large'
   children: React.ReactNode
   className?: string
-  href?: string
 }
 
-export const Button: React.FC<ButtonProps> = ({
-  variant = 'primary',
-  size = 'default',
-  children,
-  className,
-  href,
-  ...props
-}) => {
+type ButtonProps =
+  | (SharedButtonProps & Omit<HTMLMotionProps<'a'>, 'onDrag' | 'onDragStart' | 'onDragEnd'> & { href: string })
+  | (SharedButtonProps & Omit<HTMLMotionProps<'button'>, 'onDrag' | 'onDragStart' | 'onDragEnd'> & { href?: undefined })
+
+export const Button: React.FC<ButtonProps> = (props) => {
+  const {
+    variant = 'primary',
+    size = 'default',
+    children,
+    className,
+  } = props
+
   const baseStyles = "inline-flex items-center justify-center gap-2 rounded-lg font-bold transition-all duration-300 cursor-pointer"
 
   const variants = {
@@ -35,26 +37,44 @@ export const Button: React.FC<ButtonProps> = ({
 
   const buttonClasses = cn(baseStyles, variants[variant], sizes[size], className)
 
-  if (href) {
+  if ('href' in props && props.href) {
+    const {
+      href,
+      variant: _variant,
+      size: _size,
+      children: _children,
+      className: _className,
+      ...anchorProps
+    } = props as ButtonProps & { href: string }
+
     return (
       <motion.a
         href={href}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         className={buttonClasses}
-        {...props}
+        {...(anchorProps as Omit<HTMLMotionProps<'a'>, 'onDrag' | 'onDragStart' | 'onDragEnd'>)}
       >
         {children}
       </motion.a>
     )
   }
 
+  const {
+    href: _href,
+    variant: _variant,
+    size: _size,
+    children: _children,
+    className: _className,
+    ...buttonProps
+  } = props as ButtonProps & { href?: undefined }
+
   return (
     <motion.button
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       className={buttonClasses}
-      {...props}
+      {...(buttonProps as Omit<HTMLMotionProps<'button'>, 'onDrag' | 'onDragStart' | 'onDragEnd'>)}
     >
       {children}
     </motion.button>
