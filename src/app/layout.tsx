@@ -52,6 +52,12 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  other: {
+    'geo.position': '51.5074;-0.1278',
+    'geo.region': 'GB',
+    'geo.placename': 'London',
+    'ICBM': '51.5074, -0.1278',
+  },
 }
 
 export default function RootLayout({
