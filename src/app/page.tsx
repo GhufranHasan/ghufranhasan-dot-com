@@ -9,6 +9,7 @@ import DifferentView from '@/components/sections/DifferentView'
 import Packages from '@/components/sections/Packages'
 import Process from '@/components/sections/Process'
 import FAQ from '@/components/sections/FAQ'
+import Newsletter from '@/components/sections/Newsletter'
 import Contact from '@/components/sections/Contact'
 
 const jsonLd = [
@@ -122,6 +123,7 @@ export default function Home() {
       <Process />
       <DifferentView />
       <FAQ />
+      <Newsletter />
       <Contact />
     </>
   )
