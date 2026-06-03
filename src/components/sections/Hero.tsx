@@ -72,7 +72,7 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className="text-lg text-white/80 mb-8"
             >
-              For B2B agency founders who are getting visibility, profile visits, and warm curiosity, but still do not have a clear path from LinkedIn to booked calls.
+              For B2B founders with LinkedIn visibility but no clear path to booked demos.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -106,7 +106,7 @@ export default function Hero() {
               transition={{ delay: 0.55 }}
               className="text-sm text-white/60 mt-4"
             >
-              ✓ 15-minute review • ✓ Identify your biggest conversion opportunity • ✓ No obligation
+              ✓ Deep funnel diagnostic • ✓ Identify your biggest conversion opportunity • ✓ No obligation
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}

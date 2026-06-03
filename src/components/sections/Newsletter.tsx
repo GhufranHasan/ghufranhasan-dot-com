@@ -96,7 +96,7 @@ export default function Newsletter() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ delay: 0.4 }}
-            className="bg-gradient-to-r from-purple-950/40 to-purple-900/40 border border-orange-500/20 rounded-xl p-8 md:p-10"
+            className="bg-linear-to-r from-purple-950/40 to-purple-900/40 border border-orange-500/20 rounded-xl p-8 md:p-10"
           >
             {isSubmitted ? (
               <motion.div
@@ -179,17 +179,6 @@ export default function Newsletter() {
             </motion.div>
           </motion.div>
 
-          {/* Benefit callout */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ delay: 0.55 }}
-            className="mt-8 text-center"
-          >
-            <p className="text-white/60 text-sm max-w-xl mx-auto">
-              <span className="text-orange-500 font-semibold">Not ready for an audit yet?</span> Stay connected. Many founders I work with today weren&apos;t ready months ago. The newsletter keeps you in the loop until you are.
-            </p>
-          </motion.div>
         </motion.div>
       </div>
     </section>

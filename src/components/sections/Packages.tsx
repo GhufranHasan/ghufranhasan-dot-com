@@ -116,7 +116,7 @@ export default function Packages() {
               <div className="text-center">
                 <p className="text-xs text-white/60 italic mb-4">{pkg.note}</p>
                 <Button href="#contact" variant="primary" className="w-full">
-                  Get Started
+                  Get Your Free Audit
                 </Button>
               </div>
             </motion.div>
@@ -136,7 +136,7 @@ export default function Packages() {
               <div>
                 <h4 className="text-orange-500 font-bold mb-4">✓ Free Audit</h4>
                 <ul className="space-y-2 text-sm text-white/80">
-                  <li>• 15-minute review</li>
+                  <li>• Deep funnel diagnostic</li>
                   <li>• Identify your biggest opportunity</li>
                   <li>• High-level feedback</li>
                   <li>• No deliverables</li>
