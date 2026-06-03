@@ -38,14 +38,13 @@ export const Button: React.FC<ButtonProps> = (props) => {
   const buttonClasses = cn(baseStyles, variants[variant], sizes[size], className)
 
   if ('href' in props && props.href) {
-    const {
-      href,
-      variant: _variant,
-      size: _size,
-      children: _children,
-      className: _className,
-      ...anchorProps
-    } = props as ButtonProps & { href: string }
+    const anchorProps = { ...props } as Record<string, unknown>
+    const href = anchorProps.href as string
+    delete anchorProps.href
+    delete anchorProps.variant
+    delete anchorProps.size
+    delete anchorProps.children
+    delete anchorProps.className
 
     return (
       <motion.a
@@ -60,14 +59,12 @@ export const Button: React.FC<ButtonProps> = (props) => {
     )
   }
 
-  const {
-    href: _href,
-    variant: _variant,
-    size: _size,
-    children: _children,
-    className: _className,
-    ...buttonProps
-  } = props as ButtonProps & { href?: undefined }
+  const buttonProps = { ...props } as Record<string, unknown>
+  delete buttonProps.href
+  delete buttonProps.variant
+  delete buttonProps.size
+  delete buttonProps.children
+  delete buttonProps.className
 
   return (
     <motion.button
