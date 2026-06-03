@@ -64,16 +64,17 @@ export default function Hero() {
               transition={{ delay: 0.3 }}
               className="text-4xl md:text-6xl lg:text-7xl font-bebas leading-tight mb-6"
             >
-              I build websites that turn LinkedIn attention into qualified demo bookings
+              I help founders, coaches, and creators turn <span className="gradient">LinkedIn traffic into qualified leads</span> through conversion-focused websites
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-lg text-white/80 mb-8"
+              className="text-lg text-white/80 mb-8 max-w-135"
             >
-              For B2B founders with LinkedIn visibility but no clear path to booked demos.
+              Stop losing warm prospects between your profile and your booking page. I build websites that turn curiosity into conversations.
             </motion.p>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -97,9 +98,27 @@ export default function Hero() {
                 Get Your Free Audit <ArrowRight size={18} />
               </Button>
               <Button href="#case-studies" variant="secondary" size="large">
-                See The Framework
+                View Real Case Results
               </Button>
+
             </motion.div>
+            <div className="mt-6 p-4 bg-background-card border border-orange-500/20 rounded-xl">
+              <p className="text-white text-sm font-semibold mb-2">📋 Free: Website Audit Checklist</p>
+              <p className="text-white/60 text-xs mb-3">10-point checklist to find leaks in your funnel</p>
+              <div className="flex gap-2">
+                <input 
+                  type="email" 
+                  placeholder="Your email" 
+                  className="flex-1 px-3 py-2 bg-[#0f0f1a] border border-orange-500/20 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/30"
+                />
+                <button className="px-4 py-2 bg-linear-to-r from-orange-500 to-orange-600 rounded-lg text-white text-sm font-semibold hover:shadow-glow-hover transition-all">
+                  Send
+                </button>
+              </div>
+            </div>
+
+
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -108,6 +127,7 @@ export default function Hero() {
             >
               ✓ Deep funnel diagnostic • ✓ Identify your biggest conversion opportunity • ✓ No obligation
             </motion.p>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
