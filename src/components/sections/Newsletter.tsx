@@ -10,20 +10,37 @@ export default function Newsletter() {
   const [email, setEmail] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState('')
+  const [website, setWebsite] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!email) return
 
+    setError('')
     setIsLoading(true)
+
     try {
-      // TODO: Replace with actual email service integration (e.g., Resend, Mailchimp, etc.)
-      await new Promise(resolve => setTimeout(resolve, 500))
+      const response = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, website }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        setError(data.error || 'Newsletter signup is unavailable right now. Please try again later.')
+        setIsLoading(false)
+        return
+      }
+
       setIsSubmitted(true)
       setEmail('')
       setTimeout(() => setIsSubmitted(false), 3000)
     } catch (error) {
       console.error('Subscription error:', error)
+      setError('Newsletter signup is unavailable right now. Please try again later.')
     } finally {
       setIsLoading(false)
     }
@@ -92,7 +109,18 @@ export default function Newsletter() {
                 <p className="text-white/70">Check your email to confirm your subscription.</p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+              <>
+                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+                <input
+                  type="text"
+                  name="website"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="hidden"
+                  aria-hidden="true"
+                />
                 <div className="flex-1 relative">
                   <Mail
                     size={18}
@@ -117,6 +145,16 @@ export default function Newsletter() {
                   {isLoading ? 'Subscribing...' : 'Join Free'}
                 </motion.button>
               </form>
+              {error && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-3 p-3 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm"
+                >
+                  {error}
+                </motion.div>
+              )}
+            </>
             )}
 
             {/* Trust signals */}
@@ -149,7 +187,7 @@ export default function Newsletter() {
             className="mt-8 text-center"
           >
             <p className="text-white/60 text-sm max-w-xl mx-auto">
-              <span className="text-orange-500 font-semibold">Not ready for an audit yet?</span> Stay connected. Many founders I work with today weren't ready months ago. The newsletter keeps you in the loop until you are.
+              <span className="text-orange-500 font-semibold">Not ready for an audit yet?</span> Stay connected. Many founders I work with today weren&apos;t ready months ago. The newsletter keeps you in the loop until you are.
             </p>
           </motion.div>
         </motion.div>

@@ -155,7 +155,7 @@ export default function Packages() {
               </div>
             </div>
             <p className="text-center text-sm text-white/70 mt-6 pt-6 border-t border-orange-500/20">
-              Not sure where to start? Begin with a free audit—I'll help you determine if a Starter Audit makes sense for your situation.
+              Not sure where to start? Begin with a free audit. I&apos;ll help you determine if a Starter Audit makes sense for your situation.
             </p>
           </div>
         </motion.div>
