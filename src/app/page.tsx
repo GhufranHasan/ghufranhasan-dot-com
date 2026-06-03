@@ -139,8 +139,8 @@ export default function Home() {
       <Process />
       <DifferentView />
       <FAQ />
-      <Newsletter />
       <Contact />
+      <Newsletter />
     </>
   )
 }
