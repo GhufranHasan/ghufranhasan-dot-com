@@ -78,9 +78,21 @@ export default function Packages() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -8 }}
-              className="glass-card p-8 relative flex flex-col"
+              className={`glass-card p-8 relative flex flex-col transition-all duration-300 hover:border-orange-500/40 ${
+                pkg.badge === 'Most popular'
+                  ? 'border-orange-500/40 scale-105 shadow-[0_0_40px_rgba(255,132,3,0.25)] ring-1 ring-orange-500/20'
+                  : 'border-orange-500/20'
+              }`}
+              style={pkg.badge === 'Most popular' ? { background: 'linear-gradient(135deg, rgba(10,19,50,0.65) 0%, rgba(51,13,62,0.55) 100%)' } : undefined}
             >
-              {pkg.badge && (
+
+              {pkg.badge === 'Most popular' && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-linear-to-r from-orange-500 to-orange-600 text-white px-5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shadow-lg">
+                  ⚡ Most Popular
+                </div>
+              )}
+
+              {pkg.badge && pkg.badge !== 'Most popular' && (
                 <span className={`absolute -top-3 right-6 px-4 py-1 rounded-full text-xs font-bold ${
                   pkg.badge === 'Most popular'
                     ? 'bg-linear-to-r from-orange-500 to-orange-600'
