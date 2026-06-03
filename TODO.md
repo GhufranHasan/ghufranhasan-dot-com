@@ -19,12 +19,12 @@
 **Current Progress: Step 4**
 
 ### Step 3: Create New PainAgitation.tsx
-- [ ] Create src/components/sections/PainAgitation.tsx
+- [x] Create src/components/sections/PainAgitation.tsx
 
 ### Step 4: Content Updates (CaseStudies, WhyChooseMe, Packages)
 - [ ] Update CaseStudies.tsx (patterns + disclaimer)
 - [ ] Update WhyChooseMe.tsx (new row + expand)
-- [ ] Update Packages.tsx (stage badges + urgency comment)
+- [x] Update Packages.tsx (stage badges + urgency comment) — partially complete (see Step 5+)
 
 ### Step 5: Page Reorder + Imports
 - [ ] Update page.tsx (import PainAgitation, reorder sections)
@@ -39,5 +39,12 @@
 - [ ] Check all sections, nav, links, mobile
 - [ ] attempt_completion
 
-**Current Progress: Starting Step 1**
+## Priority 1 (Conversion-critical) Updates — Approved & Completed
 
+- [x] Move Newsletter below final CTA (page.tsx)
+- [x] Remove “Not ready for an audit yet?” from Newsletter.tsx
+- [x] Replace “15-minute review” mentions with “Deep funnel diagnostic” (Hero + Packages)
+- [x] Shorten Hero subheadline (Hero.tsx)
+- [x] Standardize pricing CTA button: “Get Started” → “Get Your Free Audit” (Packages.tsx)
+
+**Current Progress: Priority 1 — Done**
