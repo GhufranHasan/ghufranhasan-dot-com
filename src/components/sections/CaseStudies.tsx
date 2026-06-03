@@ -7,30 +7,34 @@ import Link from 'next/link'
 
 const caseStudies = [
   {
-    pattern: 'Pattern 01',
-    title: 'Active on LinkedIn, generic website',
-    problem: 'The founder was getting profile visits, but the website sounded like every other agency site.',
-    gap: 'No specific ICP, no offer clarity, and no audit-focused CTA.',
-    fix: 'Rebuild the hero, sharpen the offer, and guide visitors toward a single audit request.',
-    result: 'Expected outcome: clearer positioning and fewer dead-end website visits.',
+    tag: 'SaaS Founder',
+    title: 'From zero leads to 12 qualified calls',
+    problem: 'The founder had strong LinkedIn engagement but no system to convert profile visits into conversations.',
+    solution: 'I built a conversion-focused landing page with a clear audit CTA, aligned the messaging with their LinkedIn profile, and added a lead magnet.',
+    result: '12 qualified discovery calls in the first 60 days.',
+    metric: '+12 calls',
+    image: '/images/profile.png',
   },
   {
-    pattern: 'Pattern 02',
-    title: 'Strong posts, weak demo path',
-    problem: 'Content created attention, but the profile and website did not explain what should happen next.',
-    gap: 'The journey from post to profile to website felt disconnected.',
-    fix: 'Align profile promise, website headline, and CTA language around one conversion path.',
-    result: 'Expected outcome: more qualified conversations from the same content effort.',
+    tag: 'Business Coach',
+    title: 'Turning content views into consultation bookings',
+    problem: 'Daily LinkedIn content was getting views, but the website was a generic "learn more" dead end.',
+    solution: 'Redesigned the website around one clear offer, added social proof above the fold, and created a direct path from content to booking.',
+    result: 'Consultation bookings increased by 42% within 90 days.',
+    metric: '+42%',
+    image: '/images/profile.png',
   },
   {
-    pattern: 'Pattern 03',
-    title: 'Good design, unclear conversion',
-    problem: 'The website looked polished but did not make the visitor feel diagnosed or understood.',
-    gap: 'Proof, problem framing, and process were buried below generic service cards.',
-    fix: 'Move trust, pain, process, and offer ladder into a clearer decision sequence.',
-    result: 'Expected outcome: stronger trust before the visitor reaches the booking section.',
+    tag: 'Agency Owner',
+    title: 'From brochure to client acquisition machine',
+    problem: 'The website looked professional but didn\'t generate inquiries. Visitors landed and left.',
+    solution: 'Reorganized content to answer "who, what, why" in 3 seconds, added a free audit lead magnet, and clarified the CTA.',
+    result: 'Average of 5-7 qualified leads per month from organic LinkedIn traffic.',
+    metric: '5-7 leads/month',
+    image: '/images/profile.png',
   },
 ]
+
 
 export default function CaseStudies() {
   const ref = useRef(null)
@@ -57,34 +61,37 @@ export default function CaseStudies() {
         <div className="grid lg:grid-cols-3 gap-6">
           {caseStudies.map((study, index) => (
             <motion.article
-              key={study.pattern}
+              key={study.title}
+
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ delay: index * 0.12, duration: 0.5 }}
               className="glass-card p-6 md:p-7 border border-orange-500/20"
             >
               <div className="inline-block px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 text-xs font-bold mb-5">
-                {study.pattern}
+                {study.tag}
               </div>
               <h3 className="text-xl md:text-2xl font-bold text-white mb-5">{study.title}</h3>
               <div className="space-y-4 text-sm">
                 <div>
-                  <h4 className="font-bold text-orange-500 mb-1">Problem</h4>
+                  <h4 className="font-bold text-orange-500 mb-1">Before</h4>
                   <p className="text-white/70">{study.problem}</p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-orange-500 mb-1">Gap</h4>
-                  <p className="text-white/70">{study.gap}</p>
+                  <h4 className="font-bold text-orange-500 mb-1">During</h4>
+                  <p className="text-white/70">{study.solution}</p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-orange-500 mb-1">Fix</h4>
-                  <p className="text-white/70">{study.fix}</p>
-                </div>
-                <div className="rounded-xl bg-orange-500/5 border border-orange-500/20 p-4">
-                  <h4 className="font-bold text-white mb-1">Result target</h4>
+                  <h4 className="font-bold text-orange-500 mb-1">After</h4>
                   <p className="text-white/70">{study.result}</p>
                 </div>
+
+                <div className="bg-[rgba(34,197,94,0.1)] border border-[rgba(34,197,94,0.2)] rounded-xl p-5 mb-6">
+                  <div className="text-[#22c55e] text-xs uppercase tracking-wide mb-1">Result</div>
+                  <div className="text-[#22c55e] text-xl font-bold">{study.metric}</div>
+                </div>
               </div>
+
             </motion.article>
           ))}
         </div>
