@@ -34,7 +34,7 @@ export default function Footer() {
               Ghufran<span className="text-orange-500">.</span>
             </Link>
             <p className="text-white/70 max-w-sm text-sm">
-              I don't just build websites. I build paths that turn attention into clients.
+              I don&apos;t just build websites. I build paths that turn attention into clients.
             </p>
             <div className="flex gap-3 mt-6">
               {socialLinks.map((social) => (
