@@ -80,7 +80,7 @@ const jsonLd = [
         name: 'Why do I need a website if LinkedIn is already working?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'LinkedIn creates discovery, but your website builds trust and gives warm prospects one clear next step.',
+          text: 'LinkedIn is your discovery room. It helps the right people find you, but the feed is noisy and attention is split. Your website is the decision room: your positioning, proof, offer, and CTA are all controlled by you. That is where curiosity becomes trust and trust becomes a booked conversation.',
         },
       },
       {
@@ -88,7 +88,7 @@ const jsonLd = [
         name: 'What if I do not have a big budget yet?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Start with a focused audit or LinkedIn profile fix before investing in a full website and funnel build.',
+          text: 'Start with the smallest useful fix. The audit gives you a clear diagnosis before you invest in a full build. If budget is tight, we can sharpen your LinkedIn positioning first, then build the website path once the offer is clearer.',
         },
       },
       {
@@ -97,6 +97,22 @@ const jsonLd = [
         acceptedAnswer: {
           '@type': 'Answer',
           text: 'Most focused landing page and funnel projects are designed to launch in about 10 days after discovery.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Do I need testimonials before this can work?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Testimonials help, but they are not the only trust signal. Clear positioning, transparent process, strong examples, proof of thinking, and a useful free audit can reduce doubt before you have a wall of client logos.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Can you only optimize my LinkedIn profile first?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. In many cases, profile positioning should come first. If the LinkedIn message is unclear, the website will inherit the same confusion. We can fix the profile, CTA, and Featured section first, then build the website path when the foundation is sharper.',
         },
       },
     ],
