@@ -105,7 +105,7 @@ export default function About() {
                 href="#contact"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-linear-to-r from-orange-500 to-orange-600 text-white font-semibold hover:shadow-glow-hover transition-all group"
               >
-                Book a Free Audit
+                Get Your Free Audit
               </Link>
             </div>
           </motion.div>
