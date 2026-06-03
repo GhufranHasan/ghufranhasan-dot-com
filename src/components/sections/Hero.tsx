@@ -62,10 +62,20 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bebas leading-tight mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bebas leading-tight mb-6"
+
             >
-              I help founders, coaches, and creators turn <span className="gradient">LinkedIn traffic into qualified leads</span> through conversion-focused websites
+              <span>I </span>
+              <span className="gradient">Help B2B Founders</span>,
+              <span className="gradient"> Coaches</span>, And
+              <span className="gradient"> Creators </span>Turn
+              <span> </span>
+              <span className="gradient">LinkedIn Traffic </span>Into
+              <span className="gradient"> Qualified Leads</span>
+              <span> Through </span>
+              <span className="gradient">Conversion-Focused Websites</span>
             </motion.h1>
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
