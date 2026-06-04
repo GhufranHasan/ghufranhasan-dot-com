@@ -67,6 +67,9 @@ export default function About() {
               <p>
                 The pattern I kept seeing was simple: founders were getting attention on LinkedIn, but the website did not continue the conversation. That gap is where I focus.
               </p>
+              <p>
+                I combine frontend development, conversion strategy, and LinkedIn positioning to build pages that support the full buyer journey.
+              </p>
             </div>
 
             <div className="bg-orange-500/5 rounded-xl p-5 border-l-4 border-orange-500">
@@ -104,7 +107,7 @@ export default function About() {
                 href="#contact"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-linear-to-r from-orange-500 to-orange-600 text-white font-semibold hover:shadow-glow-hover transition-all group"
               >
-                Get Your Free Audit
+                Review My LinkedIn-to-Website Path
               </Link>
             </div>
           </motion.div>
