@@ -88,6 +88,25 @@
     @apply bg-linear-to-r from-white to-orange-500 bg-clip-text text-transparent;
   }
 
+  .gradient {
+    @apply bg-linear-to-r from-white via-orange-500 to-orange-600 bg-clip-text text-transparent;
+  }
+
+  .hero-headline {
+    text-shadow: 0 14px 44px rgba(0, 0, 0, 0.42);
+    letter-spacing: 0;
+  }
+
+  .hero-gradient-text {
+    display: inline-block;
+    color: transparent;
+    background: linear-gradient(90deg, #fefefe 0%, #ffb15a 42%, #ff8403 72%, #ff9500 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 12px rgba(255, 132, 3, 0.14));
+  }
+
   .glass-card {
     @apply bg-background-card backdrop-blur-md border border-orange-500/20 rounded-2xl;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
