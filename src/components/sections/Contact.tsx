@@ -12,6 +12,7 @@ import {
   Shield,
   Sparkles,
 } from 'lucide-react'
+import SectionBadge from '@/components/ui/SectionBadge'
 
 const calendlyUrl = 'https://calendly.com/ghufranhasan/1-1-consultation-call'
 const linkedinUrl = 'https://linkedin.com/in/ghufranhasan'
@@ -72,9 +73,7 @@ export default function Contact() {
             className="space-y-8"
           >
             <div>
-              <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-sm font-semibold mb-4">
-                Free funnel audit
-              </span>
+              <SectionBadge icon={Sparkles} className="mb-4">Free funnel audit</SectionBadge>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bebas mb-4">
                 If LinkedIn attention is not turning into demos, your website may be the gap.
               </h2>

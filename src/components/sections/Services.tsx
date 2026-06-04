@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { ArrowRight, Map, MessageSquareText, MousePointerClick } from 'lucide-react'
 import Link from 'next/link'
+import SectionBadge from '@/components/ui/SectionBadge'
 
 const services = [
   {
@@ -35,9 +36,7 @@ export default function Services() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-sm font-semibold mb-4">
-            The solution
-          </span>
+          <SectionBadge icon={Map} className="mb-4">The solution</SectionBadge>
           <h2 className="text-3xl md:text-5xl font-bebas mb-4">A website that completes the LinkedIn journey</h2>
           <p className="text-white/70 text-lg">
             The goal is not prettier pages. The goal is a clearer path from discovery to trust to action.

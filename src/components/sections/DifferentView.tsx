@@ -2,7 +2,8 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Check, X } from 'lucide-react'
+import { Check, Compass, X } from 'lucide-react'
+import SectionBadge from '@/components/ui/SectionBadge'
 
 const comparisons = [
   {
@@ -39,9 +40,7 @@ export default function DifferentView() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-sm font-semibold mb-4">
-            A different view
-          </span>
+          <SectionBadge icon={Compass} className="mb-4">A different view</SectionBadge>
           <h2 className="text-3xl md:text-5xl font-bebas mb-4">
             Most developers focus on design. I focus on the path to action.
           </h2>

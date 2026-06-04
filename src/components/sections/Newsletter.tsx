@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { Mail, CheckCircle } from 'lucide-react'
+import SectionBadge from '@/components/ui/SectionBadge'
 
 export default function Newsletter() {
   const ref = useRef(null)
@@ -57,14 +58,14 @@ export default function Newsletter() {
         >
           {/* Headline */}
           <div className="text-center mb-12">
-            <motion.span
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.1 }}
-              className="inline-block bg-orange-500/20 text-orange-500 px-4 py-2 rounded-full text-sm font-semibold mb-4"
+              className="mb-4"
             >
-              Stay Connected
-            </motion.span>
+              <SectionBadge icon={Mail}>Stay Connected</SectionBadge>
+            </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}

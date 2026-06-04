@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import SectionBadge from '@/components/ui/SectionBadge'
 import {
   ArrowDown,
   ArrowRight,
@@ -83,10 +84,9 @@ export default function PainAgitation() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-2 text-sm font-bold uppercase tracking-wider text-orange-500 mb-5">
-            <Flame size={16} />
+          <SectionBadge icon={Flame} emphasis="strong" className="mb-5">
             The real leak
-          </div>
+          </SectionBadge>
           <p className="text-3xl md:text-4xl lg:text-5xl font-bebas mb-5">
             You do not need more traffic. You need a clearer path from attention to action.
           </p>

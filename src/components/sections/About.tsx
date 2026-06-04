@@ -5,6 +5,7 @@ import { useRef } from 'react'
 import { CheckCircle2, Clock, Quote, Target, TrendingUp } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+import SectionBadge from '@/components/ui/SectionBadge'
 
 const stats = [
   { value: '23K+', label: 'LinkedIn followers', icon: TrendingUp },
@@ -51,9 +52,7 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-sm font-semibold">
-              My story
-            </span>
+            <SectionBadge icon={Quote}>My story</SectionBadge>
 
             <h2 className="text-3xl md:text-4xl font-bebas leading-tight">
               I am not just building websites.
