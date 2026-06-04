@@ -10,6 +10,7 @@ const steps = [
     title: 'Audit the current path',
     description: 'I review your profile, website, offer, and CTA to find where attention stops turning into conversations.',
     icon: ClipboardList,
+    timeline: '1 day',
     details: ['Profile review', 'Website review', 'CTA friction map'],
   },
   {
@@ -17,6 +18,7 @@ const steps = [
     title: 'Map the conversion strategy',
     description: 'We define the ICP, promise, page flow, and next step so every touchpoint says the same thing.',
     icon: ChartLine,
+    timeline: '1-2 days',
     details: ['Audience clarity', 'Offer positioning', 'Page structure'],
   },
   {
@@ -24,6 +26,7 @@ const steps = [
     title: 'Design and build',
     description: 'I turn the strategy into copy, layout, and a responsive website section flow built for trust and action.',
     icon: Pen,
+    timeline: '5-7 days',
     details: ['Conversion copy', 'Responsive design', 'Next.js build'],
   },
   {
@@ -31,6 +34,7 @@ const steps = [
     title: 'Launch and refine',
     description: 'You get a launch-ready site, link flow, and walkthrough so you can drive LinkedIn traffic with confidence.',
     icon: Rocket,
+    timeline: '1-2 days',
     details: ['Final QA', 'Launch support', 'Walkthrough video'],
   },
 ]
@@ -74,7 +78,12 @@ export default function Process() {
                 <div className="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center mb-4">
                   <step.icon size={24} className="text-orange-500" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+                <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                  <h3 className="text-xl font-bold">{step.title}</h3>
+                  <span className="w-fit rounded-full border border-orange-500/25 bg-orange-500/10 px-3 py-1 text-xs font-semibold text-orange-300">
+                    {step.timeline}
+                  </span>
+                </div>
                 <p className="text-white/70 mb-4">{step.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {step.details.map((detail) => (
@@ -97,7 +106,7 @@ export default function Process() {
           <div className="glass-card p-8 md:p-12 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bebas mb-3">Ready to find the leak in your LinkedIn to website path?</h3>
             <p className="text-white/70 mb-6">Get a free audit and I will show you the first fixes I would make.</p>
-            <Button href="#contact" variant="primary" size="large">Get Your Free Audit</Button>
+            <Button href="#contact" variant="primary" size="large">Review My LinkedIn-to-Website Path</Button>
           </div>
         </motion.div>
       </div>
