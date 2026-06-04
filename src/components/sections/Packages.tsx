@@ -20,6 +20,7 @@ const packages = [
     stage: 'Start with clarity',
     audience: 'For founders who want clarity before a build',
     badge: 'Start here',
+    cta: 'Start With Paid Audit',
     features: [
       'LinkedIn profile and website review',
       'Recorded Loom breakdown',
@@ -35,6 +36,7 @@ const packages = [
     stage: 'Core conversion system',
     audience: 'For founders with LinkedIn traction but weak conversion',
     badge: 'Most popular',
+    cta: 'Discuss Landing Page',
     features: [
       'LinkedIn positioning refinement',
       'Conversion-focused landing page structure',
@@ -50,6 +52,7 @@ const packages = [
     stage: 'Premium strategy and build',
     audience: 'For founders ready to align the full journey',
     badge: 'Full system',
+    cta: 'Plan Full Funnel',
     features: [
       'Full profile-to-website funnel audit',
       'Offer and messaging architecture',
@@ -69,7 +72,7 @@ const startOptions = [
     price: 'Free',
     bestFor: 'You want a quick read on the biggest leak before spending money.',
     includes: ['15-minute review', 'Biggest conversion opportunity', 'Clear next step'],
-    cta: 'Request free audit',
+    cta: 'Request Free Audit',
     href: '#contact',
     tone: 'soft',
   },
@@ -167,7 +170,7 @@ export default function Packages() {
               <div className="text-center">
                 <p className="text-xs text-white/60 italic mb-4">{pkg.note}</p>
                 <Button href="#contact" variant="primary" className="w-full">
-                  Get Your Free Audit
+                  {pkg.cta}
                 </Button>
               </div>
             </motion.div>
