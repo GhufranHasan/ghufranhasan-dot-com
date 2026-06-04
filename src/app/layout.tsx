@@ -4,6 +4,7 @@ import ClientProviders from './providers'
 import StickyCTA from '@/components/layout/StickyCTA'
 import Navigation from '@/components/layout/Navigation'
 import Footer from '@/components/layout/Footer'
+import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ghufranhasan.com'),
@@ -75,6 +76,7 @@ export default function RootLayout({
           <Footer />
           <StickyCTA />
         </ClientProviders>
+        <GoogleAnalytics />
       </body>
     </html>
   )

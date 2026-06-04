@@ -53,13 +53,13 @@ const jsonLd = [
     offers: [
       {
         '@type': 'Offer',
-        name: 'Quick Funnel Audit',
+        name: 'Starter Audit',
         price: '300',
         priceCurrency: 'USD',
       },
       {
         '@type': 'Offer',
-        name: 'LinkedIn + Landing Page System',
+        name: 'LinkedIn + Landing Page',
         price: '500',
         priceCurrency: 'USD',
       },
@@ -77,26 +77,50 @@ const jsonLd = [
     mainEntity: [
       {
         '@type': 'Question',
+        name: 'What\'s the difference between the Free Audit and the Starter Audit?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'The Free Audit is a 15-minute review to identify your biggest conversion opportunity with high-level feedback. The Starter Audit provides a complete conversion-focused breakdown with a recorded Loom video, detailed recommendations, copy suggestions, and a prioritized roadmap.',
+        },
+      },
+      {
+        '@type': 'Question',
         name: 'Why do I need a website if LinkedIn is already working?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'LinkedIn is your discovery room. It helps the right people find you, but the feed is noisy and attention is split. Your website is the decision room: your positioning, proof, offer, and CTA are all controlled by you. That is where curiosity becomes trust and trust becomes a booked conversation.',
+          text: 'LinkedIn creates discovery. Your website should create trust, explain the offer, and give warm prospects a clear next step. Without that bridge, attention leaks before it becomes a conversation.',
         },
       },
       {
         '@type': 'Question',
-        name: 'What if I do not have a big budget yet?',
+        name: 'What if my budget is tight?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Start with the smallest useful fix. The audit gives you a clear diagnosis before you invest in a full build. If budget is tight, we can sharpen your LinkedIn positioning first, then build the website path once the offer is clearer.',
+          text: 'Start smaller. The audit gives you a clear diagnosis and immediate fixes before you invest in a full build. You can upgrade later when the path is clearer.',
         },
       },
       {
         '@type': 'Question',
-        name: 'How long does the website build take?',
+        name: 'How long does a focused build take?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Most focused landing page and funnel projects are designed to launch in about 10 days after discovery.',
+          text: 'A focused LinkedIn-to-website landing page can usually be mapped, written, built, and polished in about 10 days after discovery.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What do I need to provide before the audit or build starts?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Usually just your LinkedIn profile, website link, current offer, target audience, and the main action you want visitors to take. If you already have testimonials, analytics, or examples of posts that brought good conversations, those help too.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Will you write the copy too, or only design/build the website?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'I help with the conversion copy direction, section flow, CTA language, offer framing, and key page messaging. The goal is not just to make the site look polished, but to make the LinkedIn-to-website path easier to understand and act on.',
         },
       },
       {
@@ -104,7 +128,15 @@ const jsonLd = [
         name: 'Do I need testimonials before this can work?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Testimonials help, but they are not the only trust signal. Clear positioning, transparent process, strong examples, proof of thinking, and a useful free audit can reduce doubt before you have a wall of client logos.',
+          text: 'Testimonials help, but they are not the only trust signal. Clear positioning, transparent process, proof of thinking, strong examples, and a specific CTA can still reduce doubt.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What makes this different from a normal developer portfolio?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'A normal portfolio shows work. This approach sells the visitor on one journey: who you help, what gap you fix, how the process works, and what to do next.',
         },
       },
       {
