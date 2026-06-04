@@ -42,6 +42,14 @@ const faqs = [
     question: 'Can you only optimize my LinkedIn profile first?',
     answer: 'Yes. If the website is not ready yet, we can start with profile positioning and CTA clarity, then build the website path when the offer is sharper.',
   },
+  {
+    question: 'Do you guarantee booked calls?',
+    answer: 'No. I do not guarantee sales calls. I improve the path, clarity, trust, and CTA so your existing attention has a better chance of converting.',
+  },
+  {
+    question: 'Do you work with people who do not post on LinkedIn?',
+    answer: 'Yes, but the system works best when you already have some LinkedIn activity or plan to drive traffic from LinkedIn. Without distribution, even a clear website has fewer chances to convert.',
+  },
 ]
 
 export default function FAQ() {
@@ -77,6 +85,8 @@ export default function FAQ() {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
                 className="w-full px-6 py-4 flex items-center justify-between text-left"
               >
                 <span className="text-white font-medium pr-4">{faq.question}</span>
@@ -96,7 +106,7 @@ export default function FAQ() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="px-6 pb-6">
+                    <div id={`faq-answer-${index}`} role="region" className="px-6 pb-6">
                       <div className="pl-4 border-l-2 border-orange-500/30">
                         <p className="text-white/70">{faq.answer}</p>
                       </div>
@@ -118,7 +128,7 @@ export default function FAQ() {
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-linear-to-r from-orange-500 to-orange-600 text-white font-semibold hover:shadow-glow-hover transition-all"
             >
               <MessageCircle size={18} />
-              Get Your Free Audit
+              Show Me My Biggest Conversion Gap
             </a>
           </div>
         </div>
