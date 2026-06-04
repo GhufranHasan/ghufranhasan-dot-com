@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Calendar, Github, Linkedin, Mail, MessageCircle } from 'lucide-react'
 import LeadMagnet from '@/components/sections/LeadMagnet'
 import SocialLinksModal from '@/components/layout/SocialLinksModal'
@@ -30,8 +31,15 @@ export default function Footer() {
       <div className="container-custom">
         <div className="grid md:grid-cols-[1.2fr_0.8fr_0.8fr_1.2fr] gap-8 mb-10">
           <div>
-            <Link href="#home" className="text-3xl font-bebas tracking-wider inline-block mb-4">
-              Ghufran<span className="text-orange-500">.</span>
+            <Link href="#home" className="mb-4 inline-flex items-center gap-3 text-3xl font-bebas tracking-wider">
+              <Image
+                src="/images/brand-logo.png"
+                alt="Ghufran Hasan logo"
+                width={46}
+                height={46}
+                className="h-11 w-11 rounded-full border border-orange-500/40 object-cover"
+              />
+              <span>Ghufran<span className="text-orange-500">.</span></span>
             </Link>
             <p className="text-white/70 max-w-sm text-sm">
               I don&apos;t just build websites. I build paths that turn attention into clients.

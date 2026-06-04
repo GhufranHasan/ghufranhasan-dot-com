@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
@@ -43,8 +44,16 @@ export default function Navigation() {
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="#home" className="text-3xl font-bebas tracking-wider">
-            Ghufran<span className="text-orange-500">.</span>
+          <Link href="#home" className="inline-flex items-center gap-3 text-3xl font-bebas tracking-wider">
+            <Image
+              src="/images/brand-logo.png"
+              alt="Ghufran Hasan logo"
+              width={42}
+              height={42}
+              priority
+              className="h-10 w-10 rounded-full border border-orange-500/40 object-cover"
+            />
+            <span>Ghufran<span className="text-orange-500">.</span></span>
           </Link>
 
           {/* Desktop Navigation */}
