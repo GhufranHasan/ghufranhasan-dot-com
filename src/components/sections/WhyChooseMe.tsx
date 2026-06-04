@@ -17,7 +17,7 @@ const comparisons = [
   {
     feature: 'Time Required',
     typical: '5-6 hours per week of YOUR time',
-    me: 'System runs on under 90 minutes per week',
+    me: 'Designed to reduce founder involvement to under 90 minutes per week once the system is structured',
   },
   {
     feature: 'Outbound Strategy',
