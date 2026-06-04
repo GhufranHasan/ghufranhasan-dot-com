@@ -5,6 +5,7 @@ import Services from '@/components/sections/Services'
 import About from '@/components/sections/About'
 import CaseStudies from '@/components/sections/CaseStudies'
 import WhyChooseMe from '@/components/sections/WhyChooseMe'
+import FitCheck from '@/components/sections/FitCheck'
 import DifferentView from '@/components/sections/DifferentView'
 import Packages from '@/components/sections/Packages'
 import Process from '@/components/sections/Process'
@@ -147,6 +148,22 @@ const jsonLd = [
           text: 'Yes. In many cases, profile positioning should come first. If the LinkedIn message is unclear, the website will inherit the same confusion. We can fix the profile, CTA, and Featured section first, then build the website path when the foundation is sharper.',
         },
       },
+      {
+        '@type': 'Question',
+        name: 'Do you guarantee booked calls?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'No. I do not guarantee sales calls. I improve the path, clarity, trust, and CTA so your existing attention has a better chance of converting.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Do you work with people who do not post on LinkedIn?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes, but the system works best when you already have some LinkedIn activity or plan to drive traffic from LinkedIn. Without distribution, even a clear website has fewer chances to convert.',
+        },
+      },
     ],
   },
 ]
@@ -167,6 +184,7 @@ export default function Home() {
       <About />
       <CaseStudies />
       <WhyChooseMe />
+      <FitCheck />
       <Packages />
       <Process />
       <DifferentView />
