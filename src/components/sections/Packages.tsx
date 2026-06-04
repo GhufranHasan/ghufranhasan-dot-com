@@ -2,7 +2,16 @@
 
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
-import { CheckCircle } from 'lucide-react'
+import SectionBadge from '@/components/ui/SectionBadge'
+import {
+  ArrowRight,
+  BadgeDollarSign,
+  CheckCircle,
+  ClipboardCheck,
+  Compass,
+  FileSearch,
+  Rocket,
+} from 'lucide-react'
 
 const packages = [
   {
@@ -52,6 +61,42 @@ const packages = [
   },
 ]
 
+const startOptions = [
+  {
+    icon: FileSearch,
+    eyebrow: 'Not sure what is broken',
+    title: 'Free Funnel Audit',
+    price: 'Free',
+    bestFor: 'You want a quick read on the biggest leak before spending money.',
+    includes: ['15-minute review', 'Biggest conversion opportunity', 'Clear next step'],
+    cta: 'Request free audit',
+    href: '#contact',
+    tone: 'soft',
+  },
+  {
+    icon: ClipboardCheck,
+    eyebrow: 'Need a real diagnosis',
+    title: 'Starter Audit',
+    price: '$300',
+    bestFor: 'You want the exact fixes, copy direction, and roadmap before building.',
+    includes: ['Recorded Loom', 'Priority fix list', 'Implementation roadmap'],
+    cta: 'Start with audit',
+    href: '#contact',
+    tone: 'warm',
+  },
+  {
+    icon: Rocket,
+    eyebrow: 'Ready to launch the path',
+    title: 'Build Sprint',
+    price: '$500+',
+    bestFor: 'You already know the gap and want the LinkedIn-to-website path built.',
+    includes: ['Messaging structure', 'Landing page build', 'Booking flow'],
+    cta: 'Discuss the build',
+    href: '#contact',
+    tone: 'bright',
+  },
+]
+
 export default function Packages() {
   return (
     <section id="packages" className="texture-band neon-magenta section-padding">
@@ -63,6 +108,7 @@ export default function Packages() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
+          <SectionBadge icon={BadgeDollarSign} className="mb-4">Offer ladder</SectionBadge>
           <h2 className="text-3xl md:text-5xl font-bebas mb-4">Start where you are</h2>
           <p className="text-white/80 max-w-2xl mx-auto">
             A clear ladder from audit to full build, so you do not have to jump straight into a large project.
@@ -80,24 +126,17 @@ export default function Packages() {
               whileHover={{ y: -8 }}
               className={`glass-card p-8 relative flex flex-col transition-all duration-300 hover:border-orange-500/40 ${
                 pkg.badge === 'Most popular'
-                  ? 'border-orange-500/40 scale-105 shadow-[0_0_40px_rgba(255,132,3,0.25)] ring-1 ring-orange-500/20'
+                  ? 'border-orange-500/40 md:scale-105 shadow-[0_0_40px_rgba(255,132,3,0.25)] ring-1 ring-orange-500/20'
                   : 'border-orange-500/20'
               }`}
               style={pkg.badge === 'Most popular' ? { background: 'linear-gradient(135deg, rgba(10,19,50,0.65) 0%, rgba(51,13,62,0.55) 100%)' } : undefined}
             >
-
-              {pkg.badge === 'Most popular' && (
+              {pkg.badge === 'Most popular' ? (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-linear-to-r from-orange-500 to-orange-600 text-white px-5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shadow-lg">
-                  ⚡ Most Popular
+                  Most Popular
                 </div>
-              )}
-
-              {pkg.badge && pkg.badge !== 'Most popular' && (
-                <span className={`absolute -top-3 right-6 px-4 py-1 rounded-full text-xs font-bold ${
-                  pkg.badge === 'Most popular'
-                    ? 'bg-linear-to-r from-orange-500 to-orange-600'
-                    : 'bg-linear-to-r from-purple-900 to-purple-800'
-                } text-white`}>
+              ) : (
+                <span className="absolute -top-3 right-6 px-4 py-1 rounded-full text-xs font-bold bg-linear-to-r from-purple-900 to-purple-800 text-white">
                   {pkg.badge}
                 </span>
               )}
@@ -140,35 +179,83 @@ export default function Packages() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="mt-16 pt-12 border-t border-orange-500/20"
+          className="mt-16"
         >
-          <h3 className="text-2xl font-bebas mb-8 text-center">Choosing where to start</h3>
-          <div className="max-w-3xl mx-auto bg-orange-500/5 rounded-lg p-8 border border-orange-500/20">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h4 className="text-orange-500 font-bold mb-4">✓ Free Audit</h4>
-                <ul className="space-y-2 text-sm text-white/80">
-                  <li>• Deep funnel diagnostic</li>
-                  <li>• Identify your biggest opportunity</li>
-                  <li>• High-level feedback</li>
-                  <li>• No deliverables</li>
-                  <li>• No obligation</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-orange-500 font-bold mb-4">✓ Starter Audit ($300)</h4>
-                <ul className="space-y-2 text-sm text-white/80">
-                  <li>• Comprehensive review</li>
-                  <li>• Full analysis & breakdown</li>
-                  <li>• Recorded Loom video</li>
-                  <li>• Detailed recommendations</li>
-                  <li>• Implementation roadmap</li>
-                </ul>
+          <div className="grid lg:grid-cols-[0.78fr_1.22fr] gap-8 items-stretch">
+            <div className="relative overflow-hidden rounded-2xl border border-orange-500/25 bg-purple-950/45 p-7 md:p-8">
+              <div className="absolute inset-0 opacity-25 texture-grid" aria-hidden="true" />
+              <div className="relative z-10">
+                <SectionBadge icon={Compass}>Decision guide</SectionBadge>
+                <h3 className="mt-5 text-3xl md:text-4xl font-bebas">Choosing where to start</h3>
+                <p className="mt-4 text-white/70">
+                  Pick based on your current uncertainty. If you do not know the leak yet, start free. If you know the leak and want it fixed, move into the paid audit or build.
+                </p>
+
+                <div className="mt-7 space-y-4">
+                  <div className="flex items-start gap-3 rounded-xl border border-orange-500/15 bg-orange-500/5 p-4">
+                    <BadgeDollarSign size={19} className="mt-0.5 text-orange-400 shrink-0" />
+                    <div>
+                      <p className="font-semibold text-white">Best default path</p>
+                      <p className="text-sm text-white/60">Free Audit - Starter Audit - Build Sprint</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/3 p-4">
+                    <ArrowRight size={19} className="mt-0.5 text-orange-400 shrink-0" />
+                    <div>
+                      <p className="font-semibold text-white">No pressure</p>
+                      <p className="text-sm text-white/60">The first call is for clarity, not a forced package decision.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <p className="text-center text-sm text-white/70 mt-6 pt-6 border-t border-orange-500/20">
-              Not sure where to start? Begin with a free audit. I&apos;ll help you determine if a Starter Audit makes sense for your situation.
-            </p>
+
+            <div className="grid md:grid-cols-3 gap-5">
+              {startOptions.map((option, index) => (
+                <motion.a
+                  key={option.title}
+                  href={option.href}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 + index * 0.08 }}
+                  className={`group relative flex min-h-full flex-col rounded-2xl border p-6 transition-all hover:-translate-y-1 hover:shadow-glow ${
+                    option.tone === 'bright'
+                      ? 'border-orange-500/35 bg-orange-500/10'
+                      : option.tone === 'warm'
+                        ? 'border-orange-500/45 bg-linear-to-b from-orange-500/14 to-purple-950/35 shadow-[0_0_34px_rgba(255,132,3,0.14)]'
+                        : 'border-white/10 bg-purple-950/35'
+                  }`}
+                >
+                  <div className="mb-5 flex items-center justify-between gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-orange-500/25 bg-orange-500/10 text-orange-400">
+                      <option.icon size={22} />
+                    </div>
+                    <span className="rounded-full bg-white/5 px-3 py-1 text-xs font-semibold text-white/70">
+                      {option.price}
+                    </span>
+                  </div>
+
+                  <p className="text-xs uppercase tracking-wider text-orange-300/80">{option.eyebrow}</p>
+                  <h4 className="mt-2 text-xl font-bold text-white">{option.title}</h4>
+                  <p className="mt-3 text-sm text-white/68">{option.bestFor}</p>
+
+                  <ul className="mt-5 flex-1 space-y-2">
+                    {option.includes.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-white/75">
+                        <CheckCircle size={15} className="mt-0.5 shrink-0 text-orange-400" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-orange-300 group-hover:text-orange-200">
+                    {option.cta}
+                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                  </span>
+                </motion.a>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>
