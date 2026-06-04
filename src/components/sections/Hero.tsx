@@ -145,9 +145,6 @@ export default function Hero() {
             >
               <span className="block">Turn LinkedIn Attention</span>
               <span className="hero-gradient-text block">Into Qualified Leads</span>
-              <span className="mt-3 block text-[0.58em] leading-tight text-white/90">
-                With a website that continues the sales conversation.
-              </span>
             </motion.h1>
 
             <motion.p
@@ -156,7 +153,7 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className="text-lg text-white/80 mb-8 max-w-2xl"
             >
-              I help B2B founders, coaches, and creators fix the gap between profile visits, trust, and booked conversations.
+              I help B2B founders, coaches, and creators align their LinkedIn profile, website, and CTA so warm visitors become booked conversations.
             </motion.p>
 
             <motion.div
@@ -180,7 +177,7 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-4"
             >
               <Button href="#contact" variant="primary" size="large">
-                Get Your Free Audit <ArrowRight size={18} />
+                Find My Website Leak <ArrowRight size={18} />
               </Button>
               <Button href="#case-studies" variant="secondary" size="large">
                 View Funnel Patterns
@@ -209,7 +206,7 @@ export default function Hero() {
                 <div className="min-w-0 flex-1">
                   <p className="text-white text-sm font-semibold">Free checklist: 10-point website funnel check</p>
                   <p className="text-white/60 text-xs mt-1">
-                    Enter your email to get the checklist, then use it to find the biggest leak in your LinkedIn-to-website path.
+                    Use it to find whether your website has a positioning leak, trust leak, CTA leak, or offer clarity leak.
                   </p>
 
                   {isChecklistUnlocked ? (
@@ -329,7 +326,7 @@ export default function Hero() {
               </div>
               <div className="grid gap-3 sm:grid-cols-3">
                 {journeySteps.map((step, index) => (
-                  <div key={step.title} className="relative rounded-xl border border-white/10 bg-white/[0.04] p-3">
+                  <div key={step.title} className="relative rounded-xl border border-white/10 bg-white/4 p-3">
                     {index < journeySteps.length - 1 && (
                       <ArrowRight className="absolute -right-4 top-1/2 hidden -translate-y-1/2 text-orange-400 sm:block" size={18} />
                     )}
