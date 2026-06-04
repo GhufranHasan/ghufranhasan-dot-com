@@ -2,35 +2,36 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Route } from 'lucide-react'
 import Link from 'next/link'
+import SectionBadge from '@/components/ui/SectionBadge'
 
 const caseStudies = [
   {
     tag: 'SaaS Founder',
-    title: 'From zero leads to 12 qualified calls',
+    title: 'Strong LinkedIn attention, no booking path',
     problem: 'The founder had strong LinkedIn engagement but no system to convert profile visits into conversations.',
     solution: 'I built a conversion-focused landing page with a clear audit CTA, aligned the messaging with their LinkedIn profile, and added a lead magnet.',
-    result: '12 qualified discovery calls in the first 60 days.',
-    metric: '+12 calls',
+    result: 'Visitors get one clear reason to continue from profile curiosity into a business conversation.',
+    metric: 'Audit CTA',
     image: '/images/profile.png',
   },
   {
     tag: 'Business Coach',
-    title: 'Turning content views into consultation bookings',
+    title: 'Content views landing on a generic page',
     problem: 'Daily LinkedIn content was getting views, but the website was a generic "learn more" dead end.',
     solution: 'Redesigned the website around one clear offer, added social proof above the fold, and created a direct path from content to booking.',
-    result: 'Consultation bookings increased by 42% within 90 days.',
-    metric: '+42%',
+    result: 'The page now explains the offer, proof, and next step without forcing visitors to figure it out themselves.',
+    metric: 'Offer clarity',
     image: '/images/profile.png',
   },
   {
     tag: 'Agency Owner',
-    title: 'From brochure to client acquisition machine',
+    title: 'A polished brochure with no conversion path',
     problem: 'The website looked professional but didn\'t generate inquiries. Visitors landed and left.',
     solution: 'Reorganized content to answer "who, what, why" in 3 seconds, added a free audit lead magnet, and clarified the CTA.',
-    result: 'Average of 5-7 qualified leads per month from organic LinkedIn traffic.',
-    metric: '5-7 leads/month',
+    result: 'The page becomes a decision path: problem, offer, proof, process, objection handling, and CTA.',
+    metric: 'Trust sequence',
     image: '/images/profile.png',
   },
 ]
@@ -49,12 +50,10 @@ export default function CaseStudies() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-sm font-semibold mb-4">
-            Common funnel patterns
-          </span>
+          <SectionBadge icon={Route} className="mb-4">Common funnel patterns</SectionBadge>
           <h2 className="text-3xl md:text-5xl font-bebas mb-4">How I diagnose the leak</h2>
           <p className="text-white/70 text-lg">
-            These are anonymized strategy patterns, not inflated client claims. The format is simple: problem, gap, fix, and expected business impact.
+            These are strategy patterns, not inflated client-result claims. The format is simple: problem, gap, fix, and likely business impact.
           </p>
         </motion.div>
 
@@ -87,7 +86,7 @@ export default function CaseStudies() {
                 </div>
 
                 <div className="bg-[rgba(34,197,94,0.1)] border border-[rgba(34,197,94,0.2)] rounded-xl p-5 mb-6">
-                  <div className="text-[#22c55e] text-xs uppercase tracking-wide mb-1">Result</div>
+                  <div className="text-[#22c55e] text-xs uppercase tracking-wide mb-1">Fix focus</div>
                   <div className="text-[#22c55e] text-xl font-bold">{study.metric}</div>
                 </div>
               </div>

@@ -3,6 +3,7 @@
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { ChevronDown, MessageCircle, Sparkles } from 'lucide-react'
+import SectionBadge from '@/components/ui/SectionBadge'
 
 const faqs = [
   {
@@ -20,6 +21,14 @@ const faqs = [
   {
     question: 'How long does a focused build take?',
     answer: 'A focused LinkedIn-to-website landing page can usually be mapped, written, built, and polished in about 10 days after discovery.',
+  },
+  {
+    question: 'What do I need to provide before the audit or build starts?',
+    answer: 'Usually just your LinkedIn profile, website link, current offer, target audience, and the main action you want visitors to take. If you already have testimonials, analytics, or examples of posts that brought good conversations, those help too.',
+  },
+  {
+    question: 'Will you write the copy too, or only design/build the website?',
+    answer: 'I help with the conversion copy direction, section flow, CTA language, offer framing, and key page messaging. The goal is not just to make the site look polished, but to make the LinkedIn-to-website path easier to understand and act on.',
   },
   {
     question: 'Do I need testimonials before this can work?',
@@ -48,9 +57,7 @@ export default function FAQ() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-sm font-semibold mb-4">
-            Objections answered
-          </span>
+          <SectionBadge icon={MessageCircle} className="mb-4">Objections answered</SectionBadge>
           <h2 className="text-3xl md:text-5xl font-bebas mb-4">Questions founders ask before fixing the funnel</h2>
           <p className="text-white/70">Short answers for the doubts that usually stop people from improving the conversion path.</p>
         </motion.div>
