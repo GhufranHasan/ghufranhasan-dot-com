@@ -165,7 +165,7 @@ export default function PainAgitation() {
                             <h4 className="font-bold text-white">{step.title}</h4>
                             {index === 3 && (
                               <span className="rounded-full bg-red-500/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-red-200">
-                                leak
+                                Most websites lose leads here
                               </span>
                             )}
                           </div>
