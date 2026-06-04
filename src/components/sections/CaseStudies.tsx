@@ -36,6 +36,13 @@ const caseStudies = [
   },
 ]
 
+const ownSiteCaseStudy = {
+  title: 'How I rebuilt my own website funnel',
+  before: 'The site behaved like a portfolio: skills, sections, and visuals, but no clear client journey.',
+  problem: 'It showed what I could build, but did not clearly explain the LinkedIn-to-website conversion gap I solve.',
+  fix: 'I repositioned the page around LinkedIn attention, website clarity, free audit CTA, offer ladder, and one conversion path.',
+  after: 'Now the site works as a lead-generation path, not just a showcase.',
+}
 
 export default function CaseStudies() {
   const ref = useRef(null)
@@ -55,6 +62,43 @@ export default function CaseStudies() {
           <p className="text-white/70 text-lg">
             These are strategy patterns, not inflated client-result claims. The format is simple: problem, gap, fix, and likely business impact.
           </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ delay: 0.1, duration: 0.5 }}
+          className="mb-8 rounded-2xl border border-orange-500/25 bg-purple-950/45 p-6 md:p-8"
+        >
+          <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <div>
+              <div className="mb-4 inline-block rounded-full bg-orange-500/10 px-3 py-1 text-xs font-bold text-orange-400">
+                My own site
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bebas text-white">{ownSiteCaseStudy.title}</h3>
+              <p className="mt-3 text-sm text-white/65">
+                This is not a client-result claim. It is a transparent example of how I apply the same thinking to my own brand.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div className="rounded-xl border border-white/10 bg-white/3 p-4">
+                <h4 className="mb-1 font-bold text-orange-400">Before</h4>
+                <p className="text-sm text-white/68">{ownSiteCaseStudy.before}</p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-white/3 p-4">
+                <h4 className="mb-1 font-bold text-orange-400">Problem</h4>
+                <p className="text-sm text-white/68">{ownSiteCaseStudy.problem}</p>
+              </div>
+              <div className="rounded-xl border border-orange-500/20 bg-orange-500/5 p-4">
+                <h4 className="mb-1 font-bold text-orange-400">Fix</h4>
+                <p className="text-sm text-white/76">{ownSiteCaseStudy.fix}</p>
+              </div>
+              <div className="rounded-xl border border-orange-500/20 bg-orange-500/5 p-4">
+                <h4 className="mb-1 font-bold text-orange-400">After</h4>
+                <p className="text-sm text-white/76">{ownSiteCaseStudy.after}</p>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-6">
