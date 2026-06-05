@@ -21,12 +21,25 @@ const packages = [
     audience: 'For founders who want clarity before a build',
     badge: 'Start here',
     cta: 'Start With Paid Audit',
+    purpose: 'For founders who know their website is not converting, but do not know what to fix first.',
+    outcome: 'You walk away with a clear roadmap showing why your website is not converting and what to improve before investing in a redesign or full funnel build.',
+    bestFor: 'Existing website owners who want to know what to fix first.',
     features: [
       'LinkedIn profile and website review',
       'Recorded Loom breakdown',
       '3 highest-priority conversion fixes',
       'CTA and hero copy recommendations',
       'Simple next-step roadmap',
+    ],
+    valueStack: [
+      ['LinkedIn-to-website journey review', 'Shows where attention is dropping before inquiry'],
+      ['Homepage headline audit', 'Clarifies whether visitors understand your offer quickly'],
+      ['CTA clarity review', 'Removes confusion around what action visitors should take'],
+      ['Offer positioning feedback', 'Helps your service feel more specific and valuable'],
+      ['Trust section review', 'Identifies missing proof, testimonials, or authority signals'],
+      ['Loom video breakdown', 'Gives you a clear explanation, not just written notes'],
+      ['Prioritized action roadmap', 'Shows what to fix first, second, and third'],
+      ['Copy improvement suggestions', 'Helps you improve messaging without guessing'],
     ],
     note: 'A complete conversion-focused review with Loom breakdown, copy recommendations, and implementation roadmap.',
   },
@@ -37,12 +50,27 @@ const packages = [
     audience: 'For founders with LinkedIn traction but weak conversion',
     badge: 'Most popular',
     cta: 'Discuss Landing Page',
+    purpose: 'For founders who need one focused page that turns warm LinkedIn visitors into qualified inquiries.',
+    outcome: 'You get a focused landing page that continues the conversation started on LinkedIn and gives warm visitors a clear reason to take the next step.',
+    bestFor: 'Founders, coaches, consultants, and creators with one clear offer.',
     features: [
       'LinkedIn positioning refinement',
       'Conversion-focused landing page structure',
       'Hero, offer, proof, and CTA copy',
       'Lead capture and booking flow',
       'Responsive Next.js implementation',
+    ],
+    valueStack: [
+      ['Landing page strategy', 'Creates a clear path from attention to action'],
+      ['Hero section copy', 'Makes the offer understandable within seconds'],
+      ['Problem section', 'Helps visitors feel understood'],
+      ['Offer section', 'Explains what you do and why it matters'],
+      ['Trust-building sections', 'Adds credibility before the CTA'],
+      ['CTA flow', 'Guides visitors toward one clear next step'],
+      ['Responsive Next.js build', 'Gives you a fast, modern, mobile-friendly website'],
+      ['Basic SEO setup', 'Helps search engines understand your page'],
+      ['Contact / audit form integration', 'Makes it easy for leads to reach you'],
+      ['Launch support', 'Helps you publish with confidence'],
     ],
     note: 'Best when you need one clear path from profile visit to booked conversation.',
   },
@@ -53,12 +81,28 @@ const packages = [
     audience: 'For founders ready to align the full journey',
     badge: 'Full system',
     cta: 'Plan Full Funnel',
+    purpose: 'For founders who want a complete LinkedIn-to-website conversion path, not just a single page.',
+    outcome: 'You get a complete conversion system that connects your LinkedIn attention, website message, lead capture, trust-building, and inquiry flow into one structured buyer journey.',
+    bestFor: 'B2B founders, agency owners, coaches, consultants, and personal brands with consistent LinkedIn activity.',
     features: [
       'Full profile-to-website funnel audit',
       'Offer and messaging architecture',
       'Multi-section website build',
       'FAQ and objection handling',
       'Launch support and walkthrough video',
+    ],
+    valueStack: [
+      ['Full funnel audit', 'Identifies leaks from profile to website to inquiry'],
+      ['Positioning refinement', 'Makes your message sharper and more specific'],
+      ['Website structure strategy', 'Defines the full buyer journey'],
+      ['Landing page or multi-section build', 'Gives your offer a complete conversion home'],
+      ['Lead magnet / audit CTA planning', 'Creates a low-friction entry point'],
+      ['Trust proof section planning', 'Helps visitors believe before they book'],
+      ['FAQ and objection handling', 'Reduces doubts before the call'],
+      ['Newsletter or email capture setup', 'Helps you capture visitors who are not ready yet'],
+      ['Form and inquiry flow', 'Makes lead collection easier'],
+      ['Launch checklist', 'Ensures the system is ready before publishing'],
+      ['Post-launch refinement', 'Allows improvements after real feedback'],
     ],
     note: 'Best when your profile, offer, website, and CTA all need to work as one system.',
   },
@@ -153,6 +197,7 @@ export default function Packages() {
                 <div className="text-xs bg-orange-500/10 inline-block px-3 py-1 rounded-full mt-2">
                   {pkg.audience}
                 </div>
+                <p className="mt-4 text-sm text-white/68">{pkg.purpose}</p>
               </div>
 
               <div className="flex-1 mb-6">
@@ -165,6 +210,32 @@ export default function Packages() {
                     </li>
                   ))}
                 </ul>
+
+                <div className="mt-5 space-y-3 rounded-xl border border-orange-500/15 bg-orange-500/5 p-4">
+                  <div>
+                    <p className="text-xs uppercase tracking-wider text-orange-300/80">Outcome</p>
+                    <p className="mt-1 text-sm text-white/72">{pkg.outcome}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-wider text-orange-300/80">Best for</p>
+                    <p className="mt-1 text-sm text-white/72">{pkg.bestFor}</p>
+                  </div>
+                </div>
+
+                <details className="group mt-5 rounded-xl border border-white/10 bg-white/3 p-4">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-orange-300 [&::-webkit-details-marker]:hidden">
+                    View full value stack
+                    <ArrowRight size={16} className="shrink-0 transition-transform group-open:rotate-90" />
+                  </summary>
+                  <div className="mt-4 space-y-3">
+                    {pkg.valueStack.map(([item, reason]) => (
+                      <div key={item} className="grid gap-1 rounded-lg border border-white/10 bg-purple-950/35 p-3">
+                        <p className="text-sm font-semibold text-white">{item}</p>
+                        <p className="text-xs leading-relaxed text-white/60">{reason}</p>
+                      </div>
+                    ))}
+                  </div>
+                </details>
               </div>
 
               <div className="text-center">
