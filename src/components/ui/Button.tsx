@@ -23,7 +23,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
     className,
   } = props
 
-  const baseStyles = "inline-flex items-center justify-center gap-2 rounded-lg font-bold transition-all duration-300 cursor-pointer"
+  const baseStyles = "inline-flex items-center justify-center gap-2 rounded-lg text-center font-bold transition-all duration-300 cursor-pointer"
 
   const variants = {
     primary: "bg-linear-to-r from-orange-500 to-orange-600 text-white hover:translate-y-[-3px] hover:shadow-glow-hover",

@@ -174,12 +174,12 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col gap-4 sm:flex-row md:flex-col xl:flex-row"
             >
-              <Button href="#contact" variant="primary" size="large">
+              <Button href="#contact" variant="primary" size="large" className="whitespace-nowrap">
                 Find My Website Leak <ArrowRight size={18} />
               </Button>
-              <Button href="#case-studies" variant="secondary" size="large">
+              <Button href="#case-studies" variant="secondary" size="large" className="whitespace-nowrap">
                 View Funnel Patterns
               </Button>
             </motion.div>
