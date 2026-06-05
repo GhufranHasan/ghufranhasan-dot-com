@@ -11,10 +11,10 @@ import { useModal } from '@/contexts/ModalContext'
 const navItems = [
   { name: 'Home', href: '#home' },
   { name: 'Services', href: '#services' },
-  { name: 'Results', href: '#case-studies' },
-  { name: 'Packages', href: '#packages' },
+  { name: 'Funnel Patterns', href: '#case-studies' },
+  { name: 'Pricing', href: '#packages' },
   { name: 'Process', href: '#process' },
-  { name: 'Contact', href: '#contact' }
+  { name: 'FAQ', href: '#faqs' },
 ]
 
 export default function Navigation() {
@@ -57,12 +57,12 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-white/80 hover:text-orange-500 transition-colors font-lato"
+                className="text-sm text-white/80 hover:text-orange-500 transition-colors font-lato"
               >
                 {item.name}
               </Link>

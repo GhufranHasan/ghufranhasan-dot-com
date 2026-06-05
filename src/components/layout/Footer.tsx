@@ -6,15 +6,19 @@ import SocialLinksModal from '@/components/layout/SocialLinksModal'
 
 const services = [
   { label: 'Services', href: '#services' },
-  { label: 'Framework', href: '#case-studies' },
-  { label: 'Packages', href: '#packages' },
+  { label: 'Funnel Patterns', href: '#case-studies' },
+  { label: 'Pricing', href: '#packages' },
   { label: 'Process', href: '#process' },
+  { label: 'Fit Check', href: '#fit-check' },
+  { label: 'FAQ', href: '#faqs' },
 ]
 
 const resources = [
-  { label: 'FAQ', href: '#faqs' },
   { label: 'About', href: '#about' },
   { label: 'Different View', href: '#different-view' },
+  { label: 'Checklist', href: '/resources/website-funnel-checklist.html' },
+  { label: 'Newsletter', href: '#newsletter' },
+  { label: 'Free Audit', href: '#contact' },
 ]
 
 const socialLinks = [
