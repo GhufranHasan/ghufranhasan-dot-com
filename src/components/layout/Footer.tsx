@@ -16,7 +16,7 @@ const services = [
 const resources = [
   { label: 'About', href: '#about' },
   { label: 'Different View', href: '#different-view' },
-  { label: 'Checklist', href: '/resources/website-funnel-checklist.html' },
+  { label: 'Checklist', href: '#home' },
   { label: 'Newsletter', href: '#newsletter' },
   { label: 'Free Audit', href: '#contact' },
 ]
