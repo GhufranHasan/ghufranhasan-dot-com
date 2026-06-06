@@ -117,7 +117,7 @@ const packages = [
     valueSummary: [
       {
         label: 'What you get',
-        text: 'Full profile-to-website audit, offer architecture, messaging structure, multi-section website, FAQ, lead capture, launch support, and walkthrough video.',
+        text: 'Full profile-to-website audit, owned asset structure, offer architecture, messaging, multi-section website, lead capture, launch support, and walkthrough video.',
       },
       {
         label: 'Why it matters',
@@ -131,6 +131,7 @@ const packages = [
     bestFor: 'Best if your profile, offer, website, and CTA all need to be aligned into one buyer journey.',
     features: [
       'Full profile-to-website funnel audit',
+      'Owned asset and email capture structure',
       'Offer and messaging architecture',
       'Multi-section website build',
       'FAQ and objection handling',
@@ -138,14 +139,15 @@ const packages = [
     ],
     valueStack: [
       ['Full funnel audit', 'Identifies leaks from profile to website to inquiry'],
+      ['Owned asset structure', 'Keeps your core offer, CTA, and lead path under your own brand'],
       ['Positioning refinement', 'Makes your message sharper and more specific'],
       ['Website structure strategy', 'Defines the full buyer journey'],
       ['Landing page or multi-section build', 'Gives your offer a complete conversion home'],
       ['Lead magnet / audit CTA planning', 'Creates a low-friction entry point'],
       ['Trust proof section planning', 'Helps visitors believe before they book'],
       ['FAQ and objection handling', 'Reduces doubts before the call'],
-      ['Newsletter or email capture setup', 'Helps you capture visitors who are not ready yet'],
-      ['Form and inquiry flow', 'Makes lead collection easier'],
+      ['Owned audience email capture', 'Helps you build a direct audience outside LinkedIn'],
+      ['Direct lead capture form', 'Gives prospects a path even when social DMs are unavailable'],
       ['Launch checklist', 'Ensures the system is ready before publishing'],
       ['Post-launch refinement', 'Allows improvements after real feedback'],
     ],

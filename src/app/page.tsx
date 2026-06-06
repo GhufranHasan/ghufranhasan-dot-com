@@ -1,6 +1,7 @@
 import Hero from '@/components/sections/Hero'
 import AuthorityBar from '@/components/sections/AuthorityBar'
 import PainAgitation from '@/components/sections/PainAgitation'
+import PlatformDependency from '@/components/sections/PlatformDependency'
 import Services from '@/components/sections/Services'
 import About from '@/components/sections/About'
 import CaseStudies from '@/components/sections/CaseStudies'
@@ -99,6 +100,7 @@ export default function Home() {
       <Hero />
       <AuthorityBar />
       <PainAgitation />
+      <PlatformDependency />
       <Services />
       <About />
       <CaseStudies />

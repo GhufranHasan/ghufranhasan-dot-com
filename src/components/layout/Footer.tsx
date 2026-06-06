@@ -15,6 +15,7 @@ const services = [
 
 const resources = [
   { label: 'About', href: '#about' },
+  { label: 'Owned Business Asset', href: '#owned-asset' },
   { label: 'Different View', href: '#different-view' },
   { label: 'Checklist', href: '#home' },
   { label: 'Newsletter', href: '#newsletter' },
