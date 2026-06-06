@@ -14,11 +14,10 @@ const services = [
 ]
 
 const resources = [
-  { label: 'About', href: '/#about' },
-  { label: 'Owned Business Asset', href: '/#owned-asset' },
+  { label: 'All Resources', href: '/resources' },
+  { label: 'Free Website Audit Checklist', href: '/free-website-audit-checklist' },
   { label: 'Website Comparison Study', href: '/linkedin-website-examples' },
-  { label: 'Different View', href: '/#different-view' },
-  { label: 'Checklist', href: '/#home' },
+  { label: 'Owned Business Asset', href: '/#owned-asset' },
   { label: 'Newsletter', href: '/#newsletter' },
   { label: 'Free Audit', href: '/#contact' },
 ]
