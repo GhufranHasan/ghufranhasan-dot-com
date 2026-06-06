@@ -14,5 +14,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    {
+      url: 'https://ghufranhasan.com/free-website-audit-checklist',
+      lastModified: '2026-06-06',
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://ghufranhasan.com/resources',
+      lastModified: '2026-06-06',
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
   ]
 }
