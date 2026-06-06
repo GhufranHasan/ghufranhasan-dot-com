@@ -14,7 +14,7 @@ export default function LeadMagnet() {
         Send your profile and website. I will show you the biggest leaks and the first fixes I would make.
       </p>
       <Link
-        href="#contact"
+        href="/#contact"
         className="inline-flex items-center gap-2 text-orange-500 text-xs font-semibold hover:text-orange-400"
       >
         Request the audit <ArrowRight size={14} />
