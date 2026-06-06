@@ -1,16 +1,21 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { Button } from '@/components/ui/Button'
 import SectionBadge from '@/components/ui/SectionBadge'
+import { useModal } from '@/contexts/ModalContext'
 import {
   ArrowRight,
   BadgeDollarSign,
   CheckCircle,
   ClipboardCheck,
+  Clock3,
   Compass,
   FileSearch,
+  Layers3,
   Rocket,
+  X,
 } from 'lucide-react'
 
 const packages = [
@@ -21,9 +26,23 @@ const packages = [
     audience: 'For founders who want clarity before a build',
     badge: 'Start here',
     cta: 'Start With Paid Audit',
+    timeline: '2-3 business days',
     purpose: 'For founders who know their website is not converting, but do not know what to fix first.',
-    outcome: 'You walk away with a clear roadmap showing why your website is not converting and what to improve before investing in a redesign or full funnel build.',
-    bestFor: 'Existing website owners who want to know what to fix first.',
+    valueSummary: [
+      {
+        label: 'What you get',
+        text: 'A recorded audit of your LinkedIn-to-website path, homepage message, CTA clarity, offer positioning, and trust sequence.',
+      },
+      {
+        label: 'Why it matters',
+        text: 'You stop guessing what is broken and get a clear view of the exact conversion leaks stopping visitors from taking action.',
+      },
+      {
+        label: 'Outcome',
+        text: 'You leave with 3 highest-priority fixes, copy direction, and a simple roadmap before investing in a redesign or build.',
+      },
+    ],
+    bestFor: 'Best if you already have a website but you are unsure why LinkedIn attention is not turning into inquiries.',
     features: [
       'LinkedIn profile and website review',
       'Recorded Loom breakdown',
@@ -41,7 +60,6 @@ const packages = [
       ['Prioritized action roadmap', 'Shows what to fix first, second, and third'],
       ['Copy improvement suggestions', 'Helps you improve messaging without guessing'],
     ],
-    note: 'A complete conversion-focused review with Loom breakdown, copy recommendations, and implementation roadmap.',
   },
   {
     title: 'LinkedIn + Landing Page',
@@ -50,9 +68,23 @@ const packages = [
     audience: 'For founders with LinkedIn traction but weak conversion',
     badge: 'Most popular',
     cta: 'Discuss Landing Page',
+    timeline: '7-10 days',
     purpose: 'For founders who need one focused page that turns warm LinkedIn visitors into qualified inquiries.',
-    outcome: 'You get a focused landing page that continues the conversation started on LinkedIn and gives warm visitors a clear reason to take the next step.',
-    bestFor: 'Founders, coaches, consultants, and creators with one clear offer.',
+    valueSummary: [
+      {
+        label: 'What you get',
+        text: 'A focused landing page strategy, conversion copy structure, lead capture path, booking flow, and responsive Next.js implementation.',
+      },
+      {
+        label: 'Why it matters',
+        text: 'Your LinkedIn visitors land on a page that continues the same promise instead of sending them to a generic website.',
+      },
+      {
+        label: 'Outcome',
+        text: 'You get one clear page built to move warm visitors from profile curiosity to audit request, DM, or booked conversation.',
+      },
+    ],
+    bestFor: 'Best if you already have LinkedIn traction and need one clear page to convert profile visitors.',
     features: [
       'LinkedIn positioning refinement',
       'Conversion-focused landing page structure',
@@ -72,7 +104,6 @@ const packages = [
       ['Contact / audit form integration', 'Makes it easy for leads to reach you'],
       ['Launch support', 'Helps you publish with confidence'],
     ],
-    note: 'Best when you need one clear path from profile visit to booked conversation.',
   },
   {
     title: 'Full Funnel System',
@@ -81,9 +112,23 @@ const packages = [
     audience: 'For founders ready to align the full journey',
     badge: 'Full system',
     cta: 'Plan Full Funnel',
+    timeline: '2-3 weeks',
     purpose: 'For founders who want a complete LinkedIn-to-website conversion path, not just a single page.',
-    outcome: 'You get a complete conversion system that connects your LinkedIn attention, website message, lead capture, trust-building, and inquiry flow into one structured buyer journey.',
-    bestFor: 'B2B founders, agency owners, coaches, consultants, and personal brands with consistent LinkedIn activity.',
+    valueSummary: [
+      {
+        label: 'What you get',
+        text: 'Full profile-to-website audit, offer architecture, messaging structure, multi-section website, FAQ, lead capture, launch support, and walkthrough video.',
+      },
+      {
+        label: 'Why it matters',
+        text: 'Your LinkedIn profile, website, offer, CTA, trust proof, and follow-up path stop working as separate pieces and start working as one system.',
+      },
+      {
+        label: 'Outcome',
+        text: 'You get a complete LinkedIn-to-website conversion path that supports qualified conversations, not just website visits.',
+      },
+    ],
+    bestFor: 'Best if your profile, offer, website, and CTA all need to be aligned into one buyer journey.',
     features: [
       'Full profile-to-website funnel audit',
       'Offer and messaging architecture',
@@ -104,9 +149,181 @@ const packages = [
       ['Launch checklist', 'Ensures the system is ready before publishing'],
       ['Post-launch refinement', 'Allows improvements after real feedback'],
     ],
-    note: 'Best when your profile, offer, website, and CTA all need to work as one system.',
   },
 ]
+
+type Package = (typeof packages)[number]
+
+function PackageValueModal({
+  pkg,
+  onClose,
+}: {
+  pkg: Package | null
+  onClose: () => void
+}) {
+  const titleId = useId()
+  const descriptionId = useId()
+  const dialogRef = useRef<HTMLDivElement>(null)
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
+  const lastActiveElementRef = useRef<HTMLElement | null>(null)
+  const restoreFocusRef = useRef(true)
+  const { openModal, closeModal } = useModal()
+
+  useEffect(() => {
+    if (!pkg) return
+
+    lastActiveElementRef.current = document.activeElement as HTMLElement | null
+    restoreFocusRef.current = true
+    openModal()
+    document.body.style.overflow = 'hidden'
+
+    const focusTimer = window.setTimeout(() => closeButtonRef.current?.focus(), 0)
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose()
+        return
+      }
+
+      if (event.key !== 'Tab') return
+
+      const focusableElements = dialogRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      )
+
+      if (!focusableElements?.length) return
+
+      const firstElement = focusableElements[0]
+      const lastElement = focusableElements[focusableElements.length - 1]
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault()
+        lastElement.focus()
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault()
+        firstElement.focus()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.clearTimeout(focusTimer)
+      window.removeEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = ''
+      closeModal()
+
+      if (restoreFocusRef.current) {
+        lastActiveElementRef.current?.focus()
+      }
+    }
+  }, [pkg, onClose, openModal, closeModal])
+
+  if (!pkg) return null
+
+  return (
+    <div
+      className="fixed inset-0 z-100 flex items-center justify-center px-4 py-6"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={titleId}
+      aria-describedby={descriptionId}
+    >
+      <button
+        type="button"
+        aria-label={`Close ${pkg.title} value stack`}
+        className="absolute inset-0 bg-black/75 backdrop-blur-sm"
+        onClick={onClose}
+      />
+
+      <motion.div
+        ref={dialogRef}
+        initial={{ opacity: 0, y: 18, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.22 }}
+        className="relative max-h-[92vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-orange-500/35 bg-purple-950 shadow-[0_0_55px_rgba(255,132,3,0.2)]"
+      >
+        <div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-orange-500/20 bg-purple-950/95 p-5 backdrop-blur-md md:p-7">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-orange-300">{pkg.stage}</p>
+            <h2 id={titleId} className="mt-2 text-3xl font-bebas text-white md:text-4xl">
+              {pkg.title} - Full Value Stack
+            </h2>
+            <p id={descriptionId} className="mt-2 max-w-xl text-sm leading-relaxed text-white/65">
+              See the value, intended outcome, and exact deliverables before deciding whether this is the right starting point.
+            </p>
+          </div>
+          <button
+            ref={closeButtonRef}
+            type="button"
+            onClick={onClose}
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-orange-500/25 text-white/70 transition-colors hover:bg-orange-500/10 hover:text-white"
+            aria-label="Close modal"
+          >
+            <X size={18} />
+          </button>
+        </div>
+
+        <div className="p-5 md:p-7">
+          <div className="flex flex-wrap items-center gap-3 border-b border-orange-500/20 pb-6">
+            <span className="text-3xl font-bold text-orange-400">{pkg.price}</span>
+            <span className="rounded-full border border-orange-500/20 bg-orange-500/10 px-3 py-1 text-xs font-semibold text-orange-200">
+              {pkg.audience}
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/4 px-3 py-1 text-xs font-semibold text-white/70">
+              <Clock3 size={14} className="text-orange-400" />
+              {pkg.timeline}
+            </span>
+          </div>
+
+          <div className="divide-y divide-orange-500/15">
+            {pkg.valueSummary.map((item) => (
+              <section key={item.label} className="py-5">
+                <p className="text-xs font-semibold uppercase tracking-wider text-orange-300">{item.label}</p>
+                <p className="mt-2 text-sm leading-relaxed text-white/75">{item.text}</p>
+              </section>
+            ))}
+          </div>
+
+          <div className="border-y border-orange-500/20 py-5">
+            <p className="text-xs font-semibold uppercase tracking-wider text-orange-300">Best for</p>
+            <p className="mt-2 text-sm leading-relaxed text-white/75">{pkg.bestFor}</p>
+          </div>
+
+          <div className="pt-6">
+            <div className="mb-4 flex items-center gap-2">
+              <Layers3 size={18} className="text-orange-400" />
+              <h3 className="font-semibold text-white">Detailed deliverables and impact</h3>
+            </div>
+            <div className="grid gap-3 md:grid-cols-2">
+              {pkg.valueStack.map(([item, reason]) => (
+                <div key={item} className="rounded-xl border border-orange-500/15 bg-orange-500/5 p-4">
+                  <p className="text-sm font-semibold text-white">{item}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-white/60">{reason}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-7 border-t border-orange-500/20 pt-6">
+            <Button
+              href="#contact"
+              variant="primary"
+              className="w-full whitespace-nowrap"
+              onClick={() => {
+                restoreFocusRef.current = false
+                onClose()
+              }}
+            >
+              {pkg.cta}
+              <ArrowRight size={17} />
+            </Button>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  )
+}
 
 const startOptions = [
   {
@@ -145,22 +362,26 @@ const startOptions = [
 ]
 
 export default function Packages() {
+  const [selectedPackage, setSelectedPackage] = useState<Package | null>(null)
+  const closePackageModal = useCallback(() => setSelectedPackage(null), [])
+
   return (
-    <section id="packages" className="texture-band neon-magenta section-padding">
-      <div className="container-custom">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <SectionBadge icon={BadgeDollarSign} className="mb-4">Offer ladder</SectionBadge>
-          <h2 className="text-3xl md:text-5xl font-bebas mb-4">Start where you are</h2>
-          <p className="text-white/80 max-w-2xl mx-auto">
-            A clear ladder from audit to full build, so you do not have to jump straight into a large project.
-          </p>
-        </motion.div>
+    <>
+      <section id="packages" className="texture-band neon-magenta section-padding">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
+            <SectionBadge icon={BadgeDollarSign} className="mb-4">Offer ladder</SectionBadge>
+            <h2 className="text-3xl md:text-5xl font-bebas mb-4">Start where you are</h2>
+            <p className="text-white/80 max-w-2xl mx-auto">
+              A clear ladder from audit to full build, so you do not have to jump straight into a large project.
+            </p>
+          </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {packages.map((pkg, index) => (
@@ -210,39 +431,22 @@ export default function Packages() {
                     </li>
                   ))}
                 </ul>
-
-                <div className="mt-5 space-y-3 rounded-xl border border-orange-500/15 bg-orange-500/5 p-4">
-                  <div>
-                    <p className="text-xs uppercase tracking-wider text-orange-300/80">Outcome</p>
-                    <p className="mt-1 text-sm text-white/72">{pkg.outcome}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-wider text-orange-300/80">Best for</p>
-                    <p className="mt-1 text-sm text-white/72">{pkg.bestFor}</p>
-                  </div>
-                </div>
-
-                <details className="group mt-5 rounded-xl border border-white/10 bg-white/3 p-4">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-orange-300 [&::-webkit-details-marker]:hidden">
-                    View full value stack
-                    <ArrowRight size={16} className="shrink-0 transition-transform group-open:rotate-90" />
-                  </summary>
-                  <div className="mt-4 space-y-3">
-                    {pkg.valueStack.map(([item, reason]) => (
-                      <div key={item} className="grid gap-1 rounded-lg border border-white/10 bg-purple-950/35 p-3">
-                        <p className="text-sm font-semibold text-white">{item}</p>
-                        <p className="text-xs leading-relaxed text-white/60">{reason}</p>
-                      </div>
-                    ))}
-                  </div>
-                </details>
               </div>
 
-              <div className="text-center">
-                <p className="text-xs text-white/60 italic mb-4">{pkg.note}</p>
+              <div className="space-y-3 text-center">
                 <Button href="#contact" variant="primary" className="w-full">
                   {pkg.cta}
                 </Button>
+                <button
+                  type="button"
+                  onClick={() => setSelectedPackage(pkg)}
+                  aria-haspopup="dialog"
+                  aria-expanded={selectedPackage?.title === pkg.title}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-orange-500/25 bg-orange-500/5 px-5 py-3 text-sm font-semibold text-orange-200 transition-all hover:border-orange-500/50 hover:bg-orange-500/10"
+                >
+                  <Layers3 size={16} />
+                  View full value stack
+                </button>
               </div>
             </motion.div>
           ))}
@@ -332,7 +536,10 @@ export default function Packages() {
             </div>
           </div>
         </motion.div>
-      </div>
-    </section>
+        </div>
+      </section>
+
+      <PackageValueModal pkg={selectedPackage} onClose={closePackageModal} />
+    </>
   )
 }
