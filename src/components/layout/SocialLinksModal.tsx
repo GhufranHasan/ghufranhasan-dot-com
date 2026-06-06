@@ -60,7 +60,7 @@ const extraLinks = [
   {
     label: 'Future links',
     description: 'YouTube, podcast, and new platforms can live here later',
-    href: '#contact',
+    href: '/#contact',
     icon: PenLine,
   },
 ]
@@ -154,10 +154,10 @@ export default function SocialLinksModal({ className, label = 'Connect', iconOnl
                 <a
                   key={link.label}
                   href={link.href}
-                  target={link.href.startsWith('#') ? undefined : '_blank'}
-                  rel={link.href.startsWith('#') ? undefined : 'noopener noreferrer'}
+                  target={link.href.startsWith('/') ? undefined : '_blank'}
+                  rel={link.href.startsWith('/') ? undefined : 'noopener noreferrer'}
                   onClick={() => {
-                    if (link.href.startsWith('#')) {
+                    if (link.href.startsWith('/')) {
                       setIsOpen(false)
                       closeModal()
                     }

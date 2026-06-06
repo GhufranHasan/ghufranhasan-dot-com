@@ -23,7 +23,7 @@ export default function StickyCTA() {
     <div className="fixed bottom-4 left-4 right-4 z-50 md:hidden">
       <div className="bg-linear-to-r from-purple-900 to-purple-950 border border-orange-500/30 rounded-xl p-3 shadow-glow backdrop-blur-sm">
         <div className="flex items-center justify-between gap-2">
-          <Button href="#contact" variant="primary" className="flex-1">
+          <Button href="/#contact" variant="primary" className="flex-1">
             <Calendar size={16} />
             Free Audit
           </Button>

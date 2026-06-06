@@ -9,12 +9,12 @@ import { Button } from '@/components/ui/Button'
 import { useModal } from '@/contexts/ModalContext'
 
 const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'Services', href: '#services' },
-  { name: 'Funnel Patterns', href: '#case-studies' },
-  { name: 'Pricing', href: '#packages' },
-  { name: 'Process', href: '#process' },
-  { name: 'FAQ', href: '#faqs' },
+  { name: 'Home', href: '/#home' },
+  { name: 'Services', href: '/#services' },
+  { name: 'Funnel Patterns', href: '/#case-studies' },
+  { name: 'Pricing', href: '/#packages' },
+  { name: 'Process', href: '/#process' },
+  { name: 'FAQ', href: '/#faqs' },
 ]
 
 export default function Navigation() {
@@ -44,7 +44,7 @@ export default function Navigation() {
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="#home" className="inline-flex items-center gap-3 text-3xl font-bebas tracking-wider">
+          <Link href="/#home" className="inline-flex items-center gap-3 text-3xl font-bebas tracking-wider">
             <Image
               src="/images/brand-logo.png"
               alt="Ghufran Hasan logo"
@@ -67,7 +67,7 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
-            <Button href="#contact" variant="primary">Free Audit</Button>
+            <Button href="/#contact" variant="primary">Free Audit</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -100,7 +100,7 @@ export default function Navigation() {
                     {item.name}
                   </Link>
                 ))}
-                <Button href="#contact" variant="primary" className="w-full" onClick={() => setIsOpen(false)}>Free Audit</Button>
+                <Button href="/#contact" variant="primary" className="w-full" onClick={() => setIsOpen(false)}>Free Audit</Button>
               </div>
             </motion.div>
           )}

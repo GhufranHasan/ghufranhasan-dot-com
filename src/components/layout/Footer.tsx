@@ -5,21 +5,22 @@ import LeadMagnet from '@/components/sections/LeadMagnet'
 import SocialLinksModal from '@/components/layout/SocialLinksModal'
 
 const services = [
-  { label: 'Services', href: '#services' },
-  { label: 'Funnel Patterns', href: '#case-studies' },
-  { label: 'Pricing', href: '#packages' },
-  { label: 'Process', href: '#process' },
-  { label: 'Fit Check', href: '#fit-check' },
-  { label: 'FAQ', href: '#faqs' },
+  { label: 'Services', href: '/#services' },
+  { label: 'Funnel Patterns', href: '/#case-studies' },
+  { label: 'Pricing', href: '/#packages' },
+  { label: 'Process', href: '/#process' },
+  { label: 'Fit Check', href: '/#fit-check' },
+  { label: 'FAQ', href: '/#faqs' },
 ]
 
 const resources = [
-  { label: 'About', href: '#about' },
-  { label: 'Owned Business Asset', href: '#owned-asset' },
-  { label: 'Different View', href: '#different-view' },
-  { label: 'Checklist', href: '#home' },
-  { label: 'Newsletter', href: '#newsletter' },
-  { label: 'Free Audit', href: '#contact' },
+  { label: 'About', href: '/#about' },
+  { label: 'Owned Business Asset', href: '/#owned-asset' },
+  { label: 'Website Comparison Study', href: '/linkedin-website-examples' },
+  { label: 'Different View', href: '/#different-view' },
+  { label: 'Checklist', href: '/#home' },
+  { label: 'Newsletter', href: '/#newsletter' },
+  { label: 'Free Audit', href: '/#contact' },
 ]
 
 const socialLinks = [
@@ -36,7 +37,7 @@ export default function Footer() {
       <div className="container-custom">
         <div className="grid md:grid-cols-[1.2fr_0.8fr_0.8fr_1.2fr] gap-8 mb-10">
           <div>
-            <Link href="#home" className="mb-4 inline-flex items-center gap-3 text-3xl font-bebas tracking-wider">
+            <Link href="/#home" className="mb-4 inline-flex items-center gap-3 text-3xl font-bebas tracking-wider">
               <Image
                 src="/images/brand-logo.png"
                 alt="Ghufran Hasan logo"
