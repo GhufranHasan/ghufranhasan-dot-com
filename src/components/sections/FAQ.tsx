@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useInView, AnimatePresence } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import {
   ArrowRight,
@@ -126,7 +126,7 @@ export default function FAQ() {
                       <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border text-sm font-bold ${
                         isOpen
                           ? 'border-orange-500/40 bg-orange-500/15 text-orange-300'
-                          : 'border-white/10 bg-white/[0.04] text-white/60'
+                          : 'border-white/10 bg-white/4 text-white/60'
                       }`}>
                         {String(index + 1).padStart(2, '0')}
                       </span>
@@ -145,40 +145,44 @@ export default function FAQ() {
                     />
                   </button>
 
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.28 }}
-                      >
-                        <div id={`faq-answer-${index}`} role="region" className="px-5 pb-5 md:px-6">
-                          <div className="ml-0 rounded-xl border border-orange-500/20 bg-purple-950/45 p-4 md:ml-[52px]">
-                            <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-orange-300">
-                              <Route size={14} />
-                              Direct answer
-                            </div>
-                            <div className="space-y-3 text-sm leading-relaxed text-white/72">
-                              {faq.answer.map((block, blockIndex) => (
-                                block.kind === 'paragraph' ? (
-                                  <p key={`${faq.question}-${blockIndex}`}>{block.text}</p>
-                                ) : (
-                                  <ul key={`${faq.question}-${blockIndex}`} className="space-y-2 pl-4">
-                                    {block.items.map((item) => (
-                                      <li key={item} className="list-disc marker:text-orange-400">
-                                        {item}
-                                      </li>
-                                    ))}
-                                  </ul>
-                                )
-                              ))}
-                            </div>
+                  <motion.div
+                    id={`faq-answer-${index}`}
+                    role="region"
+                    aria-hidden={!isOpen}
+                    initial={false}
+                    animate={{
+                      gridTemplateRows: isOpen ? '1fr' : '0fr',
+                      opacity: isOpen ? 1 : 0,
+                    }}
+                    transition={{ duration: 0.28 }}
+                    className="grid"
+                  >
+                    <div className="min-h-0 overflow-hidden">
+                      <div className="px-5 pb-5 md:px-6">
+                        <div className="ml-0 rounded-xl border border-orange-500/20 bg-purple-950/45 p-4 md:ml-13">
+                          <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-orange-300">
+                            <Route size={14} />
+                            Direct answer
+                          </div>
+                          <div className="space-y-3 text-sm leading-relaxed text-white/72">
+                            {faq.answer.map((block, blockIndex) => (
+                              block.kind === 'paragraph' ? (
+                                <p key={`${faq.question}-${blockIndex}`}>{block.text}</p>
+                              ) : (
+                                <ul key={`${faq.question}-${blockIndex}`} className="space-y-2 pl-4">
+                                  {block.items.map((item) => (
+                                    <li key={item} className="list-disc marker:text-orange-400">
+                                      {item}
+                                    </li>
+                                  ))}
+                                </ul>
+                              )
+                            ))}
                           </div>
                         </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                      </div>
+                    </div>
+                  </motion.div>
                 </motion.div>
               )
             })}

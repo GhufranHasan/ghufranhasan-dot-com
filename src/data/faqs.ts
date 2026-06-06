@@ -33,15 +33,11 @@ export const faqs: FAQItem[] = [
     answer: [
       {
         kind: 'paragraph',
-        text: 'LinkedIn creates attention, but your website builds structured trust.',
+        text: 'LinkedIn creates attention, but your website turns that attention into structured trust. A strong profile may make people curious, but your website should explain your offer, proof, process, and next step in one clear path.',
       },
       {
         kind: 'paragraph',
-        text: 'A post can start curiosity. A profile can build interest. But your website should continue the sales conversation with a clear offer, proof, CTA, and next step.',
-      },
-      {
-        kind: 'paragraph',
-        text: 'Without that bridge, warm visitors often leave without taking action.',
+        text: 'Without a website that continues the same conversation, warm visitors may leave without booking, messaging, or requesting an audit.',
       },
     ],
   },
@@ -69,11 +65,11 @@ export const faqs: FAQItem[] = [
     answer: [
       {
         kind: 'paragraph',
-        text: 'Start with the Free Audit first.',
+        text: 'Start with the Free Audit first. It gives you a quick view of your biggest conversion leak without committing to a paid project.',
       },
       {
         kind: 'paragraph',
-        text: 'If you need deeper clarity, the Starter Audit gives you a roadmap before you commit to a build. This helps you avoid spending money on a website that only looks good but does not support your offer.',
+        text: 'If the issue is deeper, the Starter Audit gives you a clear roadmap before you invest in a landing page or full funnel build.',
       },
     ],
   },
@@ -83,29 +79,99 @@ export const faqs: FAQItem[] = [
     answer: [
       {
         kind: 'paragraph',
-        text: 'A focused landing page or LinkedIn-to-website funnel usually takes around 7-10 days, depending on scope, content readiness, feedback speed, and required sections.',
+        text: 'A focused LinkedIn-to-website landing page usually takes 7-10 days, depending on your content, feedback speed, and scope.',
       },
       {
         kind: 'paragraph',
-        text: 'A full funnel system may take longer if we need to refine positioning, offer structure, lead magnet, and follow-up journey.',
+        text: 'The process includes audit, strategy, copy structure, design, development, QA, and launch support.',
+      },
+    ],
+  },
+  {
+    category: 'Prep',
+    question: 'What do I need to provide before the audit or build starts?',
+    answer: [
+      {
+        kind: 'paragraph',
+        text: 'You need to share your LinkedIn profile, current website if you have one, target audience, offer details, and the main action you want visitors to take.',
+      },
+      {
+        kind: 'paragraph',
+        text: 'You do not need perfect copy or perfect branding before starting. Those can be improved during the process.',
+      },
+    ],
+  },
+  {
+    category: 'Copy',
+    question: 'Will you write the copy too, or only design/build the website?',
+    answer: [
+      {
+        kind: 'paragraph',
+        text: 'Yes, I help with the website copy structure.',
+      },
+      {
+        kind: 'paragraph',
+        text: 'I do not only build the page visually. I help shape the headline, offer section, proof section, CTA flow, FAQ, and section order so the page supports conversion, not just design.',
+      },
+    ],
+  },
+  {
+    category: 'Trust',
+    question: 'Do I need testimonials before this can work?',
+    answer: [
+      {
+        kind: 'paragraph',
+        text: 'No, but testimonials help.',
+      },
+      {
+        kind: 'paragraph',
+        text: 'If you do not have testimonials yet, we can use other trust signals such as your experience, process, portfolio, LinkedIn proof, content, project screenshots, personal story, or audit examples.',
+      },
+      {
+        kind: 'paragraph',
+        text: 'The goal is to build enough trust before asking visitors to take action.',
+      },
+    ],
+  },
+  {
+    category: 'Approach',
+    question: 'What makes this different from a normal developer portfolio?',
+    answer: [
+      {
+        kind: 'paragraph',
+        text: 'A normal developer portfolio usually shows skills, tools, and projects.',
+      },
+      {
+        kind: 'paragraph',
+        text: 'This approach builds a conversion path from LinkedIn attention to website trust to a clear next step. The focus is not only design or code. The focus is positioning, offer clarity, trust, CTA flow, and business action.',
+      },
+    ],
+  },
+  {
+    category: 'LinkedIn',
+    question: 'Can you only optimize my LinkedIn profile first?',
+    answer: [
+      {
+        kind: 'paragraph',
+        text: 'Yes, if your website is not ready yet, we can start by reviewing your LinkedIn profile promise, headline, featured section, CTA, and how it connects to your offer.',
+      },
+      {
+        kind: 'paragraph',
+        text: 'But the full system works best when your LinkedIn profile and website both send visitors toward the same next step.',
       },
     ],
   },
   {
     category: 'Guarantee',
-    question: 'Do you guarantee booked calls or leads?',
+    question: 'Do you guarantee booked calls?',
     answer: [
       {
         kind: 'paragraph',
-        text: 'No. I do not guarantee booked calls because results depend on your offer, LinkedIn activity, audience quality, pricing, and follow-up.',
+        text: 'No. I do not guarantee booked calls because results depend on your offer, audience quality, LinkedIn activity, pricing, follow-up, and market demand.',
       },
       {
         kind: 'paragraph',
-        text: 'What I do is improve the path between attention and action by making your website clearer, more trustworthy, and easier to respond to.',
-      },
-      {
-        kind: 'paragraph',
-        text: 'This gives your existing LinkedIn attention a better chance of turning into qualified conversations.',
+        text: 'What I improve is the conversion path: clarity, trust, CTA strength, offer explanation, and the journey from profile visit to inquiry.',
       },
     ],
   },
@@ -115,35 +181,11 @@ export const faqs: FAQItem[] = [
     answer: [
       {
         kind: 'paragraph',
-        text: 'Yes, but this system works best when you already have LinkedIn activity or plan to drive traffic from LinkedIn.',
+        text: 'Yes, but this system works best if you already get LinkedIn attention or plan to drive traffic from LinkedIn.',
       },
       {
         kind: 'paragraph',
-        text: 'If you are not posting yet, I can still help you build a strong website foundation, but the website will perform better when there is consistent traffic coming from your content, profile, or outreach.',
-      },
-    ],
-  },
-  {
-    category: 'Prep',
-    question: 'What do I need before starting?',
-    answer: [
-      {
-        kind: 'paragraph',
-        text: 'You need at least:',
-      },
-      {
-        kind: 'list',
-        items: [
-          'A clear offer or service idea',
-          'A target audience',
-          'Basic LinkedIn presence',
-          'Existing website, landing page, or profile link',
-          'Willingness to clarify your positioning',
-        ],
-      },
-      {
-        kind: 'paragraph',
-        text: 'You do not need perfect branding or final copy. That can be improved during the process.',
+        text: 'If you are not posting yet, I can still help you build the website foundation, but the page will perform better when you have a traffic source behind it.',
       },
     ],
   },
@@ -190,35 +232,6 @@ export const faqs: FAQItem[] = [
       {
         kind: 'paragraph',
         text: 'This is also useful for service providers, coaches, consultants, creators, agency owners, and personal brands who already get attention but do not have a clear website path that converts visitors into conversations.',
-      },
-    ],
-  },
-  {
-    category: 'Approach',
-    question: 'What makes your approach different from a normal web developer?',
-    answer: [
-      {
-        kind: 'paragraph',
-        text: 'A normal developer usually focuses on design and development.',
-      },
-      {
-        kind: 'paragraph',
-        text: 'My approach connects:',
-      },
-      {
-        kind: 'list',
-        items: [
-          'LinkedIn positioning',
-          'Website messaging',
-          'Offer clarity',
-          'Trust-building sections',
-          'CTA flow',
-          'Conversion-focused development',
-        ],
-      },
-      {
-        kind: 'paragraph',
-        text: 'So the website does not just look professional. It supports your business journey from attention to inquiry.',
       },
     ],
   },
