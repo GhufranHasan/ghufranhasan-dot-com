@@ -15,6 +15,7 @@ import {
   Target,
 } from 'lucide-react'
 import SectionBadge from '@/components/ui/SectionBadge'
+import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import {
   comparisonCriteria,
   practicalLessons,
@@ -94,6 +95,13 @@ export default function LinkedInWebsiteExamplesPage() {
         <header className="texture-grid neon-deep relative overflow-hidden border-b border-orange-500/20 py-20 md:py-28">
           <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-orange-500/70 to-transparent" />
           <div className="container-custom relative z-10">
+            <Breadcrumbs
+              items={[
+                { label: 'Home', href: '/#home' },
+                { label: 'Resources', href: '/resources' },
+                { label: 'LinkedIn Website Examples', href: '/linkedin-website-examples' },
+              ]}
+            />
             <div className="mx-auto max-w-5xl text-center">
               <SectionBadge icon={FileSearch} className="mb-6">Conversion study</SectionBadge>
               <h1 className="text-4xl font-bebas leading-tight text-white md:text-6xl lg:text-7xl">
@@ -133,6 +141,13 @@ export default function LinkedInWebsiteExamplesPage() {
                   Audit my website path
                 </Link>
               </div>
+              <Link
+                href="/resources"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-orange-300 transition-colors hover:text-orange-200"
+              >
+                Explore all resources
+                <ArrowRight size={16} />
+              </Link>
 
               <p className="mt-7 text-sm text-white/50">Study based on public-facing website content reviewed on June 6, 2026.</p>
             </div>
