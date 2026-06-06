@@ -204,10 +204,17 @@ export default function Hero() {
                   <ClipboardCheck size={20} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-white text-sm font-semibold">Free checklist: 10-point website funnel check</p>
+                  <p className="text-white text-sm font-semibold">10-Point Website Funnel Checklist</p>
                   <p className="text-white/60 text-xs mt-1">
                     Use it to find whether your website has a positioning leak, trust leak, CTA leak, or offer clarity leak.
                   </p>
+                  <a
+                    href="/free-website-audit-checklist"
+                    className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-orange-300 transition-colors hover:text-orange-200"
+                  >
+                    Preview the free website audit checklist
+                    <ArrowRight size={13} />
+                  </a>
 
                   {isChecklistUnlocked ? (
                     <div className="mt-4 rounded-lg border border-orange-500/25 bg-orange-500/10 p-3">
