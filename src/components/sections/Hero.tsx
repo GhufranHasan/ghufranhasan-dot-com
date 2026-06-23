@@ -5,30 +5,26 @@ import { useState, type FormEvent } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import SectionBadge from '@/components/ui/SectionBadge'
-import SocialLinksModal from '@/components/layout/SocialLinksModal'
 import {
   ArrowRight,
   CalendarCheck,
   CheckCircle2,
   ClipboardCheck,
   Download,
-  Github,
   Linkedin,
-  Mail,
-  MessageCircle,
   MousePointerClick,
 } from 'lucide-react'
 
 const proofPoints = [
-  'LinkedIn profile and website message alignment',
-  'Clear audit CTA instead of vague contact buttons',
-  'Built with React and Next.js for fast launches',
+  'B2B agency profile promise aligned with the website headline',
+  'One clear audit CTA instead of competing next steps',
+  'Built with React and Next.js for fast launch paths',
 ]
 
 const trustSignals = [
   { value: '23K+', label: 'LinkedIn audience' },
-  { value: 'Next.js', label: 'fast website builds' },
-  { value: 'Honest', label: 'no fake client numbers' },
+  { value: 'Agency', label: 'focused ICP' },
+  { value: 'Honest', label: 'no inflated claims' },
 ]
 
 const journeySteps = [
@@ -50,29 +46,6 @@ const journeySteps = [
 ]
 
 const checklistHref = '/resources/website-funnel-checklist.html'
-
-const primarySocials = [
-  {
-    label: 'LinkedIn',
-    href: 'https://linkedin.com/in/ghufranhasan',
-    icon: Linkedin,
-  },
-  {
-    label: 'GitHub',
-    href: 'https://github.com/ghufranhasan',
-    icon: Github,
-  },
-  {
-    label: 'Email',
-    href: 'mailto:hello@ghufranhasan.com',
-    icon: Mail,
-  },
-  {
-    label: 'WhatsApp',
-    href: 'https://wa.me/?text=Hi%20Ghufran%2C%20I%20want%20to%20talk%20about%20my%20LinkedIn%20to%20website%20funnel.',
-    icon: MessageCircle,
-  },
-]
 
 export default function Hero() {
   const [checklistEmail, setChecklistEmail] = useState('')
@@ -135,7 +108,7 @@ export default function Hero() {
               transition={{ delay: 0.2 }}
               className="mb-6"
             >
-              <SectionBadge icon={Linkedin}>LinkedIn to website conversion strategist</SectionBadge>
+              <SectionBadge icon={Linkedin}>LinkedIn to website conversion for B2B agencies</SectionBadge>
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -143,8 +116,8 @@ export default function Hero() {
               transition={{ delay: 0.3 }}
               className="hero-headline text-5xl md:text-6xl lg:text-7xl font-bebas font-semibold leading-[1.03] mb-6 text-white max-w-4xl"
             >
-              <span className="block">Turn LinkedIn Attention</span>
-              <span className="hero-gradient-text block">Into Qualified Leads</span>
+              <span className="block">Turn LinkedIn Profile Visits</span>
+              <span className="hero-gradient-text block">Into Booked Conversations</span>
             </motion.h1>
 
             <motion.p
@@ -153,7 +126,7 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className="text-lg text-white/80 mb-8 max-w-2xl"
             >
-              I help B2B founders, coaches, and creators align their LinkedIn profile, website, and CTA so warm visitors become booked conversations.
+              I help B2B agency founders align their LinkedIn profile, website, and CTA so warm visitors understand the offer, trust the process, and take the next step.
             </motion.p>
 
             <motion.div
@@ -177,10 +150,10 @@ export default function Hero() {
               className="flex flex-col gap-4 sm:flex-row md:flex-col xl:flex-row"
             >
               <Button href="#contact" variant="primary" size="large" className="whitespace-nowrap">
-                Find My Website Leak <ArrowRight size={18} />
+                Request Free Audit <ArrowRight size={18} />
               </Button>
               <Button href="#case-studies" variant="secondary" size="large" className="whitespace-nowrap">
-                View Funnel Patterns
+                View Funnel Examples
               </Button>
             </motion.div>
 
@@ -275,32 +248,8 @@ export default function Hero() {
               transition={{ delay: 0.58 }}
               className="text-sm text-white/60 mt-4"
             >
-              Deep funnel diagnostic - biggest conversion opportunity - no obligation
+              No pitch. No pressure. Just clarity on your biggest conversion leak.
             </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.62 }}
-              className="mt-6 flex flex-wrap items-center gap-3"
-              aria-label="Primary social links"
-            >
-              {primarySocials.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target={social.href.startsWith('mailto:') ? undefined : '_blank'}
-                  rel={social.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                  aria-label={social.label}
-                  title={social.label}
-                  className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-2 text-sm font-semibold text-white hover:border-orange-500 hover:bg-orange-500/20 transition-all"
-                >
-                  <social.icon size={17} />
-                  <span>{social.label}</span>
-                </a>
-              ))}
-              <SocialLinksModal />
-            </motion.div>
           </motion.div>
 
           <motion.div

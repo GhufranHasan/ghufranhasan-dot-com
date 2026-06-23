@@ -12,6 +12,7 @@ const steps = [
     icon: ClipboardList,
     timeline: '1 day',
     details: ['Profile review', 'Website review', 'CTA friction map'],
+    deliverable: 'Recorded Loom audit with the biggest leak and first fixes',
   },
   {
     label: 'Step 2',
@@ -20,6 +21,7 @@ const steps = [
     icon: ChartLine,
     timeline: '1-2 days',
     details: ['Audience clarity', 'Offer positioning', 'Page structure'],
+    deliverable: 'Messaging and page-flow doc for the LinkedIn-to-website path',
   },
   {
     label: 'Step 3',
@@ -28,6 +30,7 @@ const steps = [
     icon: Pen,
     timeline: '5-7 days',
     details: ['Conversion copy', 'Responsive design', 'Next.js build'],
+    deliverable: 'Wireframe, copy structure, and responsive website build',
   },
   {
     label: 'Step 4',
@@ -36,6 +39,7 @@ const steps = [
     icon: Rocket,
     timeline: '1-2 days',
     details: ['Final QA', 'Launch support', 'Walkthrough video'],
+    deliverable: 'Live website, launch checklist, and walkthrough video',
   },
 ]
 
@@ -91,6 +95,10 @@ export default function Process() {
                       {detail}
                     </span>
                   ))}
+                </div>
+                <div className="mt-5 rounded-xl border border-orange-500/15 bg-orange-500/5 p-4">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-orange-300">Deliverable</p>
+                  <p className="mt-1 text-sm leading-relaxed text-white/72">{step.deliverable}</p>
                 </div>
               </div>
             </motion.div>

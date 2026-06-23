@@ -64,7 +64,7 @@ export default function Newsletter() {
               transition={{ delay: 0.1 }}
               className="mb-4"
             >
-              <SectionBadge icon={Mail}>Stay Connected</SectionBadge>
+              <SectionBadge icon={Mail}>Conversion notes</SectionBadge>
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -72,7 +72,7 @@ export default function Newsletter() {
               transition={{ delay: 0.2 }}
               className="text-3xl md:text-5xl font-bebas mb-4"
             >
-              Join founders learning how to turn attention into opportunities
+              LinkedIn-to-Website Conversion Notes
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -80,7 +80,7 @@ export default function Newsletter() {
               transition={{ delay: 0.3 }}
               className="text-lg text-white/70 mb-2"
             >
-              Get practical insights on personal branding, LinkedIn growth, and conversion-focused websites.
+              Get practical notes on turning LinkedIn profile visits into booked conversations with sharper positioning, clearer website sections, and better CTA paths.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}

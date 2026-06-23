@@ -8,7 +8,7 @@ import SectionBadge from '@/components/ui/SectionBadge'
 
 const caseStudies = [
   {
-    tag: 'SaaS Founder',
+    tag: 'B2B Agency Founder',
     title: 'Strong LinkedIn attention, no booking path',
     problem: 'The founder had strong LinkedIn engagement but no system to convert profile visits into conversations.',
     solution: 'I built a conversion-focused landing page with a clear audit CTA, aligned the messaging with their LinkedIn profile, and added a lead magnet.',
@@ -17,7 +17,7 @@ const caseStudies = [
     image: '/images/profile.png',
   },
   {
-    tag: 'Business Coach',
+    tag: 'Consulting Agency',
     title: 'Content views landing on a generic page',
     problem: 'Daily LinkedIn content was getting views, but the website was a generic "learn more" dead end.',
     solution: 'Redesigned the website around one clear offer, added social proof above the fold, and created a direct path from content to booking.',
@@ -26,7 +26,7 @@ const caseStudies = [
     image: '/images/profile.png',
   },
   {
-    tag: 'Agency Owner',
+    tag: 'Service Agency Owner',
     title: 'A polished brochure with no conversion path',
     problem: 'The website looked professional but didn\'t generate inquiries. Visitors landed and left.',
     solution: 'Reorganized content to answer "who, what, why" in 3 seconds, added a free audit lead magnet, and clarified the CTA.',
@@ -57,7 +57,7 @@ export default function CaseStudies() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
         >
-          <SectionBadge icon={Route} className="mb-4">Common funnel patterns</SectionBadge>
+          <SectionBadge icon={Route} className="mb-4">Funnel examples</SectionBadge>
           <h2 className="text-3xl md:text-5xl font-bebas mb-4">How I diagnose the leak</h2>
           <p className="text-white/70 text-lg">
             These are strategy patterns, not inflated client-result claims. The format is simple: problem, gap, fix, and likely business impact.
@@ -149,7 +149,7 @@ export default function CaseStudies() {
             href="#contact"
             className="inline-flex items-center gap-3 px-8 py-3 rounded-full bg-linear-to-r from-orange-500 to-orange-600 text-white font-semibold hover:shadow-glow-hover transition-all"
           >
-            Find your leak <ArrowRight size={18} />
+            Request Free Audit <ArrowRight size={18} />
           </Link>
         </motion.div>
       </div>

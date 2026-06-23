@@ -12,12 +12,12 @@ const comparisons = [
   {
     feature: 'What We Track',
     typical: 'Impressions, likes, follower count',
-    me: 'Qualified leads, calls booked, close rate, LinkedIn-sourced revenue',
+    me: 'Audit requests, booked conversations, source signals, and where visitors lose clarity',
   },
   {
     feature: 'Time Required',
     typical: '5-6 hours per week of YOUR time',
-    me: 'Designed to reduce founder involvement to under 90 minutes per week once the system is structured',
+    me: 'A structured path that reduces scattered decisions and keeps founder input focused',
   },
   {
     feature: 'Outbound Strategy',
@@ -27,7 +27,7 @@ const comparisons = [
   {
     feature: 'Reporting & Transparency',
     typical: 'Impressions, likes, monthly vanity reports',
-    me: 'Weekly updates + pipeline metrics (leads, calls booked, revenue influenced)',
+    me: 'Practical updates tied to profile-to-website clarity, audit interest, and next fixes',
   },
 ]
 
@@ -42,7 +42,7 @@ export default function WhyChooseMe() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-5xl font-bebas mb-4">Why Choose Ghufran Hasan?</h2>
-          <p className="text-white/80 max-w-2xl mx-auto">Most LinkedIn services focus on vanity metrics. I focus on pipeline.</p>
+          <p className="text-white/80 max-w-2xl mx-auto">Most LinkedIn services stop at visibility. I focus on what happens after a warm visitor checks your profile and lands on your website.</p>
         </motion.div>
 
         <div className="md:overflow-hidden md:rounded-2xl md:border md:border-orange-500/20">

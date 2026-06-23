@@ -68,7 +68,7 @@ export default function About() {
                 The pattern I kept seeing was simple: founders were getting attention on LinkedIn, but the website did not continue the conversation. That gap is where I focus.
               </p>
               <p>
-                I combine frontend development, conversion strategy, and LinkedIn positioning to build pages that support the full buyer journey.
+                I combine frontend development, conversion strategy, and LinkedIn positioning, so I can diagnose both sides of the journey: what visitors believed on your profile and what your website needs to confirm before they book.
               </p>
             </div>
 

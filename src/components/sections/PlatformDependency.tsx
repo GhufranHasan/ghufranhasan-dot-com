@@ -62,7 +62,7 @@ export default function PlatformDependency() {
             LinkedIn creates attention. Your website protects and converts it.
           </h2>
           <p className="mx-auto mt-5 max-w-3xl text-white/70">
-            LinkedIn is a powerful discovery channel, but your profile, posts, DMs, and audience still live on a platform you do not fully control. Your website gives that attention an owned place to become trust, leads, and qualified conversations.
+            LinkedIn is discovery. Your website is the decision room: the owned place where your offer, proof, CTA, and email capture turn profile curiosity into a clearer next step.
           </p>
         </motion.div>
 

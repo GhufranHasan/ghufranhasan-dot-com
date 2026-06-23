@@ -34,21 +34,21 @@ const auditPoints = [
 
 const contactOptions = [
   {
+    label: 'DM AUDIT on LinkedIn',
+    href: linkedinUrl,
+    icon: Linkedin,
+    primary: true,
+  },
+  {
     label: 'Book on Calendly',
     href: calendlyUrl,
     icon: Calendar,
-    primary: true,
+    primary: false,
   },
   {
     label: 'Email me',
     href: 'mailto:hello@ghufranhasan.com?subject=Free%20Funnel%20Audit',
     icon: Mail,
-    primary: false,
-  },
-  {
-    label: 'DM AUDIT on LinkedIn',
-    href: linkedinUrl,
-    icon: Linkedin,
     primary: false,
   },
 ]
@@ -75,7 +75,7 @@ export default function Contact() {
             <div>
               <SectionBadge icon={Sparkles} className="mb-4">Free funnel audit</SectionBadge>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bebas mb-4">
-                If LinkedIn attention is not turning into demos, your website may be the gap.
+                If LinkedIn profile visits are not turning into booked conversations, your website may be the gap.
               </h2>
               <p className="text-white/70 text-lg">
                 Book a free audit and I will show you where the journey from profile visit to booked conversation is breaking.
@@ -120,8 +120,8 @@ export default function Contact() {
           >
             <div className="text-center mb-8">
               <Calendar size={32} className="text-orange-500 mx-auto mb-3" />
-              <h3 className="text-2xl font-bold text-white">Choose the easiest next step</h3>
-              <p className="text-white/60 text-sm mt-2">Calendly, email, and LinkedIn all work. No embedded calendar dead ends.</p>
+              <h3 className="text-2xl font-bold text-white">Request the free audit</h3>
+              <p className="text-white/60 text-sm mt-2">LinkedIn DM is the fastest path. Calendly and email are here if you prefer them.</p>
             </div>
 
             <div className="space-y-4">
@@ -147,7 +147,7 @@ export default function Contact() {
             </div>
 
             <p className="text-center text-white/50 text-sm mt-6">
-              Prefer LinkedIn? Send the word AUDIT and include your website link.
+              No pitch. No pressure. Just clarity on the first leak I would fix.
             </p>
           </motion.div>
         </div>
