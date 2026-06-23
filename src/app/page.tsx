@@ -8,6 +8,7 @@ import CaseStudies from '@/components/sections/CaseStudies'
 import WhyChooseMe from '@/components/sections/WhyChooseMe'
 import FitCheck from '@/components/sections/FitCheck'
 import DifferentView from '@/components/sections/DifferentView'
+import AuditExamples from '@/components/sections/AuditExamples'
 import Packages from '@/components/sections/Packages'
 import Process from '@/components/sections/Process'
 import FAQ from '@/components/sections/FAQ'
@@ -105,6 +106,7 @@ export default function Home() {
       <About />
       <CaseStudies />
       <WhyChooseMe />
+      <AuditExamples />
       <Packages />
       <FitCheck />
       <Process />
