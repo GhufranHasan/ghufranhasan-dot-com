@@ -9,18 +9,18 @@ import SectionBadge from '@/components/ui/SectionBadge'
 const services = [
   {
     icon: MessageSquareText,
-    title: 'Clear positioning',
-    description: 'We turn scattered services into one sharp promise: who you help, what outcome you create, and why it matters now.',
+    title: 'LinkedIn profile alignment',
+    description: 'Your headline, About section, Featured section, and profile promise point toward one clear website action.',
   },
   {
     icon: MousePointerClick,
-    title: 'Conversion-focused website',
-    description: 'Your page stops acting like a brochure and starts guiding warm LinkedIn visitors toward a free audit or strategy call.',
+    title: 'Website conversion path',
+    description: 'Your page stops acting like a brochure and starts guiding warm LinkedIn visitors through clarity, trust, and action.',
   },
   {
     icon: Map,
-    title: 'Client journey architecture',
-    description: 'Profile, content, website, and CTA work together as one path instead of four disconnected assets.',
+    title: 'CTA and intake system',
+    description: 'Your audit request, booking flow, and follow-up path become one focused journey instead of competing next steps.',
   },
 ]
 
@@ -36,10 +36,10 @@ export default function Services() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <SectionBadge icon={Map} className="mb-4">The solution</SectionBadge>
-          <h2 className="text-3xl md:text-5xl font-bebas mb-4">A website that completes the LinkedIn journey</h2>
+          <SectionBadge icon={Map} className="mb-4">Funnel Align system</SectionBadge>
+          <h2 className="text-3xl md:text-5xl font-bebas mb-4">One specialist offer under the personal brand</h2>
           <p className="text-white/70 text-lg">
-            The goal is not prettier pages. The goal is a clearer path from discovery to trust to action.
+            This is not a full-service agency menu. It is a focused LinkedIn-to-Website Funnel Optimization system.
           </p>
         </motion.div>
 
@@ -68,10 +68,10 @@ export default function Services() {
           className="text-center mt-12 md:mt-16"
         >
           <Link
-            href="#contact"
+            href="/linkedin-website-funnel"
             className="inline-flex items-center gap-3 px-8 py-3 rounded-full bg-linear-to-r from-orange-500 to-orange-600 text-white font-semibold hover:shadow-glow-hover transition-all"
           >
-            Get your funnel reviewed <ArrowRight size={18} />
+            Explore the specialist offer <ArrowRight size={18} />
           </Link>
         </motion.div>
       </div>

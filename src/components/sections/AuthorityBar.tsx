@@ -6,8 +6,8 @@ import { Code2, Compass, Gauge, Target, Workflow } from 'lucide-react'
 
 const trustItems = [
   {
-    title: 'B2B agency focus',
-    text: 'Messaging built for founders who sell services, retainers, and strategy.',
+    title: 'Specialist focus',
+    text: 'Built for B2B founders, coaches, and creators who need a clearer path from attention to conversation.',
     icon: Target,
   },
   {
@@ -45,7 +45,7 @@ export default function AuthorityBar() {
           className="text-center mb-8"
         >
           <p className="text-orange-500 text-sm uppercase tracking-wider font-semibold">
-            Built around the conversion gap
+          Personal brand trust, specialist system
           </p>
           <div className="w-12 h-0.5 bg-orange-500 mx-auto mt-2" />
         </motion.div>

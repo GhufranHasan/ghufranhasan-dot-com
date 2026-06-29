@@ -309,7 +309,7 @@ function PackageValueModal({
 
           <div className="mt-7 border-t border-orange-500/20 pt-6">
             <Button
-              href="#contact"
+              href="/free-audit#request-audit"
               variant="primary"
               className="w-full whitespace-nowrap"
               onClick={() => {
@@ -334,9 +334,9 @@ const startOptions = [
     title: 'Free Funnel Audit',
     price: 'Free',
     bestFor: 'You want a quick read on the biggest leak before spending money.',
-    includes: ['15-minute review', 'Biggest conversion opportunity', 'Clear next step'],
+    includes: ['Focused path review', 'Biggest conversion opportunity', 'Clear next step'],
     cta: 'Request Free Audit',
-    href: '#contact',
+    href: '/free-audit',
     tone: 'soft',
   },
   {
@@ -347,7 +347,7 @@ const startOptions = [
     bestFor: 'You want the exact fixes, copy direction, and roadmap before building.',
     includes: ['Recorded Loom', 'Priority fix list', 'Implementation roadmap'],
     cta: 'Start with audit',
-    href: '#contact',
+    href: '/free-audit#request-audit',
     tone: 'warm',
   },
   {
@@ -358,7 +358,7 @@ const startOptions = [
     bestFor: 'You already know the gap and want the LinkedIn-to-website path built.',
     includes: ['Messaging structure', 'Landing page build', 'Booking flow'],
     cta: 'Discuss the build',
-    href: '#contact',
+    href: '/free-audit#request-audit',
     tone: 'bright',
   },
 ]
@@ -436,7 +436,7 @@ export default function Packages() {
               </div>
 
               <div className="space-y-3 text-center">
-                <Button href="#contact" variant="primary" className="w-full">
+                <Button href="/free-audit#request-audit" variant="primary" className="w-full">
                   {pkg.cta}
                 </Button>
                 <button
@@ -483,7 +483,7 @@ export default function Packages() {
                     <ArrowRight size={19} className="mt-0.5 text-orange-400 shrink-0" />
                     <div>
                       <p className="font-semibold text-white">No pressure</p>
-                      <p className="text-sm text-white/60">The first call is for clarity, not a forced package decision.</p>
+                      <p className="text-sm text-white/60">The intake creates clarity before any optional call or package decision.</p>
                     </div>
                   </div>
                 </div>

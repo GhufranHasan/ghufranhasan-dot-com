@@ -95,8 +95,28 @@ export default function PainAgitation() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-8 max-w-6xl mx-auto items-stretch">
-          <div className="grid sm:grid-cols-2 gap-5">
+        <div className="grid lg:grid-cols-[0.82fr_1.18fr] gap-8 max-w-6xl mx-auto items-start">
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="self-start overflow-hidden rounded-3xl border border-orange-500/25 bg-purple-950/55 p-5 shadow-glow backdrop-blur-md md:p-6"
+          >
+            <div className="mb-5 flex items-start justify-between gap-4 border-b border-orange-500/15 pb-5">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-wider text-orange-300">
+                  What visitors experience
+                </p>
+                <h3 className="mt-2 text-2xl font-bebas text-white">
+                  The symptoms are small. The leak is expensive.
+                </h3>
+              </div>
+              <div className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-500/10 text-orange-400 ring-1 ring-orange-500/25 sm:flex">
+                <Flame size={21} />
+              </div>
+            </div>
+
+            <div className="space-y-3">
             {pains.map((pain, index) => (
               <motion.div
                 key={pain.title}
@@ -104,21 +124,31 @@ export default function PainAgitation() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08 }}
-                className="group relative overflow-hidden rounded-2xl border border-orange-500/20 bg-purple-950/55 p-6 shadow-glow backdrop-blur-md transition-all hover:-translate-y-1 hover:border-orange-500/55"
+                className="group grid grid-cols-[auto_1fr] gap-4 rounded-2xl border border-white/10 bg-white/[0.035] p-4 transition-all hover:border-orange-500/40 hover:bg-orange-500/[0.07]"
               >
-                <div className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-orange-500/80 via-orange-600/40 to-transparent" />
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-orange-500/10 ring-1 ring-orange-500/25 transition-all group-hover:bg-orange-500/20">
-                    <pain.icon size={22} className="text-orange-500" />
-                  </div>
-                  <div>
-                    <h3 className="mb-2 text-lg font-bold text-white">{pain.title}</h3>
-                    <p className="text-sm leading-relaxed text-white/65">{pain.text}</p>
-                  </div>
+                <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-orange-500/10 ring-1 ring-orange-500/20 transition-all group-hover:bg-orange-500/15">
+                  <pain.icon size={21} className="text-orange-400" />
+                  <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-purple-950 text-[10px] font-bold text-orange-300 ring-1 ring-orange-500/30">
+                    {index + 1}
+                  </span>
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-base font-bold text-white">{pain.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-white/62">{pain.text}</p>
                 </div>
               </motion.div>
             ))}
+
+            <div className="mt-5 rounded-2xl border border-orange-500/20 bg-orange-500/10 p-4">
+              <p className="text-sm font-semibold text-white">
+                The pattern:
+              </p>
+              <p className="mt-1 text-sm leading-relaxed text-white/66">
+                Interest is not the problem. The handoff from profile to website is where the path usually breaks.
+              </p>
+            </div>
           </div>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 30 }}

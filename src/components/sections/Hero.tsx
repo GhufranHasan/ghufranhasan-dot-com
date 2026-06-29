@@ -16,15 +16,15 @@ import {
 } from 'lucide-react'
 
 const proofPoints = [
-  'B2B agency profile promise aligned with the website headline',
-  'One clear audit CTA instead of competing next steps',
-  'Built with React and Next.js for fast launch paths',
+  'Personal-brand trust with an agency-style conversion system',
+  'One focused offer: LinkedIn-to-Website Funnel Optimization',
+  'Profile, website, and CTA aligned before you scale the brand',
 ]
 
 const trustSignals = [
   { value: '23K+', label: 'LinkedIn audience' },
-  { value: 'Agency', label: 'focused ICP' },
-  { value: 'Honest', label: 'no inflated claims' },
+  { value: 'Funnel Align', label: 'specialist system' },
+  { value: 'Focused', label: 'no full-service clutter' },
 ]
 
 const journeySteps = [
@@ -108,7 +108,7 @@ export default function Hero() {
               transition={{ delay: 0.2 }}
               className="mb-6"
             >
-              <SectionBadge icon={Linkedin}>LinkedIn to website conversion for B2B agencies</SectionBadge>
+              <SectionBadge icon={Linkedin}>Funnel Align by Ghufran Hasan</SectionBadge>
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -117,6 +117,7 @@ export default function Hero() {
               className="hero-headline text-5xl md:text-6xl lg:text-7xl font-bebas font-semibold leading-[1.03] mb-6 text-white max-w-4xl"
             >
               <span className="block">Turn LinkedIn Profile Visits</span>
+              {' '}
               <span className="hero-gradient-text block">Into Booked Conversations</span>
             </motion.h1>
 
@@ -126,7 +127,7 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className="text-lg text-white/80 mb-8 max-w-2xl"
             >
-              I help B2B agency founders align their LinkedIn profile, website, and CTA so warm visitors understand the offer, trust the process, and take the next step.
+              I help B2B founders, coaches, and creators turn LinkedIn attention into booked conversations through profile, website, and CTA alignment.
             </motion.p>
 
             <motion.div
@@ -149,11 +150,11 @@ export default function Hero() {
               transition={{ delay: 0.5 }}
               className="flex flex-col gap-4 sm:flex-row md:flex-col xl:flex-row"
             >
-              <Button href="#contact" variant="primary" size="large" className="whitespace-nowrap">
+              <Button href="/free-audit" variant="primary" size="large" className="whitespace-nowrap">
                 Request Free Audit <ArrowRight size={18} />
               </Button>
-              <Button href="#case-studies" variant="secondary" size="large" className="whitespace-nowrap">
-                View Funnel Examples
+              <Button href="/linkedin-website-funnel" variant="secondary" size="large" className="whitespace-nowrap">
+                Explore Funnel Align
               </Button>
             </motion.div>
 
@@ -302,11 +303,11 @@ export default function Hero() {
               </a>
               <div className="mt-3 flex items-center gap-3 text-white/80 text-sm">
                 <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
-                <span>Frontend developer and LinkedIn funnel strategist</span>
+                <span>Founder of Funnel Align</span>
               </div>
               <div className="mt-3 flex items-center gap-3 text-white/80 text-sm">
                 <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
-                <span>Building in public with no fake client numbers</span>
+                <span>Personal brand first, specialist system underneath</span>
               </div>
             </div>
           </motion.div>

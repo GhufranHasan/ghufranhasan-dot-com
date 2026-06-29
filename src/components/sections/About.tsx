@@ -9,14 +9,14 @@ import SectionBadge from '@/components/ui/SectionBadge'
 
 const stats = [
   { value: '23K+', label: 'LinkedIn followers', icon: TrendingUp },
+  { value: '1', label: 'Specialist offer', icon: Target },
   { value: '10', label: 'Day launch sprint', icon: Clock },
-  { value: '1', label: 'Clear conversion path', icon: Target },
 ]
 
 const thinkingSteps = [
   'Audit where LinkedIn attention leaks before it becomes a conversation.',
   'Align the profile promise with the website headline and offer.',
-  'Design one path toward a free audit, DM, or strategy call.',
+  'Design one intake-first path toward a qualified audit request.',
 ]
 
 export default function About() {
@@ -62,13 +62,13 @@ export default function About() {
 
             <div className="space-y-4 text-white/70">
               <p>
-                I am Ghufran, a frontend developer focused on building websites that do more than look good. They clarify the offer, support the founder&apos;s authority, and help warm prospects take the next step.
+                I am Ghufran, founder of Funnel Align and a frontend developer focused on building websites that do more than look good. They clarify the offer, support the founder&apos;s authority, and help warm prospects take the next step.
               </p>
               <p>
-                The pattern I kept seeing was simple: founders were getting attention on LinkedIn, but the website did not continue the conversation. That gap is where I focus.
+                At this stage, my personal brand is the front face because people trust people before they trust a new agency name. Funnel Align is the specialist system behind the work.
               </p>
               <p>
-                I combine frontend development, conversion strategy, and LinkedIn positioning, so I can diagnose both sides of the journey: what visitors believed on your profile and what your website needs to confirm before they book.
+                I combine frontend development, conversion strategy, and LinkedIn positioning for one focused offer: LinkedIn-to-Website Funnel Optimization for B2B founders, coaches, and creators.
               </p>
             </div>
 
@@ -87,7 +87,7 @@ export default function About() {
             <div className="relative p-5 bg-orange-500/5 border-l-4 border-orange-500 rounded-r-xl">
               <Quote size={24} className="text-orange-500/30 absolute top-3 right-3" />
               <p className="text-white font-medium text-base leading-relaxed">
-                &quot;You do not need a prettier portfolio. You need a clearer path from LinkedIn curiosity to a qualified conversation.&quot;
+                &quot;Do not hide behind a generic agency brand too early. Build trust as a person, then make the offer feel like a repeatable system.&quot;
               </p>
               <div className="mt-2 text-orange-500 font-semibold text-sm">- Ghufran Hasan</div>
             </div>
@@ -104,10 +104,10 @@ export default function About() {
 
             <div className="pt-2">
               <Link
-                href="#contact"
+                href="/linkedin-website-funnel"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-linear-to-r from-orange-500 to-orange-600 text-white font-semibold hover:shadow-glow-hover transition-all group"
               >
-                Review My LinkedIn-to-Website Path
+                Explore Funnel Align
               </Link>
             </div>
           </motion.div>
