@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
   ArrowRight,
-  ClipboardCheck,
   FileSearch,
   Globe2,
   Library,
+  ListChecks,
   Route,
 } from 'lucide-react'
 import SectionBadge from '@/components/ui/SectionBadge'
@@ -30,12 +30,12 @@ export const metadata: Metadata = {
 
 const resources = [
   {
-    type: 'Free checklist',
-    title: 'Free Website Audit Checklist',
-    description: 'Use the branded 10-Point Website Funnel Checklist to find positioning, trust, CTA, and offer-clarity leaks.',
-    href: '/free-website-audit-checklist',
-    cta: 'Get the checklist',
-    icon: ClipboardCheck,
+    type: 'Public checklist',
+    title: 'LinkedIn-to-Website Funnel Checklist',
+    description: 'Use the public 10-point checklist to score your LinkedIn profile, website, and CTA path without entering an email.',
+    href: '/resources/linkedin-website-funnel-checklist',
+    cta: 'Start the checklist',
+    icon: ListChecks,
   },
   {
     type: 'Comparison study',

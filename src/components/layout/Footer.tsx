@@ -16,8 +16,8 @@ const services = [
 
 const resources = [
   { label: 'All Resources', href: '/resources' },
+  { label: 'Public Funnel Checklist', href: '/resources/linkedin-website-funnel-checklist' },
   { label: 'LinkedIn Website Funnel', href: '/linkedin-website-funnel' },
-  { label: 'Free Website Audit Checklist', href: '/free-website-audit-checklist' },
   { label: 'Website Comparison Study', href: '/linkedin-website-examples' },
   { label: 'Owned Business Asset', href: '/#owned-asset' },
   { label: 'Newsletter', href: '/#newsletter' },
@@ -34,7 +34,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="texture-band neon-deep border-t border-orange-500/20 py-12">
+    <footer className="site-footer texture-band neon-deep border-t border-orange-500/20 py-12">
       <div className="container-custom">
         <div className="grid md:grid-cols-[1.2fr_0.8fr_0.8fr_1.2fr] gap-8 mb-10">
           <div>

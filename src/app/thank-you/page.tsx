@@ -112,15 +112,15 @@ export default function ThankYouPage() {
             </h2>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <Link
-                href="/free-website-audit-checklist"
+                href="/resources/linkedin-website-funnel-checklist"
                 className="glass-card border-orange-500/20 p-6 text-left transition-colors hover:border-orange-500/45"
               >
                 <ClipboardCheck size={24} className="text-orange-400" />
                 <h3 className="mt-4 font-bold text-white">
-                  10-Point Website Funnel Checklist
+                  LinkedIn-to-Website Funnel Checklist
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-white/60">
-                  Review the most common clarity, trust, CTA, and mobile leaks.
+                  Review your LinkedIn profile, website, and CTA path without an email gate.
                 </p>
               </Link>
               <Link
@@ -142,4 +142,3 @@ export default function ThankYouPage() {
     </article>
   )
 }
-

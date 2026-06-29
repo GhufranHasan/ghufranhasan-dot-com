@@ -309,4 +309,58 @@
       animation: none;
     }
   }
+
+  @media print {
+    .funnel-checklist-page,
+    .funnel-checklist-page * {
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+
+    body:has(.funnel-checklist-page) {
+      background: #050814 !important;
+      color: #fefefe !important;
+    }
+
+    body:has(.funnel-checklist-page) .site-navigation,
+    body:has(.funnel-checklist-page) .site-footer,
+    body:has(.funnel-checklist-page) .site-sticky-cta,
+    body:has(.funnel-checklist-page) > nav,
+    body:has(.funnel-checklist-page) > footer,
+    body:has(.funnel-checklist-page) .fixed {
+      display: none !important;
+    }
+
+    .funnel-checklist-page {
+      background:
+        linear-gradient(120deg, rgba(96, 5, 74, 0.58), rgba(10, 19, 50, 0.96) 42%, rgba(5, 8, 20, 1)),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 96px),
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 96px) !important;
+    }
+
+    .funnel-checklist-page section,
+    .funnel-checklist-page header {
+      background-color: transparent !important;
+    }
+
+    .funnel-checklist-page .glass-card,
+    .funnel-checklist-page [class*="bg-background-card"],
+    .funnel-checklist-page [class*="bg-purple-950"] {
+      background-color: rgba(10, 19, 50, 0.86) !important;
+      border-color: rgba(255, 132, 3, 0.28) !important;
+      box-shadow: 0 0 20px rgba(255, 132, 3, 0.16) !important;
+    }
+
+    .funnel-checklist-page [class*="bg-orange-500"] {
+      background-color: rgba(255, 132, 3, 0.18) !important;
+    }
+
+    .funnel-checklist-page [class*="text-white"] {
+      color: rgba(254, 254, 254, 0.96) !important;
+    }
+
+    .funnel-checklist-page [class*="text-orange"] {
+      color: #ffb15a !important;
+    }
+  }
 }

@@ -34,7 +34,7 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`site-navigation fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled || isOpen ? 'bg-purple-950/95 backdrop-blur-md border-b border-orange-500/20' : 'bg-transparent'
       }`}
     >

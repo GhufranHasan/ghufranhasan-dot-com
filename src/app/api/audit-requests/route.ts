@@ -5,25 +5,11 @@ import {
   improvementTimelines,
   mainProblems,
 } from '@/data/auditOptions'
-import { supabaseAdminRequest } from '@/lib/supabase/admin'
+import { createAuditRequest } from '@/lib/supabase/auditRequests'
 
 const WINDOW_MS = 60_000
 const MAX_REQUESTS_PER_WINDOW = 3
 const rateLimitStore = new Map<string, { count: number; resetAt: number }>()
-
-type AuditRequestRecord = {
-  id: string
-  name: string
-  email: string
-  linkedin_url: string
-  website_url: string
-  business_type: string
-  main_problem: string
-  desired_outcome: string
-  timeline: string
-  status: string
-  created_at: string
-}
 
 type ResendResult = {
   message?: string
@@ -185,28 +171,16 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const [savedRequest] = await supabaseAdminRequest<AuditRequestRecord[]>(
-      'audit_requests',
-      {
-        method: 'POST',
-        prefer: 'return=representation',
-        body: {
-          name,
-          email,
-          linkedin_url: parsedLinkedinUrl.toString(),
-          website_url: parsedWebsiteUrl.toString(),
-          business_type: businessType,
-          main_problem: mainProblem,
-          desired_outcome: desiredOutcome,
-          timeline,
-          status: 'new',
-        },
-      }
-    )
-
-    if (!savedRequest?.id) {
-      throw new Error('Supabase did not return the saved audit request')
-    }
+    const savedRequest = await createAuditRequest({
+      name,
+      email,
+      linkedinUrl: parsedLinkedinUrl.toString(),
+      websiteUrl: parsedWebsiteUrl.toString(),
+      businessType,
+      mainProblem,
+      desiredOutcome,
+      timeline,
+    })
 
     const fromEmail = process.env.RESEND_FROM_EMAIL
     let emailsSent = false

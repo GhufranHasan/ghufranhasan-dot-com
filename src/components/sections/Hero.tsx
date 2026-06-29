@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import { useState, type FormEvent } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import SectionBadge from '@/components/ui/SectionBadge'
@@ -10,7 +9,6 @@ import {
   CalendarCheck,
   CheckCircle2,
   ClipboardCheck,
-  Download,
   Linkedin,
   MousePointerClick,
 } from 'lucide-react'
@@ -45,49 +43,7 @@ const journeySteps = [
   },
 ]
 
-const checklistHref = '/resources/website-funnel-checklist.html'
-
 export default function Hero() {
-  const [checklistEmail, setChecklistEmail] = useState('')
-  const [checklistWebsite, setChecklistWebsite] = useState('')
-  const [checklistError, setChecklistError] = useState('')
-  const [isChecklistLoading, setIsChecklistLoading] = useState(false)
-  const [isChecklistUnlocked, setIsChecklistUnlocked] = useState(false)
-
-  const handleChecklistSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    if (!checklistEmail) return
-
-    setChecklistError('')
-    setIsChecklistLoading(true)
-
-    try {
-      const response = await fetch('/api/newsletter/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: checklistEmail,
-          website: checklistWebsite,
-          source: 'hero-checklist',
-        }),
-      })
-
-      const data = await response.json()
-
-      if (!response.ok) {
-        setChecklistError(data.error || 'The checklist is unavailable right now. Please try again later.')
-        return
-      }
-
-      setIsChecklistUnlocked(true)
-    } catch (error) {
-      console.error('Checklist signup error:', error)
-      setChecklistError('The checklist is unavailable right now. Please try again later.')
-    } finally {
-      setIsChecklistLoading(false)
-    }
-  }
-
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 pb-16">
       <div className="hero-premium-bg" aria-hidden="true">
@@ -178,67 +134,20 @@ export default function Hero() {
                   <ClipboardCheck size={20} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-white text-sm font-semibold">10-Point Website Funnel Checklist</p>
+                  <p className="text-white text-sm font-semibold">10-Point LinkedIn-to-Website Funnel Checklist</p>
                   <p className="text-white/60 text-xs mt-1">
-                    Use it to find whether your website has a positioning leak, trust leak, CTA leak, or offer clarity leak.
+                    Use the public checklist to score your LinkedIn profile, website, and CTA path without entering an email.
                   </p>
                   <a
-                    href="/free-website-audit-checklist"
-                    className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-orange-300 transition-colors hover:text-orange-200"
+                    href="/resources/linkedin-website-funnel-checklist"
+                    className="mt-4 inline-flex items-center gap-2 rounded-lg bg-orange-500/10 px-4 py-2 text-xs font-semibold text-orange-200 transition-colors hover:bg-orange-500/15 hover:text-orange-100"
                   >
-                    Preview the free website audit checklist
+                    Open the public checklist
                     <ArrowRight size={13} />
                   </a>
-
-                  {isChecklistUnlocked ? (
-                    <div className="mt-4 rounded-lg border border-orange-500/25 bg-orange-500/10 p-3">
-                      <p className="text-sm font-semibold text-white">Checklist unlocked.</p>
-                      <a
-                        href={checklistHref}
-                        download
-                        className="mt-3 inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-4 py-2 text-sm font-semibold text-white transition-all hover:shadow-glow-hover"
-                      >
-                        <Download size={16} />
-                        Download checklist
-                      </a>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleChecklistSubmit} className="mt-4 space-y-3">
-                      <input
-                        type="text"
-                        name="website"
-                        value={checklistWebsite}
-                        onChange={(event) => setChecklistWebsite(event.target.value)}
-                        tabIndex={-1}
-                        autoComplete="off"
-                        className="hidden"
-                        aria-hidden="true"
-                      />
-                      <div className="flex flex-col gap-3 sm:flex-row">
-                        <input
-                          type="email"
-                          value={checklistEmail}
-                          onChange={(event) => setChecklistEmail(event.target.value)}
-                          placeholder="Your email"
-                          required
-                          className="min-w-0 flex-1 rounded-lg border border-orange-500/20 bg-purple-950/50 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition-colors focus:border-orange-500/50"
-                        />
-                        <button
-                          type="submit"
-                          disabled={isChecklistLoading}
-                          className="inline-flex items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-5 py-3 text-sm font-semibold text-white transition-all hover:shadow-glow-hover disabled:cursor-not-allowed disabled:opacity-60"
-                        >
-                          {isChecklistLoading ? 'Sending...' : 'Get checklist'}
-                          {!isChecklistLoading && <ArrowRight size={15} />}
-                        </button>
-                      </div>
-                      {checklistError && (
-                        <p className="rounded-lg border border-red-500/25 bg-red-500/10 px-3 py-2 text-xs text-red-300">
-                          {checklistError}
-                        </p>
-                      )}
-                    </form>
-                  )}
+                  <p className="mt-3 text-xs font-semibold text-white/45">
+                    No email required. No signup.
+                  </p>
                 </div>
               </div>
             </div>

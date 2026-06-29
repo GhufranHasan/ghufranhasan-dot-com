@@ -27,10 +27,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: 'https://ghufranhasan.com/free-website-audit-checklist',
-      lastModified: '2026-06-06',
+      url: 'https://ghufranhasan.com/resources/linkedin-website-funnel-checklist',
+      lastModified: '2026-06-29',
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.82,
     },
     {
       url: 'https://ghufranhasan.com/resources',
