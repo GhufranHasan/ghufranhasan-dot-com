@@ -111,7 +111,7 @@ export default function ResourcesPage() {
               I can review the path from your LinkedIn profile to your website and show you the first conversion gap worth fixing.
             </p>
             <Link
-              href="/#contact"
+              href="/free-audit"
               className="mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-7 py-4 font-bold text-white transition-all hover:shadow-glow-hover"
             >
               Request a Free Funnel Audit

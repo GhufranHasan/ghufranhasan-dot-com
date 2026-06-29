@@ -135,7 +135,7 @@ export default function LinkedInWebsiteExamplesPage() {
                   <ArrowRight size={17} />
                 </Link>
                 <Link
-                  href="/#contact"
+                  href="/free-audit"
                   className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-orange-500 px-6 py-3 font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-orange-500/10 hover:shadow-glow"
                 >
                   Audit my website path
@@ -426,7 +426,7 @@ export default function LinkedInWebsiteExamplesPage() {
                   You do not need to copy another personal-brand website. You need to understand where your LinkedIn-to-website journey loses clarity, trust, or action.
                 </p>
                 <Link
-                  href="/#contact"
+                  href="/free-audit"
                   className="mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-7 py-4 font-bold text-white transition-all hover:-translate-y-0.5 hover:shadow-glow-hover"
                 >
                   Request My Free Funnel Audit

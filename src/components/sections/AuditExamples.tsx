@@ -120,7 +120,7 @@ export default function AuditExamples() {
               </p>
 
               <div className="mt-6">
-                <Button href="#contact" variant="primary" className="w-full">
+                <Button href="/free-audit" variant="primary" className="w-full">
                   Request Free Audit
                   <ArrowRight size={17} />
                 </Button>

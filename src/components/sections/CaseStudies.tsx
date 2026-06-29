@@ -146,7 +146,7 @@ export default function CaseStudies() {
           className="text-center mt-12"
         >
           <Link
-            href="#contact"
+            href="/free-audit"
             className="inline-flex items-center gap-3 px-8 py-3 rounded-full bg-linear-to-r from-orange-500 to-orange-600 text-white font-semibold hover:shadow-glow-hover transition-all"
           >
             Request Free Audit <ArrowRight size={18} />

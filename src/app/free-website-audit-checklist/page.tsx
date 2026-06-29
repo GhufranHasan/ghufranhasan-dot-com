@@ -210,7 +210,7 @@ export default function FreeWebsiteAuditChecklistPage() {
                   ))}
                 </div>
                 <Link
-                  href="/#contact"
+                  href="/free-audit"
                   className="mt-7 inline-flex items-center justify-center gap-2 rounded-lg border-2 border-orange-500 px-6 py-3 font-bold text-white transition-all hover:bg-orange-500/10 hover:shadow-glow"
                 >
                   Request a Free Funnel Audit

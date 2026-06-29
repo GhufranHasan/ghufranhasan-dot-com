@@ -92,7 +92,7 @@ export default function FAQ() {
             </div>
 
             <a
-              href="#contact"
+              href="/free-audit"
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-5 py-3 text-sm font-semibold text-white transition-all hover:shadow-glow-hover"
             >
               Ask for the audit path
@@ -195,7 +195,7 @@ export default function FAQ() {
             <h3 className="text-xl font-bold text-white mb-2">Still unsure where the leak is?</h3>
             <p className="text-white/70 mb-6">I can review your current profile and website path and show you the first fixes.</p>
             <a
-              href="#contact"
+              href="/free-audit"
               className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-orange-500 to-orange-600 px-6 py-3 font-semibold text-white transition-all hover:shadow-glow-hover"
             >
               <MessageCircle size={18} />

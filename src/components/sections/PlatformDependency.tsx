@@ -98,7 +98,7 @@ export default function PlatformDependency() {
                 ))}
               </div>
 
-              <Button href="#contact" variant="primary" className="w-full text-sm">
+              <Button href="/free-audit" variant="primary" className="w-full text-sm">
                 Audit My LinkedIn-to-Website Path
                 <ArrowRight size={17} />
               </Button>
