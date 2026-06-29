@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Calendar, Github, Linkedin, Mail, MessageCircle } from 'lucide-react'
+import { ClipboardCheck, Github, Linkedin, Mail, MessageCircle } from 'lucide-react'
 import LeadMagnet from '@/components/sections/LeadMagnet'
 import SocialLinksModal from '@/components/layout/SocialLinksModal'
 
 const services = [
+  { label: 'Funnel Align', href: '/linkedin-website-funnel' },
   { label: 'Services', href: '/#services' },
   { label: 'Funnel Patterns', href: '/#case-studies' },
   { label: 'Pricing', href: '/#packages' },
@@ -15,11 +16,12 @@ const services = [
 
 const resources = [
   { label: 'All Resources', href: '/resources' },
+  { label: 'LinkedIn Website Funnel', href: '/linkedin-website-funnel' },
   { label: 'Free Website Audit Checklist', href: '/free-website-audit-checklist' },
   { label: 'Website Comparison Study', href: '/linkedin-website-examples' },
   { label: 'Owned Business Asset', href: '/#owned-asset' },
   { label: 'Newsletter', href: '/#newsletter' },
-  { label: 'Free Audit', href: '/#contact' },
+  { label: 'Free Audit', href: '/free-audit' },
 ]
 
 const socialLinks = [
@@ -27,7 +29,7 @@ const socialLinks = [
   { icon: Github, href: 'https://github.com/ghufranhasan', label: 'GitHub' },
   { icon: Mail, href: 'mailto:hello@ghufranhasan.com', label: 'Email' },
   { icon: MessageCircle, href: 'https://wa.me/?text=Hi%20Ghufran%2C%20I%20want%20to%20talk%20about%20my%20LinkedIn%20to%20website%20funnel.', label: 'WhatsApp' },
-  { icon: Calendar, href: '/#contact', label: 'Book Audit' },
+  { icon: ClipboardCheck, href: '/free-audit', label: 'Request Audit' },
 ]
 
 export default function Footer() {
@@ -47,7 +49,7 @@ export default function Footer() {
               <span>Ghufran<span className="text-orange-500">.</span></span>
             </Link>
             <p className="text-white/70 max-w-sm text-sm">
-              I don&apos;t just build websites. I build paths that turn attention into clients.
+              Ghufran Hasan, founder of Funnel Align. I build paths that turn LinkedIn attention into booked conversations.
             </p>
             <div className="flex gap-3 mt-6">
               {socialLinks.map((social) => (
@@ -95,7 +97,7 @@ export default function Footer() {
 
         <div className="pt-6 border-t border-orange-500/20 text-white/50 text-sm flex flex-col md:flex-row gap-3 justify-between">
           <span>&copy; {new Date().getFullYear()} Ghufran Hasan. All rights reserved.</span>
-          <span>LinkedIn to website conversion strategy for B2B agency founders.</span>
+          <span>Funnel Align by Ghufran Hasan - LinkedIn-to-website funnel optimization.</span>
         </div>
       </div>
     </footer>

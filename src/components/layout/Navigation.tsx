@@ -10,7 +10,7 @@ import { useModal } from '@/contexts/ModalContext'
 
 const navItems = [
   { name: 'Home', href: '/#home' },
-  { name: 'Services', href: '/#services' },
+  { name: 'Funnel Align', href: '/linkedin-website-funnel' },
   { name: 'Funnel Patterns', href: '/#case-studies' },
   { name: 'Pricing', href: '/#packages' },
   { name: 'Process', href: '/#process' },
@@ -33,10 +33,7 @@ export default function Navigation() {
   if (isModalOpen) return null
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled || isOpen ? 'bg-purple-950/95 backdrop-blur-md border-b border-orange-500/20' : 'bg-transparent'
       }`}
@@ -67,7 +64,7 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
-            <Button href="/#contact" variant="primary">Free Audit</Button>
+            <Button href="/free-audit" variant="primary">Free Audit</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -100,12 +97,12 @@ export default function Navigation() {
                     {item.name}
                   </Link>
                 ))}
-                <Button href="/#contact" variant="primary" className="w-full" onClick={() => setIsOpen(false)}>Free Audit</Button>
+                <Button href="/free-audit" variant="primary" className="w-full" onClick={() => setIsOpen(false)}>Free Audit</Button>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
-    </motion.nav>
+    </nav>
   )
 }

@@ -1,41 +1,66 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Calendar, Linkedin, X } from 'lucide-react'
+import { usePathname } from 'next/navigation'
+import { ClipboardCheck, X } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 export default function StickyCTA() {
+  const pathname = usePathname()
   const [isVisible, setIsVisible] = useState(true)
   const [isMobile, setIsMobile] = useState(false)
+  const [hasLeftHero, setHasLeftHero] = useState(false)
+  const [isContactVisible, setIsContactVisible] = useState(false)
 
   useEffect(() => {
-    const checkMobile = () => {
+    const updateVisibility = () => {
       setIsMobile(window.innerWidth < 768)
+      setHasLeftHero(window.scrollY > window.innerHeight * 0.75)
     }
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
+    updateVisibility()
+    window.addEventListener('resize', updateVisibility)
+    window.addEventListener('scroll', updateVisibility, { passive: true })
+    return () => {
+      window.removeEventListener('resize', updateVisibility)
+      window.removeEventListener('scroll', updateVisibility)
+    }
   }, [])
 
-  if (!isMobile || !isVisible) return null
+  useEffect(() => {
+    const contactSection = document.getElementById('contact')
+
+    if (!contactSection) {
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsContactVisible(entry.isIntersecting),
+      { threshold: 0.12 }
+    )
+
+    observer.observe(contactSection)
+    return () => observer.disconnect()
+  }, [pathname])
+
+  if (
+    !isMobile ||
+    !isVisible ||
+    !hasLeftHero ||
+    (pathname === '/' && isContactVisible) ||
+    pathname === '/free-audit' ||
+    pathname === '/thank-you'
+  ) {
+    return null
+  }
 
   return (
     <div className="fixed bottom-4 left-4 right-4 z-50 md:hidden">
       <div className="bg-linear-to-r from-purple-900 to-purple-950 border border-orange-500/30 rounded-xl p-3 shadow-glow backdrop-blur-sm">
-        <div className="flex items-center justify-between gap-2">
-          <Button href="/#contact" variant="primary" className="flex-1">
-            <Calendar size={16} />
-            Free Audit
+        <div className="flex items-center gap-2">
+          <Button href="/free-audit#request-audit" variant="primary" className="flex-1 whitespace-nowrap">
+            <ClipboardCheck size={16} />
+            Request Free Audit
           </Button>
-          <a
-            href="https://linkedin.com/in/ghufranhasan"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg border border-orange-500/30 text-white font-semibold text-sm hover:bg-orange-500/10 transition-all"
-          >
-            <Linkedin size={16} />
-            DM AUDIT
-          </a>
           <button
             onClick={() => setIsVisible(false)}
             aria-label="Hide sticky call to action"
