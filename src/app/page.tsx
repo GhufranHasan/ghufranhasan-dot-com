@@ -21,7 +21,7 @@ const jsonLd = [
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Ghufran Hasan',
-    jobTitle: 'LinkedIn Funnel Strategist',
+    jobTitle: 'Founder of Funnel Align',
     url: 'https://ghufranhasan.com',
     image: 'https://ghufranhasan.com/images/profile.png',
     sameAs: [
@@ -31,7 +31,8 @@ const jsonLd = [
     ],
     knowsAbout: [
       'LinkedIn funnel strategy',
-      'B2B agency positioning',
+      'B2B founder positioning',
+      'coach and creator websites',
       'conversion website design',
       'Next.js development',
       'client acquisition systems',
@@ -40,9 +41,9 @@ const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    name: 'Ghufran Hasan',
+    name: 'Funnel Align by Ghufran Hasan',
     url: 'https://ghufranhasan.com',
-    description: 'LinkedIn profile and website conversion strategy for B2B agency founders.',
+    description: 'LinkedIn-to-website funnel optimization for B2B founders, coaches, and creators.',
     areaServed: 'Worldwide',
     founder: {
       '@type': 'Person',

@@ -9,17 +9,18 @@ import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
 export const metadata: Metadata = {
   metadataBase: new URL('https://ghufranhasan.com'),
   title: {
-    default: 'Ghufran Hasan | LinkedIn Funnel Strategist for B2B Agencies',
+    default: 'Ghufran Hasan | Founder of Funnel Align',
     template: '%s | Ghufran Hasan',
   },
-  description: 'I help B2B agency founders turn LinkedIn attention into qualified demo bookings with aligned profile messaging and conversion-focused websites.',
+  description: 'Founder of Funnel Align, helping B2B founders, coaches, and creators turn LinkedIn attention into booked conversations through profile, website, and CTA alignment.',
   keywords: [
+    'Funnel Align',
     'LinkedIn funnel strategist',
-    'B2B agency growth',
+    'B2B founder website funnel',
     'LinkedIn profile optimization',
     'conversion website design',
     'website conversion strategy',
-    'qualified demo bookings',
+    'booked conversations',
   ],
   authors: [{ name: 'Ghufran Hasan' }],
   creator: 'Ghufran Hasan',
@@ -28,8 +29,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Ghufran Hasan | Turn LinkedIn Attention Into Qualified Demos',
-    description: 'A LinkedIn-to-website conversion system for B2B agency founders who are getting visibility but not enough booked calls.',
+    title: 'Ghufran Hasan | Founder of Funnel Align',
+    description: 'A LinkedIn-to-website conversion system for B2B founders, coaches, and creators who are getting visibility but not enough booked conversations.',
     url: 'https://ghufranhasan.com',
     siteName: 'Ghufran Hasan',
     type: 'website',
@@ -45,8 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ghufran Hasan | LinkedIn Funnel Strategist',
-    description: 'Turn LinkedIn attention into qualified demo bookings with profile and website conversion strategy.',
+    title: 'Ghufran Hasan | Founder of Funnel Align',
+    description: 'Turn LinkedIn attention into booked conversations with profile, website, and CTA alignment.',
     images: ['/images/profile.png'],
   },
   robots: {
