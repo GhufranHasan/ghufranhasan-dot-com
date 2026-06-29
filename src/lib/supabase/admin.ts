@@ -1,3 +1,5 @@
+import 'server-only'
+
 type SupabaseAdminRequestOptions = {
   method?: 'GET' | 'POST' | 'PATCH' | 'DELETE'
   body?: unknown
@@ -43,4 +45,3 @@ export async function supabaseAdminRequest<T>(
 
   return response.json() as Promise<T>
 }
-
