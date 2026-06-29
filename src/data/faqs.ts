@@ -15,7 +15,7 @@ export const faqs: FAQItem[] = [
     answer: [
       {
         kind: 'paragraph',
-        text: 'Free Audit is a quick 15-minute review of your LinkedIn-to-website path. I check your headline, CTA, offer clarity, and the biggest conversion leak.',
+        text: 'The Free Audit starts with a short intake form where you share your LinkedIn profile, website, main problem, desired outcome, and timeline. I use that context to review your headline, CTA, offer clarity, and biggest conversion leak.',
       },
       {
         kind: 'paragraph',
@@ -213,11 +213,11 @@ export const faqs: FAQItem[] = [
     answer: [
       {
         kind: 'paragraph',
-        text: 'After you request the Free Audit, I review your LinkedIn profile and website path.',
+        text: 'After you submit the Free Audit intake form, I review your LinkedIn profile, website, and CTA path using the context you provided.',
       },
       {
         kind: 'paragraph',
-        text: 'Then I identify your biggest conversion leak and suggest the next practical step. If the issue is small, you may only need copy or CTA changes. If the issue is deeper, I may recommend a Starter Audit or full build.',
+        text: 'You then reach a thank-you page where booking a short clarity call is optional. I identify your biggest conversion leak and suggest the next practical step. If the issue is small, you may only need copy or CTA changes. If it is deeper, I may recommend a Starter Audit or full build.',
       },
     ],
   },
