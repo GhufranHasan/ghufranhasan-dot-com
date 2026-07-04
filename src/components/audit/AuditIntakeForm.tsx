@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
+import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, CheckCircle2, LoaderCircle, ShieldCheck } from 'lucide-react'
 import {
   businessTypes,
@@ -13,6 +14,11 @@ import BrandedSelect from '@/components/ui/BrandedSelect'
 
 const inputClasses =
   'mt-2 w-full rounded-lg border border-orange-500/20 bg-purple-950/55 px-4 py-3 text-sm text-white outline-none transition-colors placeholder:text-white/35 focus:border-orange-500/60 focus:ring-2 focus:ring-orange-500/10'
+
+const fieldVariants = {
+  hidden: { opacity: 0, y: 12 },
+  visible: { opacity: 1, y: 0 },
+}
 
 export default function AuditIntakeForm() {
   const router = useRouter()
@@ -73,7 +79,21 @@ export default function AuditIntakeForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="glass-card border-orange-500/30 p-5 shadow-glow md:p-7">
+    <motion.form
+      onSubmit={handleSubmit}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={{
+        hidden: { opacity: 0, y: 22 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.5, ease: 'easeOut', staggerChildren: 0.06 },
+        },
+      }}
+      className="glass-card border-orange-500/30 p-5 shadow-glow md:p-7"
+    >
       <input
         type="text"
         name="company"
@@ -84,7 +104,7 @@ export default function AuditIntakeForm() {
       />
 
       <div className="grid gap-5 sm:grid-cols-2">
-        <label className="text-sm font-semibold text-white">
+        <motion.label variants={fieldVariants} className="text-sm font-semibold text-white">
           Full Name
           <input
             className={inputClasses}
@@ -95,9 +115,9 @@ export default function AuditIntakeForm() {
             maxLength={100}
             required
           />
-        </label>
+        </motion.label>
 
-        <label className="text-sm font-semibold text-white">
+        <motion.label variants={fieldVariants} className="text-sm font-semibold text-white">
           Email Address
           <input
             className={inputClasses}
@@ -108,9 +128,9 @@ export default function AuditIntakeForm() {
             maxLength={254}
             required
           />
-        </label>
+        </motion.label>
 
-        <label className="text-sm font-semibold text-white sm:col-span-2">
+        <motion.label variants={fieldVariants} className="text-sm font-semibold text-white sm:col-span-2">
           LinkedIn Profile URL
           <input
             className={inputClasses}
@@ -122,9 +142,9 @@ export default function AuditIntakeForm() {
             maxLength={500}
             required
           />
-        </label>
+        </motion.label>
 
-        <label className="text-sm font-semibold text-white sm:col-span-2">
+        <motion.label variants={fieldVariants} className="text-sm font-semibold text-white sm:col-span-2">
           Website URL
           <input
             className={inputClasses}
@@ -135,51 +155,64 @@ export default function AuditIntakeForm() {
             maxLength={500}
             required
           />
-        </label>
+        </motion.label>
 
-        <BrandedSelect
-          label="What best describes you?"
-          name="businessType"
-          options={businessTypes}
-          placeholder="Select one"
-        />
+        <motion.div variants={fieldVariants}>
+          <BrandedSelect
+            label="What best describes you?"
+            name="businessType"
+            options={businessTypes}
+            placeholder="Select one"
+          />
+        </motion.div>
 
-        <BrandedSelect
-          label="How soon do you want to improve this?"
-          name="timeline"
-          options={improvementTimelines}
-          placeholder="Select a timeline"
-        />
+        <motion.div variants={fieldVariants}>
+          <BrandedSelect
+            label="How soon do you want to improve this?"
+            name="timeline"
+            options={improvementTimelines}
+            placeholder="Select a timeline"
+          />
+        </motion.div>
 
-        <BrandedSelect
-          label="Where do you think the main problem is?"
-          name="mainProblem"
-          options={mainProblems}
-          placeholder="Select the closest match"
-          className="sm:col-span-2"
-        />
+        <motion.div variants={fieldVariants} className="sm:col-span-2">
+          <BrandedSelect
+            label="Where do you think the main problem is?"
+            name="mainProblem"
+            options={mainProblems}
+            placeholder="Select the closest match"
+          />
+        </motion.div>
 
-        <BrandedSelect
-          label="What do you want more of?"
-          name="desiredOutcome"
-          options={desiredOutcomes}
-          placeholder="Select your main outcome"
-          className="sm:col-span-2"
-        />
+        <motion.div variants={fieldVariants} className="sm:col-span-2">
+          <BrandedSelect
+            label="What do you want more of?"
+            name="desiredOutcome"
+            options={desiredOutcomes}
+            placeholder="Select your main outcome"
+          />
+        </motion.div>
       </div>
 
-      {error && (
-        <p
-          role="alert"
-          className="mt-5 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200"
-        >
-          {error}
-        </p>
-      )}
+      <AnimatePresence>
+        {error && (
+          <motion.p
+            role="alert"
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            className="mt-5 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200"
+          >
+            {error}
+          </motion.p>
+        )}
+      </AnimatePresence>
 
-      <button
+      <motion.button
         type="submit"
         disabled={isSubmitting}
+        whileHover={isSubmitting ? undefined : { y: -2 }}
+        whileTap={isSubmitting ? undefined : { scale: 0.98 }}
         className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-6 py-4 font-bold text-white transition-all hover:-translate-y-0.5 hover:shadow-glow-hover disabled:cursor-not-allowed disabled:opacity-60"
       >
         {isSubmitting ? (
@@ -193,9 +226,12 @@ export default function AuditIntakeForm() {
             <ArrowRight size={18} />
           </>
         )}
-      </button>
+      </motion.button>
 
-      <div className="mt-5 flex flex-col gap-2 border-t border-orange-500/15 pt-5 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
+      <motion.div
+        variants={fieldVariants}
+        className="mt-5 flex flex-col gap-2 border-t border-orange-500/15 pt-5 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between"
+      >
         <span className="inline-flex items-center gap-2">
           <ShieldCheck size={14} className="text-orange-400" />
           Your links are used only for the audit.
@@ -204,7 +240,7 @@ export default function AuditIntakeForm() {
           <CheckCircle2 size={14} className="text-orange-400" />
           No generic advice. No pressure.
         </span>
-      </div>
-    </form>
+      </motion.div>
+    </motion.form>
   )
 }

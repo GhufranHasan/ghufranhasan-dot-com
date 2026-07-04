@@ -8,6 +8,7 @@ import {
   useState,
   type KeyboardEvent,
 } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Check, ChevronDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -188,58 +189,73 @@ export default function BrandedSelect({
         </span>
       </button>
 
-      {isOpen && (
-        <ul
-          id={listboxId}
-          role="listbox"
-          aria-labelledby={labelId}
-          style={{ maxHeight: menuMaxHeight }}
-          className={cn(
-            'absolute left-0 right-0 z-70 overflow-y-auto rounded-xl border border-orange-500/35 bg-[#0a1332] p-2 shadow-[0_22px_60px_rgba(0,0,0,0.55),0_0_24px_rgba(255,132,3,0.12)]',
-            menuPlacement === 'up'
-              ? 'bottom-full mb-2'
-              : 'top-full mt-2'
-          )}
-        >
-          {options.map((option, index) => {
-            const isSelected = option === value
-            const isActive = index === activeIndex
+      <AnimatePresence>
+        {isOpen && (
+          <motion.ul
+            id={listboxId}
+            role="listbox"
+            aria-labelledby={labelId}
+            initial={{
+              opacity: 0,
+              y: menuPlacement === 'up' ? 8 : -8,
+              scale: 0.98,
+            }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{
+              opacity: 0,
+              y: menuPlacement === 'up' ? 8 : -8,
+              scale: 0.98,
+            }}
+            transition={{ duration: 0.18, ease: 'easeOut' }}
+            style={{ maxHeight: menuMaxHeight }}
+            className={cn(
+              'absolute left-0 right-0 z-70 overflow-y-auto rounded-xl border border-orange-500/35 bg-[#0a1332] p-2 shadow-[0_22px_60px_rgba(0,0,0,0.55),0_0_24px_rgba(255,132,3,0.12)]',
+              menuPlacement === 'up'
+                ? 'bottom-full mb-2 origin-bottom'
+                : 'top-full mt-2 origin-top'
+            )}
+          >
+            {options.map((option, index) => {
+              const isSelected = option === value
+              const isActive = index === activeIndex
 
-            return (
-              <li
-                id={`${selectId}-option-${index}`}
-                key={option}
-                role="option"
-                aria-selected={isSelected}
-                onPointerDown={(event) => {
-                  event.preventDefault()
-                  chooseOption(option)
-                }}
-                onPointerMove={() => setActiveIndex(index)}
-                className={cn(
-                  'flex cursor-pointer items-start justify-between gap-3 rounded-lg px-3 py-3 text-sm leading-snug transition-colors',
-                  isActive
-                    ? 'bg-orange-500/15 text-white'
-                    : 'text-white/72 hover:bg-white/5 hover:text-white',
-                  isSelected && 'font-semibold text-orange-200'
-                )}
-              >
-                <span>{option}</span>
-                <span
+              return (
+                <motion.li
+                  id={`${selectId}-option-${index}`}
+                  key={option}
+                  role="option"
+                  aria-selected={isSelected}
+                  onPointerDown={(event) => {
+                    event.preventDefault()
+                    chooseOption(option)
+                  }}
+                  onPointerMove={() => setActiveIndex(index)}
+                  whileHover={{ x: 2 }}
                   className={cn(
-                    'mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border',
-                    isSelected
-                      ? 'border-orange-500 bg-orange-500 text-white'
-                      : 'border-white/10 text-transparent'
+                    'flex cursor-pointer items-start justify-between gap-3 rounded-lg px-3 py-3 text-sm leading-snug transition-colors',
+                    isActive
+                      ? 'bg-orange-500/15 text-white'
+                      : 'text-white/72 hover:bg-white/5 hover:text-white',
+                    isSelected && 'font-semibold text-orange-200'
                   )}
                 >
-                  <Check size={12} />
-                </span>
-              </li>
-            )
-          })}
-        </ul>
-      )}
+                  <span>{option}</span>
+                  <span
+                    className={cn(
+                      'mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border',
+                      isSelected
+                        ? 'border-orange-500 bg-orange-500 text-white'
+                        : 'border-white/10 text-transparent'
+                    )}
+                  >
+                    <Check size={12} />
+                  </span>
+                </motion.li>
+              )
+            })}
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

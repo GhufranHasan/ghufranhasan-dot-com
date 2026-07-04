@@ -1,3 +1,5 @@
+'use client'
+
 import {
   ArrowRight,
   CheckCircle2,
@@ -5,6 +7,7 @@ import {
   FileSearch,
   PanelsTopLeft,
 } from 'lucide-react'
+import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import SectionBadge from '@/components/ui/SectionBadge'
 
@@ -51,18 +54,42 @@ export default function AuditExamples() {
   return (
     <section id="audit-examples" className="texture-dots neon-deep section-padding">
       <div className="container-custom">
-        <div className="mx-auto mb-12 max-w-3xl text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="mx-auto mb-12 max-w-3xl text-center"
+        >
           <SectionBadge icon={FileSearch} className="mb-4">Proof before pricing</SectionBadge>
           <h2 className="text-3xl md:text-5xl font-bebas mb-4">See what the audit looks like</h2>
           <p className="text-white/75">
             Before asking you to choose a package, I want the thinking to be visible. These examples show how I diagnose the path from LinkedIn profile visits to booked conversations without inventing client numbers.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
-          <div className="grid gap-5">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.12 } },
+            }}
+            className="grid gap-5"
+          >
             {examples.map((example) => (
-              <article key={example.title} className="glass-card border border-orange-500/20 p-6">
+              <motion.article
+                key={example.title}
+                variants={{
+                  hidden: { opacity: 0, x: -18 },
+                  visible: { opacity: 1, x: 0 },
+                }}
+                transition={{ duration: 0.45, ease: 'easeOut' }}
+                whileHover={{ y: -4, borderColor: 'rgba(255, 132, 3, 0.38)' }}
+                className="glass-card border border-orange-500/20 p-6"
+              >
                 <div className="flex flex-col gap-5 sm:flex-row">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-orange-500/25 bg-orange-500/10 text-orange-400">
                     <example.icon size={22} />
@@ -82,11 +109,17 @@ export default function AuditExamples() {
                     </ul>
                   </div>
                 </div>
-              </article>
+              </motion.article>
             ))}
-          </div>
+          </motion.div>
 
-          <aside className="relative overflow-hidden rounded-2xl border border-orange-500/25 bg-purple-950/55 p-6 md:p-8">
+          <motion.aside
+            initial={{ opacity: 0, x: 22 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.55, ease: 'easeOut', delay: 0.08 }}
+            className="relative overflow-hidden rounded-2xl border border-orange-500/25 bg-purple-950/55 p-6 md:p-8"
+          >
             <div className="absolute inset-0 texture-grid opacity-25" aria-hidden="true" />
             <div className="relative z-10">
               <div className="mb-6 rounded-xl border border-white/10 bg-white/4 p-4">
@@ -102,7 +135,14 @@ export default function AuditExamples() {
 
                 <div className="space-y-3">
                   {auditFindings.map(([label, text], index) => (
-                    <div key={label} className="rounded-xl border border-orange-500/15 bg-orange-500/5 p-4">
+                    <motion.div
+                      key={label}
+                      initial={{ opacity: 0, y: 12 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.8 }}
+                      transition={{ duration: 0.35, delay: index * 0.08 }}
+                      className="rounded-xl border border-orange-500/15 bg-orange-500/5 p-4"
+                    >
                       <div className="mb-2 flex items-center gap-3">
                         <span className="flex h-7 w-7 items-center justify-center rounded-full bg-orange-500 text-xs font-bold text-white">
                           {index + 1}
@@ -110,7 +150,7 @@ export default function AuditExamples() {
                         <p className="font-semibold text-white">{label}</p>
                       </div>
                       <p className="text-sm text-white/65">{text}</p>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
@@ -126,7 +166,7 @@ export default function AuditExamples() {
                 </Button>
               </div>
             </div>
-          </aside>
+          </motion.aside>
         </div>
       </div>
     </section>
