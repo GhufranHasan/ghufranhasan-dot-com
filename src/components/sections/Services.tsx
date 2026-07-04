@@ -36,7 +36,7 @@ export default function Services() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <SectionBadge icon={Map} className="mb-4">Funnel Align system</SectionBadge>
+          <SectionBadge icon={Map} className="mb-4">Marqevy system</SectionBadge>
           <h2 className="text-3xl md:text-5xl font-bebas mb-4">One specialist offer under the personal brand</h2>
           <p className="text-white/70 text-lg">
             This is not a full-service agency menu. It is a focused LinkedIn-to-Website Funnel Optimization system.

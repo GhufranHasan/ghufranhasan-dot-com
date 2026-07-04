@@ -21,7 +21,7 @@ const proofPoints = [
 
 const trustSignals = [
   { value: '23K+', label: 'LinkedIn audience' },
-  { value: 'Funnel Align', label: 'specialist system' },
+  { value: 'Marqevy', label: 'specialist system' },
   { value: 'Focused', label: 'no full-service clutter' },
 ]
 
@@ -64,7 +64,7 @@ export default function Hero() {
               transition={{ delay: 0.2 }}
               className="mb-6"
             >
-              <SectionBadge icon={Linkedin}>Funnel Align by Ghufran Hasan</SectionBadge>
+              <SectionBadge icon={Linkedin}>Marqevy by Ghufran Hasan</SectionBadge>
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -110,7 +110,7 @@ export default function Hero() {
                 Request Free Audit <ArrowRight size={18} />
               </Button>
               <Button href="/linkedin-website-funnel" variant="secondary" size="large" className="whitespace-nowrap">
-                Explore Funnel Align
+                Explore Marqevy
               </Button>
             </motion.div>
 
@@ -212,7 +212,7 @@ export default function Hero() {
               </a>
               <div className="mt-3 flex items-center gap-3 text-white/80 text-sm">
                 <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
-                <span>Founder of Funnel Align</span>
+                <span>Founder of Marqevy</span>
               </div>
               <div className="mt-3 flex items-center gap-3 text-white/80 text-sm">
                 <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />

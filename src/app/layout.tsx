@@ -9,12 +9,12 @@ import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
 export const metadata: Metadata = {
   metadataBase: new URL('https://ghufranhasan.com'),
   title: {
-    default: 'Ghufran Hasan | Founder of Funnel Align',
+    default: 'Ghufran Hasan | Founder of Marqevy',
     template: '%s | Ghufran Hasan',
   },
-  description: 'Founder of Funnel Align, helping B2B founders, coaches, and creators turn LinkedIn attention into booked conversations through profile, website, and CTA alignment.',
+  description: 'Founder of Marqevy, helping B2B founders, coaches, and creators turn LinkedIn attention into booked conversations through profile, website, and CTA alignment.',
   keywords: [
-    'Funnel Align',
+    'Marqevy',
     'LinkedIn funnel strategist',
     'B2B founder website funnel',
     'LinkedIn profile optimization',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Ghufran Hasan | Founder of Funnel Align',
+    title: 'Ghufran Hasan | Founder of Marqevy',
     description: 'A LinkedIn-to-website conversion system for B2B founders, coaches, and creators who are getting visibility but not enough booked conversations.',
     url: 'https://ghufranhasan.com',
     siteName: 'Ghufran Hasan',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ghufran Hasan | Founder of Funnel Align',
+    title: 'Ghufran Hasan | Founder of Marqevy',
     description: 'Turn LinkedIn attention into booked conversations with profile, website, and CTA alignment.',
     images: ['/images/profile.png'],
   },

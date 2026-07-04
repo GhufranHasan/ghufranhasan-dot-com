@@ -11,7 +11,7 @@ import AuditIntakeForm from '@/components/audit/AuditIntakeForm'
 
 const pageTitle = 'Free LinkedIn-to-Website Conversion Audit'
 const pageDescription =
-  'Find the clarity, trust, and CTA gaps stopping warm LinkedIn visitors from becoming booked conversations with Funnel Align by Ghufran Hasan.'
+  'Find the clarity, trust, and CTA gaps stopping warm LinkedIn visitors from becoming booked conversations with Marqevy by Ghufran Hasan.'
 const pageUrl = 'https://ghufranhasan.com/free-audit'
 
 export const metadata: Metadata = {
@@ -97,7 +97,7 @@ export default function FreeAuditPage() {
             <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start xl:gap-12">
               <div className="lg:sticky lg:top-28">
                 <SectionBadge icon={FileSearch} emphasis="strong" className="mb-5">
-                  Funnel Align audit intake
+                  Marqevy audit intake
                 </SectionBadge>
 
                 <h1 className="hero-headline max-w-xl text-4xl font-bebas font-semibold leading-[1.04] text-white md:text-5xl xl:text-6xl">

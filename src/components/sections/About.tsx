@@ -62,10 +62,10 @@ export default function About() {
 
             <div className="space-y-4 text-white/70">
               <p>
-                I am Ghufran, founder of Funnel Align and a frontend developer focused on building websites that do more than look good. They clarify the offer, support the founder&apos;s authority, and help warm prospects take the next step.
+                I am Ghufran, founder of Marqevy and a frontend developer focused on building websites that do more than look good. They clarify the offer, support the founder&apos;s authority, and help warm prospects take the next step.
               </p>
               <p>
-                At this stage, my personal brand is the front face because people trust people before they trust a new agency name. Funnel Align is the specialist system behind the work.
+                At this stage, my personal brand is the front face because people trust people before they trust a new agency name. Marqevy is the specialist system behind the work.
               </p>
               <p>
                 I combine frontend development, conversion strategy, and LinkedIn positioning for one focused offer: LinkedIn-to-Website Funnel Optimization for B2B founders, coaches, and creators.
@@ -107,7 +107,7 @@ export default function About() {
                 href="/linkedin-website-funnel"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-linear-to-r from-orange-500 to-orange-600 text-white font-semibold hover:shadow-glow-hover transition-all group"
               >
-                Explore Funnel Align
+                Explore Marqevy
               </Link>
             </div>
           </motion.div>
