@@ -7,10 +7,11 @@ type SupabaseAdminRequestOptions = {
   prefer?: string
 }
 
-export async function supabaseAdminRequest<T>(
-  table: string,
-  options: SupabaseAdminRequestOptions = {}
-): Promise<T> {
+function normalizeEnvValue(value: string) {
+  return value.trim().replace(/^['"]|['"]$/g, '')
+}
+
+function getSupabaseRestUrl(table: string, query?: string) {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY
 
@@ -18,10 +19,43 @@ export async function supabaseAdminRequest<T>(
     throw new Error('Supabase admin environment variables are not configured')
   }
 
-  const query = options.query ? `?${options.query}` : ''
-  const response = await fetch(
-    `${supabaseUrl.replace(/\/$/, '')}/rest/v1/${table}${query}`,
-    {
+  const cleanSupabaseUrl = normalizeEnvValue(supabaseUrl)
+  const cleanServiceRoleKey = normalizeEnvValue(serviceRoleKey)
+
+  let parsedUrl: URL
+
+  try {
+    parsedUrl = new URL(cleanSupabaseUrl)
+  } catch {
+    throw new Error('NEXT_PUBLIC_SUPABASE_URL must be a valid https://...supabase.co URL')
+  }
+
+  if (parsedUrl.protocol !== 'https:' || !parsedUrl.hostname.endsWith('.supabase.co')) {
+    throw new Error('NEXT_PUBLIC_SUPABASE_URL must use the https://PROJECT_REF.supabase.co format')
+  }
+
+  const requestUrl = new URL(`/rest/v1/${table}`, parsedUrl)
+
+  if (query) {
+    requestUrl.search = query
+  }
+
+  return {
+    requestUrl,
+    serviceRoleKey: cleanServiceRoleKey,
+  }
+}
+
+export async function supabaseAdminRequest<T>(
+  table: string,
+  options: SupabaseAdminRequestOptions = {}
+): Promise<T> {
+  const { requestUrl, serviceRoleKey } = getSupabaseRestUrl(table, options.query)
+
+  let response: Response
+
+  try {
+    response = await fetch(requestUrl, {
       method: options.method ?? 'GET',
       headers: {
         apikey: serviceRoleKey,
@@ -31,8 +65,13 @@ export async function supabaseAdminRequest<T>(
       },
       body: options.body === undefined ? undefined : JSON.stringify(options.body),
       cache: 'no-store',
-    }
-  )
+    })
+  } catch (error) {
+    throw new Error(
+      `Supabase is not reachable at ${requestUrl.hostname}. Check NEXT_PUBLIC_SUPABASE_URL, your internet/DNS connection, and whether the Supabase project ref is correct.`,
+      { cause: error }
+    )
+  }
 
   if (!response.ok) {
     const details = await response.text()

@@ -278,10 +278,12 @@ export async function POST(request: NextRequest) {
     )
   } catch (error) {
     console.error('Funnel review application submission error:', error)
+    const isDevelopment = process.env.NODE_ENV !== 'production'
     return NextResponse.json(
       {
-        error:
-          'The review application could not be saved right now. Please try again in a moment.',
+        error: isDevelopment && error instanceof Error
+          ? error.message
+          : 'The review application could not be saved right now. Please try again in a moment.',
       },
       { status: 500 }
     )
