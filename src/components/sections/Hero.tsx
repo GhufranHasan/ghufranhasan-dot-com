@@ -18,12 +18,6 @@ const proofPoints = [
   'Strategy, copy, design, Next.js delivery, and CTA tracking',
 ]
 
-const trustSignals = [
-  { value: 'B2B', label: 'service agencies' },
-  { value: '10-day', label: 'focused sprint' },
-  { value: '$1.2K+', label: 'implementation path' },
-]
-
 const journeySteps = [
   {
     title: 'LinkedIn',
@@ -112,29 +106,15 @@ export default function Hero() {
                 Apply for a Funnel Review <ArrowRight size={18} />
               </Button>
               <Button href="#audit-examples" variant="secondary" size="large" className="whitespace-nowrap">
-                See a Sample Audit
+                See the Audit Example
               </Button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.53 }}
-              className="mt-6 grid grid-cols-3 overflow-hidden rounded-xl border border-orange-500/20 bg-purple-950/35"
-            >
-              {trustSignals.map((signal) => (
-                <div key={signal.label} className="border-r border-orange-500/15 px-4 py-3 last:border-r-0">
-                  <div className="text-lg font-bold text-orange-400">{signal.value}</div>
-                  <div className="mt-1 text-xs leading-snug text-white/60">{signal.label}</div>
-                </div>
-              ))}
             </motion.div>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.58 }}
-              className="text-sm text-white/60 mt-4"
+              transition={{ delay: 0.53 }}
+              className="mt-5 text-sm text-white/60"
             >
               The free review is for established B2B service businesses with an active offer and a working website.
             </motion.p>
@@ -183,20 +163,6 @@ export default function Hero() {
                 ))}
               </div>
             </motion.div>
-            <div className="mt-5 rounded-2xl border border-orange-500/20 bg-purple-950/45 p-5">
-              <a href="https://linkedin.com/in/ghufranhasan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/80 text-sm hover:text-orange-500 transition-colors">
-                <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
-                <span>23,000+ followers on LinkedIn</span>
-              </a>
-              <div className="mt-3 flex items-center gap-3 text-white/80 text-sm">
-                <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
-                <span>LinkedIn-to-website funnel strategist</span>
-              </div>
-              <div className="mt-3 flex items-center gap-3 text-white/80 text-sm">
-                <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
-                <span>Strategy, copy, design, and implementation</span>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>

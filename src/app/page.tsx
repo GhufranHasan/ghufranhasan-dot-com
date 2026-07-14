@@ -1,10 +1,12 @@
 import Hero from '@/components/sections/Hero'
+import CredibilityRibbon from '@/components/sections/CredibilityRibbon'
 import PainAgitation from '@/components/sections/PainAgitation'
 import Services from '@/components/sections/Services'
 import FitCheck from '@/components/sections/FitCheck'
 import AuditExamples from '@/components/sections/AuditExamples'
 import Packages from '@/components/sections/Packages'
 import Process from '@/components/sections/Process'
+import DeliverablesPreview from '@/components/sections/DeliverablesPreview'
 import FAQ from '@/components/sections/FAQ'
 import Contact from '@/components/sections/Contact'
 import { getFaqPlainAnswer, homepageFaqs } from '@/data/faqs'
@@ -87,10 +89,12 @@ export default function Home() {
         }}
       />
       <Hero />
+      <CredibilityRibbon />
       <PainAgitation />
+      <AuditExamples />
       <Services />
       <Process />
-      <AuditExamples />
+      <DeliverablesPreview />
       <Packages />
       <FitCheck />
       <FAQ />

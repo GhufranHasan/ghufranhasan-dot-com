@@ -1,54 +1,124 @@
 'use client'
 
-import {
-  ArrowRight,
-  CheckCircle2,
-  Code2,
-  FileSearch,
-  PanelsTopLeft,
-} from 'lucide-react'
+import { ArrowDown, ArrowRight, FileSearch, Linkedin, MousePointerClick, PanelsTopLeft } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import SectionBadge from '@/components/ui/SectionBadge'
 
-const examples = [
+const comparisonRows = [
   {
-    icon: PanelsTopLeft,
-    title: 'This website transformation',
-    label: 'Inspect the live strategy',
-    points: [
-      'Before: portfolio-style sections without a clear buyer journey',
-      'Fix: LinkedIn promise, audit CTA, offer ladder, and objection handling',
-      'Proof: you can see the same conversion logic applied to this site',
-    ],
+    touchpoint: 'LinkedIn headline',
+    before: 'Broad promise covering several services',
+    after: 'One buyer, one expensive problem, one outcome',
   },
   {
-    icon: FileSearch,
-    title: 'Public teardown sample',
-    label: 'Not a client result claim',
-    points: [
-      'LinkedIn headline issue: promise is interesting but not specific enough',
-      'Website issue: CTA asks visitors to decide too early',
-      'Recommended fix: lead with one review path and support it with proof',
-    ],
+    touchpoint: 'Website hero',
+    before: 'Different language from the profile',
+    after: 'Continue the same promise visitors already saw',
   },
   {
-    icon: Code2,
-    title: 'Real project execution',
-    label: 'Implementation proof',
-    points: [
-      'Shows I can translate strategy into a working digital asset',
-      'Highlights technical execution without making GitHub the main proof',
-      'Connects the build to a business purpose, not only a stack',
-    ],
+    touchpoint: 'CTA',
+    before: 'Learn more, Contact us, and Book a call',
+    after: 'One relevant next step based on buyer readiness',
   },
 ]
 
-const auditFindings = [
-  ['Profile promise', 'Does the LinkedIn headline match the website hero?'],
-  ['Trust sequence', 'Is proof placed before the visitor is asked to book?'],
-  ['CTA path', 'Is there one obvious next step for warm visitors?'],
+const beforeFlow = [
+  {
+    label: 'LinkedIn',
+    text: 'We help businesses grow through strategy, branding, content, and websites.',
+    icon: Linkedin,
+  },
+  {
+    label: 'Website',
+    text: 'Creative solutions for ambitious businesses.',
+    icon: PanelsTopLeft,
+  },
+  {
+    label: 'Buttons',
+    text: 'Our Services / Learn More / Contact Us / Book a Call',
+    icon: MousePointerClick,
+  },
 ]
+
+const afterFlow = [
+  {
+    label: 'LinkedIn',
+    text: 'Helping founder-led B2B agencies turn LinkedIn attention into qualified enquiries.',
+    icon: Linkedin,
+  },
+  {
+    label: 'Website',
+    text: 'Your LinkedIn gets attention. Your website should turn it into enquiries.',
+    icon: PanelsTopLeft,
+  },
+  {
+    label: 'CTA',
+    text: 'Apply for a Funnel Review',
+    icon: MousePointerClick,
+  },
+]
+
+function FlowPanel({
+  title,
+  tone,
+  steps,
+}: {
+  title: string
+  tone: 'before' | 'after'
+  steps: typeof beforeFlow
+}) {
+  const isAfter = tone === 'after'
+
+  return (
+    <div
+      className={`rounded-3xl border p-5 md:p-6 ${
+        isAfter
+          ? 'border-orange-500/35 bg-orange-500/10 shadow-[0_0_38px_rgba(255,132,3,0.16)]'
+          : 'border-white/10 bg-purple-950/45'
+      }`}
+    >
+      <div className="mb-5 flex items-center justify-between gap-4">
+        <h3 className="text-2xl font-bebas text-white">{title}</h3>
+        <span
+          className={`rounded-full px-3 py-1 text-xs font-semibold ${
+            isAfter ? 'bg-orange-500 text-white' : 'bg-white/6 text-white/60'
+          }`}
+        >
+          {isAfter ? 'Recommended' : 'Leaking clarity'}
+        </span>
+      </div>
+
+      <div className="space-y-3">
+        {steps.map((step, index) => (
+          <div key={step.label}>
+            <div className="rounded-2xl border border-orange-500/15 bg-purple-950/45 p-4">
+              <div className="mb-3 flex items-center gap-3">
+                <div
+                  className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${
+                    isAfter ? 'bg-orange-500/15 text-orange-300' : 'bg-white/5 text-white/55'
+                  }`}
+                >
+                  <step.icon size={18} />
+                </div>
+                <p className="font-semibold text-white">{step.label}</p>
+              </div>
+              <p className="text-sm leading-relaxed text-white/68">{step.text}</p>
+            </div>
+            {index < steps.length - 1 && (
+              <div className="flex justify-center py-2">
+                <ArrowDown
+                  size={18}
+                  className={isAfter ? 'text-orange-300/75' : 'text-white/30'}
+                />
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default function AuditExamples() {
   return (
@@ -61,113 +131,96 @@ export default function AuditExamples() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="mx-auto mb-12 max-w-3xl text-center"
         >
-          <SectionBadge icon={FileSearch} className="mb-4">Visible proof before pricing</SectionBadge>
-          <h2 className="text-3xl md:text-5xl font-bebas mb-4">Proof you can inspect before you buy</h2>
+          <SectionBadge icon={FileSearch} className="mb-4">
+            Visible audit transformation
+          </SectionBadge>
+          <h2 className="mb-4 text-3xl font-bebas md:text-5xl">
+            See What a Conversion Leak Looks Like
+          </h2>
           <p className="text-white/75">
-            Before asking you to choose a package, I want the thinking to be visible. These examples show how I diagnose the path from LinkedIn profile visit to qualified enquiry without inventing client numbers.
+            A practical example of how I compare a founder&apos;s LinkedIn promise,
+            website message, and next step.
           </p>
         </motion.div>
 
-        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="mb-10 overflow-hidden rounded-3xl border border-orange-500/25 bg-purple-950/50 shadow-glow"
+        >
+          <div className="grid border-b border-orange-500/20 bg-orange-500/10 text-xs font-semibold uppercase tracking-wider text-orange-200 md:grid-cols-[0.8fr_1.1fr_1.1fr]">
+            <div className="border-b border-orange-500/15 px-5 py-4 md:border-b-0 md:border-r">
+              Touchpoint
+            </div>
+            <div className="border-b border-orange-500/15 px-5 py-4 md:border-b-0 md:border-r">
+              Before
+            </div>
+            <div className="px-5 py-4">Recommended direction</div>
+          </div>
+          {comparisonRows.map((row) => (
+            <div
+              key={row.touchpoint}
+              className="grid border-b border-orange-500/12 last:border-b-0 md:grid-cols-[0.8fr_1.1fr_1.1fr]"
+            >
+              <div className="border-b border-orange-500/12 px-5 py-4 font-semibold text-white md:border-b-0 md:border-r">
+                {row.touchpoint}
+              </div>
+              <div className="border-b border-orange-500/12 px-5 py-4 text-sm text-white/62 md:border-b-0 md:border-r">
+                {row.before}
+              </div>
+              <div className="px-5 py-4 text-sm font-semibold text-orange-200">
+                {row.after}
+              </div>
+            </div>
+          ))}
+        </motion.div>
+
+        <div className="grid gap-6 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.12 } },
-            }}
-            className="grid gap-5"
+            initial={{ opacity: 0, x: -22 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
           >
-            {examples.map((example) => (
-              <motion.article
-                key={example.title}
-                variants={{
-                  hidden: { opacity: 0, x: -18 },
-                  visible: { opacity: 1, x: 0 },
-                }}
-                transition={{ duration: 0.45, ease: 'easeOut' }}
-                whileHover={{ y: -4, borderColor: 'rgba(255, 132, 3, 0.38)' }}
-                className="glass-card border border-orange-500/20 p-6"
-              >
-                <div className="flex flex-col gap-5 sm:flex-row">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-orange-500/25 bg-orange-500/10 text-orange-400">
-                    <example.icon size={22} />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-orange-300/80">
-                      {example.label}
-                    </p>
-                    <h3 className="mt-2 text-xl font-bold text-white">{example.title}</h3>
-                    <ul className="mt-4 space-y-3">
-                      {example.points.map((point) => (
-                        <li key={point} className="flex gap-3 text-sm leading-relaxed text-white/70">
-                          <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-orange-400" />
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </motion.article>
-            ))}
+            <FlowPanel title="Before" tone="before" steps={beforeFlow} />
           </motion.div>
 
-          <motion.aside
+          <div className="flex justify-center">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full border border-orange-500/35 bg-orange-500/10 text-orange-300 shadow-glow lg:h-14 lg:w-14">
+              <ArrowRight size={22} />
+            </div>
+          </div>
+
+          <motion.div
             initial={{ opacity: 0, x: 22 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.55, ease: 'easeOut', delay: 0.08 }}
-            className="relative overflow-hidden rounded-2xl border border-orange-500/25 bg-purple-950/55 p-6 md:p-8"
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.08 }}
           >
-            <div className="absolute inset-0 texture-grid opacity-25" aria-hidden="true" />
-            <div className="relative z-10">
-              <div className="mb-6 rounded-xl border border-white/10 bg-white/4 p-4">
-                <div className="mb-4 flex items-center justify-between gap-4">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-orange-300">Audit preview</p>
-                    <h3 className="mt-1 text-2xl font-bebas text-white">LinkedIn - Website - Conversation</h3>
-                  </div>
-                  <span className="rounded-full bg-orange-500/10 px-3 py-1 text-xs font-semibold text-orange-300">
-                    Sample
-                  </span>
-                </div>
-
-                <div className="space-y-3">
-                  {auditFindings.map(([label, text], index) => (
-                    <motion.div
-                      key={label}
-                      initial={{ opacity: 0, y: 12 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.8 }}
-                      transition={{ duration: 0.35, delay: index * 0.08 }}
-                      className="rounded-xl border border-orange-500/15 bg-orange-500/5 p-4"
-                    >
-                      <div className="mb-2 flex items-center gap-3">
-                        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-orange-500 text-xs font-bold text-white">
-                          {index + 1}
-                        </span>
-                        <p className="font-semibold text-white">{label}</p>
-                      </div>
-                      <p className="text-sm text-white/65">{text}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-
-              <p className="text-sm leading-relaxed text-white/68">
-                The audit is not a vague review. It is a prioritized diagnosis of where warm visitors lose clarity, trust, or momentum before they take action.
-              </p>
-
-              <div className="mt-6">
-                <Button href="/free-audit" variant="primary" className="w-full">
-                  Apply for Review
-                  <ArrowRight size={17} />
-                </Button>
-              </div>
-            </div>
-          </motion.aside>
+            <FlowPanel title="After" tone="after" steps={afterFlow} />
+          </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.45, ease: 'easeOut' }}
+          className="mx-auto mt-10 max-w-3xl rounded-2xl border border-orange-500/20 bg-purple-950/45 p-5 text-center"
+        >
+          <p className="text-sm leading-relaxed text-white/66">
+            This is the kind of visible diagnosis the review looks for: not a new
+            funnel theory, but a clearer match between promise, page, and action.
+          </p>
+          <div className="mt-5">
+            <Button href="/free-audit" variant="primary" className="whitespace-nowrap">
+              Apply for Review
+              <ArrowRight size={17} />
+            </Button>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
