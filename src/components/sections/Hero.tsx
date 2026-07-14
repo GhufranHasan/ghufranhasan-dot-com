@@ -69,11 +69,14 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="hero-headline text-5xl md:text-6xl lg:text-7xl font-bebas font-semibold leading-[1.03] mb-6 text-white max-w-4xl"
+              className="hero-headline mb-6 max-w-4xl text-4xl font-bebas font-medium leading-[1.08] text-white sm:text-5xl md:text-6xl lg:text-7xl"
             >
-              <span className="block">Your LinkedIn Gets Attention.</span>
-              {' '}
-              <span className="hero-gradient-text block">Your Website Should Turn It Into Enquiries.</span>
+              <span className="block">
+                Your LinkedIn gets <span className="hero-gradient-text">attention</span>.
+              </span>
+              <span className="mt-1 block">
+                Your website should turn it into <span className="hero-gradient-text">enquiries</span>.
+              </span>
             </motion.h1>
 
             <motion.p

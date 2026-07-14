@@ -47,11 +47,19 @@ const resources = [
   },
   {
     type: 'Strategic guide',
-    title: 'Build an Owned Business Asset',
-    description: 'Understand why LinkedIn should create attention while your website protects, organizes, and converts the opportunity.',
-    href: '/#owned-asset',
-    cta: 'Explore the owned-asset angle',
+    title: 'Website Conversion Strategy',
+    description: 'Understand why LinkedIn should create attention while your website becomes the decision room that converts the opportunity.',
+    href: '/website-conversion-strategy',
+    cta: 'Read the strategy',
     icon: Globe2,
+  },
+  {
+    type: 'CTA clarity',
+    title: 'CTA Funnel Clarity',
+    description: 'See how one focused CTA and intake form reduce friction for warm LinkedIn visitors.',
+    href: '/cta-funnel-clarity',
+    cta: 'Improve the CTA path',
+    icon: Route,
   },
 ]
 
@@ -80,7 +88,7 @@ export default function ResourcesPage() {
 
       <section className="texture-dots neon-purple py-20 md:py-24">
         <div className="container-custom">
-          <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-3">
+          <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-4">
             {resources.map((resource) => (
               <article key={resource.title} className="glass-card flex flex-col border-orange-500/20 p-6">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-orange-500/25 bg-orange-500/10 text-orange-400">
@@ -114,7 +122,7 @@ export default function ResourcesPage() {
               href="/free-audit"
               className="mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-7 py-4 font-bold text-white transition-all hover:shadow-glow-hover"
             >
-              Request a Free Funnel Audit
+              Apply for a Funnel Review
               <ArrowRight size={18} />
             </Link>
           </div>

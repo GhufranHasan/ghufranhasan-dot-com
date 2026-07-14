@@ -5,19 +5,21 @@ import LeadMagnet from '@/components/sections/LeadMagnet'
 import SocialLinksModal from '@/components/layout/SocialLinksModal'
 
 const services = [
-  { label: 'Specialist Offer', href: '/linkedin-website-funnel' },
-  { label: 'Services', href: '/#services' },
-  { label: 'Proof', href: '/#audit-examples' },
-  { label: 'Pricing', href: '/#packages' },
-  { label: 'Process', href: '/#process' },
-  { label: 'Fit Check', href: '/#fit-check' },
-  { label: 'FAQ', href: '/#faqs' },
+  { label: 'Services', href: '/services' },
+  { label: 'Process', href: '/process' },
+  { label: 'Proof', href: '/proof' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 const resources = [
   { label: 'All Resources', href: '/resources' },
-  { label: 'Public Funnel Checklist', href: '/resources/linkedin-website-funnel-checklist' },
-  { label: 'LinkedIn Website Funnel', href: '/linkedin-website-funnel' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Funnel Checklist', href: '/resources/linkedin-website-funnel-checklist' },
+  { label: 'Website Strategy', href: '/website-conversion-strategy' },
+  { label: 'LinkedIn Profile Optimization', href: '/linkedin-profile-optimization' },
+  { label: 'CTA Funnel Clarity', href: '/cta-funnel-clarity' },
   { label: 'Website Comparison Study', href: '/linkedin-website-examples' },
   { label: 'Apply for Review', href: '/free-audit' },
 ]

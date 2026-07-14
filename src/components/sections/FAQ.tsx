@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import {
@@ -91,13 +92,13 @@ export default function FAQ() {
               ))}
             </div>
 
-            <a
+            <Link
               href="/free-audit"
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-5 py-3 text-sm font-semibold text-white transition-all hover:shadow-glow-hover"
             >
               Apply for a Review
               <ArrowRight size={16} />
-            </a>
+            </Link>
           </motion.aside>
 
           <div className="space-y-4">
@@ -194,13 +195,13 @@ export default function FAQ() {
             <Sparkles size={24} className="text-orange-500 mx-auto mb-3" />
             <h3 className="text-xl font-bold text-white mb-2">Want a sharper read on your current path?</h3>
             <p className="text-white/70 mb-6">Apply for a limited review and I will look for the biggest LinkedIn-to-website conversion gap.</p>
-            <a
+            <Link
               href="/free-audit"
               className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-orange-500 to-orange-600 px-6 py-3 font-semibold text-white transition-all hover:shadow-glow-hover"
             >
               <MessageCircle size={18} />
               Apply for a Funnel Review
-            </a>
+            </Link>
           </div>
         </div>
       </div>

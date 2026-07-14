@@ -9,12 +9,13 @@ import { Button } from '@/components/ui/Button'
 import { useModal } from '@/contexts/ModalContext'
 
 const navItems = [
-  { name: 'Home', href: '/#home' },
-  { name: 'Specialist Offer', href: '/linkedin-website-funnel' },
-  { name: 'Proof', href: '/#audit-examples' },
-  { name: 'Pricing', href: '/#packages' },
-  { name: 'Process', href: '/#process' },
-  { name: 'FAQ', href: '/#faqs' },
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+  { name: 'Process', href: '/process' },
+  { name: 'Proof', href: '/proof' },
+  { name: 'Pricing', href: '/pricing' },
+  { name: 'FAQ', href: '/faq' },
+  { name: 'Resources', href: '/resources' },
 ]
 
 export default function Navigation() {
@@ -54,7 +55,7 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-4">
             {navItems.map((item) => (
               <Link
                 key={item.name}

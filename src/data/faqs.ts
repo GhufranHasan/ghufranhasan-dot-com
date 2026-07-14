@@ -11,19 +11,19 @@ export type FAQItem = {
 export const faqs: FAQItem[] = [
   {
     category: 'Audit',
-    question: 'What is the difference between the Free Audit and Starter Audit?',
+    question: 'What is the difference between the Free Funnel Review and Conversion Audit?',
     answer: [
       {
         kind: 'paragraph',
-        text: 'The Free Audit starts with a short intake form where you share your LinkedIn profile, website, main problem, desired outcome, and timeline. I use that context to review your headline, CTA, offer clarity, and biggest conversion leak.',
+        text: 'The Free Funnel Review starts with a short application where you share your LinkedIn profile, website, service, lead source, average client value, and budget range. I use that context to spot the biggest LinkedIn-to-website conversion leak and recommend the right next step.',
       },
       {
         kind: 'paragraph',
-        text: 'Starter Audit is a deeper paid audit where you receive a Loom breakdown, copy recommendations, CTA fixes, and a practical roadmap you can implement yourself or use before a full website build.',
+        text: 'The Conversion Audit is the deeper paid diagnosis. You receive a recorded breakdown, copy recommendations, CTA fixes, and a practical roadmap you can implement yourself or use before a conversion sprint.',
       },
       {
         kind: 'paragraph',
-        text: 'Best for: founders who want clarity before investing in a full website.',
+        text: 'Best for: founder-led B2B service agencies that want clarity before investing in implementation.',
       },
     ],
   },
@@ -37,7 +37,7 @@ export const faqs: FAQItem[] = [
       },
       {
         kind: 'paragraph',
-        text: 'Without a website that continues the same conversation, warm visitors may leave without booking, messaging, or requesting an audit.',
+        text: 'Without a website that continues the same conversation, warm visitors may leave without booking, messaging, or applying for a review.',
       },
     ],
   },
@@ -55,7 +55,7 @@ export const faqs: FAQItem[] = [
       },
       {
         kind: 'paragraph',
-        text: 'My audit helps identify where that gap is happening.',
+        text: 'The review and paid audit help identify where that gap is happening.',
       },
     ],
   },
@@ -65,11 +65,11 @@ export const faqs: FAQItem[] = [
     answer: [
       {
         kind: 'paragraph',
-        text: 'Start with the Free Audit first. It gives you a quick view of your biggest conversion leak without committing to a paid project.',
+        text: 'Start with the Free Funnel Review first. It gives you a quick view of your biggest conversion leak without committing to a paid project.',
       },
       {
         kind: 'paragraph',
-        text: 'If the issue is deeper, the Starter Audit gives you a clear roadmap before you invest in a landing page or full funnel build.',
+        text: 'If the issue is deeper, the Conversion Audit gives you a clear roadmap before you invest in the full LinkedIn-to-Website Conversion Sprint.',
       },
     ],
   },
@@ -79,7 +79,7 @@ export const faqs: FAQItem[] = [
     answer: [
       {
         kind: 'paragraph',
-        text: 'A focused LinkedIn-to-website landing page usually takes 7-10 days, depending on your content, feedback speed, and scope.',
+        text: 'A focused LinkedIn-to-website implementation sprint is planned around 10 business days, depending on your content, feedback speed, access, and scope.',
       },
       {
         kind: 'paragraph',
@@ -89,7 +89,7 @@ export const faqs: FAQItem[] = [
   },
   {
     category: 'Prep',
-    question: 'What do I need to provide before the audit or build starts?',
+    question: 'What do I need to provide before the review, audit, or sprint starts?',
     answer: [
       {
         kind: 'paragraph',
@@ -209,15 +209,15 @@ export const faqs: FAQItem[] = [
   },
   {
     category: 'Next step',
-    question: 'What happens after I request the Free Audit?',
+    question: 'What happens after I apply for the Free Funnel Review?',
     answer: [
       {
         kind: 'paragraph',
-        text: 'After you submit the Free Audit intake form, I review your LinkedIn profile, website, and CTA path using the context you provided.',
+        text: 'After you submit the review application, I review your LinkedIn profile, website, and CTA path using the context you provided.',
       },
       {
         kind: 'paragraph',
-        text: 'You then reach a thank-you page where booking a short clarity call is optional. I identify your biggest conversion leak and suggest the next practical step. If the issue is small, you may only need copy or CTA changes. If it is deeper, I may recommend a Starter Audit or full build.',
+        text: 'You then reach a thank-you page where booking a short clarity call is optional. I identify your biggest conversion leak and suggest the next practical step. If the issue is small, you may only need copy or CTA changes. If it is deeper, I may recommend the paid Conversion Audit or Conversion Sprint.',
       },
     ],
   },
@@ -227,11 +227,11 @@ export const faqs: FAQItem[] = [
     answer: [
       {
         kind: 'paragraph',
-        text: 'No.',
+        text: 'The public positioning is focused on founder-led B2B service agencies because that keeps the offer clear and specific.',
       },
       {
         kind: 'paragraph',
-        text: 'This is also useful for service providers, coaches, consultants, creators, agency owners, and personal brands who already get attention but do not have a clear website path that converts visitors into conversations.',
+        text: 'If you are an established consultant, creator, or service provider with a high-value offer and an active LinkedIn-to-website path, you can still apply. The fit depends on your offer, audience, and conversion problem.',
       },
     ],
   },
