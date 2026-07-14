@@ -21,7 +21,7 @@ const jsonLd = [
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Ghufran Hasan',
-    jobTitle: 'Founder of Marqevy',
+    jobTitle: 'LinkedIn-to-Website Funnel Strategist',
     url: 'https://ghufranhasan.com',
     image: 'https://ghufranhasan.com/images/profile.png',
     sameAs: [
@@ -41,7 +41,7 @@ const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    name: 'Marqevy by Ghufran Hasan',
+    name: 'Ghufran Hasan - LinkedIn-to-Website Funnel Optimization',
     url: 'https://ghufranhasan.com',
     description: 'LinkedIn-to-website funnel optimization for B2B founders, coaches, and creators.',
     areaServed: 'Worldwide',

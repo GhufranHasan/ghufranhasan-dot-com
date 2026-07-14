@@ -5,7 +5,7 @@ import LeadMagnet from '@/components/sections/LeadMagnet'
 import SocialLinksModal from '@/components/layout/SocialLinksModal'
 
 const services = [
-  { label: 'Marqevy', href: '/linkedin-website-funnel' },
+  { label: 'Specialist Offer', href: '/linkedin-website-funnel' },
   { label: 'Services', href: '/#services' },
   { label: 'Funnel Patterns', href: '/#case-studies' },
   { label: 'Pricing', href: '/#packages' },
@@ -49,7 +49,7 @@ export default function Footer() {
               <span>Ghufran<span className="text-orange-500">.</span></span>
             </Link>
             <p className="text-white/70 max-w-sm text-sm">
-              Ghufran Hasan, founder of Marqevy. I build paths that turn LinkedIn attention into booked conversations.
+              Ghufran Hasan. I build paths that turn LinkedIn attention into booked conversations.
             </p>
             <div className="flex gap-3 mt-6">
               {socialLinks.map((social) => (
@@ -97,7 +97,7 @@ export default function Footer() {
 
         <div className="pt-6 border-t border-orange-500/20 text-white/50 text-sm flex flex-col md:flex-row gap-3 justify-between">
           <span>&copy; {new Date().getFullYear()} Ghufran Hasan. All rights reserved.</span>
-          <span>Marqevy by Ghufran Hasan - LinkedIn-to-website funnel optimization.</span>
+          <span>LinkedIn-to-website funnel optimization for B2B founders.</span>
         </div>
       </div>
     </footer>

@@ -10,7 +10,7 @@ import { useModal } from '@/contexts/ModalContext'
 
 const navItems = [
   { name: 'Home', href: '/#home' },
-  { name: 'Marqevy', href: '/linkedin-website-funnel' },
+  { name: 'Specialist Offer', href: '/linkedin-website-funnel' },
   { name: 'Funnel Patterns', href: '/#case-studies' },
   { name: 'Pricing', href: '/#packages' },
   { name: 'Process', href: '/#process' },

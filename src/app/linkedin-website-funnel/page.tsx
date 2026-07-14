@@ -17,17 +17,17 @@ import SectionBadge from '@/components/ui/SectionBadge'
 
 const pageTitle = 'LinkedIn-to-Website Funnel Optimization'
 const pageDescription =
-  'Marqevy by Ghufran Hasan helps B2B founders, coaches, and creators turn LinkedIn attention into booked conversations through profile, website, and CTA alignment.'
+  'Ghufran Hasan helps B2B founders, coaches, and creators turn LinkedIn attention into booked conversations through profile, website, and CTA alignment.'
 const pageUrl = 'https://ghufranhasan.com/linkedin-website-funnel'
 
 export const metadata: Metadata = {
-  title: `${pageTitle} | Marqevy`,
+  title: `${pageTitle} | Ghufran Hasan`,
   description: pageDescription,
   alternates: {
     canonical: '/linkedin-website-funnel',
   },
   openGraph: {
-    title: `${pageTitle} | Marqevy by Ghufran Hasan`,
+    title: `${pageTitle} | Ghufran Hasan`,
     description: pageDescription,
     url: pageUrl,
     type: 'website',
@@ -36,13 +36,13 @@ export const metadata: Metadata = {
         url: '/images/profile.png',
         width: 1200,
         height: 630,
-        alt: 'Marqevy by Ghufran Hasan',
+        alt: 'Ghufran Hasan LinkedIn-to-Website Funnel Optimization',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${pageTitle} | Marqevy`,
+    title: `${pageTitle} | Ghufran Hasan`,
     description: pageDescription,
     images: ['/images/profile.png'],
   },
@@ -51,14 +51,14 @@ export const metadata: Metadata = {
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Marqevy by Ghufran Hasan',
+  name: 'LinkedIn-to-Website Funnel Optimization by Ghufran Hasan',
   serviceType: pageTitle,
   description: pageDescription,
   url: pageUrl,
   provider: {
     '@type': 'Person',
     name: 'Ghufran Hasan',
-    jobTitle: 'Founder of Marqevy',
+    jobTitle: 'LinkedIn-to-Website Funnel Strategist',
     url: 'https://ghufranhasan.com',
   },
   audience: {
@@ -92,7 +92,7 @@ const phases = [
   },
   {
     title: 'Specialist offer',
-    text: 'Marqevy gives the work a clear name, niche, and repeatable promise without pretending to be a large company.',
+    text: 'A clear specialist offer gives the work a niche, repeatable promise, and focused path without pretending to be a large company.',
   },
   {
     title: 'Agency system',
@@ -132,14 +132,14 @@ export default function LinkedinWebsiteFunnelPage() {
             <Breadcrumbs
               items={[
                 { label: 'Home', href: '/#home' },
-                { label: 'Marqevy', href: '/linkedin-website-funnel' },
+                { label: 'Specialist Offer', href: '/linkedin-website-funnel' },
               ]}
             />
 
             <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
               <div>
                 <SectionBadge icon={Sparkles} emphasis="strong" className="mb-6">
-                  Marqevy by Ghufran Hasan
+                  LinkedIn-to-Website Funnel Optimization
                 </SectionBadge>
 
                 <h1 className="hero-headline max-w-4xl text-4xl font-bebas font-semibold leading-[1.04] text-white md:text-6xl">
@@ -197,7 +197,7 @@ export default function LinkedinWebsiteFunnelPage() {
                     Best positioning now:
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-white/70">
-                    Ghufran Hasan, founder of Marqevy, helping B2B founders
+                    Ghufran Hasan, helping B2B founders
                     turn LinkedIn attention into booked conversations.
                   </p>
                 </div>
@@ -247,7 +247,7 @@ export default function LinkedinWebsiteFunnelPage() {
                   No premature agency mask
                 </h2>
                 <p className="mt-4 leading-relaxed text-white/70">
-                  Marqevy creates agency-style positioning without weakening
+                  This specialist offer creates agency-style positioning without weakening
                   the trust of your personal brand or spreading the offer across too
                   many services.
                 </p>
