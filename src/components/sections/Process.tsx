@@ -113,8 +113,8 @@ export default function Process() {
         >
           <div className="glass-card p-8 md:p-12 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bebas mb-3">Ready to find the leak in your LinkedIn to website path?</h3>
-            <p className="text-white/70 mb-6">Get a free audit and I will show you the first fixes I would make.</p>
-            <Button href="/free-audit" variant="primary" size="large">Review My LinkedIn-to-Website Path</Button>
+            <p className="text-white/70 mb-6">Apply for a short review and I will show whether audit or implementation makes sense.</p>
+            <Button href="/free-audit" variant="primary" size="large">Apply for a Funnel Review</Button>
           </div>
         </motion.div>
       </div>

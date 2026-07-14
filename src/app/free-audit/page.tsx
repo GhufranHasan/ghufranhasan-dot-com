@@ -9,9 +9,9 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import SectionBadge from '@/components/ui/SectionBadge'
 import AuditIntakeForm from '@/components/audit/AuditIntakeForm'
 
-const pageTitle = 'Free LinkedIn-to-Website Conversion Audit'
+const pageTitle = 'Apply for a Free LinkedIn-to-Website Funnel Review'
 const pageDescription =
-  'Find the clarity, trust, and CTA gaps stopping warm LinkedIn visitors from becoming booked conversations with Ghufran Hasan.'
+  'Apply for a limited LinkedIn-to-website funnel review for founder-led B2B service agencies with an active offer and working website.'
 const pageUrl = 'https://ghufranhasan.com/free-audit'
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         url: '/images/profile.png',
         width: 1200,
         height: 630,
-        alt: 'Free LinkedIn-to-Website Conversion Audit with Ghufran Hasan',
+        alt: 'Free LinkedIn-to-Website Funnel Review with Ghufran Hasan',
       },
     ],
   },
@@ -55,7 +55,7 @@ const serviceSchema = {
   },
   audience: {
     '@type': 'Audience',
-    audienceType: 'B2B founders, coaches, and creators',
+    audienceType: 'Founder-led B2B service agencies',
   },
   offers: {
     '@type': 'Offer',
@@ -90,33 +90,34 @@ export default function FreeAuditPage() {
             <Breadcrumbs
               items={[
                 { label: 'Home', href: '/#home' },
-                { label: 'Free Audit', href: '/free-audit' },
+                { label: 'Funnel Review', href: '/free-audit' },
               ]}
             />
 
             <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start xl:gap-12">
               <div className="lg:sticky lg:top-28">
                 <SectionBadge icon={FileSearch} emphasis="strong" className="mb-5">
-                  Free audit intake
+                  Qualified funnel review intake
                 </SectionBadge>
 
                 <h1 className="hero-headline max-w-xl text-4xl font-bebas font-semibold leading-[1.04] text-white md:text-5xl xl:text-6xl">
-                  Request Your Free
+                  Apply for a Free
                   <span className="hero-gradient-text mt-1 block">
-                    LinkedIn-to-Website Audit
+                    Funnel Review
                   </span>
                 </h1>
 
                 <p className="mt-5 max-w-xl leading-relaxed text-white/72">
-                  Share your LinkedIn profile and website. I&apos;ll identify the
-                  clearest gaps in your positioning, page journey, and CTA path.
+                  Share your LinkedIn profile, website, service, lead source,
+                  average client value, and budget. I review a limited number of
+                  established B2B service businesses each week.
                 </p>
 
                 <div className="mt-6 space-y-3">
                   {[
-                    '3 clarity issues affecting action',
-                    '3 practical conversion fixes',
-                    '1 clear priority recommendation',
+                    'One major leak in the LinkedIn-to-website path',
+                    'One practical next-step recommendation',
+                    'A clear signal on whether audit or sprint makes sense',
                   ].map((item) => (
                     <div key={item} className="flex items-center gap-3 text-sm text-white/70">
                       <CheckCircle2 size={17} className="shrink-0 text-orange-400" />
@@ -128,15 +129,15 @@ export default function FreeAuditPage() {
                 <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3 border-t border-orange-500/20 pt-5 text-xs text-white/58">
                   <span className="inline-flex items-center gap-2">
                     <Clock3 size={15} className="text-orange-400" />
-                    Takes about 2 minutes
+                    Takes about 3 minutes
                   </span>
                   <span className="inline-flex items-center gap-2">
                     <BadgeCheck size={15} className="text-orange-400" />
-                    No pitch or pressure
+                    Established B2B service businesses only
                   </span>
                 </div>
                 <p className="mt-6 rounded-lg border border-orange-500/20 bg-orange-500/8 p-4 text-sm font-semibold text-white/75">
-                  No generic advice. No pressure. Just clear conversion feedback.
+                  This is not a free full strategy session. It is a short fit-based review for businesses with a real offer, a website, and a reason to improve the path now.
                 </p>
               </div>
 

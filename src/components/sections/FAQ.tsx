@@ -15,18 +15,18 @@ import {
   Wrench,
 } from 'lucide-react'
 import SectionBadge from '@/components/ui/SectionBadge'
-import { faqs } from '@/data/faqs'
+import { homepageFaqs } from '@/data/faqs'
 
 const decisionPoints = [
   {
     icon: WalletCards,
     label: 'Budget',
-    text: 'Start free, then choose a paid audit or build only if it makes sense.',
+    text: 'Start with the application, then choose a paid audit or sprint only if there is fit.',
   },
   {
     icon: Clock3,
     label: 'Timeline',
-    text: 'Know what a focused 7-10 day build actually depends on.',
+    text: 'Know what a focused 10-day implementation sprint actually depends on.',
   },
   {
     icon: ShieldCheck,
@@ -74,7 +74,7 @@ export default function FAQ() {
               <div>
                 <h3 className="text-2xl font-bebas text-white">What this clears up</h3>
                 <p className="mt-2 text-sm text-white/62">
-                  Pricing, fit, guarantees, timeline, and what happens after you request the audit.
+                  Outcome, fit, guarantees, timeline, and whether your current site can be improved.
                 </p>
               </div>
             </div>
@@ -95,13 +95,13 @@ export default function FAQ() {
               href="/free-audit"
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-5 py-3 text-sm font-semibold text-white transition-all hover:shadow-glow-hover"
             >
-              Ask for the audit path
+              Apply for a Review
               <ArrowRight size={16} />
             </a>
           </motion.aside>
 
           <div className="space-y-4">
-            {faqs.map((faq, index) => {
+            {homepageFaqs.map((faq, index) => {
               const isOpen = openIndex === index
 
               return (
@@ -192,14 +192,14 @@ export default function FAQ() {
         <div className="mt-12 text-center">
           <div className="mx-auto max-w-2xl rounded-2xl border border-orange-500/20 bg-linear-to-r from-orange-500/10 to-purple-500/10 p-8">
             <Sparkles size={24} className="text-orange-500 mx-auto mb-3" />
-            <h3 className="text-xl font-bold text-white mb-2">Still unsure where the leak is?</h3>
-            <p className="text-white/70 mb-6">I can review your current profile and website path and show you the first fixes.</p>
+            <h3 className="text-xl font-bold text-white mb-2">Want a sharper read on your current path?</h3>
+            <p className="text-white/70 mb-6">Apply for a limited review and I will look for the biggest LinkedIn-to-website conversion gap.</p>
             <a
               href="/free-audit"
               className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-orange-500 to-orange-600 px-6 py-3 font-semibold text-white transition-all hover:shadow-glow-hover"
             >
               <MessageCircle size={18} />
-              Show Me My Biggest Conversion Gap
+              Apply for a Funnel Review
             </a>
           </div>
         </div>

@@ -11,7 +11,7 @@ import { useModal } from '@/contexts/ModalContext'
 const navItems = [
   { name: 'Home', href: '/#home' },
   { name: 'Specialist Offer', href: '/linkedin-website-funnel' },
-  { name: 'Funnel Patterns', href: '/#case-studies' },
+  { name: 'Proof', href: '/#audit-examples' },
   { name: 'Pricing', href: '/#packages' },
   { name: 'Process', href: '/#process' },
   { name: 'FAQ', href: '/#faqs' },
@@ -64,7 +64,7 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
-            <Button href="/free-audit" variant="primary">Free Audit</Button>
+            <Button href="/free-audit" variant="primary">Apply for Review</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -97,7 +97,7 @@ export default function Navigation() {
                     {item.name}
                   </Link>
                 ))}
-                <Button href="/free-audit" variant="primary" className="w-full" onClick={() => setIsOpen(false)}>Free Audit</Button>
+                <Button href="/free-audit" variant="primary" className="w-full" onClick={() => setIsOpen(false)}>Apply for Review</Button>
               </div>
             </motion.div>
           )}

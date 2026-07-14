@@ -1,8 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import {
+  averageClientValues,
   businessTypes,
+  currentLeadSources,
   desiredOutcomes,
+  engagementIntents,
   improvementTimelines,
+  implementationBudgets,
   mainProblems,
 } from '@/data/auditOptions'
 import { createAuditRequest } from '@/lib/supabase/auditRequests'
@@ -19,9 +23,13 @@ type ResendResult = {
 }
 
 const validBusinessTypes = new Set<string>(businessTypes)
+const validAverageClientValues = new Set<string>(averageClientValues)
+const validCurrentLeadSources = new Set<string>(currentLeadSources)
 const validMainProblems = new Set<string>(mainProblems)
 const validDesiredOutcomes = new Set<string>(desiredOutcomes)
 const validTimelines = new Set<string>(improvementTimelines)
+const validImplementationBudgets = new Set<string>(implementationBudgets)
+const validEngagementIntents = new Set<string>(engagementIntents)
 
 const isValidEmail = (email: string) =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
@@ -106,7 +114,7 @@ export async function POST(request: NextRequest) {
     const ip = getClientIp(request)
     if (isRateLimited(ip)) {
       return NextResponse.json(
-        { error: 'Too many audit requests. Please wait a minute and try again.' },
+        { error: 'Too many review applications. Please wait a minute and try again.' },
         { status: 429 }
       )
     }
@@ -116,7 +124,7 @@ export async function POST(request: NextRequest) {
 
     if (honeypot) {
       return NextResponse.json(
-        { message: 'Your audit request has been received.' },
+        { message: 'Your funnel review application has been received.' },
         { status: 201 }
       )
     }
@@ -125,20 +133,30 @@ export async function POST(request: NextRequest) {
     const email = cleanText(body.email, 254).toLowerCase()
     const linkedinUrl = cleanText(body.linkedinUrl, 500)
     const websiteUrl = cleanText(body.websiteUrl, 500)
+    const agencyService = cleanText(body.agencyService, 180)
     const businessType = cleanText(body.businessType, 80)
+    const averageClientValue = cleanText(body.averageClientValue, 80)
+    const currentLeadSource = cleanText(body.currentLeadSource, 120)
     const mainProblem = cleanText(body.mainProblem, 160)
     const desiredOutcome = cleanText(body.desiredOutcome, 160)
     const timeline = cleanText(body.timeline, 80)
+    const implementationBudget = cleanText(body.implementationBudget, 80)
+    const engagementIntent = cleanText(body.engagementIntent, 120)
 
     if (
       !name ||
       !isValidEmail(email) ||
       !linkedinUrl ||
       !websiteUrl ||
+      !agencyService ||
       !validBusinessTypes.has(businessType) ||
+      !validAverageClientValues.has(averageClientValue) ||
+      !validCurrentLeadSources.has(currentLeadSource) ||
       !validMainProblems.has(mainProblem) ||
       !validDesiredOutcomes.has(desiredOutcome) ||
-      !validTimelines.has(timeline)
+      !validTimelines.has(timeline) ||
+      !validImplementationBudgets.has(implementationBudget) ||
+      !validEngagementIntents.has(engagementIntent)
     ) {
       return NextResponse.json(
         { error: 'Please complete every field with valid information.' },
@@ -176,10 +194,15 @@ export async function POST(request: NextRequest) {
       email,
       linkedinUrl: parsedLinkedinUrl.toString(),
       websiteUrl: parsedWebsiteUrl.toString(),
+      agencyService,
       businessType,
+      averageClientValue,
+      currentLeadSource,
       mainProblem,
       desiredOutcome,
       timeline,
+      implementationBudget,
+      engagementIntent,
     })
 
     const fromEmail = process.env.RESEND_FROM_EMAIL
@@ -190,10 +213,15 @@ export async function POST(request: NextRequest) {
       const safeEmail = escapeHtml(email)
       const safeLinkedinUrl = escapeHtml(parsedLinkedinUrl.toString())
       const safeWebsiteUrl = escapeHtml(parsedWebsiteUrl.toString())
+      const safeAgencyService = escapeHtml(agencyService)
       const safeBusinessType = escapeHtml(businessType)
+      const safeAverageClientValue = escapeHtml(averageClientValue)
+      const safeCurrentLeadSource = escapeHtml(currentLeadSource)
       const safeMainProblem = escapeHtml(mainProblem)
       const safeDesiredOutcome = escapeHtml(desiredOutcome)
       const safeTimeline = escapeHtml(timeline)
+      const safeImplementationBudget = escapeHtml(implementationBudget)
+      const safeEngagementIntent = escapeHtml(engagementIntent)
       const notificationEmail =
         process.env.AUDIT_NOTIFICATION_EMAIL || 'hello@ghufranhasan.com'
 
@@ -201,26 +229,31 @@ export async function POST(request: NextRequest) {
         sendEmail({
           from: fromEmail,
           to: notificationEmail,
-          subject: `New free audit request from ${name}`,
+          subject: `New funnel review application from ${name}`,
           html: `
-            <h1>New LinkedIn-to-Website Audit Request</h1>
+            <h1>New LinkedIn-to-Website Funnel Review Application</h1>
             <p><strong>Name:</strong> ${safeName}</p>
             <p><strong>Email:</strong> <a href="mailto:${safeEmail}">${safeEmail}</a></p>
             <p><strong>LinkedIn:</strong> <a href="${safeLinkedinUrl}">${safeLinkedinUrl}</a></p>
             <p><strong>Website:</strong> <a href="${safeWebsiteUrl}">${safeWebsiteUrl}</a></p>
+            <p><strong>Agency service:</strong> ${safeAgencyService}</p>
             <p><strong>Business type:</strong> ${safeBusinessType}</p>
+            <p><strong>Average client value:</strong> ${safeAverageClientValue}</p>
+            <p><strong>Current lead source:</strong> ${safeCurrentLeadSource}</p>
             <p><strong>Main problem:</strong> ${safeMainProblem}</p>
             <p><strong>Desired outcome:</strong> ${safeDesiredOutcome}</p>
             <p><strong>Timeline:</strong> ${safeTimeline}</p>
+            <p><strong>Implementation budget:</strong> ${safeImplementationBudget}</p>
+            <p><strong>Intent:</strong> ${safeEngagementIntent}</p>
             <p><strong>Request ID:</strong> ${escapeHtml(savedRequest.id)}</p>
           `,
         }),
         sendEmail({
           from: fromEmail,
           to: email,
-          subject: 'Your free audit request has been received',
+          subject: 'Your funnel review application has been received',
           html: `
-            <h1>Your audit request is in, ${safeName}.</h1>
+            <h1>Your funnel review application is in, ${safeName}.</h1>
             <p>Thank you for sharing your LinkedIn profile and website.</p>
             <p>I will review your profile, website, and CTA flow, then identify the most important clarity and conversion fixes.</p>
             <p>No generic advice. No pressure. Just clear conversion feedback.</p>
@@ -237,18 +270,18 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       {
-        message: 'Your audit request has been received.',
+        message: 'Your funnel review application has been received.',
         id: savedRequest.id,
         emailsSent,
       },
       { status: 201 }
     )
   } catch (error) {
-    console.error('Audit request submission error:', error)
+    console.error('Funnel review application submission error:', error)
     return NextResponse.json(
       {
         error:
-          'The audit request could not be saved right now. Please try again in a moment.',
+          'The review application could not be saved right now. Please try again in a moment.',
       },
       { status: 500 }
     )

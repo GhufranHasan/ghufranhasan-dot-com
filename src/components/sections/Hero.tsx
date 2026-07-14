@@ -8,21 +8,20 @@ import {
   ArrowRight,
   CalendarCheck,
   CheckCircle2,
-  ClipboardCheck,
   Linkedin,
   MousePointerClick,
 } from 'lucide-react'
 
 const proofPoints = [
-  'Personal-brand trust with an agency-style conversion system',
-  'One focused offer: LinkedIn-to-Website Funnel Optimization',
-  'Profile, website, and CTA aligned before you scale the brand',
+  'For founder-led B2B service agencies with an active offer',
+  'Focused 10-day implementation sprint after diagnosis',
+  'Strategy, copy, design, Next.js delivery, and CTA tracking',
 ]
 
 const trustSignals = [
-  { value: '23K+', label: 'LinkedIn audience' },
-  { value: 'One Offer', label: 'specialist system' },
-  { value: 'Focused', label: 'no full-service clutter' },
+  { value: 'B2B', label: 'service agencies' },
+  { value: '10-day', label: 'focused sprint' },
+  { value: '$1.2K+', label: 'implementation path' },
 ]
 
 const journeySteps = [
@@ -64,7 +63,7 @@ export default function Hero() {
               transition={{ delay: 0.2 }}
               className="mb-6"
             >
-              <SectionBadge icon={Linkedin}>LinkedIn-to-Website Funnel Optimization</SectionBadge>
+              <SectionBadge icon={Linkedin}>LinkedIn-to-website conversion for founder-led B2B agencies</SectionBadge>
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -72,9 +71,9 @@ export default function Hero() {
               transition={{ delay: 0.3 }}
               className="hero-headline text-5xl md:text-6xl lg:text-7xl font-bebas font-semibold leading-[1.03] mb-6 text-white max-w-4xl"
             >
-              <span className="block">Turn LinkedIn Profile Visits</span>
+              <span className="block">Your LinkedIn Gets Attention.</span>
               {' '}
-              <span className="hero-gradient-text block">Into Booked Conversations</span>
+              <span className="hero-gradient-text block">Your Website Should Turn It Into Enquiries.</span>
             </motion.h1>
 
             <motion.p
@@ -83,7 +82,7 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className="text-lg text-white/80 mb-8 max-w-2xl"
             >
-              I help B2B founders, coaches, and creators turn LinkedIn attention into booked conversations through profile, website, and CTA alignment.
+              I help founder-led B2B agencies align their LinkedIn promise, website messaging, and booking path so warm visitors understand the offer and take one clear next step.
             </motion.p>
 
             <motion.div
@@ -107,10 +106,10 @@ export default function Hero() {
               className="flex flex-col gap-4 sm:flex-row md:flex-col xl:flex-row"
             >
               <Button href="/free-audit" variant="primary" size="large" className="whitespace-nowrap">
-                Request Free Audit <ArrowRight size={18} />
+                Apply for a Funnel Review <ArrowRight size={18} />
               </Button>
-              <Button href="/linkedin-website-funnel" variant="secondary" size="large" className="whitespace-nowrap">
-                Explore the Specialist Offer
+              <Button href="#audit-examples" variant="secondary" size="large" className="whitespace-nowrap">
+                See a Sample Audit
               </Button>
             </motion.div>
 
@@ -128,37 +127,13 @@ export default function Hero() {
               ))}
             </motion.div>
 
-            <div className="mt-6 rounded-xl border border-orange-500/20 bg-background-card p-4">
-              <div className="flex items-start gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-orange-500/10 text-orange-400">
-                  <ClipboardCheck size={20} />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-white text-sm font-semibold">10-Point LinkedIn-to-Website Funnel Checklist</p>
-                  <p className="text-white/60 text-xs mt-1">
-                    Use the public checklist to score your LinkedIn profile, website, and CTA path without entering an email.
-                  </p>
-                  <a
-                    href="/resources/linkedin-website-funnel-checklist"
-                    className="mt-4 inline-flex items-center gap-2 rounded-lg bg-orange-500/10 px-4 py-2 text-xs font-semibold text-orange-200 transition-colors hover:bg-orange-500/15 hover:text-orange-100"
-                  >
-                    Open the public checklist
-                    <ArrowRight size={13} />
-                  </a>
-                  <p className="mt-3 text-xs font-semibold text-white/45">
-                    No email required. No signup.
-                  </p>
-                </div>
-              </div>
-            </div>
-
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.58 }}
               className="text-sm text-white/60 mt-4"
             >
-              No pitch. No pressure. Just clarity on your biggest conversion leak.
+              The free review is for established B2B service businesses with an active offer and a working website.
             </motion.p>
           </motion.div>
 
@@ -216,7 +191,7 @@ export default function Hero() {
               </div>
               <div className="mt-3 flex items-center gap-3 text-white/80 text-sm">
                 <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
-                <span>Personal brand first, specialist system underneath</span>
+                <span>Strategy, copy, design, and implementation</span>
               </div>
             </div>
           </motion.div>

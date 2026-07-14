@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     default: 'Ghufran Hasan | LinkedIn-to-Website Funnel Strategist',
     template: '%s | Ghufran Hasan',
   },
-  description: 'Helping B2B founders, coaches, and creators turn LinkedIn attention into booked conversations through profile, website, and CTA alignment.',
+  description: 'Helping founder-led B2B service agencies turn LinkedIn attention into qualified enquiries through profile, website, and CTA alignment.',
   keywords: [
     'personal brand website',
     'LinkedIn funnel strategist',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Ghufran Hasan | LinkedIn-to-Website Funnel Strategist',
-    description: 'A LinkedIn-to-website conversion system for B2B founders, coaches, and creators who are getting visibility but not enough booked conversations.',
+    description: 'A LinkedIn-to-website conversion system for founder-led B2B service agencies getting visibility but not enough qualified enquiries.',
     url: 'https://ghufranhasan.com',
     siteName: 'Ghufran Hasan',
     type: 'website',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Ghufran Hasan | LinkedIn-to-Website Funnel Strategist',
-    description: 'Turn LinkedIn attention into booked conversations with profile, website, and CTA alignment.',
+    description: 'Turn LinkedIn attention into qualified enquiries with profile, website, and CTA alignment.',
     images: ['/images/profile.png'],
   },
   robots: {

@@ -14,8 +14,8 @@ import SectionBadge from '@/components/ui/SectionBadge'
 const examples = [
   {
     icon: PanelsTopLeft,
-    title: 'My own website rebuild',
-    label: 'Live rebuild thinking',
+    title: 'This website transformation',
+    label: 'Inspect the live strategy',
     points: [
       'Before: portfolio-style sections without a clear buyer journey',
       'Fix: LinkedIn promise, audit CTA, offer ladder, and objection handling',
@@ -24,18 +24,18 @@ const examples = [
   },
   {
     icon: FileSearch,
-    title: 'Sample founder audit',
-    label: 'Profile-to-page teardown',
+    title: 'Public teardown sample',
+    label: 'Not a client result claim',
     points: [
       'LinkedIn headline issue: promise is interesting but not specific enough',
       'Website issue: CTA asks visitors to decide too early',
-      'Recommended fix: lead with one audit path and support it with proof',
+      'Recommended fix: lead with one review path and support it with proof',
     ],
   },
   {
     icon: Code2,
-    title: 'BugXTech / project proof',
-    label: 'Build credibility',
+    title: 'Real project execution',
+    label: 'Implementation proof',
     points: [
       'Shows I can translate strategy into a working digital asset',
       'Highlights technical execution without making GitHub the main proof',
@@ -61,10 +61,10 @@ export default function AuditExamples() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="mx-auto mb-12 max-w-3xl text-center"
         >
-          <SectionBadge icon={FileSearch} className="mb-4">Proof before pricing</SectionBadge>
-          <h2 className="text-3xl md:text-5xl font-bebas mb-4">See what the audit looks like</h2>
+          <SectionBadge icon={FileSearch} className="mb-4">Visible proof before pricing</SectionBadge>
+          <h2 className="text-3xl md:text-5xl font-bebas mb-4">Proof you can inspect before you buy</h2>
           <p className="text-white/75">
-            Before asking you to choose a package, I want the thinking to be visible. These examples show how I diagnose the path from LinkedIn profile visits to booked conversations without inventing client numbers.
+            Before asking you to choose a package, I want the thinking to be visible. These examples show how I diagnose the path from LinkedIn profile visit to qualified enquiry without inventing client numbers.
           </p>
         </motion.div>
 
@@ -161,7 +161,7 @@ export default function AuditExamples() {
 
               <div className="mt-6">
                 <Button href="/free-audit" variant="primary" className="w-full">
-                  Request Free Audit
+                  Apply for Review
                   <ArrowRight size={17} />
                 </Button>
               </div>

@@ -237,6 +237,79 @@ export const faqs: FAQItem[] = [
   },
 ]
 
+export const homepageFaqs: FAQItem[] = [
+  {
+    category: 'Outcome',
+    question: 'What result does the sprint create?',
+    answer: [
+      {
+        kind: 'paragraph',
+        text: 'The sprint creates one clearer journey from LinkedIn attention to qualified enquiry. It aligns your profile promise, website messaging, offer explanation, trust sequence, CTA, intake path, and basic tracking.',
+      },
+      {
+        kind: 'paragraph',
+        text: 'The goal is not just a better-looking page. The goal is a focused conversion path that helps warm visitors understand what you do, why it matters, and what action to take next.',
+      },
+    ],
+  },
+  {
+    category: 'Prep',
+    question: 'What do I need before we start?',
+    answer: [
+      {
+        kind: 'paragraph',
+        text: 'You need an active service offer, a LinkedIn profile, a working website or landing page, and a clear idea of the action you want visitors to take.',
+      },
+      {
+        kind: 'paragraph',
+        text: 'You do not need perfect copy or perfect branding. The process is designed to sharpen positioning, page structure, and CTA flow before implementation.',
+      },
+    ],
+  },
+  {
+    category: 'Timeline',
+    question: 'How long does the process take?',
+    answer: [
+      {
+        kind: 'paragraph',
+        text: 'The paid audit usually takes 2-3 business days. A focused implementation sprint is planned around 10 business days once the scope, inputs, and feedback timeline are clear.',
+      },
+      {
+        kind: 'paragraph',
+        text: 'The timeline depends on how quickly content, access, approvals, and revisions are handled.',
+      },
+    ],
+  },
+  {
+    category: 'Guarantee',
+    question: 'Do you guarantee booked calls?',
+    answer: [
+      {
+        kind: 'paragraph',
+        text: 'No. Booked calls depend on your offer, market, audience quality, LinkedIn activity, follow-up, pricing, and demand.',
+      },
+      {
+        kind: 'paragraph',
+        text: 'What I improve is the path under my control: clarity, offer messaging, trust sequence, CTA strength, mobile experience, intake flow, and tracking.',
+      },
+    ],
+  },
+  {
+    category: 'Build',
+    question: 'Can you improve my current website instead of rebuilding it?',
+    answer: [
+      {
+        kind: 'paragraph',
+        text: 'Yes. If your current site has a usable foundation, I can improve the messaging, section order, CTA flow, and conversion path.',
+      },
+      {
+        kind: 'paragraph',
+        text: 'If the structure is too confusing or outdated, I may recommend rebuilding the focused conversion page instead of patching a weak foundation.',
+      },
+    ],
+  },
+]
+
 export function getFaqPlainAnswer(faq: FAQItem) {
   return faq.answer
     .map((block) => {

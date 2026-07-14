@@ -32,7 +32,7 @@ const auditPoints = [
 const auditPath = [
   {
     title: 'Share your journey',
-    text: 'Add your LinkedIn profile, website, main problem, and desired outcome.',
+    text: 'Add your LinkedIn profile, website, service, lead source, and budget range.',
   },
   {
     title: 'I review the leaks',
@@ -69,10 +69,10 @@ export default function Contact() {
           >
             <div>
               <SectionBadge icon={Sparkles} className="mb-4">
-                One clear audit path
+                One clear review path
               </SectionBadge>
               <h2 className="mb-4 text-3xl font-bebas md:text-4xl lg:text-5xl">
-                Start with the audit intake, not a sales call.
+                Start with the funnel review application, not a sales call.
               </h2>
               <p className="text-lg leading-relaxed text-white/70">
                 Share the context once. I will review where your LinkedIn-to-website
@@ -106,7 +106,7 @@ export default function Contact() {
               </div>
               <div className="flex items-center gap-2">
                 <Sparkles size={14} className="text-orange-500" />
-                Clear next steps
+                Fit-based next steps
               </div>
             </div>
           </motion.div>
@@ -120,11 +120,11 @@ export default function Contact() {
             <div className="border-b border-orange-500/15 pb-6 text-center">
               <ClipboardCheck size={32} className="mx-auto text-orange-500" />
               <h3 className="mt-3 text-2xl font-bold text-white">
-                Request your free audit
+                Apply for a free funnel review
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-white/60">
-                Every audit and paid project starts with the same short intake, so
-                you never need to choose between DM, email, or a call first.
+                Every review, paid audit, and sprint starts with the same short
+                intake, so qualified buyers get one clear path.
               </p>
             </div>
 
@@ -151,7 +151,7 @@ export default function Contact() {
               href="/free-audit#request-audit"
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-6 py-4 font-bold text-white transition-all hover:-translate-y-0.5 hover:shadow-glow-hover"
             >
-              Open the Free Audit Form
+              Open the Funnel Review Form
               <ArrowRight size={18} />
             </Link>
 

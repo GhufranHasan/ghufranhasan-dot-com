@@ -5,9 +5,13 @@ import { useRouter } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, CheckCircle2, LoaderCircle, ShieldCheck } from 'lucide-react'
 import {
+  averageClientValues,
   businessTypes,
+  currentLeadSources,
   desiredOutcomes,
+  engagementIntents,
   improvementTimelines,
+  implementationBudgets,
   mainProblems,
 } from '@/data/auditOptions'
 import BrandedSelect from '@/components/ui/BrandedSelect'
@@ -34,9 +38,13 @@ export default function AuditIntakeForm() {
     const formData = new FormData(form)
     const requiredSelections = [
       formData.get('businessType'),
+      formData.get('averageClientValue'),
+      formData.get('currentLeadSource'),
       formData.get('mainProblem'),
       formData.get('desiredOutcome'),
       formData.get('timeline'),
+      formData.get('implementationBudget'),
+      formData.get('engagementIntent'),
     ]
 
     if (requiredSelections.some((value) => !value)) {
@@ -54,10 +62,15 @@ export default function AuditIntakeForm() {
           email: formData.get('email'),
           linkedinUrl: formData.get('linkedinUrl'),
           websiteUrl: formData.get('websiteUrl'),
+          agencyService: formData.get('agencyService'),
           businessType: formData.get('businessType'),
+          averageClientValue: formData.get('averageClientValue'),
+          currentLeadSource: formData.get('currentLeadSource'),
           mainProblem: formData.get('mainProblem'),
           desiredOutcome: formData.get('desiredOutcome'),
           timeline: formData.get('timeline'),
+          implementationBudget: formData.get('implementationBudget'),
+          engagementIntent: formData.get('engagementIntent'),
           company: formData.get('company'),
         }),
       })
@@ -65,14 +78,14 @@ export default function AuditIntakeForm() {
       const result = await response.json()
 
       if (!response.ok) {
-        setError(result.error || 'Your request could not be saved. Please try again.')
+        setError(result.error || 'Your application could not be saved. Please try again.')
         return
       }
 
       router.push('/thank-you')
     } catch (submissionError) {
       console.error('Audit form submission error:', submissionError)
-      setError('Your request could not be saved. Please try again in a moment.')
+      setError('Your application could not be saved. Please try again in a moment.')
     } finally {
       setIsSubmitting(false)
     }
@@ -124,7 +137,7 @@ export default function AuditIntakeForm() {
             type="email"
             name="email"
             autoComplete="email"
-            placeholder="Where should I send the audit?"
+            placeholder="Where should I send the review?"
             maxLength={254}
             required
           />
@@ -157,11 +170,41 @@ export default function AuditIntakeForm() {
           />
         </motion.label>
 
+        <motion.label variants={fieldVariants} className="text-sm font-semibold text-white sm:col-span-2">
+          Agency Service
+          <input
+            className={inputClasses}
+            type="text"
+            name="agencyService"
+            placeholder="Example: B2B content agency, web development agency, paid media agency"
+            maxLength={180}
+            required
+          />
+        </motion.label>
+
         <motion.div variants={fieldVariants}>
           <BrandedSelect
-            label="What best describes you?"
+            label="What best describes your business?"
             name="businessType"
             options={businessTypes}
+            placeholder="Select one"
+          />
+        </motion.div>
+
+        <motion.div variants={fieldVariants}>
+          <BrandedSelect
+            label="Average client value"
+            name="averageClientValue"
+            options={averageClientValues}
+            placeholder="Select a range"
+          />
+        </motion.div>
+
+        <motion.div variants={fieldVariants}>
+          <BrandedSelect
+            label="Current main lead source"
+            name="currentLeadSource"
+            options={currentLeadSources}
             placeholder="Select one"
           />
         </motion.div>
@@ -184,12 +227,30 @@ export default function AuditIntakeForm() {
           />
         </motion.div>
 
-        <motion.div variants={fieldVariants} className="sm:col-span-2">
+        <motion.div variants={fieldVariants}>
           <BrandedSelect
             label="What do you want more of?"
             name="desiredOutcome"
             options={desiredOutcomes}
             placeholder="Select your main outcome"
+          />
+        </motion.div>
+
+        <motion.div variants={fieldVariants}>
+          <BrandedSelect
+            label="Implementation budget"
+            name="implementationBudget"
+            options={implementationBudgets}
+            placeholder="Select one"
+          />
+        </motion.div>
+
+        <motion.div variants={fieldVariants} className="sm:col-span-2">
+          <BrandedSelect
+            label="What do you want from this review?"
+            name="engagementIntent"
+            options={engagementIntents}
+            placeholder="Select intent"
           />
         </motion.div>
       </div>
@@ -218,11 +279,11 @@ export default function AuditIntakeForm() {
         {isSubmitting ? (
           <>
             <LoaderCircle size={18} className="animate-spin" />
-            Saving your request...
+            Saving your application...
           </>
         ) : (
           <>
-            Request My Free Audit
+            Apply for Free Funnel Review
             <ArrowRight size={18} />
           </>
         )}
@@ -234,7 +295,7 @@ export default function AuditIntakeForm() {
       >
         <span className="inline-flex items-center gap-2">
           <ShieldCheck size={14} className="text-orange-400" />
-          Your links are used only for the audit.
+          Limited reviews for established B2B service businesses.
         </span>
         <span className="inline-flex items-center gap-2">
           <CheckCircle2 size={14} className="text-orange-400" />

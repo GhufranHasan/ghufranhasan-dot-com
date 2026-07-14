@@ -14,16 +14,16 @@ export default function LeadMagnet() {
     >
       <div className="flex items-center gap-2 mb-2">
         <FileText size={18} className="text-orange-500" />
-        <h3 className="font-bold text-white text-sm">Free LinkedIn to Website Audit</h3>
+        <h3 className="font-bold text-white text-sm">Free Funnel Review</h3>
       </div>
       <p className="text-white/60 text-xs mb-4">
-        Send your profile and website. I will show you the biggest leaks and the first fixes I would make.
+        Apply with your profile, website, and business context so I can spot the biggest conversion leak.
       </p>
       <Link
         href="/free-audit#request-audit"
         className="inline-flex items-center gap-2 text-orange-500 text-xs font-semibold hover:text-orange-400"
       >
-        Request the audit <ArrowRight size={14} />
+        Apply for review <ArrowRight size={14} />
       </Link>
     </motion.div>
   )

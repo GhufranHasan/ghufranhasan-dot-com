@@ -20,136 +20,130 @@ import {
 
 const packages = [
   {
-    title: 'Starter Audit',
+    title: 'Free Funnel Review',
+    price: 'Free',
+    stage: 'Selective diagnosis',
+    audience: 'For established B2B agencies with a working website',
+    badge: 'Apply first',
+    cta: 'Apply for Review',
+    timeline: 'Limited weekly reviews',
+    purpose: 'For agency founders who want one focused read on the biggest LinkedIn-to-website conversion leak before choosing a paid next step.',
+    valueSummary: [
+      {
+        label: 'What you get',
+        text: 'A short review of your LinkedIn profile, website, CTA path, and application context.',
+      },
+      {
+        label: 'Why it matters',
+        text: 'You avoid jumping into a build before knowing whether the issue is positioning, page messaging, trust, CTA, or qualification.',
+      },
+      {
+        label: 'Outcome',
+        text: 'You get one major leak, one practical recommendation, and a clear suggestion on whether a paid audit or sprint makes sense.',
+      },
+    ],
+    bestFor: 'Best if you sell a real B2B service, already have a website, and want to know whether your current path is worth fixing.',
+    features: [
+      'Qualified intake review',
+      'LinkedIn-to-website path check',
+      'One major conversion leak',
+      'One practical recommendation',
+      'Best next-step suggestion',
+    ],
+    valueStack: [
+      ['Application review', 'Filters for established businesses instead of free-advice seekers'],
+      ['LinkedIn promise check', 'Shows whether the profile creates the right expectation'],
+      ['Website hero check', 'Tests whether the website continues the same promise'],
+      ['CTA path check', 'Looks for the first obvious conversion friction'],
+      ['Fit recommendation', 'Clarifies whether the next step is audit, sprint, or no project'],
+    ],
+  },
+  {
+    title: 'Conversion Audit',
     price: '$300',
-    stage: 'Start with clarity',
-    audience: 'For founders who want clarity before a build',
+    stage: 'Paid diagnosis',
+    audience: 'For founders who want a real roadmap before implementation',
     badge: 'Start here',
-    cta: 'Start With Paid Audit',
+    cta: 'Apply for Paid Audit',
     timeline: '2-3 business days',
-    purpose: 'For founders who know their website is not converting, but do not know what to fix first.',
+    purpose: 'For agency founders who know the website is underperforming but do not want to guess what to fix first.',
     valueSummary: [
       {
         label: 'What you get',
-        text: 'A recorded audit of your LinkedIn-to-website path, homepage message, CTA clarity, offer positioning, and trust sequence.',
+        text: 'A recorded audit of your LinkedIn-to-website path, service-page message, CTA clarity, offer positioning, trust sequence, and booking friction.',
       },
       {
         label: 'Why it matters',
-        text: 'You stop guessing what is broken and get a clear view of the exact conversion leaks stopping visitors from taking action.',
+        text: 'You stop guessing and get a prioritized roadmap before spending on copy, design, or development.',
       },
       {
         label: 'Outcome',
-        text: 'You leave with 3 highest-priority fixes, copy direction, and a simple roadmap before investing in a redesign or build.',
+        text: 'You leave with the most important fixes, copy direction, CTA recommendation, and a practical implementation roadmap.',
       },
     ],
-    bestFor: 'Best if you already have a website but you are unsure why LinkedIn attention is not turning into inquiries.',
+    bestFor: 'Best if you already have LinkedIn attention and a website, but the path is not producing enough qualified enquiries.',
     features: [
-      'LinkedIn profile and website review',
-      'Recorded Loom breakdown',
-      '3 highest-priority conversion fixes',
-      'CTA and hero copy recommendations',
-      'Simple next-step roadmap',
+      'LinkedIn and website review',
+      'Recorded Loom diagnosis',
+      'Priority fix list',
+      'CTA and copy recommendations',
+      'Implementation roadmap',
     ],
     valueStack: [
-      ['LinkedIn-to-website journey review', 'Shows where attention is dropping before inquiry'],
-      ['Homepage headline audit', 'Clarifies whether visitors understand your offer quickly'],
+      ['Profile-to-page journey review', 'Shows where LinkedIn attention weakens before enquiry'],
+      ['Homepage or service-page audit', 'Checks whether visitors understand your offer quickly'],
       ['CTA clarity review', 'Removes confusion around what action visitors should take'],
-      ['Offer positioning feedback', 'Helps your service feel more specific and valuable'],
-      ['Trust section review', 'Identifies missing proof, testimonials, or authority signals'],
-      ['Loom video breakdown', 'Gives you a clear explanation, not just written notes'],
+      ['Offer positioning feedback', 'Helps your service feel specific and valuable'],
+      ['Trust sequence review', 'Identifies missing proof, process, or credibility signals'],
+      ['Recorded Loom breakdown', 'Gives a clear explanation, not just notes'],
       ['Prioritized action roadmap', 'Shows what to fix first, second, and third'],
-      ['Copy improvement suggestions', 'Helps you improve messaging without guessing'],
+      ['Sprint recommendation', 'Clarifies whether implementation is worth doing now'],
     ],
   },
   {
-    title: 'LinkedIn + Landing Page',
-    price: '$500',
-    stage: 'Core conversion system',
-    audience: 'For founders with LinkedIn traction but weak conversion',
-    badge: 'Most popular',
-    cta: 'Discuss Landing Page',
-    timeline: '7-10 days',
-    purpose: 'For founders who need one focused page that turns warm LinkedIn visitors into qualified inquiries.',
+    title: 'LinkedIn-to-Website Conversion Sprint',
+    price: 'From $1,200',
+    stage: '10-day implementation',
+    audience: 'For founder-led B2B agencies ready to fix the path',
+    badge: 'Core offer',
+    cta: 'Apply for Sprint',
+    timeline: '10 business days',
+    purpose: 'For agencies that need one clear journey from LinkedIn attention to qualified enquiry, built and launched without turning into a vague website project.',
     valueSummary: [
       {
         label: 'What you get',
-        text: 'A focused landing page strategy, conversion copy structure, lead capture path, booking flow, and responsive Next.js implementation.',
+        text: 'Positioning alignment, conversion copy, page architecture, responsive design and Next.js implementation, audit/contact flow, mobile optimization, tracking, and launch support.',
       },
       {
         label: 'Why it matters',
-        text: 'Your LinkedIn visitors land on a page that continues the same promise instead of sending them to a generic website.',
+        text: 'Your LinkedIn profile, website, offer, CTA, trust proof, and inquiry path stop working as separate pieces and start working as one decision path.',
       },
       {
         label: 'Outcome',
-        text: 'You get one clear page built to move warm visitors from profile curiosity to audit request, DM, or booked conversation.',
+        text: 'You get a focused conversion page or homepage path built to help qualified visitors understand the offer and request the next step.',
       },
     ],
-    bestFor: 'Best if you already have LinkedIn traction and need one clear page to convert profile visitors.',
+    bestFor: 'Best if your agency sells a high-value service and one additional qualified client is worth more than the sprint investment.',
     features: [
-      'LinkedIn positioning refinement',
-      'Conversion-focused landing page structure',
-      'Hero, offer, proof, and CTA copy',
-      'Lead capture and booking flow',
-      'Responsive Next.js implementation',
+      'Positioning and offer-message alignment',
+      'Conversion-focused page architecture',
+      'Homepage or landing-page copy',
+      'Responsive design and Next.js build',
+      'Audit, contact, or booking flow',
+      'Analytics and CTA tracking',
+      'Launch walkthrough',
     ],
     valueStack: [
-      ['Landing page strategy', 'Creates a clear path from attention to action'],
-      ['Hero section copy', 'Makes the offer understandable within seconds'],
-      ['Problem section', 'Helps visitors feel understood'],
-      ['Offer section', 'Explains what you do and why it matters'],
-      ['Trust-building sections', 'Adds credibility before the CTA'],
-      ['CTA flow', 'Guides visitors toward one clear next step'],
-      ['Responsive Next.js build', 'Gives you a fast, modern, mobile-friendly website'],
-      ['Basic SEO setup', 'Helps search engines understand your page'],
-      ['Contact / audit form integration', 'Makes it easy for leads to reach you'],
-      ['Launch support', 'Helps you publish with confidence'],
-    ],
-  },
-  {
-    title: 'Full Funnel System',
-    price: '$1,200',
-    stage: 'Premium strategy and build',
-    audience: 'For founders ready to align the full journey',
-    badge: 'Full system',
-    cta: 'Plan Full Funnel',
-    timeline: '2-3 weeks',
-    purpose: 'For founders who want a complete LinkedIn-to-website conversion path, not just a single page.',
-    valueSummary: [
-      {
-        label: 'What you get',
-        text: 'Full profile-to-website audit, owned asset structure, offer architecture, messaging, multi-section website, lead capture, launch support, and walkthrough video.',
-      },
-      {
-        label: 'Why it matters',
-        text: 'Your LinkedIn profile, website, offer, CTA, trust proof, and follow-up path stop working as separate pieces and start working as one system.',
-      },
-      {
-        label: 'Outcome',
-        text: 'You get a complete LinkedIn-to-website conversion path that supports qualified conversations, not just website visits.',
-      },
-    ],
-    bestFor: 'Best if your profile, offer, website, and CTA all need to be aligned into one buyer journey.',
-    features: [
-      'Full profile-to-website funnel audit',
-      'Owned asset and email capture structure',
-      'Offer and messaging architecture',
-      'Multi-section website build',
-      'FAQ and objection handling',
-      'Launch support and walkthrough video',
-    ],
-    valueStack: [
-      ['Full funnel audit', 'Identifies leaks from profile to website to inquiry'],
-      ['Owned asset structure', 'Keeps your core offer, CTA, and lead path under your own brand'],
-      ['Positioning refinement', 'Makes your message sharper and more specific'],
-      ['Website structure strategy', 'Defines the full buyer journey'],
-      ['Landing page or multi-section build', 'Gives your offer a complete conversion home'],
-      ['Lead magnet / audit CTA planning', 'Creates a low-friction entry point'],
-      ['Trust proof section planning', 'Helps visitors believe before they book'],
-      ['FAQ and objection handling', 'Reduces doubts before the call'],
-      ['Owned audience email capture', 'Helps you build a direct audience outside LinkedIn'],
-      ['Direct lead capture form', 'Gives prospects a path even when social DMs are unavailable'],
+      ['Profile-to-website audit', 'Identifies leaks from profile visit to enquiry'],
+      ['Positioning alignment', 'Makes the message sharper and more specific'],
+      ['Conversion page architecture', 'Defines the full buyer decision path'],
+      ['Conversion copy', 'Explains the offer, problem, proof, and next step'],
+      ['Responsive design', 'Makes the path easy to scan on mobile and desktop'],
+      ['Next.js implementation', 'Delivers a fast, maintainable page'],
+      ['Intake or booking flow', 'Gives qualified prospects one clear action'],
+      ['Analytics and CTA tracking', 'Shows whether visitors reach important actions'],
       ['Launch checklist', 'Ensures the system is ready before publishing'],
-      ['Post-launch refinement', 'Allows improvements after real feedback'],
+      ['Walkthrough video', 'Explains how the path works after launch'],
     ],
   },
 ]
@@ -331,33 +325,33 @@ const startOptions = [
   {
     icon: FileSearch,
     eyebrow: 'Not sure what is broken',
-    title: 'Free Funnel Audit',
+    title: 'Free Funnel Review',
     price: 'Free',
-    bestFor: 'You want a quick read on the biggest leak before spending money.',
-    includes: ['Focused path review', 'Biggest conversion opportunity', 'Clear next step'],
-    cta: 'Request Free Audit',
+    bestFor: 'You want a quick read on whether your LinkedIn-to-website path is worth fixing.',
+    includes: ['Qualified intake', 'Biggest leak', 'Best next step'],
+    cta: 'Apply for review',
     href: '/free-audit',
     tone: 'soft',
   },
   {
     icon: ClipboardCheck,
     eyebrow: 'Need a real diagnosis',
-    title: 'Starter Audit',
+    title: 'Conversion Audit',
     price: '$300',
-    bestFor: 'You want the exact fixes, copy direction, and roadmap before building.',
-    includes: ['Recorded Loom', 'Priority fix list', 'Implementation roadmap'],
-    cta: 'Start with audit',
+    bestFor: 'You want exact fixes, copy direction, and a roadmap before implementation.',
+    includes: ['Recorded Loom', 'Priority fixes', 'Sprint roadmap'],
+    cta: 'Apply for audit',
     href: '/free-audit#request-audit',
     tone: 'warm',
   },
   {
     icon: Rocket,
     eyebrow: 'Ready to launch the path',
-    title: 'Build Sprint',
-    price: '$500+',
-    bestFor: 'You already know the gap and want the LinkedIn-to-website path built.',
-    includes: ['Messaging structure', 'Landing page build', 'Booking flow'],
-    cta: 'Discuss the build',
+    title: 'Conversion Sprint',
+    price: '$1.2K+',
+    bestFor: 'You want the strategy, copy, design, build, tracking, and launch handled.',
+    includes: ['Conversion copy', 'Next.js build', 'CTA tracking'],
+    cta: 'Apply for sprint',
     href: '/free-audit#request-audit',
     tone: 'bright',
   },
@@ -378,10 +372,10 @@ export default function Packages() {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <SectionBadge icon={BadgeDollarSign} className="mb-4">Offer ladder</SectionBadge>
+            <SectionBadge icon={BadgeDollarSign} className="mb-4">Simplified offer ladder</SectionBadge>
             <h2 className="text-3xl md:text-5xl font-bebas mb-4">Start where you are</h2>
             <p className="text-white/80 max-w-2xl mx-auto">
-              A clear ladder from audit to full build, so you do not have to jump straight into a large project.
+              A cleaner path from qualified review to paid diagnosis to implementation sprint, without a confusing low-priced build in the middle.
             </p>
           </motion.div>
 
@@ -395,15 +389,15 @@ export default function Packages() {
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -8 }}
               className={`glass-card p-8 relative flex flex-col transition-all duration-300 hover:border-orange-500/40 ${
-                pkg.badge === 'Most popular'
+                pkg.badge === 'Core offer'
                   ? 'border-orange-500/40 md:scale-105 shadow-[0_0_40px_rgba(255,132,3,0.25)] ring-1 ring-orange-500/20'
                   : 'border-orange-500/20'
               }`}
-              style={pkg.badge === 'Most popular' ? { background: 'linear-gradient(135deg, rgba(10,19,50,0.65) 0%, rgba(51,13,62,0.55) 100%)' } : undefined}
+              style={pkg.badge === 'Core offer' ? { background: 'linear-gradient(135deg, rgba(10,19,50,0.65) 0%, rgba(51,13,62,0.55) 100%)' } : undefined}
             >
-              {pkg.badge === 'Most popular' ? (
+              {pkg.badge === 'Core offer' ? (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-linear-to-r from-orange-500 to-orange-600 text-white px-5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shadow-lg">
-                  Most Popular
+                  Core Offer
                 </div>
               ) : (
                 <span className="absolute -top-3 right-6 px-4 py-1 rounded-full text-xs font-bold bg-linear-to-r from-purple-900 to-purple-800 text-white">
@@ -468,7 +462,7 @@ export default function Packages() {
                 <SectionBadge icon={Compass}>Decision guide</SectionBadge>
                 <h3 className="mt-5 text-3xl md:text-4xl font-bebas">Choosing where to start</h3>
                 <p className="mt-4 text-white/70">
-                  Pick based on your current uncertainty. If you do not know the leak yet, start free. If you know the leak and want it fixed, move into the paid audit or build.
+                  Pick based on certainty and urgency. If you do not know the leak yet, apply for the review. If the issue is real, the paid audit or sprint becomes the next logical step.
                 </p>
 
                 <div className="mt-7 space-y-4">
@@ -476,7 +470,7 @@ export default function Packages() {
                     <BadgeDollarSign size={19} className="mt-0.5 text-orange-400 shrink-0" />
                     <div>
                       <p className="font-semibold text-white">Best default path</p>
-                      <p className="text-sm text-white/60">Free Audit - Starter Audit - Build Sprint</p>
+                      <p className="text-sm text-white/60">Free Review - Conversion Audit - Conversion Sprint</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/3 p-4">

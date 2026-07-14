@@ -1,20 +1,13 @@
 import Hero from '@/components/sections/Hero'
-import AuthorityBar from '@/components/sections/AuthorityBar'
 import PainAgitation from '@/components/sections/PainAgitation'
-import PlatformDependency from '@/components/sections/PlatformDependency'
 import Services from '@/components/sections/Services'
-import About from '@/components/sections/About'
-import CaseStudies from '@/components/sections/CaseStudies'
-import WhyChooseMe from '@/components/sections/WhyChooseMe'
 import FitCheck from '@/components/sections/FitCheck'
-import DifferentView from '@/components/sections/DifferentView'
 import AuditExamples from '@/components/sections/AuditExamples'
 import Packages from '@/components/sections/Packages'
 import Process from '@/components/sections/Process'
 import FAQ from '@/components/sections/FAQ'
-import Newsletter from '@/components/sections/Newsletter'
 import Contact from '@/components/sections/Contact'
-import { faqs, getFaqPlainAnswer } from '@/data/faqs'
+import { getFaqPlainAnswer, homepageFaqs } from '@/data/faqs'
 
 const jsonLd = [
   {
@@ -32,7 +25,7 @@ const jsonLd = [
     knowsAbout: [
       'LinkedIn funnel strategy',
       'B2B founder positioning',
-      'coach and creator websites',
+      'founder-led B2B agency websites',
       'conversion website design',
       'Next.js development',
       'client acquisition systems',
@@ -43,7 +36,7 @@ const jsonLd = [
     '@type': 'ProfessionalService',
     name: 'Ghufran Hasan - LinkedIn-to-Website Funnel Optimization',
     url: 'https://ghufranhasan.com',
-    description: 'LinkedIn-to-website funnel optimization for B2B founders, coaches, and creators.',
+    description: 'LinkedIn-to-website conversion strategy and implementation for founder-led B2B service agencies.',
     areaServed: 'Worldwide',
     founder: {
       '@type': 'Person',
@@ -58,19 +51,13 @@ const jsonLd = [
     offers: [
       {
         '@type': 'Offer',
-        name: 'Starter Audit',
+        name: 'Conversion Audit',
         price: '300',
         priceCurrency: 'USD',
       },
       {
         '@type': 'Offer',
-        name: 'LinkedIn + Landing Page',
-        price: '500',
-        priceCurrency: 'USD',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Full Funnel System',
+        name: 'LinkedIn-to-Website Conversion Sprint',
         price: '1200',
         priceCurrency: 'USD',
       },
@@ -79,7 +66,7 @@ const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faqs.map((faq) => ({
+    mainEntity: homepageFaqs.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
       acceptedAnswer: {
@@ -100,21 +87,14 @@ export default function Home() {
         }}
       />
       <Hero />
-      <AuthorityBar />
       <PainAgitation />
-      <PlatformDependency />
       <Services />
-      <About />
-      <CaseStudies />
-      <WhyChooseMe />
+      <Process />
       <AuditExamples />
       <Packages />
       <FitCheck />
-      <Process />
-      <DifferentView />
       <FAQ />
       <Contact />
-      <Newsletter />
     </>
   )
 }

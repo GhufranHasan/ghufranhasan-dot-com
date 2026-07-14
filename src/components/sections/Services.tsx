@@ -20,7 +20,7 @@ const services = [
   {
     icon: Map,
     title: 'CTA and intake system',
-    description: 'Your audit request, booking flow, and follow-up path become one focused journey instead of competing next steps.',
+    description: 'Your review application, booking flow, and follow-up path become one focused journey instead of competing next steps.',
   },
 ]
 
@@ -37,9 +37,9 @@ export default function Services() {
           className="text-center max-w-3xl mx-auto mb-12"
         >
           <SectionBadge icon={Map} className="mb-4">Specialist system</SectionBadge>
-          <h2 className="text-3xl md:text-5xl font-bebas mb-4">One specialist offer under the personal brand</h2>
+          <h2 className="text-3xl md:text-5xl font-bebas mb-4">One specialist offer for founder-led B2B agencies</h2>
           <p className="text-white/70 text-lg">
-            This is not a full-service agency menu. It is a focused LinkedIn-to-Website Funnel Optimization system.
+            This is not a full-service agency menu. It is a focused LinkedIn-to-Website Conversion Sprint that aligns positioning, page messaging, CTA flow, and implementation.
           </p>
         </motion.div>
 

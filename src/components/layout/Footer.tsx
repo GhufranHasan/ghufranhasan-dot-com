@@ -7,7 +7,7 @@ import SocialLinksModal from '@/components/layout/SocialLinksModal'
 const services = [
   { label: 'Specialist Offer', href: '/linkedin-website-funnel' },
   { label: 'Services', href: '/#services' },
-  { label: 'Funnel Patterns', href: '/#case-studies' },
+  { label: 'Proof', href: '/#audit-examples' },
   { label: 'Pricing', href: '/#packages' },
   { label: 'Process', href: '/#process' },
   { label: 'Fit Check', href: '/#fit-check' },
@@ -19,9 +19,7 @@ const resources = [
   { label: 'Public Funnel Checklist', href: '/resources/linkedin-website-funnel-checklist' },
   { label: 'LinkedIn Website Funnel', href: '/linkedin-website-funnel' },
   { label: 'Website Comparison Study', href: '/linkedin-website-examples' },
-  { label: 'Owned Business Asset', href: '/#owned-asset' },
-  { label: 'Newsletter', href: '/#newsletter' },
-  { label: 'Free Audit', href: '/free-audit' },
+  { label: 'Apply for Review', href: '/free-audit' },
 ]
 
 const socialLinks = [
@@ -29,7 +27,7 @@ const socialLinks = [
   { icon: Github, href: 'https://github.com/ghufranhasan', label: 'GitHub' },
   { icon: Mail, href: 'mailto:hello@ghufranhasan.com', label: 'Email' },
   { icon: MessageCircle, href: 'https://wa.me/?text=Hi%20Ghufran%2C%20I%20want%20to%20talk%20about%20my%20LinkedIn%20to%20website%20funnel.', label: 'WhatsApp' },
-  { icon: ClipboardCheck, href: '/free-audit', label: 'Request Audit' },
+  { icon: ClipboardCheck, href: '/free-audit', label: 'Apply for Review' },
 ]
 
 export default function Footer() {
@@ -49,7 +47,7 @@ export default function Footer() {
               <span>Ghufran<span className="text-orange-500">.</span></span>
             </Link>
             <p className="text-white/70 max-w-sm text-sm">
-              Ghufran Hasan. I build paths that turn LinkedIn attention into booked conversations.
+              Ghufran Hasan. I help founder-led B2B agencies turn LinkedIn attention into qualified enquiries.
             </p>
             <div className="flex gap-3 mt-6">
               {socialLinks.map((social) => (
@@ -97,7 +95,7 @@ export default function Footer() {
 
         <div className="pt-6 border-t border-orange-500/20 text-white/50 text-sm flex flex-col md:flex-row gap-3 justify-between">
           <span>&copy; {new Date().getFullYear()} Ghufran Hasan. All rights reserved.</span>
-          <span>LinkedIn-to-website funnel optimization for B2B founders.</span>
+          <span>LinkedIn-to-website conversion for founder-led B2B agencies.</span>
         </div>
       </div>
     </footer>
