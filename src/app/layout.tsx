@@ -1,10 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import ClientProviders from './providers'
-import StickyCTA from '@/components/layout/StickyCTA'
-import Navigation from '@/components/layout/Navigation'
-import Footer from '@/components/layout/Footer'
-import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
+import AppShell from '@/components/layout/AppShell'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ghufranhasan.com'),
@@ -72,12 +69,8 @@ export default function RootLayout({
       <body className="antialiased">
         <div className="site-backdrop" aria-hidden="true" />
         <ClientProviders>
-          <Navigation />
-          <main>{children}</main>
-          <Footer />
-          <StickyCTA />
+          <AppShell>{children}</AppShell>
         </ClientProviders>
-        <GoogleAnalytics />
       </body>
     </html>
   )

@@ -15,6 +15,7 @@ import {
   mainProblems,
 } from '@/data/auditOptions'
 import BrandedSelect from '@/components/ui/BrandedSelect'
+import { trackSiteEvent } from '@/lib/siteEventClient'
 
 const inputClasses =
   'mt-2 w-full rounded-lg border border-orange-500/20 bg-purple-950/55 px-4 py-3 text-sm text-white outline-none transition-colors placeholder:text-white/35 focus:border-orange-500/60 focus:ring-2 focus:ring-orange-500/10'
@@ -82,6 +83,14 @@ export default function AuditIntakeForm() {
         return
       }
 
+      trackSiteEvent({
+        eventType: 'form_submission',
+        eventName: 'Funnel review application submitted',
+        sectionId: 'request-audit',
+        metadata: {
+          form: 'audit_request',
+        },
+      })
       router.push('/thank-you')
     } catch (submissionError) {
       console.error('Audit form submission error:', submissionError)

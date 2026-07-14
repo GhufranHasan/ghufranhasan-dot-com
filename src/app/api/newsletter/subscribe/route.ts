@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { upsertNewsletterSubscriber } from '@/lib/supabase/newsletterSubscribers'
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY
 const SUBSCRIBER_LIST_ID = process.env.RESEND_SUBSCRIBER_LIST_ID
@@ -60,20 +61,25 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Check for required environment variables
-    if (!RESEND_API_KEY) {
-      console.error('RESEND_API_KEY is not configured')
-      return NextResponse.json(
-        { error: 'Newsletter signup is not available yet. Please try again later or DM me on LinkedIn.' },
-        { status: 503 }
-      )
-    }
+    const subscriber = await upsertNewsletterSubscriber({
+      email,
+      source: typeof body.source === 'string' ? body.source.trim().slice(0, 120) : 'newsletter_section',
+      resourceSlug:
+        typeof body.resourceSlug === 'string'
+          ? body.resourceSlug.trim().slice(0, 180)
+          : undefined,
+    })
 
-    if (!SUBSCRIBER_LIST_ID) {
-      console.error('RESEND_SUBSCRIBER_LIST_ID is not configured')
+    if (!RESEND_API_KEY || !SUBSCRIBER_LIST_ID) {
+      console.error('Resend newsletter sync is not fully configured')
       return NextResponse.json(
-        { error: 'Newsletter signup is not available yet. Please try again later or DM me on LinkedIn.' },
-        { status: 503 }
+        {
+          message: 'Successfully subscribed.',
+          email,
+          id: subscriber.id,
+          resendSynced: false,
+        },
+        { status: 201 }
       )
     }
 
@@ -95,20 +101,36 @@ export async function POST(request: NextRequest) {
 
       if (error.message?.includes('already exists')) {
         return NextResponse.json(
-          { message: 'You are already subscribed', email },
+          {
+            message: 'You are already subscribed.',
+            email,
+            id: subscriber.id,
+            resendSynced: true,
+          },
           { status: 200 }
         )
       }
 
       return NextResponse.json(
-        { error: 'Failed to subscribe. Please try again.' },
-        { status: response.status }
+        {
+          message: 'Successfully subscribed.',
+          email,
+          id: subscriber.id,
+          resendSynced: false,
+        },
+        { status: 201 }
       )
     }
 
     const result = await response.json()
     return NextResponse.json(
-      { message: 'Successfully subscribed', email, id: result.id },
+      {
+        message: 'Successfully subscribed.',
+        email,
+        id: subscriber.id,
+        resendId: result.id,
+        resendSynced: true,
+      },
       { status: 201 }
     )
   } catch (error) {

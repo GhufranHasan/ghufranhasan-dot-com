@@ -19,6 +19,7 @@ export type AuditRequestRecord = {
   engagement_intent: string
   status: string
   created_at: string
+  updated_at?: string
 }
 
 export type CreateAuditRequestInput = {
@@ -69,4 +70,52 @@ export async function createAuditRequest(
   }
 
   return savedRequest
+}
+
+export const auditRequestStatuses = [
+  'new',
+  'reviewed',
+  'audit_sent',
+  'call_booked',
+  'converted',
+  'not_fit',
+] as const
+
+export type AuditRequestStatus = (typeof auditRequestStatuses)[number]
+
+export async function updateAuditRequestStatus(
+  id: string,
+  status: AuditRequestStatus
+) {
+  const [updatedRequest] = await supabaseAdminRequest<AuditRequestRecord[]>(
+    'audit_requests',
+    {
+      method: 'PATCH',
+      query: `id=eq.${id}`,
+      prefer: 'return=representation',
+      body: {
+        status,
+        updated_at: new Date().toISOString(),
+      },
+    }
+  )
+
+  if (!updatedRequest?.id) {
+    throw new Error('Supabase did not return the updated review application')
+  }
+
+  return updatedRequest
+}
+
+export async function deleteAuditRequest(id: string) {
+  const deletedRequests = await supabaseAdminRequest<AuditRequestRecord[]>(
+    'audit_requests',
+    {
+      method: 'DELETE',
+      query: `id=eq.${id}`,
+      prefer: 'return=representation',
+    }
+  )
+
+  return deletedRequests[0] ?? null
 }

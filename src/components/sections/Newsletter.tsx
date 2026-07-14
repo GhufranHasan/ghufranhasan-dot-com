@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { Mail, CheckCircle } from 'lucide-react'
 import SectionBadge from '@/components/ui/SectionBadge'
+import { trackSiteEvent } from '@/lib/siteEventClient'
 
 export default function Newsletter() {
   const ref = useRef(null)
@@ -13,6 +14,7 @@ export default function Newsletter() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const [website, setWebsite] = useState('')
+  const [successMessage, setSuccessMessage] = useState('You are on the list.')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -36,6 +38,15 @@ export default function Newsletter() {
         return
       }
 
+      trackSiteEvent({
+        eventType: 'form_submission',
+        eventName: 'Newsletter signup submitted',
+        sectionId: 'newsletter',
+        metadata: {
+          form: 'newsletter',
+        },
+      })
+      setSuccessMessage(data.message || 'You are on the list.')
       setIsSubmitted(true)
       setEmail('')
       setTimeout(() => setIsSubmitted(false), 3000)
@@ -107,7 +118,7 @@ export default function Newsletter() {
               >
                 <CheckCircle size={48} className="text-orange-500 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-white mb-2">Welcome aboard!</h3>
-                <p className="text-white/70">Check your email to confirm your subscription.</p>
+                <p className="text-white/70">{successMessage}</p>
               </motion.div>
             ) : (
               <>
