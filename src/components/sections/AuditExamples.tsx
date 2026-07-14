@@ -148,33 +148,49 @@ export default function AuditExamples() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-10 overflow-hidden rounded-3xl border border-orange-500/25 bg-purple-950/50 shadow-glow"
+          className="mb-10 overflow-hidden rounded-3xl border border-orange-500/25 bg-purple-950/50 p-4 shadow-glow lg:p-0"
         >
-          <div className="grid border-b border-orange-500/20 bg-orange-500/10 text-xs font-semibold uppercase tracking-wider text-orange-200 md:grid-cols-[0.8fr_1.1fr_1.1fr]">
-            <div className="border-b border-orange-500/15 px-5 py-4 md:border-b-0 md:border-r">
+          <div className="hidden border-b border-orange-500/20 bg-orange-500/10 text-xs font-semibold uppercase tracking-wider text-orange-200 lg:grid lg:grid-cols-[0.8fr_1.1fr_1.1fr]">
+            <div className="border-r border-orange-500/15 px-5 py-4">
               Touchpoint
             </div>
-            <div className="border-b border-orange-500/15 px-5 py-4 md:border-b-0 md:border-r">
+            <div className="border-r border-orange-500/15 px-5 py-4">
               Before
             </div>
             <div className="px-5 py-4">Recommended direction</div>
           </div>
-          {comparisonRows.map((row) => (
-            <div
-              key={row.touchpoint}
-              className="grid border-b border-orange-500/12 last:border-b-0 md:grid-cols-[0.8fr_1.1fr_1.1fr]"
-            >
-              <div className="border-b border-orange-500/12 px-5 py-4 font-semibold text-white md:border-b-0 md:border-r">
-                {row.touchpoint}
+          <div className="grid gap-4 lg:block">
+            {comparisonRows.map((row) => (
+              <div
+                key={row.touchpoint}
+                className="rounded-2xl border border-orange-500/18 bg-purple-950/55 p-4 lg:grid lg:grid-cols-[0.8fr_1.1fr_1.1fr] lg:rounded-none lg:border-x-0 lg:border-t-0 lg:border-b lg:border-orange-500/12 lg:bg-transparent lg:p-0 lg:last:border-b-0"
+              >
+                <div className="font-semibold text-white lg:border-r lg:border-orange-500/12 lg:px-5 lg:py-4">
+                  <span className="mb-1 block text-[11px] font-semibold uppercase tracking-wider text-orange-200/75 lg:hidden">
+                    Touchpoint
+                  </span>
+                  {row.touchpoint}
+                </div>
+                <div className="mt-4 rounded-xl border border-white/10 bg-white/5 p-4 text-sm text-white/64 lg:mt-0 lg:rounded-none lg:border-0 lg:border-r lg:border-orange-500/12 lg:bg-transparent lg:px-5 lg:py-4">
+                  <span className="mb-1 block text-[11px] font-semibold uppercase tracking-wider text-white/45 lg:hidden">
+                    Before
+                  </span>
+                  {row.before}
+                </div>
+                <div className="flex justify-center py-3 lg:hidden">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-300">
+                    <ArrowDown size={18} />
+                  </div>
+                </div>
+                <div className="rounded-xl border border-orange-500/20 bg-orange-500/10 p-4 text-sm font-semibold text-orange-200 lg:rounded-none lg:border-0 lg:bg-transparent lg:px-5 lg:py-4">
+                  <span className="mb-1 block text-[11px] uppercase tracking-wider text-orange-200/75 lg:hidden">
+                    Recommended direction
+                  </span>
+                  {row.after}
+                </div>
               </div>
-              <div className="border-b border-orange-500/12 px-5 py-4 text-sm text-white/62 md:border-b-0 md:border-r">
-                {row.before}
-              </div>
-              <div className="px-5 py-4 text-sm font-semibold text-orange-200">
-                {row.after}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </motion.div>
 
         <div className="grid gap-6 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
@@ -189,7 +205,8 @@ export default function AuditExamples() {
 
           <div className="flex justify-center">
             <div className="flex h-12 w-12 items-center justify-center rounded-full border border-orange-500/35 bg-orange-500/10 text-orange-300 shadow-glow lg:h-14 lg:w-14">
-              <ArrowRight size={22} />
+              <ArrowDown size={22} className="lg:hidden" />
+              <ArrowRight size={22} className="hidden lg:block" />
             </div>
           </div>
 

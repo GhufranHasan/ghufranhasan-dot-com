@@ -19,12 +19,14 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import {
   comparisonCriteria,
   practicalLessons,
+  rankingUpdatedDate,
+  rankingUpdatedIsoDate,
   scoreCriteria,
   websiteExamples,
 } from '@/data/linkedinWebsiteExamples'
 
 const pageTitle = 'Best LinkedIn Personal Brand Website Examples Compared'
-const pageDescription = 'A conversion-focused comparison of LinkedIn personal brand websites, including positioning, proof, CTA flow, pricing clarity, and funnel structure.'
+const pageDescription = 'An updated conversion-focused ranking of LinkedIn personal brand websites, including positioning, proof, CTA flow, pricing clarity, and funnel structure.'
 const pageUrl = 'https://ghufranhasan.com/linkedin-website-examples'
 
 export const metadata: Metadata = {
@@ -58,11 +60,11 @@ export const metadata: Metadata = {
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'What I Learned by Studying 9 LinkedIn Personal Brand Websites',
+  headline: 'Updated Ranking of 9 LinkedIn Personal Brand Websites',
   description: pageDescription,
   url: pageUrl,
   datePublished: '2026-06-06',
-  dateModified: '2026-06-06',
+  dateModified: rankingUpdatedIsoDate,
   author: {
     '@type': 'Person',
     name: 'Ghufran Hasan',
@@ -79,6 +81,10 @@ const articleSchema = {
     'website conversion strategy',
     'LinkedIn-to-website funnels',
   ],
+}
+
+function formatOverallScore(score: number) {
+  return Number.isInteger(score * 10) ? score.toFixed(1) : score.toFixed(2)
 }
 
 export default function LinkedInWebsiteExamplesPage() {
@@ -105,7 +111,7 @@ export default function LinkedInWebsiteExamplesPage() {
             <div className="mx-auto max-w-5xl text-center">
               <SectionBadge icon={FileSearch} className="mb-6">Conversion study</SectionBadge>
               <h1 className="text-4xl font-bebas leading-tight text-white md:text-6xl lg:text-7xl">
-                What I Learned by Studying 9 LinkedIn Personal Brand Websites
+                Updated Ranking of 9 LinkedIn Personal Brand Websites
               </h1>
               <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/72 md:text-lg">
                 A practical breakdown of how LinkedIn-led websites communicate positioning, build trust, explain offers, and move visitors toward a business conversation.
@@ -117,8 +123,8 @@ export default function LinkedInWebsiteExamplesPage() {
                   <p className="mt-1 text-xs uppercase tracking-wider text-white/60">Public websites</p>
                 </div>
                 <div className="rounded-xl border border-orange-500/20 bg-orange-500/8 p-4">
-                  <p className="text-2xl font-bold text-orange-400">6</p>
-                  <p className="mt-1 text-xs uppercase tracking-wider text-white/60">Conversion criteria</p>
+                  <p className="text-2xl font-bold text-orange-400">{comparisonCriteria.length}</p>
+                  <p className="mt-1 text-xs uppercase tracking-wider text-white/60">Ranking criteria</p>
                 </div>
                 <div className="rounded-xl border border-orange-500/20 bg-orange-500/8 p-4">
                   <p className="text-2xl font-bold text-orange-400">1</p>
@@ -149,7 +155,9 @@ export default function LinkedInWebsiteExamplesPage() {
                 <ArrowRight size={16} />
               </Link>
 
-              <p className="mt-7 text-sm text-white/50">Study based on public-facing website content reviewed on June 6, 2026.</p>
+              <p className="mt-7 rounded-full border border-orange-500/20 bg-orange-500/8 px-4 py-2 text-sm text-white/58">
+                Ranking updated on {rankingUpdatedDate}. Based on public-facing website content and editorial review.
+              </p>
             </div>
           </div>
         </header>
@@ -195,9 +203,9 @@ export default function LinkedInWebsiteExamplesPage() {
           <div className="container-custom">
             <div className="mx-auto mb-12 max-w-3xl text-center">
               <SectionBadge icon={Eye} className="mb-5">Comparison overview</SectionBadge>
-              <h2 className="text-3xl font-bebas text-white md:text-5xl">Nine different ways to turn attention into action</h2>
+              <h2 className="text-3xl font-bebas text-white md:text-5xl">Updated overall ranking</h2>
               <p className="mt-4 text-white/68">
-                Each website wins attention differently. The useful question is whether its positioning, offer, proof, and CTA work together for the intended buyer.
+                Each website wins attention differently. This ranking was updated on {rankingUpdatedDate} and scores each site against positioning, offer clarity, proof, CTA, pricing, funnel structure, design, owned asset strategy, and SEO/resource structure.
               </p>
             </div>
 
@@ -205,17 +213,21 @@ export default function LinkedInWebsiteExamplesPage() {
               <table className="block w-full table-fixed border-separate border-spacing-0 md:table">
                 <caption className="sr-only">Comparison of nine LinkedIn personal brand websites</caption>
                 <colgroup>
-                  <col className="md:w-[18%]" />
-                  <col className="md:w-[25%]" />
-                  <col className="md:w-[25%]" />
-                  <col className="md:w-[32%]" />
+                  <col className="md:w-[8%]" />
+                  <col className="md:w-[17%]" />
+                  <col className="md:w-[10%]" />
+                  <col className="md:w-[22%]" />
+                  <col className="md:w-[20%]" />
+                  <col className="md:w-[23%]" />
                 </colgroup>
                 <thead className="sr-only md:not-sr-only md:table-header-group">
                   <tr className="bg-linear-to-r from-purple-900/80 to-orange-500/15">
+                    <th scope="col" className="p-4 text-left text-sm font-bold text-white">Rank</th>
                     <th scope="col" className="p-4 text-left text-sm font-bold text-white">Website</th>
+                    <th scope="col" className="p-4 text-left text-sm font-bold text-orange-300">Score</th>
                     <th scope="col" className="p-4 text-left text-sm font-bold text-white">Positioning</th>
                     <th scope="col" className="p-4 text-left text-sm font-bold text-white">Core offer</th>
-                    <th scope="col" className="p-4 text-left text-sm font-bold text-orange-300">Strongest advantage</th>
+                    <th scope="col" className="p-4 text-left text-sm font-bold text-orange-300">Why it ranks here</th>
                   </tr>
                 </thead>
                 <tbody className="grid gap-4 md:table-row-group">
@@ -224,12 +236,20 @@ export default function LinkedInWebsiteExamplesPage() {
                       key={site.name}
                       className="glass-card block overflow-hidden border-orange-500/20 md:table-row md:overflow-visible md:rounded-none md:border-0 md:bg-transparent md:shadow-none md:backdrop-blur-none"
                     >
+                      <td
+                        data-label="Rank"
+                        className="block border-b border-orange-500/10 p-5 before:mb-2 before:block before:text-xs before:font-semibold before:uppercase before:tracking-wider before:text-white/45 before:content-[attr(data-label)] md:table-cell md:border-t md:border-orange-500/10 md:p-4 md:align-top md:before:hidden"
+                      >
+                        <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-orange-500 text-sm font-bold text-white">
+                          {index + 1}
+                        </span>
+                      </td>
                       <th
                         scope="row"
                         className="block border-b border-orange-500/15 bg-orange-500/10 p-5 text-left md:table-cell md:border-t md:border-b-0 md:border-orange-500/10 md:bg-transparent md:p-4 md:align-top"
                       >
                         <span className="block text-xs font-semibold uppercase tracking-wider text-orange-300/80 md:hidden">
-                          Example {String(index + 1).padStart(2, '0')}
+                          Rank {index + 1}
                         </span>
                         <a
                           href={site.url}
@@ -241,6 +261,14 @@ export default function LinkedInWebsiteExamplesPage() {
                           <ExternalLink size={14} />
                         </a>
                       </th>
+                      <td
+                        data-label="Score"
+                        className="block border-t border-orange-500/10 p-5 before:mb-2 before:block before:text-xs before:font-semibold before:uppercase before:tracking-wider before:text-orange-300 before:content-[attr(data-label)] md:table-cell md:border-t md:border-orange-500/10 md:p-4 md:align-top md:before:hidden"
+                      >
+                        <span className="inline-flex rounded-lg border border-orange-500/25 bg-orange-500/10 px-3 py-2 text-sm font-bold text-orange-200">
+                          {formatOverallScore(site.scores.overall)}/10
+                        </span>
+                      </td>
                       <td
                         data-label="Positioning"
                         className="block p-5 before:mb-2 before:block before:text-xs before:font-semibold before:uppercase before:tracking-wider before:text-white/45 before:content-[attr(data-label)] md:table-cell md:border-t md:border-orange-500/10 md:p-4 md:align-top md:before:hidden"
@@ -254,7 +282,7 @@ export default function LinkedInWebsiteExamplesPage() {
                         <p className="text-sm leading-relaxed text-white/68">{site.offer}</p>
                       </td>
                       <td
-                        data-label="Strongest advantage"
+                        data-label="Why it ranks here"
                         className="block border-t border-orange-500/15 bg-orange-500/[0.06] p-5 before:mb-2 before:block before:text-xs before:font-semibold before:uppercase before:tracking-wider before:text-orange-300 before:content-[attr(data-label)] md:table-cell md:border-t md:border-l-2 md:border-orange-500 md:bg-orange-500/5 md:p-4 md:align-top md:before:hidden"
                       >
                         <p className="text-sm leading-relaxed text-white/78">{site.strongestAdvantage}</p>
@@ -273,7 +301,7 @@ export default function LinkedInWebsiteExamplesPage() {
               <SectionBadge icon={Scale} className="mb-5">Editorial scorecards</SectionBadge>
               <h2 className="text-3xl font-bebas text-white md:text-5xl">All conversion criteria scored out of 10</h2>
               <p className="mt-4 text-white/68">
-                These scores are my editorial assessment of public-facing website content. They do not measure private analytics, client results, backend performance, or the complete customer experience.
+                These scores were updated on {rankingUpdatedDate}. They are my editorial assessment of public-facing website content and do not measure private analytics, client results, backend performance, or the complete customer experience.
               </p>
             </div>
 
@@ -286,7 +314,7 @@ export default function LinkedInWebsiteExamplesPage() {
                       <h3 className="mt-1 text-2xl font-bebas text-white">{site.name}</h3>
                     </div>
                     <div className="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-xl border border-orange-500/35 bg-orange-500/12">
-                      <span className="text-xl font-bold text-orange-300">{site.scores.overall.toFixed(1)}</span>
+                      <span className="text-xl font-bold text-orange-300">{formatOverallScore(site.scores.overall)}</span>
                       <span className="text-[10px] font-semibold uppercase tracking-wider text-white/50">Overall</span>
                     </div>
                   </div>

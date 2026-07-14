@@ -94,7 +94,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: 'https://ghufranhasan.com/linkedin-website-examples',
-      lastModified: '2026-06-06',
+      lastModified: '2026-07-14',
       changeFrequency: 'monthly',
       priority: 0.7,
     },
