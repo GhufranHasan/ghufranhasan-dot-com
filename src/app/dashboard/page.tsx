@@ -33,13 +33,16 @@ function DashboardSetupNotice() {
           Dashboard Setup Needed
         </h1>
         <p className="mt-4 leading-relaxed text-white/68">
-          Add a private password before opening this dashboard. This keeps your
-          applications, subscribers, and analytics away from public visitors.
+          Add a private password and session secret before opening this dashboard.
+          This keeps your applications, subscribers, and analytics away from public
+          visitors.
         </p>
         <div className="mt-6 rounded-xl border border-orange-500/20 bg-orange-500/8 p-4">
           <p className="text-sm font-semibold text-white">Add this to `.env.local`:</p>
           <code className="mt-3 block overflow-x-auto rounded-lg bg-purple-950/80 p-4 text-sm text-orange-100">
             DASHBOARD_PASSWORD=choose-a-strong-private-password
+            {'\n'}
+            DASHBOARD_SESSION_SECRET=use-32-or-more-random-characters
           </code>
           <p className="mt-3 text-sm text-white/58">
             Restart the Next.js server after adding it.

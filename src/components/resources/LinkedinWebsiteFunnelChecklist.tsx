@@ -33,7 +33,7 @@ const scoreCopy = [
     min: 15,
     max: 20,
     label: 'Mostly aligned',
-    text: 'Your funnel is mostly aligned. Small improvements can make the path to booked conversations stronger.',
+    text: 'Your funnel is mostly aligned. Small improvements can make the path to qualified action stronger.',
   },
 ]
 
@@ -72,7 +72,7 @@ export default function LinkedinWebsiteFunnelChecklist() {
           </h1>
           <p className="mt-3 text-white/70">
             Find where your LinkedIn profile, website, and CTA may be losing
-            warm visitors before they become booked conversations.
+            warm visitors before they take a qualified next step.
           </p>
         </div>
 

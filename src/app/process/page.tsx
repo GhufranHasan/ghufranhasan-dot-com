@@ -111,7 +111,7 @@ export default function ProcessPage() {
       <section className="texture-band neon-deep py-16 md:py-20">
         <div className="container-custom text-center">
           <h2 className="text-3xl font-bebas text-white md:text-5xl">
-            Start with the review application
+            Start with the funnel check application
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-white/68">
             The form gives enough context to decide whether this process is the
@@ -121,7 +121,7 @@ export default function ProcessPage() {
             href="/free-audit#request-audit"
             className="mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-7 py-4 font-bold text-white transition-all hover:shadow-glow-hover"
           >
-            Apply for a Funnel Review
+            Apply for a Funnel Check
             <ArrowRight size={18} />
           </Link>
         </div>

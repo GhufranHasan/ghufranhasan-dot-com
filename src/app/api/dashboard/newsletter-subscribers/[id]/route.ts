@@ -6,6 +6,11 @@ import {
   updateNewsletterSubscriberStatus,
   type NewsletterSubscriberStatus,
 } from '@/lib/supabase/newsletterSubscribers'
+import {
+  hasJsonContentType,
+  isPayloadTooLarge,
+  isSameOriginRequest,
+} from '@/lib/security/request'
 
 const validStatuses = new Set<string>(newsletterSubscriberStatuses)
 
@@ -19,6 +24,14 @@ export async function PATCH(
   request: NextRequest,
   context: { params: Promise<{ id: string }> }
 ) {
+  if (!isSameOriginRequest(request)) {
+    return NextResponse.json({ error: 'Request origin is not allowed.' }, { status: 403 })
+  }
+
+  if (!hasJsonContentType(request) || isPayloadTooLarge(request, 1_024)) {
+    return NextResponse.json({ error: 'Invalid dashboard update request.' }, { status: 400 })
+  }
+
   const isAuthenticated = await isDashboardAuthenticated()
 
   if (!isAuthenticated) {
@@ -54,9 +67,13 @@ export async function PATCH(
 }
 
 export async function DELETE(
-  _request: NextRequest,
+  request: NextRequest,
   context: { params: Promise<{ id: string }> }
 ) {
+  if (!isSameOriginRequest(request)) {
+    return NextResponse.json({ error: 'Request origin is not allowed.' }, { status: 403 })
+  }
+
   const isAuthenticated = await isDashboardAuthenticated()
 
   if (!isAuthenticated) {

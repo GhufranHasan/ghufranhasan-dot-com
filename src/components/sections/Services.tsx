@@ -2,25 +2,40 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { ArrowRight, Map, MessageSquareText, MousePointerClick } from 'lucide-react'
+import { ArrowRight, Code2, Map, MessageSquareText, MousePointerClick, PenLine, Route, SearchCheck } from 'lucide-react'
 import Link from 'next/link'
 import SectionBadge from '@/components/ui/SectionBadge'
 
 const services = [
   {
+    icon: SearchCheck,
+    title: 'Positioning diagnosis',
+    description: 'Find whether the gap is traffic, offer clarity, sales follow-up, or the LinkedIn-to-website handoff.',
+  },
+  {
     icon: MessageSquareText,
-    title: 'LinkedIn profile alignment',
-    description: 'Your headline, About section, Featured section, and profile promise point toward one clear website action.',
+    title: 'Conversion copy',
+    description: 'Continue the buyer context from LinkedIn into the hero, offer, proof, objections, and CTA.',
+  },
+  {
+    icon: Route,
+    title: 'UX structure',
+    description: 'Put information in the order a skeptical buyer needs before applying, booking, or requesting the next step.',
+  },
+  {
+    icon: Code2,
+    title: 'Frontend implementation',
+    description: 'Turn the strategy into a fast, responsive page instead of leaving you with another document waiting to be built.',
   },
   {
     icon: MousePointerClick,
-    title: 'Website conversion path',
-    description: 'Your page stops acting like a brochure and starts guiding warm LinkedIn visitors through clarity, trust, and action.',
+    title: 'CTA and form path',
+    description: 'Make the next step clear, qualified, and measurable with an application-first journey.',
   },
   {
-    icon: Map,
-    title: 'CTA and intake system',
-    description: 'Your review application, booking flow, and follow-up path become one focused journey instead of competing next steps.',
+    icon: PenLine,
+    title: 'Tracking',
+    description: 'Observe sample-audit views, CTA clicks, form starts, submissions, and the actions that matter.',
   },
 ]
 
@@ -36,14 +51,14 @@ export default function Services() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <SectionBadge icon={Map} className="mb-4">Specialist system</SectionBadge>
-          <h2 className="text-3xl md:text-5xl font-bebas mb-4">One specialist offer for founder-led B2B agencies</h2>
+          <SectionBadge icon={Map} className="mb-4">Specialist sprint</SectionBadge>
+          <h2 className="text-3xl md:text-5xl font-bebas mb-4">What this engagement combines</h2>
           <p className="text-white/70 text-lg">
-            This is not a full-service agency menu. It is a focused LinkedIn-to-Website Conversion Sprint that aligns positioning, page messaging, CTA flow, and implementation.
+            This is not a full-service agency menu. It is one focused sprint for one primary offer, one conversion page, and one measurable next step.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.title}

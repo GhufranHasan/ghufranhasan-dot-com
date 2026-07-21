@@ -8,7 +8,7 @@ import { faqs, getFaqPlainAnswer } from '@/data/faqs'
 export const metadata: Metadata = {
   title: 'FAQ | LinkedIn-to-Website Funnel Optimization',
   description:
-    'Full FAQ for founder-led B2B agencies considering a LinkedIn-to-website funnel review, conversion audit, or implementation sprint.',
+    'Full FAQ for founder-led B2B agencies considering a LinkedIn-to-website funnel check, conversion audit, or implementation sprint.',
   alternates: {
     canonical: '/faq',
   },
@@ -51,7 +51,7 @@ export default function FAQPage() {
                 Full FAQ
               </SectionBadge>
               <h1 className="text-4xl font-bebas leading-tight text-white md:text-6xl">
-                Questions Before You Apply for a Funnel Review
+                Questions Before You Apply for a Funnel Check
               </h1>
               <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-white/70">
                 The homepage shows only the five most important questions. This page
@@ -112,14 +112,14 @@ export default function FAQPage() {
                 Still want a direct read on your own path?
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-white/68">
-                Apply for the free funnel review and I will look at your profile,
+                Apply for the free funnel check and I will look at your profile,
                 website, and CTA flow with your actual business context.
               </p>
               <Link
                 href="/free-audit#request-audit"
                 className="mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-7 py-4 font-bold text-white transition-all hover:shadow-glow-hover"
               >
-                Apply for a Funnel Review
+                Apply for a Funnel Check
                 <ArrowRight size={18} />
               </Link>
             </div>

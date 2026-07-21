@@ -14,9 +14,9 @@ import SectionBadge from '@/components/ui/SectionBadge'
 const calendlyUrl = 'https://calendly.com/ghufranhasan/1-1-consultation-call'
 
 export const metadata: Metadata = {
-  title: 'Funnel Review Application Received',
+  title: 'Funnel Check Application Received',
   description:
-    'Your LinkedIn-to-website funnel review application has been received. Book an optional clarity call or explore conversion resources while you wait.',
+    'Your LinkedIn-to-website funnel check application has been received. Book an optional clarity call or explore conversion resources while you wait.',
   robots: {
     index: false,
     follow: true,
@@ -37,7 +37,7 @@ export default function ThankYouPage() {
           <Breadcrumbs
             items={[
               { label: 'Home', href: '/#home' },
-              { label: 'Funnel Review', href: '/free-audit' },
+              { label: 'Funnel Check', href: '/free-audit' },
               { label: 'Application Received', href: '/thank-you' },
             ]}
           />
@@ -47,13 +47,13 @@ export default function ThankYouPage() {
               <CheckCircle2 size={31} />
             </div>
             <SectionBadge icon={ClipboardCheck} className="mt-6">
-              Review application received
+              Funnel check application received
             </SectionBadge>
             <h1 className="mt-6 text-4xl font-bebas text-white md:text-6xl">
-              Your Funnel Review Application Has Been Received
+              Your Funnel Check Application Has Been Received
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/72">
-              I&apos;ll review your LinkedIn profile, website, and CTA flow, then
+              I&apos;ll check your LinkedIn profile, website, and CTA flow, then
               share the most important fit-based next step.
             </p>
           </div>
@@ -85,7 +85,7 @@ export default function ThankYouPage() {
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-white/65">
                 While you wait, you can book a short clarity call if you want to
-                discuss the journey live. Booking is optional.
+                discuss the journey live. Booking is optional, not required.
               </p>
               <a
                 href={calendlyUrl}

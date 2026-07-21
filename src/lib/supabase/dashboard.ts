@@ -290,7 +290,7 @@ export async function getDashboardData(
   since.setDate(since.getDate() - periodDays)
 
   const auditQuery =
-    `select=id,name,email,linkedin_url,website_url,agency_service,business_type,average_client_value,current_lead_source,main_problem,desired_outcome,timeline,implementation_budget,engagement_intent,status,created_at,updated_at&created_at=gte.${since.toISOString()}&order=created_at.desc&limit=200`
+    `select=id,name,email,linkedin_url,website_url,agency_service,business_type,average_client_value,current_lead_source,traffic_snapshot,desired_website_action,main_problem,desired_outcome,timeline,implementation_budget,engagement_intent,what_tried,status,created_at,updated_at&created_at=gte.${since.toISOString()}&order=created_at.desc&limit=200`
   const subscribersQuery =
     `select=id,email,name,source,resource_slug,status,created_at,updated_at&created_at=gte.${since.toISOString()}&order=created_at.desc&limit=200`
   const eventsQuery = `select=id,event_type,event_name,path,section_id,resource_slug,visitor_id,session_id,referrer,user_agent,metadata,created_at&created_at=gte.${since.toISOString()}&order=created_at.desc&limit=1500`

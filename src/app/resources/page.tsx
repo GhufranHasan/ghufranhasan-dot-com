@@ -122,7 +122,7 @@ export default function ResourcesPage() {
               href="/free-audit"
               className="mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-7 py-4 font-bold text-white transition-all hover:shadow-glow-hover"
             >
-              Apply for a Funnel Review
+              Apply for a Funnel Check
               <ArrowRight size={18} />
             </Link>
           </div>

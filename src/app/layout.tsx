@@ -6,10 +6,10 @@ import AppShell from '@/components/layout/AppShell'
 export const metadata: Metadata = {
   metadataBase: new URL('https://ghufranhasan.com'),
   title: {
-    default: 'Ghufran Hasan | LinkedIn-to-Website Funnel Strategist',
+    default: 'LinkedIn-to-Website Conversion for B2B Agencies | Ghufran Hasan',
     template: '%s | Ghufran Hasan',
   },
-  description: 'Helping founder-led B2B service agencies turn LinkedIn attention into qualified enquiries through profile, website, and CTA alignment.',
+  description: 'Ghufran Hasan helps founder-led B2B agencies diagnose and improve the handoff between LinkedIn positioning, website messaging, proof, and CTA.',
   keywords: [
     'personal brand website',
     'LinkedIn funnel strategist',
@@ -17,7 +17,8 @@ export const metadata: Metadata = {
     'LinkedIn profile optimization',
     'conversion website design',
     'website conversion strategy',
-    'booked conversations',
+    'B2B agency website conversion',
+    'CTA tracking',
   ],
   authors: [{ name: 'Ghufran Hasan' }],
   creator: 'Ghufran Hasan',
@@ -26,8 +27,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Ghufran Hasan | LinkedIn-to-Website Funnel Strategist',
-    description: 'A LinkedIn-to-website conversion system for founder-led B2B service agencies getting visibility but not enough qualified enquiries.',
+    title: 'LinkedIn-to-Website Conversion for B2B Agencies | Ghufran Hasan',
+    description: 'Diagnose and improve the handoff between LinkedIn positioning, website messaging, proof, and CTA.',
     url: 'https://ghufranhasan.com',
     siteName: 'Ghufran Hasan',
     type: 'website',
@@ -43,8 +44,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ghufran Hasan | LinkedIn-to-Website Funnel Strategist',
-    description: 'Turn LinkedIn attention into qualified enquiries with profile, website, and CTA alignment.',
+    title: 'LinkedIn-to-Website Conversion for B2B Agencies | Ghufran Hasan',
+    description: 'Diagnose and improve the handoff between LinkedIn positioning, website messaging, proof, and CTA.',
     images: ['/images/profile.png'],
   },
   robots: {

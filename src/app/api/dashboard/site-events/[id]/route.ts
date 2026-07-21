@@ -1,14 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { isDashboardAuthenticated } from '@/lib/dashboard/auth'
 import { deleteSiteEvent } from '@/lib/supabase/siteEvents'
+import { isSameOriginRequest } from '@/lib/security/request'
 
 const isUuid = (value: string) =>
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value)
 
 export async function DELETE(
-  _request: NextRequest,
+  request: NextRequest,
   context: { params: Promise<{ id: string }> }
 ) {
+  if (!isSameOriginRequest(request)) {
+    return NextResponse.json({ error: 'Request origin is not allowed.' }, { status: 403 })
+  }
+
   const isAuthenticated = await isDashboardAuthenticated()
 
   if (!isAuthenticated) {

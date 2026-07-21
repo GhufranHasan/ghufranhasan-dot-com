@@ -17,7 +17,7 @@ const workItems = [
   {
     icon: PanelsTopLeft,
     title: 'Personal website conversion rebuild',
-    text: 'A live example of narrowing the audience, simplifying the offer path, and creating one review application CTA.',
+    text: 'A live example of narrowing the audience, simplifying the offer path, and creating one funnel check application CTA.',
   },
   {
     icon: Code2,

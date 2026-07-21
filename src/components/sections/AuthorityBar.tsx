@@ -7,7 +7,7 @@ import { Code2, Compass, Gauge, Target, Workflow } from 'lucide-react'
 const trustItems = [
   {
     title: 'Specialist focus',
-    text: 'Built for B2B founders, coaches, and creators who need a clearer path from attention to conversation.',
+    text: 'Built for founder-led B2B agencies that need a clearer path from LinkedIn interest to qualified action.',
     icon: Target,
   },
   {

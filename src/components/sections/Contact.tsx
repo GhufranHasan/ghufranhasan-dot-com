@@ -16,7 +16,7 @@ import SectionBadge from '@/components/ui/SectionBadge'
 
 const auditPoints = [
   {
-    title: 'Profile to website clarity',
+    title: 'Profile-to-website clarity',
     sub: 'I check whether your LinkedIn promise matches your website headline and offer.',
   },
   {
@@ -35,7 +35,7 @@ const auditPath = [
     text: 'Add your LinkedIn profile, website, service, lead source, and budget range.',
   },
   {
-    title: 'I review the leaks',
+    title: 'I check the risks',
     text: 'I compare your positioning, website clarity, trust sequence, and CTA path.',
   },
   {
@@ -69,13 +69,13 @@ export default function Contact() {
           >
             <div>
               <SectionBadge icon={Sparkles} className="mb-4">
-                One clear review path
+                One clear check path
               </SectionBadge>
               <h2 className="mb-4 text-3xl font-bebas md:text-4xl lg:text-5xl">
-                Start with the funnel review application, not a sales call.
+                Start with the funnel check application, not a sales call.
               </h2>
               <p className="text-lg leading-relaxed text-white/70">
-                Share the context once. I will review where your LinkedIn-to-website
+                Share the context once. I will check where your LinkedIn-to-website
                 journey is breaking before you decide whether a call or paid project
                 makes sense.
               </p>
@@ -120,10 +120,10 @@ export default function Contact() {
             <div className="border-b border-orange-500/15 pb-6 text-center">
               <ClipboardCheck size={32} className="mx-auto text-orange-500" />
               <h3 className="mt-3 text-2xl font-bold text-white">
-                Apply for a free funnel review
+                Apply for a selective funnel check
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-white/60">
-                Every review, paid audit, and sprint starts with the same short
+                Every check, paid audit, and sprint starts with the same short
                 intake, so qualified buyers get one clear path.
               </p>
             </div>
@@ -151,7 +151,7 @@ export default function Contact() {
               href="/free-audit#request-audit"
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-6 py-4 font-bold text-white transition-all hover:-translate-y-0.5 hover:shadow-glow-hover"
             >
-              Open the Funnel Review Form
+              Open the Funnel Check Form
               <ArrowRight size={18} />
             </Link>
 

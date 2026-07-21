@@ -6,6 +6,11 @@ import {
   type AuditRequestStatus,
 } from '@/lib/supabase/auditRequests'
 import { isDashboardAuthenticated } from '@/lib/dashboard/auth'
+import {
+  hasJsonContentType,
+  isPayloadTooLarge,
+  isSameOriginRequest,
+} from '@/lib/security/request'
 
 const validStatuses = new Set<string>(auditRequestStatuses)
 
@@ -19,6 +24,14 @@ export async function PATCH(
   request: NextRequest,
   context: { params: Promise<{ id: string }> }
 ) {
+  if (!isSameOriginRequest(request)) {
+    return NextResponse.json({ error: 'Request origin is not allowed.' }, { status: 403 })
+  }
+
+  if (!hasJsonContentType(request) || isPayloadTooLarge(request, 1_024)) {
+    return NextResponse.json({ error: 'Invalid dashboard update request.' }, { status: 400 })
+  }
+
   const isAuthenticated = await isDashboardAuthenticated()
 
   if (!isAuthenticated) {
@@ -54,9 +67,13 @@ export async function PATCH(
 }
 
 export async function DELETE(
-  _request: NextRequest,
+  request: NextRequest,
   context: { params: Promise<{ id: string }> }
 ) {
+  if (!isSameOriginRequest(request)) {
+    return NextResponse.json({ error: 'Request origin is not allowed.' }, { status: 403 })
+  }
+
   const isAuthenticated = await isDashboardAuthenticated()
 
   if (!isAuthenticated) {
@@ -67,7 +84,7 @@ export async function DELETE(
 
   if (!isUuid(id)) {
     return NextResponse.json(
-      { error: 'Choose a valid review application.' },
+      { error: 'Choose a valid funnel check application.' },
       { status: 400 }
     )
   }
@@ -80,7 +97,7 @@ export async function DELETE(
     console.error('Dashboard audit delete error:', error)
 
     return NextResponse.json(
-      { error: 'The review application could not be deleted.' },
+      { error: 'The funnel check application could not be deleted.' },
       { status: 500 }
     )
   }

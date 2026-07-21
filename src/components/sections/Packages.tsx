@@ -20,33 +20,33 @@ import {
 
 const packages = [
   {
-    title: 'Free Funnel Review',
+    title: 'Selective Funnel Check',
     price: 'Free',
     stage: 'Selective diagnosis',
     audience: 'For established B2B agencies with a working website',
     badge: 'Apply first',
-    cta: 'Apply for Review',
-    timeline: 'Limited weekly reviews',
-    purpose: 'For agency founders who want one focused read on the biggest LinkedIn-to-website conversion leak before choosing a paid next step.',
+    cta: 'Apply for Check',
+    timeline: 'Limited weekly checks',
+    purpose: 'For agency founders who want one focused read on whether the LinkedIn-to-website handoff is the real constraint before choosing a paid next step.',
     valueSummary: [
       {
         label: 'What you get',
-        text: 'A short review of your LinkedIn profile, website, CTA path, and application context.',
+        text: 'A short application review and one observed risk in your LinkedIn profile, website, CTA path, or application context.',
       },
       {
         label: 'Why it matters',
-        text: 'You avoid jumping into a build before knowing whether the issue is positioning, page messaging, trust, CTA, or qualification.',
+        text: 'You avoid jumping into a build before knowing whether the issue is traffic, offer, sales follow-up, positioning, page messaging, trust, CTA, or qualification.',
       },
       {
         label: 'Outcome',
-        text: 'You get one major leak, one practical recommendation, and a clear suggestion on whether a paid audit or sprint makes sense.',
+        text: 'You get one observed risk, one practical next step, and a clear suggestion on whether a paid audit or sprint makes sense.',
       },
     ],
     bestFor: 'Best if you sell a real B2B service, already have a website, and want to know whether your current path is worth fixing.',
     features: [
-      'Qualified intake review',
+      'Qualified intake check',
       'LinkedIn-to-website path check',
-      'One major conversion leak',
+      'One observed conversion risk',
       'One practical recommendation',
       'Best next-step suggestion',
     ],
@@ -56,6 +56,7 @@ const packages = [
       ['Website hero check', 'Tests whether the website continues the same promise'],
       ['CTA path check', 'Looks for the first obvious conversion friction'],
       ['Fit recommendation', 'Clarifies whether the next step is audit, sprint, or no project'],
+      ['No full roadmap', 'Keeps the free stage useful without replacing the paid diagnosis'],
     ],
   },
   {
@@ -78,16 +79,17 @@ const packages = [
       },
       {
         label: 'Outcome',
-        text: 'You leave with the most important fixes, copy direction, CTA recommendation, and a practical implementation roadmap.',
+        text: 'You leave with the most important fixes, copy direction, CTA recommendation, and a practical implementation roadmap. The audit fee is credited toward the sprint if implementation begins within the agreed period.',
       },
     ],
-    bestFor: 'Best if you already have LinkedIn attention and a website, but the path is not producing enough qualified enquiries.',
+    bestFor: 'Best if you already have LinkedIn attention and a website, but the path is not producing enough qualified applications or enquiries.',
     features: [
       'LinkedIn and website review',
       'Recorded Loom diagnosis',
       'Priority fix list',
       'CTA and copy recommendations',
       'Implementation roadmap',
+      '$300 credited toward sprint if there is fit',
     ],
     valueStack: [
       ['Profile-to-page journey review', 'Shows where LinkedIn attention weakens before enquiry'],
@@ -102,7 +104,7 @@ const packages = [
   },
   {
     title: 'LinkedIn-to-Website Conversion Sprint',
-    price: 'From $1,200',
+    price: 'From $1,500',
     stage: '10-day implementation',
     audience: 'For founder-led B2B agencies ready to fix the path',
     badge: 'Core offer',
@@ -112,7 +114,7 @@ const packages = [
     valueSummary: [
       {
         label: 'What you get',
-        text: 'Positioning alignment, conversion copy, page architecture, responsive design and Next.js implementation, audit/contact flow, mobile optimization, tracking, and launch support.',
+        text: 'A four-screen journey audit, friction map, messaging alignment sheet, one homepage or landing-page structure, page copy, responsive implementation, one primary application or booking path, basic tracking, and launch walkthrough.',
       },
       {
         label: 'Why it matters',
@@ -125,16 +127,18 @@ const packages = [
     ],
     bestFor: 'Best if your agency sells a high-value service and one additional qualified client is worth more than the sprint investment.',
     features: [
+      'Four-screen journey audit',
       'Positioning and offer-message alignment',
       'Conversion-focused page architecture',
       'Homepage or landing-page copy',
       'Responsive design and Next.js build',
-      'Audit, contact, or booking flow',
-      'Analytics and CTA tracking',
+      'One primary application or booking path',
+      'Basic CTA and form tracking',
       'Launch walkthrough',
     ],
     valueStack: [
-      ['Profile-to-website audit', 'Identifies leaks from profile visit to enquiry'],
+      ['Four-screen journey audit', 'Reviews content/profile, website, proof, and CTA'],
+      ['Friction map', 'Shows where clarity, trust, or action weakens'],
       ['Positioning alignment', 'Makes the message sharper and more specific'],
       ['Conversion page architecture', 'Defines the full buyer decision path'],
       ['Conversion copy', 'Explains the offer, problem, proof, and next step'],
@@ -144,6 +148,7 @@ const packages = [
       ['Analytics and CTA tracking', 'Shows whether visitors reach important actions'],
       ['Launch checklist', 'Ensures the system is ready before publishing'],
       ['Walkthrough video', 'Explains how the path works after launch'],
+      ['Scope boundary', 'One primary offer and one focused conversion page, not a full multi-page redesign'],
     ],
   },
 ]
@@ -325,11 +330,11 @@ const startOptions = [
   {
     icon: FileSearch,
     eyebrow: 'Not sure what is broken',
-    title: 'Free Funnel Review',
+    title: 'Selective Funnel Check',
     price: 'Free',
     bestFor: 'You want a quick read on whether your LinkedIn-to-website path is worth fixing.',
-    includes: ['Qualified intake', 'Biggest leak', 'Best next step'],
-    cta: 'Apply for review',
+    includes: ['Qualified intake', 'Observed risk', 'Best next step'],
+    cta: 'Apply for check',
     href: '/free-audit',
     tone: 'soft',
   },
@@ -348,7 +353,7 @@ const startOptions = [
     icon: Rocket,
     eyebrow: 'Ready to launch the path',
     title: 'Conversion Sprint',
-    price: '$1.2K+',
+    price: '$1.5K+',
     bestFor: 'You want the strategy, copy, design, build, tracking, and launch handled.',
     includes: ['Conversion copy', 'Next.js build', 'CTA tracking'],
     cta: 'Apply for sprint',
@@ -375,7 +380,7 @@ export default function Packages() {
             <SectionBadge icon={BadgeDollarSign} className="mb-4">Simplified offer ladder</SectionBadge>
             <h2 className="text-3xl md:text-5xl font-bebas mb-4">Start where you are</h2>
             <p className="text-white/80 max-w-2xl mx-auto">
-              A cleaner path from qualified review to paid diagnosis to implementation sprint, without a confusing low-priced build in the middle.
+              A cleaner path from selective check to paid diagnosis to implementation sprint, without a confusing low-priced build in the middle.
             </p>
           </motion.div>
 
@@ -462,7 +467,7 @@ export default function Packages() {
                 <SectionBadge icon={Compass}>Decision guide</SectionBadge>
                 <h3 className="mt-5 text-3xl md:text-4xl font-bebas">Choosing where to start</h3>
                 <p className="mt-4 text-white/70">
-                  Pick based on certainty and urgency. If you do not know the leak yet, apply for the review. If the issue is real, the paid audit or sprint becomes the next logical step.
+                  Pick based on certainty and urgency. If you do not know the constraint yet, apply for the check. If the issue is real, the paid audit or sprint becomes the next logical step.
                 </p>
 
                 <div className="mt-7 space-y-4">
@@ -470,7 +475,7 @@ export default function Packages() {
                     <BadgeDollarSign size={19} className="mt-0.5 text-orange-400 shrink-0" />
                     <div>
                       <p className="font-semibold text-white">Best default path</p>
-                      <p className="text-sm text-white/60">Free Review - Conversion Audit - Conversion Sprint</p>
+                  <p className="text-sm text-white/60">Selective Funnel Check - Conversion Audit - Conversion Sprint</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/3 p-4">

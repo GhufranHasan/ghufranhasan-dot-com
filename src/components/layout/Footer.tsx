@@ -5,10 +5,12 @@ import LeadMagnet from '@/components/sections/LeadMagnet'
 import SocialLinksModal from '@/components/layout/SocialLinksModal'
 
 const services = [
-  { label: 'Services', href: '/services' },
-  { label: 'Process', href: '/process' },
-  { label: 'Proof', href: '/proof' },
-  { label: 'Pricing', href: '/pricing' },
+  { label: 'Problem', href: '/#problem' },
+  { label: 'Sample Audit', href: '/#audit-examples' },
+  { label: 'Sprint', href: '/#services' },
+  { label: 'Proof', href: '/#proof' },
+  { label: 'Process', href: '/#process' },
+  { label: 'Pricing', href: '/#packages' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
 ]
@@ -21,7 +23,7 @@ const resources = [
   { label: 'LinkedIn Profile Optimization', href: '/linkedin-profile-optimization' },
   { label: 'CTA Funnel Clarity', href: '/cta-funnel-clarity' },
   { label: 'Website Comparison Study', href: '/linkedin-website-examples' },
-  { label: 'Apply for Review', href: '/free-audit' },
+  { label: 'Apply for Funnel Check', href: '/free-audit' },
 ]
 
 const socialLinks = [
@@ -29,7 +31,7 @@ const socialLinks = [
   { icon: Github, href: 'https://github.com/ghufranhasan', label: 'GitHub' },
   { icon: Mail, href: 'mailto:hello@ghufranhasan.com', label: 'Email' },
   { icon: MessageCircle, href: 'https://wa.me/?text=Hi%20Ghufran%2C%20I%20want%20to%20talk%20about%20my%20LinkedIn%20to%20website%20funnel.', label: 'WhatsApp' },
-  { icon: ClipboardCheck, href: '/free-audit', label: 'Apply for Review' },
+  { icon: ClipboardCheck, href: '/free-audit', label: 'Apply for Funnel Check' },
 ]
 
 export default function Footer() {
@@ -49,7 +51,7 @@ export default function Footer() {
               <span>Ghufran<span className="text-orange-500">.</span></span>
             </Link>
             <p className="text-white/70 max-w-sm text-sm">
-              Ghufran Hasan. I help founder-led B2B agencies turn LinkedIn attention into qualified enquiries.
+              I help founder-led B2B agencies identify and fix the gaps between LinkedIn positioning, website messaging, proof, and CTA.
             </p>
             <div className="flex gap-3 mt-6">
               {socialLinks.map((social) => (
@@ -97,7 +99,7 @@ export default function Footer() {
 
         <div className="pt-6 border-t border-orange-500/20 text-white/50 text-sm flex flex-col md:flex-row gap-3 justify-between">
           <span>&copy; {new Date().getFullYear()} Ghufran Hasan. All rights reserved.</span>
-          <span>LinkedIn-to-website conversion for founder-led B2B agencies.</span>
+          <span>Profile promise. Website message. Proof. CTA.</span>
         </div>
       </div>
     </footer>

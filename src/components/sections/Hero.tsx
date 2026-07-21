@@ -6,33 +6,33 @@ import { Button } from '@/components/ui/Button'
 import SectionBadge from '@/components/ui/SectionBadge'
 import {
   ArrowRight,
-  CalendarCheck,
   CheckCircle2,
+  ClipboardCheck,
   Linkedin,
   MousePointerClick,
 } from 'lucide-react'
 
 const proofPoints = [
-  'For founder-led B2B service agencies with an active offer',
-  'Focused 10-day implementation sprint after diagnosis',
-  'Strategy, copy, design, Next.js delivery, and CTA tracking',
+  'For established B2B agencies with an active offer, working website, and founder-led LinkedIn presence',
+  'I diagnose whether the constraint is traffic, offer, sales process, or the profile-to-website handoff',
+  'Strategy, page messaging, frontend implementation, and tracking in one focused engagement',
 ]
 
 const journeySteps = [
   {
     title: 'LinkedIn',
-    text: 'Profile curiosity',
+    text: 'Warm profile interest',
     icon: Linkedin,
   },
   {
     title: 'Website',
-    text: 'Trust and offer clarity',
+    text: 'Same promise, clearer proof',
     icon: MousePointerClick,
   },
   {
-    title: 'Booked Call',
-    text: 'One clear next step',
-    icon: CalendarCheck,
+    title: 'Application',
+    text: 'Useful context before a call',
+    icon: ClipboardCheck,
   },
 ]
 
@@ -65,12 +65,7 @@ export default function Hero() {
               transition={{ delay: 0.3 }}
               className="hero-headline mb-6 max-w-4xl text-4xl font-bebas font-medium leading-[1.08] text-white sm:text-5xl md:text-6xl lg:text-7xl"
             >
-              <span className="block">
-                Your LinkedIn gets <span className="hero-gradient-text">attention</span>.
-              </span>
-              <span className="mt-1 block">
-                Your website should turn it into <span className="hero-gradient-text">enquiries</span>.
-              </span>
+              Stop Losing Warm LinkedIn Visitors on an <span className="hero-gradient-text">Unclear Website</span>
             </motion.h1>
 
             <motion.p
@@ -79,7 +74,7 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className="text-lg text-white/80 mb-8 max-w-2xl"
             >
-              I help founder-led B2B agencies align their LinkedIn promise, website messaging, and booking path so warm visitors understand the offer and take one clear next step.
+              I diagnose whether the gap is your offer, website message, proof, or CTA, then fix the profile-to-website handoff when the evidence supports it.
             </motion.p>
 
             <motion.div
@@ -102,11 +97,11 @@ export default function Hero() {
               transition={{ delay: 0.5 }}
               className="flex flex-col gap-4 sm:flex-row md:flex-col xl:flex-row"
             >
-              <Button href="/free-audit" variant="primary" size="large" className="whitespace-nowrap">
-                Apply for a Funnel Review <ArrowRight size={18} />
+              <Button href="#audit-examples" variant="primary" size="large" className="whitespace-nowrap">
+                See a Sample Audit <ArrowRight size={18} />
               </Button>
-              <Button href="#audit-examples" variant="secondary" size="large" className="whitespace-nowrap">
-                See the Audit Example
+              <Button href="/free-audit" variant="secondary" size="large" className="whitespace-nowrap">
+                Apply for a Funnel Check
               </Button>
             </motion.div>
 
@@ -116,7 +111,7 @@ export default function Hero() {
               transition={{ delay: 0.53 }}
               className="mt-5 text-sm text-white/60"
             >
-              The free review is for established B2B service businesses with an active offer and a working website.
+              One aligned message, one focused conversion page, one clear buyer path, and tracking for the actions that matter.
             </motion.p>
           </motion.div>
 

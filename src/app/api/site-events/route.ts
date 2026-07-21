@@ -1,5 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createSiteEvent, type SiteEventType } from '@/lib/supabase/siteEvents'
+import {
+  getClientIp,
+  hasJsonContentType,
+  isPayloadTooLarge,
+  isSameOriginRequest,
+} from '@/lib/security/request'
 
 const allowedEventTypes = new Set<SiteEventType>([
   'page_view',
@@ -16,12 +22,6 @@ const rateLimitStore = new Map<string, { count: number; resetAt: number }>()
 
 const cleanText = (value: unknown, maxLength: number) =>
   typeof value === 'string' ? value.trim().slice(0, maxLength) : ''
-
-const getClientIp = (request: NextRequest) => {
-  const forwarded = request.headers.get('x-forwarded-for')
-  if (forwarded) return forwarded.split(',')[0].trim()
-  return request.headers.get('x-real-ip') || 'unknown'
-}
 
 const isRateLimited = (key: string) => {
   const now = Date.now()
@@ -55,6 +55,14 @@ function sanitizeMetadata(value: unknown) {
 }
 
 export async function POST(request: NextRequest) {
+  if (!isSameOriginRequest(request)) {
+    return NextResponse.json({ accepted: false }, { status: 202 })
+  }
+
+  if (!hasJsonContentType(request) || isPayloadTooLarge(request, 8_192)) {
+    return NextResponse.json({ accepted: false }, { status: 202 })
+  }
+
   const ip = getClientIp(request)
 
   if (isRateLimited(ip)) {

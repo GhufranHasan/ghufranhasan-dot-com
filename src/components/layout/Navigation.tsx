@@ -9,13 +9,12 @@ import { Button } from '@/components/ui/Button'
 import { useModal } from '@/contexts/ModalContext'
 
 const navItems = [
-  { name: 'Home', href: '/' },
-  { name: 'Services', href: '/services' },
-  { name: 'Process', href: '/process' },
-  { name: 'Proof', href: '/proof' },
-  { name: 'Pricing', href: '/pricing' },
-  { name: 'FAQ', href: '/faq' },
-  { name: 'Resources', href: '/resources' },
+  { name: 'Problem', href: '/#problem' },
+  { name: 'Sample Audit', href: '/#audit-examples' },
+  { name: 'Sprint', href: '/#services' },
+  { name: 'Proof', href: '/#proof' },
+  { name: 'Process', href: '/#process' },
+  { name: 'Pricing', href: '/#packages' },
 ]
 
 export default function Navigation() {
@@ -65,7 +64,7 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
-            <Button href="/free-audit" variant="primary">Apply for Review</Button>
+            <Button href="/free-audit" variant="primary">Apply for Check</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -98,7 +97,7 @@ export default function Navigation() {
                     {item.name}
                   </Link>
                 ))}
-                <Button href="/free-audit" variant="primary" className="w-full" onClick={() => setIsOpen(false)}>Apply for Review</Button>
+                <Button href="/free-audit" variant="primary" className="w-full" onClick={() => setIsOpen(false)}>Apply for Check</Button>
               </div>
             </motion.div>
           )}

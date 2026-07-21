@@ -4,6 +4,7 @@ import PainAgitation from '@/components/sections/PainAgitation'
 import Services from '@/components/sections/Services'
 import FitCheck from '@/components/sections/FitCheck'
 import AuditExamples from '@/components/sections/AuditExamples'
+import CaseStudies from '@/components/sections/CaseStudies'
 import Packages from '@/components/sections/Packages'
 import Process from '@/components/sections/Process'
 import DeliverablesPreview from '@/components/sections/DeliverablesPreview'
@@ -26,11 +27,11 @@ const jsonLd = [
     ],
     knowsAbout: [
       'LinkedIn funnel strategy',
-      'B2B founder positioning',
       'founder-led B2B agency websites',
+      'B2B agency positioning',
       'conversion website design',
       'Next.js development',
-      'client acquisition systems',
+      'CTA tracking',
     ],
   },
   {
@@ -38,7 +39,7 @@ const jsonLd = [
     '@type': 'ProfessionalService',
     name: 'Ghufran Hasan - LinkedIn-to-Website Funnel Optimization',
     url: 'https://ghufranhasan.com',
-    description: 'LinkedIn-to-website conversion strategy and implementation for founder-led B2B service agencies.',
+    description: 'LinkedIn-to-website conversion strategy and implementation for founder-led B2B agencies.',
     areaServed: 'Worldwide',
     founder: {
       '@type': 'Person',
@@ -60,7 +61,7 @@ const jsonLd = [
       {
         '@type': 'Offer',
         name: 'LinkedIn-to-Website Conversion Sprint',
-        price: '1200',
+        price: '1500',
         priceCurrency: 'USD',
       },
     ],
@@ -89,9 +90,10 @@ export default function Home() {
         }}
       />
       <Hero />
-      <CredibilityRibbon />
       <PainAgitation />
+      <CredibilityRibbon />
       <AuditExamples />
+      <CaseStudies />
       <Services />
       <Process />
       <DeliverablesPreview />

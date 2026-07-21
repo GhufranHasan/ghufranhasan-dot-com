@@ -12,11 +12,14 @@ export type AuditRequestRecord = {
   business_type: string
   average_client_value: string
   current_lead_source: string
+  traffic_snapshot?: string
+  desired_website_action?: string
   main_problem: string
   desired_outcome: string
   timeline: string
   implementation_budget: string
   engagement_intent: string
+  what_tried?: string
   status: string
   created_at: string
   updated_at?: string
@@ -31,11 +34,14 @@ export type CreateAuditRequestInput = {
   businessType: string
   averageClientValue: string
   currentLeadSource: string
+  trafficSnapshot: string
+  desiredWebsiteAction: string
   mainProblem: string
   desiredOutcome: string
   timeline: string
   implementationBudget: string
   engagementIntent: string
+  whatTried: string
 }
 
 export async function createAuditRequest(
@@ -55,18 +61,21 @@ export async function createAuditRequest(
         business_type: input.businessType,
         average_client_value: input.averageClientValue,
         current_lead_source: input.currentLeadSource,
+        traffic_snapshot: input.trafficSnapshot,
+        desired_website_action: input.desiredWebsiteAction,
         main_problem: input.mainProblem,
         desired_outcome: input.desiredOutcome,
         timeline: input.timeline,
         implementation_budget: input.implementationBudget,
         engagement_intent: input.engagementIntent,
+        what_tried: input.whatTried,
         status: 'new',
       },
     }
   )
 
   if (!savedRequest?.id) {
-    throw new Error('Supabase did not return the saved review application')
+    throw new Error('Supabase did not return the saved funnel check application')
   }
 
   return savedRequest
@@ -101,7 +110,7 @@ export async function updateAuditRequestStatus(
   )
 
   if (!updatedRequest?.id) {
-    throw new Error('Supabase did not return the updated review application')
+    throw new Error('Supabase did not return the updated funnel check application')
   }
 
   return updatedRequest

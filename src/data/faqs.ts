@@ -11,11 +11,11 @@ export type FAQItem = {
 export const faqs: FAQItem[] = [
   {
     category: 'Audit',
-    question: 'What is the difference between the Free Funnel Review and Conversion Audit?',
+    question: 'What is the difference between the Selective Funnel Check and Conversion Audit?',
     answer: [
       {
         kind: 'paragraph',
-        text: 'The Free Funnel Review starts with a short application where you share your LinkedIn profile, website, service, lead source, average client value, and budget range. I use that context to spot the biggest LinkedIn-to-website conversion leak and recommend the right next step.',
+        text: 'The Selective Funnel Check starts with a short application where you share your LinkedIn profile, website, service, lead source, traffic signal, desired action, average client value, budget range, and what you already tried. I use that context to spot one observable LinkedIn-to-website risk and recommend the right next step.',
       },
       {
         kind: 'paragraph',
@@ -37,7 +37,7 @@ export const faqs: FAQItem[] = [
       },
       {
         kind: 'paragraph',
-        text: 'Without a website that continues the same conversation, warm visitors may leave without booking, messaging, or applying for a review.',
+        text: 'Without a website that continues the same conversation, warm visitors may leave without messaging, applying for a check, or taking the next qualified action.',
       },
     ],
   },
@@ -55,7 +55,7 @@ export const faqs: FAQItem[] = [
       },
       {
         kind: 'paragraph',
-        text: 'The review and paid audit help identify where that gap is happening.',
+        text: 'The funnel check and paid audit help identify where that gap is happening.',
       },
     ],
   },
@@ -65,7 +65,7 @@ export const faqs: FAQItem[] = [
     answer: [
       {
         kind: 'paragraph',
-        text: 'Start with the Free Funnel Review first. It gives you a quick view of your biggest conversion leak without committing to a paid project.',
+        text: 'Start with the Selective Funnel Check first. It gives you a quick view of one observable conversion risk without committing to a paid project.',
       },
       {
         kind: 'paragraph',
@@ -89,7 +89,7 @@ export const faqs: FAQItem[] = [
   },
   {
     category: 'Prep',
-    question: 'What do I need to provide before the review, audit, or sprint starts?',
+    question: 'What do I need to provide before the check, audit, or sprint starts?',
     answer: [
       {
         kind: 'paragraph',
@@ -209,11 +209,11 @@ export const faqs: FAQItem[] = [
   },
   {
     category: 'Next step',
-    question: 'What happens after I apply for the Free Funnel Review?',
+    question: 'What happens after I apply for the Selective Funnel Check?',
     answer: [
       {
         kind: 'paragraph',
-        text: 'After you submit the review application, I review your LinkedIn profile, website, and CTA path using the context you provided.',
+        text: 'After you submit the funnel check application, I review your LinkedIn profile, website, and CTA path using the context you provided.',
       },
       {
         kind: 'paragraph',
@@ -239,72 +239,72 @@ export const faqs: FAQItem[] = [
 
 export const homepageFaqs: FAQItem[] = [
   {
+    category: 'Diagnosis',
+    question: 'How do you know whether the website is the real problem?',
+    answer: [
+      {
+        kind: 'paragraph',
+        text: 'I do not assume the website is the problem first. I compare the LinkedIn promise, audience, offer clarity, website message, proof sequence, CTA, form path, and available tracking signals.',
+      },
+      {
+        kind: 'paragraph',
+        text: 'If the issue looks like traffic quality, offer validation, sales follow-up, or pricing instead of the website handoff, I say that. The sprint only makes sense when the profile-to-website journey is the constraint worth fixing.',
+      },
+    ],
+  },
+  {
+    category: 'Scope',
+    question: 'What exactly changes during the sprint?',
+    answer: [
+      {
+        kind: 'paragraph',
+        text: 'The sprint focuses on one primary offer and one conversion page. It includes a journey audit, friction map, messaging alignment, page structure, conversion copy, responsive frontend implementation, one primary application or booking path, basic tracking, and launch walkthrough.',
+      },
+      {
+        kind: 'paragraph',
+        text: 'It does not include a full multi-page redesign, brand identity development, ongoing LinkedIn content management, SEO content production, advanced CRM automation, unlimited revisions, or guaranteed enquiries.',
+      },
+    ],
+  },
+  {
     category: 'Outcome',
-    question: 'What result does the sprint create?',
+    question: 'What result is under your control?',
     answer: [
       {
         kind: 'paragraph',
-        text: 'The sprint creates one clearer journey from LinkedIn attention to qualified enquiry. It aligns your profile promise, website messaging, offer explanation, trust sequence, CTA, intake path, and basic tracking.',
+        text: 'The controllable result is message alignment, page clarity, proof sequence, CTA flow, mobile experience, implementation quality, and tracking for important actions.',
       },
       {
         kind: 'paragraph',
-        text: 'The goal is not just a better-looking page. The goal is a focused conversion path that helps warm visitors understand what you do, why it matters, and what action to take next.',
-      },
-    ],
-  },
-  {
-    category: 'Prep',
-    question: 'What do I need before we start?',
-    answer: [
-      {
-        kind: 'paragraph',
-        text: 'You need an active service offer, a LinkedIn profile, a working website or landing page, and a clear idea of the action you want visitors to take.',
-      },
-      {
-        kind: 'paragraph',
-        text: 'You do not need perfect copy or perfect branding. The process is designed to sharpen positioning, page structure, and CTA flow before implementation.',
-      },
-    ],
-  },
-  {
-    category: 'Timeline',
-    question: 'How long does the process take?',
-    answer: [
-      {
-        kind: 'paragraph',
-        text: 'The paid audit usually takes 2-3 business days. A focused implementation sprint is planned around 10 business days once the scope, inputs, and feedback timeline are clear.',
-      },
-      {
-        kind: 'paragraph',
-        text: 'The timeline depends on how quickly content, access, approvals, and revisions are handled.',
-      },
-    ],
-  },
-  {
-    category: 'Guarantee',
-    question: 'Do you guarantee booked calls?',
-    answer: [
-      {
-        kind: 'paragraph',
-        text: 'No. Booked calls depend on your offer, market, audience quality, LinkedIn activity, follow-up, pricing, and demand.',
-      },
-      {
-        kind: 'paragraph',
-        text: 'What I improve is the path under my control: clarity, offer messaging, trust sequence, CTA strength, mobile experience, intake flow, and tracking.',
+        text: 'I do not guarantee booked calls or enquiries because those also depend on market demand, traffic quality, offer strength, pricing, sales follow-up, and your overall acquisition system.',
       },
     ],
   },
   {
     category: 'Build',
-    question: 'Can you improve my current website instead of rebuilding it?',
+    question: 'Can you improve my current site instead of rebuilding it?',
     answer: [
       {
         kind: 'paragraph',
-        text: 'Yes. If your current site has a usable foundation, I can improve the messaging, section order, CTA flow, and conversion path.',
+        text: 'Yes. If your current site has a usable foundation, I can improve the messaging, section order, CTA flow, proof sequence, and conversion path.',
       },
       {
         kind: 'paragraph',
-        text: 'If the structure is too confusing or outdated, I may recommend rebuilding the focused conversion page instead of patching a weak foundation.',
+        text: 'If the structure is too confusing, outdated, or hard to scale, I may recommend rebuilding the focused conversion page instead of patching a weak foundation.',
+      },
+    ],
+  },
+  {
+    category: 'Timeline',
+    question: 'What do you need from me and how long does it take?',
+    answer: [
+      {
+        kind: 'paragraph',
+        text: 'I need your LinkedIn URL, website URL, core service, typical client value, current lead source, target action, budget range, and what you already tried. For implementation, I also need timely feedback, access, and approvals.',
+      },
+      {
+        kind: 'paragraph',
+        text: 'The paid audit usually takes 2-3 business days. A focused implementation sprint is planned around approximately 10 business days after inputs, scope, and approvals are clear.',
       },
     ],
   },

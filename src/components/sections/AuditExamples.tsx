@@ -7,19 +7,29 @@ import SectionBadge from '@/components/ui/SectionBadge'
 
 const comparisonRows = [
   {
-    touchpoint: 'LinkedIn headline',
-    before: 'Broad promise covering several services',
-    after: 'One buyer, one expensive problem, one outcome',
+    touchpoint: 'Observation',
+    before: 'LinkedIn headline focuses on a demand-generation promise.',
+    after: 'Treat the LinkedIn promise as the context visitors carry into the website.',
   },
   {
-    touchpoint: 'Website hero',
-    before: 'Different language from the profile',
-    after: 'Continue the same promise visitors already saw',
+    touchpoint: 'Website observation',
+    before: 'Homepage opens with broad "full-service growth" language.',
+    after: 'Check whether the page continues the same specific promise.',
   },
   {
-    touchpoint: 'CTA',
-    before: 'Learn more, Contact us, and Book a call',
-    after: 'One relevant next step based on buyer readiness',
+    touchpoint: 'Possible risk',
+    before: 'Visitors may not recognise the same offer after leaving LinkedIn.',
+    after: 'Message mismatch can lower trust before the CTA is even considered.',
+  },
+  {
+    touchpoint: 'Recommendation',
+    before: 'Make secondary services compete with the main promise.',
+    after: 'Continue the demand-generation positioning in the hero and make secondary services subordinate.',
+  },
+  {
+    touchpoint: 'Evidence required',
+    before: 'Do not assume the website is the issue from visuals alone.',
+    after: 'Review LinkedIn referral traffic, CTA clicks, scroll depth, form starts, and enquiry quality.',
   },
 ]
 
@@ -44,17 +54,17 @@ const beforeFlow = [
 const afterFlow = [
   {
     label: 'LinkedIn',
-    text: 'Helping founder-led B2B agencies turn LinkedIn attention into qualified enquiries.',
+    text: 'Helping founder-led B2B agencies stop losing warm LinkedIn visitors on unclear websites.',
     icon: Linkedin,
   },
   {
     label: 'Website',
-    text: 'Your LinkedIn gets attention. Your website should turn it into enquiries.',
+    text: 'Stop losing warm LinkedIn visitors on an unclear website.',
     icon: PanelsTopLeft,
   },
   {
     label: 'CTA',
-    text: 'Apply for a Funnel Review',
+    text: 'Apply for a Funnel Check',
     icon: MousePointerClick,
   },
 ]
@@ -138,8 +148,8 @@ export default function AuditExamples() {
             See What a Conversion Leak Looks Like
           </h2>
           <p className="text-white/75">
-            A practical example of how I compare a founder&apos;s LinkedIn promise,
-            website message, and next step.
+            A practical example of how I separate visible observations from
+            assumptions that need tracking data.
           </p>
         </motion.div>
 
@@ -155,9 +165,9 @@ export default function AuditExamples() {
               Touchpoint
             </div>
             <div className="border-r border-orange-500/15 px-5 py-4">
-              Before
+              What I can observe
             </div>
-            <div className="px-5 py-4">Recommended direction</div>
+            <div className="px-5 py-4">What I would test or change</div>
           </div>
           <div className="grid gap-4 lg:block">
             {comparisonRows.map((row) => (
@@ -173,7 +183,7 @@ export default function AuditExamples() {
                 </div>
                 <div className="mt-4 rounded-xl border border-white/10 bg-white/5 p-4 text-sm text-white/64 lg:mt-0 lg:rounded-none lg:border-0 lg:border-r lg:border-orange-500/12 lg:bg-transparent lg:px-5 lg:py-4">
                   <span className="mb-1 block text-[11px] font-semibold uppercase tracking-wider text-white/45 lg:hidden">
-                    Before
+                    What I can observe
                   </span>
                   {row.before}
                 </div>
@@ -184,7 +194,7 @@ export default function AuditExamples() {
                 </div>
                 <div className="rounded-xl border border-orange-500/20 bg-orange-500/10 p-4 text-sm font-semibold text-orange-200 lg:rounded-none lg:border-0 lg:bg-transparent lg:px-5 lg:py-4">
                   <span className="mb-1 block text-[11px] uppercase tracking-wider text-orange-200/75 lg:hidden">
-                    Recommended direction
+                    What I would test or change
                   </span>
                   {row.after}
                 </div>
@@ -228,12 +238,13 @@ export default function AuditExamples() {
           className="mx-auto mt-10 max-w-3xl rounded-2xl border border-orange-500/20 bg-purple-950/45 p-5 text-center"
         >
           <p className="text-sm leading-relaxed text-white/66">
-            This is the kind of visible diagnosis the review looks for: not a new
-            funnel theory, but a clearer match between promise, page, and action.
+            This is the kind of visible diagnosis the review looks for: not a
+            generic funnel theory, but a clearer match between promise, page,
+            evidence, and action.
           </p>
           <div className="mt-5">
             <Button href="/free-audit" variant="primary" className="whitespace-nowrap">
-              Apply for Review
+              Apply for Funnel Check
               <ArrowRight size={17} />
             </Button>
           </div>

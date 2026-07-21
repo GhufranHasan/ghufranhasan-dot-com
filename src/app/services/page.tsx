@@ -39,7 +39,7 @@ const services = [
     icon: Map,
     title: 'CTA and intake system',
     description:
-      'I make the next step easier to choose by aligning the review application, booking flow, form friction, and follow-up path.',
+      'I make the next step easier to choose by aligning the funnel check application, booking flow, form friction, and follow-up path.',
     includes: ['CTA wording', 'Form structure', 'Booking path', 'Tracking signals'],
   },
 ]
@@ -143,14 +143,14 @@ export default function ServicesPage() {
               Want to know which service fits your current gap?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-white/68">
-              Apply first. The review helps decide whether you need copy fixes,
+              Apply first. The check helps decide whether you need copy fixes,
               a paid audit, or the full conversion sprint.
             </p>
             <Link
               href="/free-audit#request-audit"
               className="mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-7 py-4 font-bold text-white transition-all hover:shadow-glow-hover"
             >
-              Apply for a Funnel Review
+              Apply for a Funnel Check
               <ArrowRight size={18} />
             </Link>
           </div>

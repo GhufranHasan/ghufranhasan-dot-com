@@ -91,7 +91,7 @@ export default function Newsletter() {
               transition={{ delay: 0.3 }}
               className="text-lg text-white/70 mb-2"
             >
-              Get practical notes on turning LinkedIn profile visits into booked conversations with sharper positioning, clearer website sections, and better CTA paths.
+              Get practical notes on turning LinkedIn profile visits into a clearer buyer path with sharper positioning, stronger proof, and better CTA flow.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}

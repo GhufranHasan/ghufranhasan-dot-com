@@ -8,11 +8,11 @@ const steps = [
   {
     label: 'Step 1',
     title: 'Audit the current path',
-    description: 'I review your profile, website, offer, and CTA to find where attention stops turning into conversations.',
+    description: 'I review your profile, website, offer, proof, and CTA to find where attention stops moving toward a qualified action.',
     icon: ClipboardList,
     timeline: '1 day',
     details: ['Profile review', 'Website review', 'CTA friction map'],
-    deliverable: 'Recorded Loom audit with the biggest leak and first fixes',
+    deliverable: 'Friction map with the biggest observable risk and first fixes',
   },
   {
     label: 'Step 2',
@@ -21,7 +21,7 @@ const steps = [
     icon: ChartLine,
     timeline: '1-2 days',
     details: ['Audience clarity', 'Offer positioning', 'Page structure'],
-    deliverable: 'Messaging and page-flow doc for the LinkedIn-to-website path',
+    deliverable: 'Messaging alignment sheet and page-flow doc for the LinkedIn-to-website path',
   },
   {
     label: 'Step 3',
@@ -112,9 +112,9 @@ export default function Process() {
           className="text-center mt-12"
         >
           <div className="glass-card p-8 md:p-12 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bebas mb-3">Ready to find the leak in your LinkedIn to website path?</h3>
-            <p className="text-white/70 mb-6">Apply for a short review and I will show whether audit or implementation makes sense.</p>
-            <Button href="/free-audit" variant="primary" size="large">Apply for a Funnel Review</Button>
+            <h3 className="text-2xl font-bebas mb-3">Ready to find the risk in your LinkedIn-to-website path?</h3>
+            <p className="text-white/70 mb-6">Apply for a short check and I will show whether audit, implementation, or no project makes sense.</p>
+            <Button href="/free-audit" variant="primary" size="large">Apply for a Funnel Check</Button>
           </div>
         </motion.div>
       </div>

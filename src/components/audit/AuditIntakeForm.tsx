@@ -9,10 +9,12 @@ import {
   businessTypes,
   currentLeadSources,
   desiredOutcomes,
+  desiredWebsiteActions,
   engagementIntents,
   improvementTimelines,
   implementationBudgets,
   mainProblems,
+  trafficSnapshots,
 } from '@/data/auditOptions'
 import BrandedSelect from '@/components/ui/BrandedSelect'
 import { trackSiteEvent } from '@/lib/siteEventClient'
@@ -41,6 +43,8 @@ export default function AuditIntakeForm() {
       formData.get('businessType'),
       formData.get('averageClientValue'),
       formData.get('currentLeadSource'),
+      formData.get('trafficSnapshot'),
+      formData.get('desiredWebsiteAction'),
       formData.get('mainProblem'),
       formData.get('desiredOutcome'),
       formData.get('timeline'),
@@ -67,11 +71,14 @@ export default function AuditIntakeForm() {
           businessType: formData.get('businessType'),
           averageClientValue: formData.get('averageClientValue'),
           currentLeadSource: formData.get('currentLeadSource'),
+          trafficSnapshot: formData.get('trafficSnapshot'),
+          desiredWebsiteAction: formData.get('desiredWebsiteAction'),
           mainProblem: formData.get('mainProblem'),
           desiredOutcome: formData.get('desiredOutcome'),
           timeline: formData.get('timeline'),
           implementationBudget: formData.get('implementationBudget'),
           engagementIntent: formData.get('engagementIntent'),
+          whatTried: formData.get('whatTried'),
           company: formData.get('company'),
         }),
       })
@@ -85,7 +92,7 @@ export default function AuditIntakeForm() {
 
       trackSiteEvent({
         eventType: 'form_submission',
-        eventName: 'Funnel review application submitted',
+        eventName: 'Funnel check application submitted',
         sectionId: 'request-audit',
         metadata: {
           form: 'audit_request',
@@ -146,7 +153,7 @@ export default function AuditIntakeForm() {
             type="email"
             name="email"
             autoComplete="email"
-            placeholder="Where should I send the review?"
+            placeholder="Where should I send the check?"
             maxLength={254}
             required
           />
@@ -220,6 +227,24 @@ export default function AuditIntakeForm() {
 
         <motion.div variants={fieldVariants}>
           <BrandedSelect
+            label="Traffic or profile-view signal"
+            name="trafficSnapshot"
+            options={trafficSnapshots}
+            placeholder="Select the closest signal"
+          />
+        </motion.div>
+
+        <motion.div variants={fieldVariants}>
+          <BrandedSelect
+            label="Desired website action"
+            name="desiredWebsiteAction"
+            options={desiredWebsiteActions}
+            placeholder="Select the main action"
+          />
+        </motion.div>
+
+        <motion.div variants={fieldVariants}>
+          <BrandedSelect
             label="How soon do you want to improve this?"
             name="timeline"
             options={improvementTimelines}
@@ -229,7 +254,7 @@ export default function AuditIntakeForm() {
 
         <motion.div variants={fieldVariants} className="sm:col-span-2">
           <BrandedSelect
-            label="Where do you think the main problem is?"
+            label="Which statement best describes your situation?"
             name="mainProblem"
             options={mainProblems}
             placeholder="Select the closest match"
@@ -256,12 +281,23 @@ export default function AuditIntakeForm() {
 
         <motion.div variants={fieldVariants} className="sm:col-span-2">
           <BrandedSelect
-            label="What do you want from this review?"
+            label="What do you want from this check?"
             name="engagementIntent"
             options={engagementIntents}
             placeholder="Select intent"
           />
         </motion.div>
+
+        <motion.label variants={fieldVariants} className="text-sm font-semibold text-white sm:col-span-2">
+          What have you already tried?
+          <textarea
+            className={`${inputClasses} min-h-28 resize-y`}
+            name="whatTried"
+            placeholder="Example: rewrote the hero, changed the CTA, added Calendly, posted more on LinkedIn..."
+            maxLength={700}
+            required
+          />
+        </motion.label>
       </div>
 
       <AnimatePresence>
@@ -292,7 +328,7 @@ export default function AuditIntakeForm() {
           </>
         ) : (
           <>
-            Apply for Free Funnel Review
+            Apply for Free Funnel Check
             <ArrowRight size={18} />
           </>
         )}
@@ -304,7 +340,7 @@ export default function AuditIntakeForm() {
       >
         <span className="inline-flex items-center gap-2">
           <ShieldCheck size={14} className="text-orange-400" />
-          Limited reviews for established B2B service businesses.
+          Limited checks for established B2B service businesses.
         </span>
         <span className="inline-flex items-center gap-2">
           <CheckCircle2 size={14} className="text-orange-400" />

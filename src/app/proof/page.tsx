@@ -17,7 +17,7 @@ const proofItems = [
   {
     icon: PanelsTopLeft,
     title: 'This website transformation',
-    text: 'The current site itself shows the conversion logic: one audience, one problem, one review path, a simplified pricing ladder, and clear objection handling.',
+    text: 'The current site itself shows the conversion logic: one audience, one problem, one funnel check path, a simplified pricing ladder, and clear objection handling.',
   },
   {
     icon: FileSearch,

@@ -14,7 +14,7 @@ const stats = [
 ]
 
 const thinkingSteps = [
-  'Audit where LinkedIn attention leaks before it becomes a conversation.',
+  'Audit where LinkedIn attention loses clarity before it becomes a qualified action.',
   'Align the profile promise with the website headline and offer.',
   'Design one intake-first path toward a qualified audit request.',
 ]
@@ -68,7 +68,7 @@ export default function About() {
                 At this stage, my personal brand is the front face because people trust people before they trust a new agency name. The work stays focused around one specialist LinkedIn-to-website system.
               </p>
               <p>
-                I combine frontend development, conversion strategy, and LinkedIn positioning for one focused offer: LinkedIn-to-Website Funnel Optimization for B2B founders, coaches, and creators.
+              I combine frontend development, conversion strategy, and LinkedIn positioning for one focused offer: LinkedIn-to-Website Conversion for founder-led B2B agencies.
               </p>
             </div>
 

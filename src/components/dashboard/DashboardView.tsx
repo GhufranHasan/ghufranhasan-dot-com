@@ -572,6 +572,8 @@ function AuditRequestCard({
           ['Budget', request.implementation_budget || 'Not provided'],
           ['Client value', request.average_client_value || 'Not provided'],
           ['Lead source', request.current_lead_source || 'Not provided'],
+          ['Traffic signal', request.traffic_snapshot || 'Not provided'],
+          ['Website action', request.desired_website_action || 'Not provided'],
           ['Intent', request.engagement_intent || 'Not provided'],
           ['Submitted', formatFullDate(request.created_at)],
         ].map(([label, value]) => (
@@ -583,6 +585,17 @@ function AuditRequestCard({
           </div>
         ))}
       </div>
+
+      {request.what_tried && (
+        <div className="mt-4 rounded-xl border border-orange-500/15 bg-orange-500/6 p-4">
+          <p className="text-[11px] font-semibold uppercase tracking-wider text-orange-300/75">
+            Already tried
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-white/70">
+            {request.what_tried}
+          </p>
+        </div>
+      )}
 
       <div className="mt-4 flex flex-wrap gap-3">
         <a
@@ -867,7 +880,7 @@ export default function DashboardView({ data }: { data: DashboardData }) {
                 </h1>
                 <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/62">
                   Track visits, section attention, CTA clicks, downloads,
-                  subscribers, review applications, and database status from one
+                  subscribers, funnel check applications, and database status from one
                   private admin surface.
                 </p>
               </div>
@@ -1016,7 +1029,7 @@ export default function DashboardView({ data }: { data: DashboardData }) {
                     <Inbox size={19} />
                   </div>
                   <div>
-                    <h2 className="text-xl font-bebas text-white">Funnel Review Applications</h2>
+                    <h2 className="text-xl font-bebas text-white">Funnel Check Applications</h2>
                     <p className="text-xs text-white/45">
                       Read, update, and delete test lead records.
                     </p>
@@ -1045,7 +1058,7 @@ export default function DashboardView({ data }: { data: DashboardData }) {
               ) : (
                 <EmptyState
                   title="No audit applications in this period"
-                  text="Use the period filter or submit a test application through the free funnel review form."
+                  text="Use the period filter or submit a test application through the free funnel check form."
                 />
               )}
             </section>

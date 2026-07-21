@@ -16,7 +16,7 @@ import SectionBadge from '@/components/ui/SectionBadge'
 export const metadata: Metadata = {
   title: 'Contact Ghufran Hasan',
   description:
-    'Contact Ghufran Hasan for general questions, collaborations, or direct communication. Serious funnel review requests should use the dedicated application page.',
+    'Contact Ghufran Hasan for general questions, collaborations, or direct communication. Serious funnel check requests should use the dedicated application page.',
   alternates: {
     canonical: '/contact',
   },
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
 
 const contactOptions = [
   {
-    title: 'Apply for a Funnel Review',
+    title: 'Apply for a Funnel Check',
     description:
-      'Best for founder-led B2B agencies that want their LinkedIn profile, website, and CTA path reviewed.',
+      'Best for founder-led B2B agencies that want their LinkedIn profile, website, proof, and CTA path checked.',
     href: '/free-audit',
     label: 'Open application',
     icon: ClipboardCheck,
@@ -35,7 +35,7 @@ const contactOptions = [
   {
     title: 'Email',
     description:
-      'Best for collaborations, partnerships, media, support, or a question that does not need the full review form.',
+      'Best for collaborations, partnerships, media, support, or a question that does not need the full funnel check form.',
     href: 'mailto:hello@ghufranhasan.com',
     label: 'Send email',
     icon: Mail,
@@ -43,7 +43,7 @@ const contactOptions = [
   {
     title: 'LinkedIn',
     description:
-      'Best for a short professional conversation before you decide whether the review is the right next step.',
+      'Best for a short professional conversation before you decide whether the funnel check is the right next step.',
     href: 'https://linkedin.com/in/ghufranhasan',
     label: 'Message on LinkedIn',
     icon: Linkedin,
@@ -84,7 +84,7 @@ export default function ContactPage() {
               Choose the right way to reach me
             </h1>
             <p className="mx-auto mt-5 max-w-2xl leading-relaxed text-white/72">
-              If you want a LinkedIn-to-website funnel review, use the dedicated
+              If you want a LinkedIn-to-website funnel check, use the dedicated
               application page. For general questions, collaborations, or quick
               messages, use the direct contact options below.
             </p>
@@ -138,14 +138,14 @@ export default function ContactPage() {
                 Clear path
               </SectionBadge>
               <h2 className="text-3xl font-bebas text-white md:text-5xl">
-                The review form lives only on one page
+                The funnel check form lives only on one page
               </h2>
             </div>
             <div className="rounded-2xl border border-orange-500/20 bg-purple-950/50 p-6">
               <p className="leading-relaxed text-white/70">
                 The full qualification form is intentionally kept on{' '}
                 <Link href="/free-audit" className="font-semibold text-orange-300 hover:text-orange-200">
-                  Apply for Review
+                  Apply for Funnel Check
                 </Link>
                 . This Contact page stays secondary so visitors do not see the same
                 form twice or wonder which path is correct.
@@ -155,7 +155,7 @@ export default function ContactPage() {
                   href="/free-audit"
                   className="inline-flex items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-5 py-3 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:shadow-glow-hover"
                 >
-                  Apply for Review
+                  Apply for Funnel Check
                   <ArrowRight size={16} />
                 </Link>
                 <a

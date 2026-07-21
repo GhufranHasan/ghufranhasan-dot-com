@@ -16,7 +16,7 @@ const comparisons = [
   },
   {
     common: 'Measures polish and animations',
-    better: 'Measures clarity, trust, CTA strength, and booked conversations',
+    better: 'Measures clarity, trust, CTA strength, form starts, and qualified actions',
   },
   {
     common: 'Lets LinkedIn and website messaging drift apart',

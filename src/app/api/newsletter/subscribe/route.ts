@@ -1,5 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { upsertNewsletterSubscriber } from '@/lib/supabase/newsletterSubscribers'
+import {
+  getClientIp,
+  hasJsonContentType,
+  isPayloadTooLarge,
+  isSameOriginRequest,
+} from '@/lib/security/request'
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY
 const SUBSCRIBER_LIST_ID = process.env.RESEND_SUBSCRIBER_LIST_ID
@@ -11,12 +17,6 @@ const rateLimitStore = new Map<string, { count: number; resetAt: number }>()
 const isValidEmail = (email: string): boolean => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   return emailRegex.test(email)
-}
-
-const getClientIp = (request: NextRequest): string => {
-  const forwarded = request.headers.get('x-forwarded-for')
-  if (forwarded) return forwarded.split(',')[0].trim()
-  return request.headers.get('x-real-ip') || 'unknown'
 }
 
 const isRateLimited = (key: string): boolean => {
@@ -35,6 +35,14 @@ const isRateLimited = (key: string): boolean => {
 
 export async function POST(request: NextRequest) {
   try {
+    if (!isSameOriginRequest(request)) {
+      return NextResponse.json({ error: 'Request origin is not allowed.' }, { status: 403 })
+    }
+
+    if (!hasJsonContentType(request) || isPayloadTooLarge(request, 4_096)) {
+      return NextResponse.json({ error: 'Invalid newsletter signup request.' }, { status: 400 })
+    }
+
     const ip = getClientIp(request)
     if (isRateLimited(ip)) {
       return NextResponse.json(

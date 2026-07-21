@@ -5,9 +5,9 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import SectionBadge from '@/components/ui/SectionBadge'
 
 export const metadata: Metadata = {
-  title: 'Pricing | Funnel Review, Conversion Audit, Conversion Sprint',
+  title: 'Pricing | Funnel Check, Conversion Audit, Conversion Sprint',
   description:
-    'Pricing path for the Free Funnel Review, $300 Conversion Audit, and LinkedIn-to-Website Conversion Sprint from $1,200.',
+    'Pricing path for the Selective Funnel Check, $300 Conversion Audit, and LinkedIn-to-Website Conversion Sprint from $1,500.',
   alternates: {
     canonical: '/pricing',
   },
@@ -15,25 +15,25 @@ export const metadata: Metadata = {
 
 const offers = [
   {
-    title: 'Free Funnel Review',
+    title: 'Selective Funnel Check',
     price: 'Free',
     description:
-      'A selective review for established B2B service businesses with a real offer and a working website.',
-    bullets: ['Qualified intake', 'One major leak', 'One practical next step'],
+      'A selective check for established B2B agencies with a real offer, working website, and reason to improve the path now.',
+    bullets: ['Qualified intake', 'One observed risk', 'One practical next step'],
   },
   {
     title: 'Conversion Audit',
     price: '$300',
     description:
-      'A paid diagnosis with a recorded breakdown, priority fixes, CTA recommendations, and implementation roadmap.',
-    bullets: ['Recorded Loom', 'Copy and CTA fixes', 'Roadmap before implementation'],
+      'A paid diagnosis with a recorded breakdown, priority fixes, CTA recommendations, and implementation roadmap. Credited toward the sprint when there is fit.',
+    bullets: ['Recorded Loom', 'Copy and CTA fixes', '$300 credit toward sprint'],
   },
   {
     title: 'LinkedIn-to-Website Conversion Sprint',
-    price: 'From $1,200',
+    price: 'From $1,500',
     description:
-      'A focused implementation sprint for agencies ready to align positioning, page copy, design, build, tracking, and launch.',
-    bullets: ['10 business days', 'Copy, design, and Next.js build', 'CTA tracking and launch support'],
+      'A focused implementation sprint for one primary offer, one conversion page, one application or booking path, tracking, and launch.',
+    bullets: ['Approximately 10 business days', 'Copy, design, and Next.js build', 'CTA and form tracking'],
   },
 ]
 
@@ -53,7 +53,7 @@ export default function PricingPage() {
               Pricing
             </SectionBadge>
             <h1 className="text-4xl font-bebas leading-tight text-white md:text-6xl">
-              A Clear Path From Review to Implementation
+              A Clear Path From Check to Implementation
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-white/70">
               No confusing low-priced build in the middle. Start with fit, move

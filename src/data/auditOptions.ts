@@ -10,19 +10,21 @@ export const businessTypes = [
 ] as const
 
 export const mainProblems = [
-  'LinkedIn gets attention but not enough inquiries',
-  'Website does not turn visitors into qualified calls',
-  'CTA / booking flow is weak',
-  'Offer positioning is too generic',
-  'Not sure - that is why I want the review',
+  'We need better traffic',
+  'Our offer is unclear',
+  'LinkedIn and website messages do not match',
+  'Visitors reach the page but do not act',
+  'Enquiries arrive but do not close',
+  'We are not sure yet',
 ] as const
 
 export const desiredOutcomes = [
   'More qualified enquiries',
-  'More booked discovery calls',
-  'Clearer service-page messaging',
+  'More qualified applications',
+  'Better CTA clicks',
+  'Clearer offer understanding',
   'Better LinkedIn-to-website journey',
-  'A 10-day conversion sprint plan',
+  'A focused conversion sprint plan',
 ] as const
 
 export const improvementTimelines = [
@@ -49,12 +51,29 @@ export const currentLeadSources = [
   'Mostly inconsistent',
 ] as const
 
+export const trafficSnapshots = [
+  'Under 500 LinkedIn profile views / month',
+  '500-2,000 LinkedIn profile views / month',
+  '2,000+ LinkedIn profile views / month',
+  'Website traffic is the clearer signal',
+  'I do not know yet',
+] as const
+
+export const desiredWebsiteActions = [
+  'Submit a funnel check application',
+  'Book a clarity call',
+  'Send an inquiry',
+  'Request a proposal',
+  'Join an email list',
+  'Not sure yet',
+] as const
+
 export const implementationBudgets = [
   'Under $300',
   '$300-$1,000',
-  '$1,200-$1,500',
   '$1,500+',
-  'I only want the free review for now',
+  '$3,000+ for a larger scope',
+  'I only want the free check for now',
 ] as const
 
 export const engagementIntents = [

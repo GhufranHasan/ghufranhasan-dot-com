@@ -19,7 +19,7 @@ import { linkedinWebsiteFunnelChecklist } from '@/data/linkedinWebsiteFunnelChec
 const pageTitle = '10-Point LinkedIn-to-Website Funnel Checklist'
 const seoTitle = 'Free LinkedIn-to-Website Funnel Checklist for B2B Agency Founders'
 const pageDescription =
-  'Use this free 10-point checklist to find where your LinkedIn profile, website, and CTA may be leaking booked calls.'
+  'Use this free 10-point checklist to find where your LinkedIn profile, website, and CTA may be losing qualified actions.'
 const pageUrl = 'https://ghufranhasan.com/resources/linkedin-website-funnel-checklist'
 const ogImage = '/images/brand-logo-checklist.png'
 const linkedInUrl = 'https://linkedin.com/in/ghufranhasan/'
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: pageTitle,
     description:
-      'Check if your profile, website, and CTA are aligned to turn LinkedIn visitors into booked conversations.',
+      'Check if your profile, website, and CTA are aligned to move LinkedIn visitors toward a qualified next step.',
     url: pageUrl,
     type: 'website',
     images: [
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: pageTitle,
     description:
-      'Check if your profile, website, and CTA are aligned to turn LinkedIn visitors into booked conversations.',
+      'Check if your profile, website, and CTA are aligned to move LinkedIn visitors toward a qualified next step.',
     images: [ogImage],
   },
 }
@@ -135,7 +135,7 @@ export default function LinkedinWebsiteFunnelChecklistPage() {
                 </h1>
                 <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75">
                   Find where your LinkedIn profile, website, and CTA may be
-                  losing warm visitors before they become booked conversations.
+                  losing warm visitors before they take a qualified next step.
                 </p>
 
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row print:hidden">
@@ -242,13 +242,13 @@ export default function LinkedinWebsiteFunnelChecklistPage() {
             <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
               <div>
                 <SectionBadge icon={ShieldCheck} className="mb-5">
-                  Free review path
+                  Free funnel check path
                 </SectionBadge>
                 <h2 className="text-3xl font-bebas text-white md:text-5xl">
                   Want me to find the leaks for you?
                 </h2>
                 <p className="mt-5 leading-relaxed text-white/70">
-                  If you are posting on LinkedIn but not getting booked calls, I
+                  If you are posting on LinkedIn but warm visitors are not taking the next step, I
                   can review your LinkedIn profile, website, and CTA path.
                 </p>
                 <div className="mt-7 flex flex-col gap-4 sm:flex-row">

@@ -1,6 +1,6 @@
 import 'server-only'
 
-import { createHmac, timingSafeEqual } from 'crypto'
+import { createHmac, randomBytes, timingSafeEqual } from 'crypto'
 import { cookies } from 'next/headers'
 
 export const dashboardCookieName = 'gh_dashboard_session'
@@ -11,7 +11,7 @@ function cleanEnvValue(value?: string) {
 }
 
 export function isDashboardConfigured() {
-  return Boolean(cleanEnvValue(process.env.DASHBOARD_PASSWORD))
+  return Boolean(getDashboardPassword() && getSessionSecret())
 }
 
 function getDashboardPassword() {
@@ -19,11 +19,11 @@ function getDashboardPassword() {
 }
 
 function getSessionSecret() {
-  return (
+  const secret =
     cleanEnvValue(process.env.DASHBOARD_SESSION_SECRET) ||
-    cleanEnvValue(process.env.SUPABASE_SERVICE_ROLE_KEY) ||
-    getDashboardPassword()
-  )
+    cleanEnvValue(process.env.SUPABASE_SERVICE_ROLE_KEY)
+
+  return secret.length >= 32 ? secret : ''
 }
 
 function signSessionPayload(payload: string) {
@@ -49,7 +49,7 @@ export function verifyDashboardPassword(password: string) {
 
 export function createDashboardSessionValue() {
   const expiresAt = Date.now() + sessionDurationSeconds * 1000
-  const payload = String(expiresAt)
+  const payload = `${expiresAt}.${randomBytes(16).toString('hex')}`
   const signature = signSessionPayload(payload)
 
   return `${payload}.${signature}`
@@ -62,19 +62,20 @@ export function getDashboardCookieOptions(maxAge = sessionDurationSeconds) {
     secure: process.env.NODE_ENV === 'production',
     path: '/',
     maxAge,
+    priority: 'high' as const,
   }
 }
 
 export function verifyDashboardSessionValue(value?: string) {
   if (!value || !getSessionSecret()) return false
 
-  const [expiresAt, signature] = value.split('.')
-  if (!expiresAt || !signature) return false
+  const [expiresAt, nonce, signature] = value.split('.')
+  if (!expiresAt || !nonce || !signature) return false
 
   const expiry = Number(expiresAt)
   if (!Number.isFinite(expiry) || expiry <= Date.now()) return false
 
-  return safeCompare(signature, signSessionPayload(expiresAt))
+  return safeCompare(signature, signSessionPayload(`${expiresAt}.${nonce}`))
 }
 
 export async function isDashboardAuthenticated() {
