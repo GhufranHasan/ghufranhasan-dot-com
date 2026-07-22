@@ -33,16 +33,16 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="premium-frame relative rounded-2xl overflow-hidden bg-linear-to-r from-orange-500 to-purple-900 p-0.5">
-              <div className="relative rounded-2xl overflow-hidden bg-purple-950/50">
-                <Image
-                  src="/images/about-profile.png"
-                  alt="Ghufran Hasan"
-                  width={500}
-                  height={600}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
+            <div className="hero-portrait-stage">
+              <div className="hero-portrait-sheen" aria-hidden="true" />
+              <div className="hero-portrait-base" aria-hidden="true" />
+              <Image
+                src="/images/about-profile.png"
+                alt="Ghufran Hasan"
+                width={500}
+                height={600}
+                className="hero-portrait-cutout h-auto w-full max-w-[28rem] object-contain"
+              />
             </div>
           </motion.div>
 
@@ -62,13 +62,13 @@ export default function About() {
 
             <div className="space-y-4 text-white/70">
               <p>
-                I am Ghufran, a frontend developer focused on building websites that do more than look good. They clarify the offer, support the founder&apos;s authority, and help warm prospects take the next step.
+                I am Ghufran, a website strategist and builder focused on pages that do more than look good. They clarify the offer, support authority, and help warm prospects take the next step.
               </p>
               <p>
-                At this stage, my personal brand is the front face because people trust people before they trust a new agency name. The work stays focused around one specialist LinkedIn-to-website system.
+                At this stage, my personal brand is the front face because people trust people before they trust a new agency name. The work stays focused around one specialist LinkedIn-to-website path.
               </p>
               <p>
-              I combine frontend development, conversion strategy, and LinkedIn positioning for one focused offer: LinkedIn-to-Website Conversion for founder-led B2B agencies.
+              I combine conversion strategy, website messaging, and LinkedIn positioning for one focused offer: LinkedIn-to-Website Conversion for high-value service businesses.
               </p>
             </div>
 

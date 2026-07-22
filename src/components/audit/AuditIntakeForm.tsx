@@ -92,7 +92,7 @@ export default function AuditIntakeForm() {
 
       trackSiteEvent({
         eventType: 'form_submission',
-        eventName: 'Funnel check application submitted',
+        eventName: 'Funnel Review application submitted',
         sectionId: 'request-audit',
         metadata: {
           form: 'audit_request',
@@ -153,7 +153,7 @@ export default function AuditIntakeForm() {
             type="email"
             name="email"
             autoComplete="email"
-            placeholder="Where should I send the check?"
+            placeholder="Where should I send the review?"
             maxLength={254}
             required
           />
@@ -281,7 +281,7 @@ export default function AuditIntakeForm() {
 
         <motion.div variants={fieldVariants} className="sm:col-span-2">
           <BrandedSelect
-            label="What do you want from this check?"
+            label="What do you want from this review?"
             name="engagementIntent"
             options={engagementIntents}
             placeholder="Select intent"
@@ -328,7 +328,7 @@ export default function AuditIntakeForm() {
           </>
         ) : (
           <>
-            Apply for Free Funnel Check
+            Request My Free Review
             <ArrowRight size={18} />
           </>
         )}
@@ -340,7 +340,7 @@ export default function AuditIntakeForm() {
       >
         <span className="inline-flex items-center gap-2">
           <ShieldCheck size={14} className="text-orange-400" />
-          Limited checks for established B2B service businesses.
+          Limited reviews for established B2B service businesses.
         </span>
         <span className="inline-flex items-center gap-2">
           <CheckCircle2 size={14} className="text-orange-400" />

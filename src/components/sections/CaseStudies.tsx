@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { ArrowRight, Code2, FileSearch, PanelsTopLeft, Route } from 'lucide-react'
+import { ArrowRight, FileSearch, PanelsTopLeft, Rocket, Route } from 'lucide-react'
 import Link from 'next/link'
 import SectionBadge from '@/components/ui/SectionBadge'
 
@@ -22,10 +22,10 @@ const proofCategories = [
     evidence: 'Not a client engagement. Recommendations are framed as risks to test.',
   },
   {
-    icon: Code2,
+    icon: Rocket,
     label: 'Implementation proof',
-    title: 'Frontend delivery ability',
-    text: 'The work does not end as advice. I can turn the diagnosis into responsive pages, forms, CTA tracking, dashboard visibility, and launch-ready frontend implementation.',
+    title: 'Launch ability',
+    text: 'The work does not end as advice. I can turn the diagnosis into polished pages, forms, CTA tracking, dashboard visibility, and a launch-ready website path.',
     evidence: 'Real implementation strength. Measured client outcomes are only shown when available.',
   },
 ]
@@ -33,7 +33,7 @@ const proofCategories = [
 const ownSiteCaseStudy = {
   title: 'How I rebuilt my own website path',
   before: 'The site behaved like a portfolio: skills, sections, resources, and visuals, but no single buyer decision path.',
-  problem: 'It showed what I could build, but did not consistently explain the founder-led B2B agency gap I diagnose.',
+  problem: 'It showed what I could create, but did not consistently explain the LinkedIn-active service business gap I diagnose.',
   fix: 'I repositioned the page around skeptical diagnosis, sample audit, proof categories, one sprint, and one application path.',
   after: 'Now the site supports diagnosis, confidence, and qualification before a sales conversation.',
 }
@@ -133,7 +133,7 @@ export default function CaseStudies() {
             href="/free-audit"
             className="inline-flex items-center gap-3 px-8 py-3 rounded-full bg-linear-to-r from-orange-500 to-orange-600 text-white font-semibold hover:shadow-glow-hover transition-all"
           >
-            Apply for a Funnel Check <ArrowRight size={18} />
+            Request Free Review <ArrowRight size={18} />
           </Link>
         </motion.div>
       </div>

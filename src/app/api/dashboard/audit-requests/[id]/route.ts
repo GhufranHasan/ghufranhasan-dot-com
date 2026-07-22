@@ -84,7 +84,7 @@ export async function DELETE(
 
   if (!isUuid(id)) {
     return NextResponse.json(
-      { error: 'Choose a valid funnel check application.' },
+      { error: 'Choose a valid Funnel Review application.' },
       { status: 400 }
     )
   }
@@ -97,7 +97,7 @@ export async function DELETE(
     console.error('Dashboard audit delete error:', error)
 
     return NextResponse.json(
-      { error: 'The funnel check application could not be deleted.' },
+      { error: 'The Funnel Review application could not be deleted.' },
       { status: 500 }
     )
   }

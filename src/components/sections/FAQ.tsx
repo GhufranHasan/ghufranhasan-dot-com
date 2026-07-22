@@ -22,7 +22,7 @@ const decisionPoints = [
   {
     icon: WalletCards,
     label: 'Budget',
-    text: 'Start with the application, then choose a paid audit or sprint only if there is fit.',
+    text: 'Start with the free review, then choose a paid audit or sprint only if there is fit.',
   },
   {
     icon: Clock3,
@@ -96,7 +96,7 @@ export default function FAQ() {
               href="/free-audit"
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-5 py-3 text-sm font-semibold text-white transition-all hover:shadow-glow-hover"
             >
-              Apply for a Check
+              Request Free Review
               <ArrowRight size={16} />
             </Link>
           </motion.aside>
@@ -194,13 +194,13 @@ export default function FAQ() {
           <div className="mx-auto max-w-2xl rounded-2xl border border-orange-500/20 bg-linear-to-r from-orange-500/10 to-purple-500/10 p-8">
             <Sparkles size={24} className="text-orange-500 mx-auto mb-3" />
             <h3 className="text-xl font-bold text-white mb-2">Want a sharper read on your current path?</h3>
-            <p className="text-white/70 mb-6">Apply for a limited funnel check and I will look for the biggest observable LinkedIn-to-website risk.</p>
+            <p className="text-white/70 mb-6">Request a limited Funnel Review and I will look for the biggest observable LinkedIn-to-website risk.</p>
             <Link
               href="/free-audit"
               className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-orange-500 to-orange-600 px-6 py-3 font-semibold text-white transition-all hover:shadow-glow-hover"
             >
               <MessageCircle size={18} />
-              Apply for a Funnel Check
+              Request Free Review
             </Link>
           </div>
         </div>

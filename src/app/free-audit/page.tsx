@@ -9,9 +9,9 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import SectionBadge from '@/components/ui/SectionBadge'
 import AuditIntakeForm from '@/components/audit/AuditIntakeForm'
 
-const pageTitle = 'Apply for a Free LinkedIn-to-Website Funnel Check'
+const pageTitle = 'Request a Free LinkedIn-to-Website Funnel Review'
 const pageDescription =
-  'Apply for a limited LinkedIn-to-website funnel check for founder-led B2B agencies with an active offer and working website.'
+  'Request a limited LinkedIn-to-website funnel review for LinkedIn-active agencies, consultants, and coaches with an active offer and working website.'
 const pageUrl = 'https://ghufranhasan.com/free-audit'
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         url: '/images/profile.png',
         width: 1200,
         height: 630,
-        alt: 'Free LinkedIn-to-Website Funnel Check with Ghufran Hasan',
+        alt: 'Free LinkedIn-to-Website Funnel Review with Ghufran Hasan',
       },
     ],
   },
@@ -55,7 +55,7 @@ const serviceSchema = {
   },
   audience: {
     '@type': 'Audience',
-    audienceType: 'Founder-led B2B service agencies',
+    audienceType: 'LinkedIn-active B2B service businesses',
   },
   offers: {
     '@type': 'Offer',
@@ -90,20 +90,20 @@ export default function FreeAuditPage() {
             <Breadcrumbs
               items={[
                 { label: 'Home', href: '/#home' },
-                { label: 'Funnel Check', href: '/free-audit' },
+                { label: 'Funnel Review', href: '/free-audit' },
               ]}
             />
 
             <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start xl:gap-12">
               <div className="lg:sticky lg:top-28">
                 <SectionBadge icon={FileSearch} emphasis="strong" className="mb-5">
-                  Qualified funnel check intake
+                  Qualified funnel review intake
                 </SectionBadge>
 
                 <h1 className="hero-headline max-w-xl text-4xl font-bebas font-semibold leading-[1.04] text-white md:text-5xl xl:text-6xl">
-                  Apply for a Free
+                  Request a Free
                   <span className="hero-gradient-text mt-1 block">
-                  Funnel Check
+                    Funnel Review
                   </span>
                 </h1>
 
@@ -111,7 +111,7 @@ export default function FreeAuditPage() {
                   Share your LinkedIn profile, website, core service, lead
                   source, traffic signal, desired action, budget, and what you
                   already tried. I review a limited number of established B2B
-                  agencies each week.
+                  service businesses each week.
                 </p>
 
                 <div className="mt-6 space-y-3">
@@ -134,11 +134,11 @@ export default function FreeAuditPage() {
                   </span>
                   <span className="inline-flex items-center gap-2">
                     <BadgeCheck size={15} className="text-orange-400" />
-                    Established B2B agencies only
+                    Serious service offers only
                   </span>
                 </div>
                 <p className="mt-6 rounded-lg border border-orange-500/20 bg-orange-500/8 p-4 text-sm font-semibold text-white/75">
-                  This is not a free full strategy session. It is a short fit-based check for businesses with a real offer, a website, and a reason to improve the path now.
+                  This is not a free full strategy session. It is a short fit-based review for businesses with a real offer, a website, and a reason to improve the path now.
                 </p>
               </div>
 

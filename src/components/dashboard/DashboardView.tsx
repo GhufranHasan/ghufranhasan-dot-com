@@ -880,7 +880,7 @@ export default function DashboardView({ data }: { data: DashboardData }) {
                 </h1>
                 <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/62">
                   Track visits, section attention, CTA clicks, downloads,
-                  subscribers, funnel check applications, and database status from one
+                  subscribers, Funnel Review applications, and database status from one
                   private admin surface.
                 </p>
               </div>
@@ -1029,7 +1029,7 @@ export default function DashboardView({ data }: { data: DashboardData }) {
                     <Inbox size={19} />
                   </div>
                   <div>
-                    <h2 className="text-xl font-bebas text-white">Funnel Check Applications</h2>
+                    <h2 className="text-xl font-bebas text-white">Funnel Review Applications</h2>
                     <p className="text-xs text-white/45">
                       Read, update, and delete test lead records.
                     </p>
@@ -1058,7 +1058,7 @@ export default function DashboardView({ data }: { data: DashboardData }) {
               ) : (
                 <EmptyState
                   title="No audit applications in this period"
-                  text="Use the period filter or submit a test application through the free funnel check form."
+                  text="Use the period filter or submit a test application through the free Funnel Review form."
                 />
               )}
             </section>

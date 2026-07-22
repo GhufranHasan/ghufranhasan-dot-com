@@ -2,12 +2,12 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Code2, Compass, Gauge, Target, Workflow } from 'lucide-react'
+import { Compass, Gauge, Rocket, Target, Workflow } from 'lucide-react'
 
 const trustItems = [
   {
     title: 'Specialist focus',
-    text: 'Built for founder-led B2B agencies that need a clearer path from LinkedIn interest to qualified action.',
+    text: 'Built for LinkedIn-active service businesses that need a clearer path from profile interest to qualified action.',
     icon: Target,
   },
   {
@@ -21,9 +21,9 @@ const trustItems = [
     icon: Workflow,
   },
   {
-    title: 'Next.js delivery',
-    text: 'Fast, responsive builds that are easy to iterate after launch.',
-    icon: Code2,
+    title: 'Fast launch path',
+    text: 'A polished website path that is easy to refine after launch.',
+    icon: Rocket,
   },
   {
     title: '10-day structure',

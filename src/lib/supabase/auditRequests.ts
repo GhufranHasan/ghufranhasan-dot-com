@@ -75,7 +75,7 @@ export async function createAuditRequest(
   )
 
   if (!savedRequest?.id) {
-    throw new Error('Supabase did not return the saved funnel check application')
+    throw new Error('Supabase did not return the saved Funnel Review application')
   }
 
   return savedRequest
@@ -110,7 +110,7 @@ export async function updateAuditRequestStatus(
   )
 
   if (!updatedRequest?.id) {
-    throw new Error('Supabase did not return the updated funnel check application')
+    throw new Error('Supabase did not return the updated Funnel Review application')
   }
 
   return updatedRequest

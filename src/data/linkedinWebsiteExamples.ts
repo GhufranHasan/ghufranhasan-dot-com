@@ -86,9 +86,9 @@ export const websiteExamples: WebsiteExample[] = [
   {
     name: 'Ghufran Hasan',
     url: 'https://ghufranhasan.com',
-    positioning: 'LinkedIn-to-website conversion for founder-led B2B agencies',
-    audience: 'Founder-led B2B service agencies with an active offer and LinkedIn traffic',
-    offer: 'Selective Funnel Check, $300 Conversion Audit, and LinkedIn-to-Website Conversion Sprint from $1,500',
+    positioning: 'LinkedIn-to-website conversion for LinkedIn-active service businesses',
+    audience: 'Founder-led B2B agencies, consultants, and coaches with an active offer and LinkedIn traffic',
+    offer: 'Free Funnel Review, $300 Conversion Audit, LinkedIn-to-Website Conversion Sprint starting from $1,200, and custom add-ons',
     strongestAdvantage: 'The clearest bridge between LinkedIn attention, website messaging, booking flow, and an owned conversion path.',
     opportunity: 'Proof density is still the biggest bottleneck: testimonials, visual audit samples, and before-after examples should grow next.',
     lesson: 'A specific LinkedIn-to-website conversion path can differentiate a service from generic personal-brand or web design positioning.',

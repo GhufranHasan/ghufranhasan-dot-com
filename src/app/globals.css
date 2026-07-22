@@ -26,6 +26,8 @@
   --animate-hero-drift: heroDrift 18s ease-in-out infinite alternate;
   --animate-hero-scan: heroScan 9s linear infinite;
   --animate-hero-lines: heroLines 14s linear infinite;
+  --animate-premium-sheen: premiumSheen 7s ease-in-out infinite;
+  --animate-portrait-grid: portraitGrid 16s linear infinite;
 
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
@@ -50,6 +52,15 @@
   @keyframes heroLines {
     from { background-position: 0 0, 0 0; }
     to { background-position: 96px 48px, -96px 96px; }
+  }
+  @keyframes premiumSheen {
+    0%, 100% { transform: translateX(-115%) skewX(-18deg); opacity: 0; }
+    18%, 44% { opacity: 0.44; }
+    62% { transform: translateX(115%) skewX(-18deg); opacity: 0; }
+  }
+  @keyframes portraitGrid {
+    from { background-position: 0 0, 0 0; }
+    to { background-position: 72px 36px, -72px 72px; }
   }
 
   /* 5. Custom Box Shadows */
@@ -109,7 +120,27 @@
 
   .glass-card {
     @apply bg-background-card backdrop-blur-md border border-orange-500/20 rounded-2xl;
+    position: relative;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .glass-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(105deg, transparent 0%, transparent 38%, rgba(255, 255, 255, 0.12) 50%, transparent 62%, transparent 100%);
+    background-size: 250% 100%;
+    background-position: 140% 0;
+    clip-path: inset(0 round 1rem);
+    opacity: 0;
+    transition: background-position 0.85s ease, opacity 0.85s ease;
+  }
+
+  .glass-card:hover::before {
+    opacity: 0.34;
+    background-position: -40% 0;
   }
 
   .site-backdrop {
@@ -240,6 +271,101 @@
     mask-image: linear-gradient(#000, #000);
   }
 
+  .hero-portrait-stage {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    min-height: 26rem;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 2.5rem 1.4rem 0;
+  }
+
+  .hero-portrait-stage::before {
+    content: "";
+    position: absolute;
+    inset: 8% 4% 10%;
+    z-index: -2;
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 132, 3, 0.2);
+    background:
+      linear-gradient(135deg, rgba(255, 132, 3, 0.12), transparent 30%, rgba(255, 255, 255, 0.045) 52%, transparent 74%),
+      repeating-linear-gradient(115deg, transparent 0 20px, rgba(255, 255, 255, 0.045) 20px 21px, transparent 21px 42px);
+    box-shadow:
+      0 28px 80px rgba(0, 0, 0, 0.34),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .hero-portrait-stage::after {
+    content: "";
+    position: absolute;
+    inset: 2% 0 8%;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255, 132, 3, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 72px 72px, 72px 72px;
+    mask-image: linear-gradient(to bottom, transparent, black 20%, black 78%, transparent);
+    opacity: 0.28;
+    animation: portraitGrid 16s linear infinite;
+  }
+
+  .hero-portrait-cutout {
+    position: relative;
+    z-index: 2;
+    filter:
+      drop-shadow(0 26px 38px rgba(0, 0, 0, 0.46))
+      drop-shadow(0 0 24px rgba(255, 132, 3, 0.16));
+  }
+
+  .hero-portrait-base {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: 0.25rem;
+    z-index: 1;
+    height: 4.8rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 132, 3, 0.24);
+    background:
+      linear-gradient(90deg, transparent, rgba(255, 132, 3, 0.12), transparent),
+      repeating-linear-gradient(90deg, transparent 0 14px, rgba(255, 255, 255, 0.04) 14px 15px, transparent 15px 30px);
+    box-shadow: 0 16px 45px rgba(255, 132, 3, 0.1);
+  }
+
+  .hero-portrait-sheen {
+    position: absolute;
+    inset: -30%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .hero-portrait-sheen::before {
+    content: "";
+    position: absolute;
+    inset: -60% auto -60% -30%;
+    width: 24%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+    animation: premiumSheen 7s ease-in-out infinite;
+  }
+
+  .premium-sheen {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .premium-sheen::before {
+    content: "";
+    position: absolute;
+    inset: -60% auto -60% -30%;
+    width: 24%;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+    animation: premiumSheen 7s ease-in-out infinite;
+  }
+
   .hero-premium-bg {
     position: absolute;
     inset: 0;
@@ -305,7 +431,10 @@
   @media (prefers-reduced-motion: reduce) {
     .hero-premium-bg::before,
     .hero-premium-bg::after,
-    .hero-scanline {
+    .hero-scanline,
+    .hero-portrait-stage::after,
+    .hero-portrait-sheen::before,
+    .premium-sheen::before {
       animation: none;
     }
   }

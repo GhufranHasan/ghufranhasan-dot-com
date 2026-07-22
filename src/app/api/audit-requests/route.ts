@@ -120,13 +120,13 @@ export async function POST(request: NextRequest) {
     }
 
     if (!hasJsonContentType(request) || isPayloadTooLarge(request, 16_384)) {
-      return NextResponse.json({ error: 'Invalid funnel check request.' }, { status: 400 })
+      return NextResponse.json({ error: 'Invalid Funnel Review request.' }, { status: 400 })
     }
 
     const ip = getClientIp(request)
     if (isRateLimited(ip)) {
       return NextResponse.json(
-        { error: 'Too many funnel check applications. Please wait a minute and try again.' },
+        { error: 'Too many Funnel Review applications. Please wait a minute and try again.' },
         { status: 429 }
       )
     }
@@ -136,7 +136,7 @@ export async function POST(request: NextRequest) {
 
     if (honeypot) {
       return NextResponse.json(
-        { message: 'Your funnel check application has been received.' },
+        { message: 'Your Funnel Review application has been received.' },
         { status: 201 }
       )
     }
@@ -253,9 +253,9 @@ export async function POST(request: NextRequest) {
         sendEmail({
           from: fromEmail,
           to: notificationEmail,
-          subject: `New funnel check application from ${name}`,
+          subject: `New Funnel Review application from ${name}`,
           html: `
-            <h1>New LinkedIn-to-Website Funnel Check Application</h1>
+            <h1>New LinkedIn-to-Website Funnel Review Application</h1>
             <p><strong>Name:</strong> ${safeName}</p>
             <p><strong>Email:</strong> <a href="mailto:${safeEmail}">${safeEmail}</a></p>
             <p><strong>LinkedIn:</strong> <a href="${safeLinkedinUrl}">${safeLinkedinUrl}</a></p>
@@ -278,9 +278,9 @@ export async function POST(request: NextRequest) {
         sendEmail({
           from: fromEmail,
           to: email,
-          subject: 'Your funnel check application has been received',
+          subject: 'Your Funnel Review application has been received',
           html: `
-            <h1>Your funnel check application is in, ${safeName}.</h1>
+            <h1>Your Funnel Review application is in, ${safeName}.</h1>
             <p>Thank you for sharing your LinkedIn profile and website.</p>
             <p>I will review your profile, website, and CTA flow, then identify the most important clarity and conversion fixes.</p>
             <p>No generic advice. No pressure. Just clear conversion feedback.</p>
@@ -297,20 +297,20 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       {
-        message: 'Your funnel check application has been received.',
+        message: 'Your Funnel Review application has been received.',
         id: savedRequest.id,
         emailsSent,
       },
       { status: 201 }
     )
   } catch (error) {
-    console.error('Funnel check application submission error:', error)
+    console.error('Funnel Review application submission error:', error)
     const isDevelopment = process.env.NODE_ENV !== 'production'
     return NextResponse.json(
       {
         error: isDevelopment && error instanceof Error
           ? error.message
-          : 'The funnel check application could not be saved right now. Please try again in a moment.',
+          : 'The Funnel Review application could not be saved right now. Please try again in a moment.',
       },
       { status: 500 }
     )

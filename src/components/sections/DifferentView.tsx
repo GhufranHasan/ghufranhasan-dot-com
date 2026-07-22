@@ -42,10 +42,10 @@ export default function DifferentView() {
         >
           <SectionBadge icon={Compass} className="mb-4">A different view</SectionBadge>
           <h2 className="text-3xl md:text-5xl font-bebas mb-4">
-            Most developers focus on design. I focus on the path to action.
+            Most websites focus on design. I focus on the path to action.
           </h2>
           <p className="text-white/70 text-lg">
-            Design still matters. But for a founder driving traffic from LinkedIn, clarity and conversion matter more.
+            Design still matters. But for a LinkedIn-active service business, clarity and conversion matter more.
           </p>
         </motion.div>
 

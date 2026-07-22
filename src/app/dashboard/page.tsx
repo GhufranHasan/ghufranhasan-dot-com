@@ -45,7 +45,7 @@ function DashboardSetupNotice() {
             DASHBOARD_SESSION_SECRET=use-32-or-more-random-characters
           </code>
           <p className="mt-3 text-sm text-white/58">
-            Restart the Next.js server after adding it.
+            Restart the local website server after adding it.
           </p>
         </div>
       </section>

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, Code2, FileSearch, PanelsTopLeft, ShieldCheck } from 'lucide-react'
+import { ArrowRight, FileSearch, PanelsTopLeft, Rocket, ShieldCheck } from 'lucide-react'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import SectionBadge from '@/components/ui/SectionBadge'
 
@@ -17,7 +17,7 @@ const proofItems = [
   {
     icon: PanelsTopLeft,
     title: 'This website transformation',
-    text: 'The current site itself shows the conversion logic: one audience, one problem, one funnel check path, a simplified pricing ladder, and clear objection handling.',
+    text: 'The current site itself shows the conversion logic: one audience, one problem, one Funnel Review path, a simplified pricing ladder, and clear objection handling.',
   },
   {
     icon: FileSearch,
@@ -25,9 +25,9 @@ const proofItems = [
     text: 'Public website reviews show how I identify positioning mismatch, weak trust sequence, CTA confusion, and page-flow friction without claiming private client results.',
   },
   {
-    icon: Code2,
-    title: 'Implementation ability',
-    text: 'The work is not only advice. I can turn the strategy into responsive UI, Next.js pages, forms, tracking paths, and launch-ready frontends.',
+    icon: Rocket,
+    title: 'Launch ability',
+    text: 'The work is not only advice. I can turn the strategy into polished pages, forms, tracking paths, and a launch-ready website journey.',
   },
 ]
 

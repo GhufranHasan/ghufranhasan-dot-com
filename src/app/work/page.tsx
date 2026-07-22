@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, Code2, FileSearch, PanelsTopLeft } from 'lucide-react'
+import { ArrowRight, FileSearch, PanelsTopLeft, Rocket } from 'lucide-react'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import SectionBadge from '@/components/ui/SectionBadge'
 
 export const metadata: Metadata = {
-  title: 'Work | Strategy and Implementation Proof',
+  title: 'Work | Strategy and Launch Proof',
   description:
-    'Work and proof assets showing website transformation thinking, implementation ability, and public teardown examples.',
+    'Work and proof assets showing website transformation thinking, launch ability, and public teardown examples.',
   alternates: {
     canonical: '/work',
   },
@@ -17,12 +17,12 @@ const workItems = [
   {
     icon: PanelsTopLeft,
     title: 'Personal website conversion rebuild',
-    text: 'A live example of narrowing the audience, simplifying the offer path, and creating one funnel check application CTA.',
+    text: 'A live example of narrowing the audience, simplifying the offer path, and creating one Funnel Review application CTA.',
   },
   {
-    icon: Code2,
-    title: 'Frontend implementation work',
-    text: 'Responsive UI, Next.js implementation, forms, tracking paths, SEO metadata, and launch-ready pages.',
+    icon: Rocket,
+    title: 'Launch-ready website work',
+    text: 'Mobile-friendly pages, forms, tracking paths, search-ready structure, and a clearer route to action.',
   },
   {
     icon: FileSearch,
@@ -43,7 +43,7 @@ export default function WorkPage() {
             ]}
           />
           <div className="mx-auto max-w-4xl text-center">
-            <SectionBadge icon={Code2} className="mb-6">
+            <SectionBadge icon={Rocket} className="mb-6">
               Work
             </SectionBadge>
             <h1 className="text-4xl font-bebas leading-tight text-white md:text-6xl">

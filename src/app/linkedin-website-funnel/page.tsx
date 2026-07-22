@@ -17,7 +17,7 @@ import SectionBadge from '@/components/ui/SectionBadge'
 
 const pageTitle = 'LinkedIn-to-Website Conversion Sprint'
 const pageDescription =
-  'Ghufran Hasan helps founder-led B2B agencies identify and fix the gaps between LinkedIn positioning, website messaging, proof, and CTA.'
+  'Ghufran Hasan helps LinkedIn-active service businesses identify and fix the gaps between LinkedIn positioning, website messaging, proof, and CTA.'
 const pageUrl = 'https://ghufranhasan.com/linkedin-website-funnel'
 
 export const metadata: Metadata = {
@@ -63,7 +63,7 @@ const serviceSchema = {
   },
   audience: {
     '@type': 'Audience',
-    audienceType: 'Founder-led B2B service agencies',
+    audienceType: 'LinkedIn-active B2B service businesses',
   },
 }
 
@@ -80,7 +80,7 @@ const alignmentAreas = [
   },
   {
     title: 'CTA system',
-    text: 'Your funnel check application, booking flow, and follow-up path reduce friction instead of giving visitors too many choices.',
+    text: 'Your Funnel Review application, booking flow, and follow-up path reduce friction instead of giving visitors too many choices.',
     icon: Route,
   },
 ]
@@ -151,7 +151,7 @@ export default function LinkedinWebsiteFunnelPage() {
                 </h1>
 
                 <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/74">
-                  I help founder-led B2B agencies diagnose and improve the
+                  I help LinkedIn-active agencies, consultants, and coaches diagnose and improve the
                   handoff between LinkedIn positioning, website messaging, proof,
                   and CTA.
                 </p>
@@ -161,7 +161,7 @@ export default function LinkedinWebsiteFunnelPage() {
                     href="/free-audit#request-audit"
                     className="inline-flex items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-7 py-4 font-bold text-white transition-all hover:-translate-y-0.5 hover:shadow-glow-hover"
                   >
-                    Apply for Check
+                    Request Free Review
                     <ArrowRight size={18} />
                   </Link>
                   <Link
@@ -197,7 +197,7 @@ export default function LinkedinWebsiteFunnelPage() {
                     Best positioning now:
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-white/70">
-                    Ghufran Hasan, helping founder-led B2B agencies identify
+                    Ghufran Hasan, helping LinkedIn-active service businesses identify
                     and fix the gaps between LinkedIn positioning, website
                     messaging, proof, and CTA.
                   </p>
@@ -299,7 +299,7 @@ export default function LinkedinWebsiteFunnelPage() {
                 Want to know where your LinkedIn-to-website path is leaking?
               </h2>
               <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-white/68">
-                Start with the funnel check application. I will review your
+                Start with the Funnel Review application. I will review your
                 profile, website, and CTA flow, then show you the clearest next
                 improvement.
               </p>
@@ -307,7 +307,7 @@ export default function LinkedinWebsiteFunnelPage() {
                 href="/free-audit#request-audit"
                 className="mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-7 py-4 font-bold text-white transition-all hover:-translate-y-0.5 hover:shadow-glow-hover"
               >
-                Apply for Check
+                Request Free Review
                 <ArrowRight size={18} />
               </Link>
             </div>

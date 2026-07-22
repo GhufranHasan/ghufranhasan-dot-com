@@ -13,9 +13,16 @@ import {
 } from 'lucide-react'
 
 const proofPoints = [
-  'For established B2B agencies with an active offer, working website, and founder-led LinkedIn presence',
-  'I diagnose whether the constraint is traffic, offer, sales process, or the profile-to-website handoff',
-  'Strategy, page messaging, frontend implementation, and tracking in one focused engagement',
+  'Offer, website message, proof, CTA, and follow-up reviewed together',
+  'One focused buyer path from profile visit to qualified enquiry',
+  'Tracking for the actions that matter before and after launch',
+]
+
+const audiencePills = [
+  'B2B agency founders',
+  'consultants',
+  'coaches',
+  'fractional leaders',
 ]
 
 const journeySteps = [
@@ -65,7 +72,8 @@ export default function Hero() {
               transition={{ delay: 0.3 }}
               className="hero-headline mb-6 max-w-4xl text-4xl font-bebas font-medium leading-[1.08] text-white sm:text-5xl md:text-6xl lg:text-7xl"
             >
-              Stop Losing Warm LinkedIn Visitors on an <span className="hero-gradient-text">Unclear Website</span>
+              <span className="block">Your LinkedIn gets attention.</span>
+              <span className="hero-gradient-text block">Your website should turn it into enquiries.</span>
             </motion.h1>
 
             <motion.p
@@ -74,8 +82,37 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className="text-lg text-white/80 mb-8 max-w-2xl"
             >
-              I diagnose whether the gap is your offer, website message, proof, or CTA, then fix the profile-to-website handoff when the evidence supports it.
+              I help LinkedIn-active service businesses turn warm profile visits into clearer website trust, stronger CTA paths, and qualified enquiries.
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.43 }}
+              className="mb-8 inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-orange-500/25 bg-white/[0.055] px-4 py-2 text-sm text-white/70 shadow-[0_16px_48px_rgba(0,0,0,0.24)] backdrop-blur-md"
+            >
+              <span>Best for LinkedIn-active</span>
+              <span className="sr-only">B2B agency founders, consultants, coaches, and fractional leaders.</span>
+              <span className="relative inline-flex h-5 min-w-[11.5rem] items-center overflow-hidden text-left font-semibold text-orange-300" aria-hidden="true">
+                {audiencePills.map((audience, index) => (
+                  <motion.span
+                    key={audience}
+                    className="absolute left-0 whitespace-nowrap"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: [0, 1, 1, 0], y: [8, 0, 0, -8] }}
+                    transition={{
+                      delay: index * 2.1,
+                      duration: 8.4,
+                      repeat: Infinity,
+                      ease: 'easeInOut',
+                      times: [0, 0.08, 0.23, 0.32],
+                    }}
+                  >
+                    {audience}
+                  </motion.span>
+                ))}
+              </span>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -101,7 +138,7 @@ export default function Hero() {
                 See a Sample Audit <ArrowRight size={18} />
               </Button>
               <Button href="/free-audit" variant="secondary" size="large" className="whitespace-nowrap">
-                Apply for a Funnel Check
+                Request Free Review
               </Button>
             </motion.div>
 
@@ -121,14 +158,16 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="premium-frame relative rounded-2xl overflow-hidden bg-linear-to-r from-orange-500 to-purple-900 p-0.5 animate-float">
+            <div className="hero-portrait-stage animate-float">
+              <div className="hero-portrait-sheen" aria-hidden="true" />
+              <div className="hero-portrait-base" aria-hidden="true" />
               <Image
                 src="/images/profile.png"
                 alt="Ghufran Hasan"
                 width={620}
                 height={720}
                 priority
-                className="w-full h-auto rounded-2xl"
+                className="hero-portrait-cutout h-auto w-full max-w-[31rem]"
               />
             </div>
             <motion.div

@@ -11,11 +11,11 @@ export type FAQItem = {
 export const faqs: FAQItem[] = [
   {
     category: 'Audit',
-    question: 'What is the difference between the Selective Funnel Check and Conversion Audit?',
+    question: 'What is the difference between the Free Funnel Review and Conversion Audit?',
     answer: [
       {
         kind: 'paragraph',
-        text: 'The Selective Funnel Check starts with a short application where you share your LinkedIn profile, website, service, lead source, traffic signal, desired action, average client value, budget range, and what you already tried. I use that context to spot one observable LinkedIn-to-website risk and recommend the right next step.',
+        text: 'The Free Funnel Review starts with a short application where you share your LinkedIn profile, website, service, lead source, traffic signal, desired action, average client value, budget range, and what you already tried. I use that context to spot one observable LinkedIn-to-website risk and recommend the right next step.',
       },
       {
         kind: 'paragraph',
@@ -23,7 +23,7 @@ export const faqs: FAQItem[] = [
       },
       {
         kind: 'paragraph',
-        text: 'Best for: founder-led B2B service agencies that want clarity before investing in implementation.',
+        text: 'Best for: LinkedIn-active agencies, consultants, and coaches that want clarity before investing in implementation.',
       },
     ],
   },
@@ -37,7 +37,7 @@ export const faqs: FAQItem[] = [
       },
       {
         kind: 'paragraph',
-        text: 'Without a website that continues the same conversation, warm visitors may leave without messaging, applying for a check, or taking the next qualified action.',
+        text: 'Without a website that continues the same conversation, warm visitors may leave without messaging, requesting a review, or taking the next qualified action.',
       },
     ],
   },
@@ -55,7 +55,7 @@ export const faqs: FAQItem[] = [
       },
       {
         kind: 'paragraph',
-        text: 'The funnel check and paid audit help identify where that gap is happening.',
+        text: 'The Funnel Review and paid audit help identify where that gap is happening.',
       },
     ],
   },
@@ -65,7 +65,7 @@ export const faqs: FAQItem[] = [
     answer: [
       {
         kind: 'paragraph',
-        text: 'Start with the Selective Funnel Check first. It gives you a quick view of one observable conversion risk without committing to a paid project.',
+        text: 'Start with the Free Funnel Review first. It gives you a quick view of one observable conversion risk without committing to a paid project.',
       },
       {
         kind: 'paragraph',
@@ -89,7 +89,7 @@ export const faqs: FAQItem[] = [
   },
   {
     category: 'Prep',
-    question: 'What do I need to provide before the check, audit, or sprint starts?',
+    question: 'What do I need to provide before the review, audit, or sprint starts?',
     answer: [
       {
         kind: 'paragraph',
@@ -135,11 +135,11 @@ export const faqs: FAQItem[] = [
   },
   {
     category: 'Approach',
-    question: 'What makes this different from a normal developer portfolio?',
+    question: 'What makes this different from a normal portfolio website?',
     answer: [
       {
         kind: 'paragraph',
-        text: 'A normal developer portfolio usually shows skills, tools, and projects.',
+        text: 'A normal portfolio website usually shows skills, tools, and projects.',
       },
       {
         kind: 'paragraph',
@@ -209,11 +209,11 @@ export const faqs: FAQItem[] = [
   },
   {
     category: 'Next step',
-    question: 'What happens after I apply for the Selective Funnel Check?',
+    question: 'What happens after I request the Free Funnel Review?',
     answer: [
       {
         kind: 'paragraph',
-        text: 'After you submit the funnel check application, I review your LinkedIn profile, website, and CTA path using the context you provided.',
+        text: 'After you submit the Funnel Review application, I review your LinkedIn profile, website, and CTA path using the context you provided.',
       },
       {
         kind: 'paragraph',
@@ -227,7 +227,7 @@ export const faqs: FAQItem[] = [
     answer: [
       {
         kind: 'paragraph',
-        text: 'The public positioning is focused on founder-led B2B service agencies because that keeps the offer clear and specific.',
+        text: 'The public positioning is focused on founder-led B2B agencies first, with consultants and coaches as a secondary fit when they use LinkedIn and sell a serious paid offer.',
       },
       {
         kind: 'paragraph',
@@ -258,7 +258,7 @@ export const homepageFaqs: FAQItem[] = [
     answer: [
       {
         kind: 'paragraph',
-        text: 'The sprint focuses on one primary offer and one conversion page. It includes a journey audit, friction map, messaging alignment, page structure, conversion copy, responsive frontend implementation, one primary application or booking path, basic tracking, and launch walkthrough.',
+        text: 'The sprint focuses on one primary offer and one conversion page. It includes a journey audit, friction map, messaging alignment, page structure, conversion copy, a mobile-friendly website path, one primary application or booking path, basic tracking, and launch walkthrough.',
       },
       {
         kind: 'paragraph',

@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { ArrowRight, Code2, Map, MessageSquareText, MousePointerClick, PenLine, Route, SearchCheck } from 'lucide-react'
+import { ArrowRight, LayoutTemplate, Map, MessageSquareText, MousePointerClick, PenLine, Route, SearchCheck } from 'lucide-react'
 import Link from 'next/link'
 import SectionBadge from '@/components/ui/SectionBadge'
 
@@ -19,13 +19,13 @@ const services = [
   },
   {
     icon: Route,
-    title: 'UX structure',
+    title: 'Buyer path structure',
     description: 'Put information in the order a skeptical buyer needs before applying, booking, or requesting the next step.',
   },
   {
-    icon: Code2,
-    title: 'Frontend implementation',
-    description: 'Turn the strategy into a fast, responsive page instead of leaving you with another document waiting to be built.',
+    icon: LayoutTemplate,
+    title: 'Website implementation',
+    description: 'Turn the strategy into a fast, mobile-friendly page instead of leaving you with another document waiting to be used.',
   },
   {
     icon: MousePointerClick,

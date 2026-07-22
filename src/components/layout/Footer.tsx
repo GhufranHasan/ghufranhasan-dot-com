@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ClipboardCheck, Github, Linkedin, Mail, MessageCircle } from 'lucide-react'
+import { Facebook, Instagram, Linkedin } from 'lucide-react'
 import LeadMagnet from '@/components/sections/LeadMagnet'
 import SocialLinksModal from '@/components/layout/SocialLinksModal'
 
@@ -23,15 +23,13 @@ const resources = [
   { label: 'LinkedIn Profile Optimization', href: '/linkedin-profile-optimization' },
   { label: 'CTA Funnel Clarity', href: '/cta-funnel-clarity' },
   { label: 'Website Comparison Study', href: '/linkedin-website-examples' },
-  { label: 'Apply for Funnel Check', href: '/free-audit' },
+  { label: 'Free Funnel Review', href: '/free-audit' },
 ]
 
 const socialLinks = [
   { icon: Linkedin, href: 'https://linkedin.com/in/ghufranhasan', label: 'LinkedIn' },
-  { icon: Github, href: 'https://github.com/ghufranhasan', label: 'GitHub' },
-  { icon: Mail, href: 'mailto:hello@ghufranhasan.com', label: 'Email' },
-  { icon: MessageCircle, href: 'https://wa.me/?text=Hi%20Ghufran%2C%20I%20want%20to%20talk%20about%20my%20LinkedIn%20to%20website%20funnel.', label: 'WhatsApp' },
-  { icon: ClipboardCheck, href: '/free-audit', label: 'Apply for Funnel Check' },
+  { icon: Instagram, href: 'https://instagram.com/ghufranhasan_com', label: 'Instagram' },
+  { icon: Facebook, href: 'https://facebook.com/GhufranHasanDotCom', label: 'Facebook' },
 ]
 
 export default function Footer() {
@@ -51,13 +49,15 @@ export default function Footer() {
               <span>Ghufran<span className="text-orange-500">.</span></span>
             </Link>
             <p className="text-white/70 max-w-sm text-sm">
-              I help founder-led B2B agencies identify and fix the gaps between LinkedIn positioning, website messaging, proof, and CTA.
+              I help LinkedIn-active service businesses turn profile visits into clearer website trust, stronger next steps, and qualified enquiries.
             </p>
             <div className="flex gap-3 mt-6">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-white hover:bg-orange-500 transition-all"
                   aria-label={social.label}
                 >

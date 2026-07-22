@@ -12,7 +12,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import SectionBadge from '@/components/ui/SectionBadge'
 
 export const metadata: Metadata = {
-  title: 'Services | LinkedIn-to-Website Conversion for B2B Agencies',
+  title: 'Services | LinkedIn-to-Website Conversion for Service Businesses',
   description:
     'Detailed service page for LinkedIn profile alignment, website conversion path, CTA system, conversion audit, and implementation sprint.',
   alternates: {
@@ -39,7 +39,7 @@ const services = [
     icon: Map,
     title: 'CTA and intake system',
     description:
-      'I make the next step easier to choose by aligning the funnel check application, booking flow, form friction, and follow-up path.',
+      'I make the next step easier to choose by aligning the Funnel Review application, booking flow, form friction, and follow-up path.',
     includes: ['CTA wording', 'Form structure', 'Booking path', 'Tracking signals'],
   },
 ]
@@ -70,9 +70,9 @@ export default function ServicesPage() {
               LinkedIn-to-Website Conversion Services
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-white/70">
-              A focused service system for founder-led B2B agencies that already
-              get attention on LinkedIn but need a clearer path from profile visit
-              to qualified enquiry.
+              A focused service system for LinkedIn-active agencies, consultants,
+              and coaches that need a clearer path from profile visit to qualified
+              enquiry.
             </p>
           </div>
         </div>
@@ -143,14 +143,14 @@ export default function ServicesPage() {
               Want to know which service fits your current gap?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-white/68">
-              Apply first. The check helps decide whether you need copy fixes,
+              Request the free review first. It helps decide whether you need copy fixes,
               a paid audit, or the full conversion sprint.
             </p>
             <Link
               href="/free-audit#request-audit"
               className="mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-7 py-4 font-bold text-white transition-all hover:shadow-glow-hover"
             >
-              Apply for a Funnel Check
+              Request Free Review
               <ArrowRight size={18} />
             </Link>
           </div>

@@ -8,6 +8,7 @@ const goodFit = [
   'You get LinkedIn profile views but few inquiries',
   'Your website feels disconnected from your content',
   'You have an offer but no clear conversion path',
+  'You are an agency founder, consultant, or coach selling a high-value service',
   'You want a focused page, not a complex website',
 ]
 
@@ -16,6 +17,13 @@ const notFit = [
   'You have no offer yet',
   'You want guaranteed leads without distribution',
   'You are not ready to clarify your positioning',
+]
+
+const secondaryFits = [
+  'LinkedIn service providers',
+  'sales and marketing experts',
+  'SaaS consultants',
+  'business consultants',
 ]
 
 export default function FitCheck() {
@@ -31,7 +39,7 @@ export default function FitCheck() {
           <SectionBadge icon={Filter} className="mb-4">Fit check</SectionBadge>
           <h2 className="text-3xl md:text-5xl font-bebas mb-4">Know if this path is actually for you</h2>
           <p className="text-white/70 text-lg">
-            The right project starts with the right fit. This is built for founders who already have attention or a plan to drive traffic.
+            The right project starts with the right fit. This is built for LinkedIn-active service providers who already have attention or a plan to drive qualified traffic.
           </p>
         </motion.div>
 
@@ -81,6 +89,29 @@ export default function FitCheck() {
             </div>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.12 }}
+          className="mx-auto mt-6 max-w-5xl rounded-2xl border border-white/10 bg-white/[0.035] p-5 backdrop-blur-md"
+        >
+          <p className="mb-4 text-sm font-semibold text-white/75">
+            Also a strong fit when LinkedIn already creates attention:
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {secondaryFits.map((item) => (
+              <span
+                key={item}
+                className="inline-flex items-center gap-2 rounded-full border border-orange-500/20 bg-orange-500/8 px-4 py-2 text-sm text-white/70"
+              >
+                <CheckCircle2 size={15} className="text-orange-400" />
+                {item}
+              </span>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   )

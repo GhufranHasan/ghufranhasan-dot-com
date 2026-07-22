@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Code2, Linkedin, Route, TimerReset } from 'lucide-react'
+import { ClipboardCheck, Linkedin, Route, TimerReset } from 'lucide-react'
 
 const proofSignals = [
   {
@@ -11,8 +11,8 @@ const proofSignals = [
   },
   {
     value: 'End-to-end',
-    label: 'Strategy to implementation',
-    icon: Code2,
+    label: 'Strategy to live path',
+    icon: ClipboardCheck,
   },
   {
     value: '10 days',

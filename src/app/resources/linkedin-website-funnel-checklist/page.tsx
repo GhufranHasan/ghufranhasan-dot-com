@@ -17,7 +17,7 @@ import PrintChecklistButton from '@/components/resources/PrintChecklistButton'
 import { linkedinWebsiteFunnelChecklist } from '@/data/linkedinWebsiteFunnelChecklist'
 
 const pageTitle = '10-Point LinkedIn-to-Website Funnel Checklist'
-const seoTitle = 'Free LinkedIn-to-Website Funnel Checklist for B2B Agency Founders'
+const seoTitle = 'Free LinkedIn-to-Website Funnel Checklist for Service Providers'
 const pageDescription =
   'Use this free 10-point checklist to find where your LinkedIn profile, website, and CTA may be losing qualified actions.'
 const pageUrl = 'https://ghufranhasan.com/resources/linkedin-website-funnel-checklist'
@@ -128,7 +128,7 @@ export default function LinkedinWebsiteFunnelChecklistPage() {
             <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
               <div>
                 <SectionBadge icon={ClipboardCheck} emphasis="strong" className="mb-6">
-                  Free Resource for B2B Agency Founders
+                  Free Resource for LinkedIn-Active Service Providers
                 </SectionBadge>
                 <h1 className="hero-headline max-w-4xl text-4xl font-bebas font-semibold leading-[1.04] text-white md:text-6xl lg:text-7xl">
                   10-Point LinkedIn-to-Website Funnel Checklist
@@ -209,7 +209,7 @@ export default function LinkedinWebsiteFunnelChecklistPage() {
                   Most founders do not have a visibility problem
                 </h2>
                 <p className="mt-5 leading-relaxed text-white/70">
-                  Most B2B agency founders get views, profile visits, and
+                  Most LinkedIn-active service providers get views, profile visits, and
                   sometimes website clicks. The real problem is that the path from
                   LinkedIn profile to website to booked call is unclear. This
                   checklist helps you find the leaks.
@@ -242,7 +242,7 @@ export default function LinkedinWebsiteFunnelChecklistPage() {
             <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
               <div>
                 <SectionBadge icon={ShieldCheck} className="mb-5">
-                  Free funnel check path
+                  Free Funnel Review path
                 </SectionBadge>
                 <h2 className="text-3xl font-bebas text-white md:text-5xl">
                   Want me to find the leaks for you?

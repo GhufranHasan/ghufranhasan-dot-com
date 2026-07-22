@@ -1,6 +1,10 @@
 export const businessTypes = [
   'Founder-led B2B agency',
   'B2B consultancy',
+  'Independent consultant',
+  'Business coach',
+  'Executive coach',
+  'Fractional leader',
   'Development agency',
   'Branding / design agency',
   'Content / ghostwriting agency',
@@ -60,7 +64,7 @@ export const trafficSnapshots = [
 ] as const
 
 export const desiredWebsiteActions = [
-  'Submit a funnel check application',
+  'Request a free funnel review',
   'Book a clarity call',
   'Send an inquiry',
   'Request a proposal',
@@ -71,9 +75,9 @@ export const desiredWebsiteActions = [
 export const implementationBudgets = [
   'Under $300',
   '$300-$1,000',
-  '$1,500+',
-  '$3,000+ for a larger scope',
-  'I only want the free check for now',
+  '$1,200-$2,500',
+  '$2,500+ for larger scope or add-ons',
+  'I only want the free review for now',
 ] as const
 
 export const engagementIntents = [

@@ -65,7 +65,7 @@ export default function LinkedinWebsiteFunnelChecklist() {
       <div className="container-custom">
         <div className="mb-8 hidden rounded-2xl border border-orange-500/25 bg-purple-950/80 p-6 shadow-glow print:block">
           <p className="text-sm font-semibold uppercase tracking-wider text-orange-300">
-            Free Resource for B2B Agency Founders
+            Free Resource for LinkedIn-Active Service Providers
           </p>
           <h1 className="mt-3 text-4xl font-bebas text-white">
             10-Point LinkedIn-to-Website Funnel Checklist

@@ -3,35 +3,36 @@
 import { useEffect, useId, useState } from 'react'
 import {
   BookOpenText,
-  Facebook,
   Grid3X3,
-  Instagram,
+  Mail,
+  MessageCircle,
   Music2,
   Newspaper,
   PenLine,
   Radio,
-  X,
+  X as XIcon,
+  Youtube,
 } from 'lucide-react'
 import { useModal } from '@/contexts/ModalContext'
 
 const extraLinks = [
   {
-    label: 'Instagram',
-    description: 'Behind-the-scenes and personal updates',
-    href: 'https://instagram.com/ghufranhasan_com',
-    icon: Instagram,
+    label: 'Email',
+    description: 'Direct questions, collaborations, and project conversations',
+    href: 'mailto:hello@ghufranhasan.com',
+    icon: Mail,
   },
   {
-    label: 'Facebook',
-    description: 'Community updates and personal brand posts',
-    href: 'https://facebook.com/GhufranHasanDotCom',
-    icon: Facebook,
+    label: 'WhatsApp',
+    description: 'Quick direct messages when the topic is simple',
+    href: 'https://wa.me/?text=Hi%20Ghufran%2C%20I%20visited%20your%20website%20and%20want%20to%20ask%20a%20quick%20question.',
+    icon: MessageCircle,
   },
   {
     label: 'X (Twitter)',
     description: 'Quick thoughts on LinkedIn, funnels, and building online',
     href: 'https://x.com/Ghufran_Hasan',
-    icon: X,
+    icon: XIcon,
   },
   {
     label: 'Substack',
@@ -58,8 +59,14 @@ const extraLinks = [
     icon: Radio,
   },
   {
+    label: 'YouTube',
+    description: 'Future videos, walkthroughs, and conversion breakdowns',
+    href: '/#contact',
+    icon: Youtube,
+  },
+  {
     label: 'Future links',
-    description: 'YouTube, podcast, and new platforms can live here later',
+    description: 'Podcast, newsletter, and new platforms can live here later',
     href: '/#contact',
     icon: PenLine,
   },
@@ -145,7 +152,7 @@ export default function SocialLinksModal({ className, label = 'Connect', iconOnl
                 className="w-10 h-10 rounded-full border border-orange-500/20 text-white/70 hover:text-white hover:bg-orange-500/10 flex items-center justify-center"
                 aria-label="Close modal"
               >
-                <X size={18} />
+                <XIcon size={18} />
               </button>
             </div>
 

@@ -2,6 +2,7 @@ import Hero from '@/components/sections/Hero'
 import CredibilityRibbon from '@/components/sections/CredibilityRibbon'
 import PainAgitation from '@/components/sections/PainAgitation'
 import Services from '@/components/sections/Services'
+import AfterClickPath from '@/components/sections/AfterClickPath'
 import FitCheck from '@/components/sections/FitCheck'
 import AuditExamples from '@/components/sections/AuditExamples'
 import CaseStudies from '@/components/sections/CaseStudies'
@@ -22,16 +23,16 @@ const jsonLd = [
     image: 'https://ghufranhasan.com/images/profile.png',
     sameAs: [
       'https://linkedin.com/in/ghufranhasan',
-      'https://github.com/ghufranhasan',
+      'https://instagram.com/ghufranhasan_com',
+      'https://facebook.com/GhufranHasanDotCom',
       'https://x.com/Ghufran_Hasan',
     ],
     knowsAbout: [
       'LinkedIn funnel strategy',
-      'founder-led B2B agency websites',
-      'B2B agency positioning',
+      'service business website conversion',
+      'B2B consultant positioning',
       'conversion website design',
-      'Next.js development',
-      'CTA tracking',
+      'CTA path optimization',
     ],
   },
   {
@@ -39,7 +40,7 @@ const jsonLd = [
     '@type': 'ProfessionalService',
     name: 'Ghufran Hasan - LinkedIn-to-Website Funnel Optimization',
     url: 'https://ghufranhasan.com',
-    description: 'LinkedIn-to-website conversion strategy and implementation for founder-led B2B agencies.',
+    description: 'LinkedIn-to-website conversion strategy and website implementation for LinkedIn-active service businesses.',
     areaServed: 'Worldwide',
     founder: {
       '@type': 'Person',
@@ -61,7 +62,7 @@ const jsonLd = [
       {
         '@type': 'Offer',
         name: 'LinkedIn-to-Website Conversion Sprint',
-        price: '1500',
+        price: '1200',
         priceCurrency: 'USD',
       },
     ],
@@ -95,6 +96,7 @@ export default function Home() {
       <AuditExamples />
       <CaseStudies />
       <Services />
+      <AfterClickPath />
       <Process />
       <DeliverablesPreview />
       <Packages />

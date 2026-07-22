@@ -5,9 +5,9 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import SectionBadge from '@/components/ui/SectionBadge'
 
 export const metadata: Metadata = {
-  title: 'Pricing | Funnel Check, Conversion Audit, Conversion Sprint',
+  title: 'Pricing | Free Review, Conversion Audit, Conversion Sprint',
   description:
-    'Pricing path for the Selective Funnel Check, $300 Conversion Audit, and LinkedIn-to-Website Conversion Sprint from $1,500.',
+    'Pricing path for the Free Funnel Review, $300 Conversion Audit, LinkedIn-to-Website Conversion Sprint starting from $1,200, and custom add-ons.',
   alternates: {
     canonical: '/pricing',
   },
@@ -15,10 +15,10 @@ export const metadata: Metadata = {
 
 const offers = [
   {
-    title: 'Selective Funnel Check',
+    title: 'Free Funnel Review',
     price: 'Free',
     description:
-      'A selective check for established B2B agencies with a real offer, working website, and reason to improve the path now.',
+      'For LinkedIn-active agencies, consultants, and coaches who want to find the biggest visible leak between attention and website enquiries.',
     bullets: ['Qualified intake', 'One observed risk', 'One practical next step'],
   },
   {
@@ -30,10 +30,17 @@ const offers = [
   },
   {
     title: 'LinkedIn-to-Website Conversion Sprint',
-    price: 'From $1,500',
+    price: 'Starts from $1,200',
     description:
-      'A focused implementation sprint for one primary offer, one conversion page, one application or booking path, tracking, and launch.',
-    bullets: ['Approximately 10 business days', 'Copy, design, and Next.js build', 'CTA and form tracking'],
+      'A focused 10-day sprint to align your LinkedIn promise, website message, CTA path, and enquiry flow.',
+    bullets: ['Focused buyer path', 'Copy, design, and website build', 'CTA and form tracking'],
+  },
+  {
+    title: 'Optional Add-ons',
+    price: 'Custom',
+    description:
+      'Lead magnet setup, audit form, email capture, confirmation page, and follow-up flow when the core path needs more support.',
+    bullets: ['Checklist or assessment', 'Email capture', 'Follow-up path'],
   },
 ]
 
@@ -53,11 +60,11 @@ export default function PricingPage() {
               Pricing
             </SectionBadge>
             <h1 className="text-4xl font-bebas leading-tight text-white md:text-6xl">
-              A Clear Path From Check to Implementation
+              Clear starting prices, flexible scope
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-white/70">
-              No confusing low-priced build in the middle. Start with fit, move
-              into diagnosis if needed, then implement only when the gap is worth fixing.
+              Use the free review to qualify the path, the $300 audit for deeper
+              diagnosis, and the sprint when the implementation is worth building.
             </p>
           </div>
         </div>
@@ -65,7 +72,7 @@ export default function PricingPage() {
 
       <section className="texture-dots neon-purple py-16 md:py-24">
         <div className="container-custom">
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-6 lg:grid-cols-4">
             {offers.map((offer) => (
               <article key={offer.title} className="glass-card border-orange-500/20 p-6">
                 <h2 className="text-2xl font-bebas text-white">{offer.title}</h2>
@@ -88,7 +95,7 @@ export default function PricingPage() {
               href="/free-audit#request-audit"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-7 py-4 font-bold text-white transition-all hover:shadow-glow-hover"
             >
-              Apply and choose the right starting point
+              Request Free Review
               <ArrowRight size={18} />
             </Link>
           </div>

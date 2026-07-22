@@ -6,7 +6,7 @@ import SectionBadge from '@/components/ui/SectionBadge'
 export const metadata: Metadata = {
   title: 'Find the Right Page | Ghufran Hasan',
   description:
-    'Choose the right page for services, process, proof, pricing, FAQ, resources, or the funnel check application.',
+    'Choose the right page for services, process, proof, pricing, FAQ, resources, or the Funnel Review application.',
   robots: {
     index: false,
     follow: true,
@@ -20,7 +20,7 @@ const links = [
   { label: 'Pricing', href: '/pricing' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Resources', href: '/resources' },
-  { label: 'Apply for Funnel Check', href: '/free-audit' },
+  { label: 'Free Funnel Review', href: '/free-audit' },
 ]
 
 export default function CatchAllPage() {

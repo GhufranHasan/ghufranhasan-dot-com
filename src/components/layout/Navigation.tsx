@@ -64,7 +64,7 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
-            <Button href="/free-audit" variant="primary">Apply for Check</Button>
+            <Button href="/free-audit" variant="primary">Free Review</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -97,7 +97,7 @@ export default function Navigation() {
                     {item.name}
                   </Link>
                 ))}
-                <Button href="/free-audit" variant="primary" className="w-full" onClick={() => setIsOpen(false)}>Apply for Check</Button>
+                <Button href="/free-audit" variant="primary" className="w-full" onClick={() => setIsOpen(false)}>Request Free Review</Button>
               </div>
             </motion.div>
           )}

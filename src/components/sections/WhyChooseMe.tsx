@@ -12,7 +12,7 @@ const comparisons = [
   {
     feature: 'What We Track',
     typical: 'Impressions, likes, follower count',
-    me: 'Funnel check applications, CTA clicks, source signals, and where visitors lose clarity',
+    me: 'Funnel Review applications, CTA clicks, source signals, and where visitors lose clarity',
   },
   {
     feature: 'Time Required',

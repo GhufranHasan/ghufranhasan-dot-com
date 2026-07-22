@@ -6,19 +6,20 @@ import AppShell from '@/components/layout/AppShell'
 export const metadata: Metadata = {
   metadataBase: new URL('https://ghufranhasan.com'),
   title: {
-    default: 'LinkedIn-to-Website Conversion for B2B Agencies | Ghufran Hasan',
+    default: 'LinkedIn-to-Website Conversion for Service Businesses | Ghufran Hasan',
     template: '%s | Ghufran Hasan',
   },
-  description: 'Ghufran Hasan helps founder-led B2B agencies diagnose and improve the handoff between LinkedIn positioning, website messaging, proof, and CTA.',
+  description: 'Ghufran Hasan helps LinkedIn-active service businesses diagnose and improve the handoff between LinkedIn positioning, website messaging, proof, and CTA.',
   keywords: [
     'personal brand website',
     'LinkedIn funnel strategist',
-    'B2B founder website funnel',
+    'service business website funnel',
     'LinkedIn profile optimization',
     'conversion website design',
     'website conversion strategy',
-    'B2B agency website conversion',
-    'CTA tracking',
+    'consultant website conversion',
+    'coach website conversion',
+    'CTA path',
   ],
   authors: [{ name: 'Ghufran Hasan' }],
   creator: 'Ghufran Hasan',
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'LinkedIn-to-Website Conversion for B2B Agencies | Ghufran Hasan',
+    title: 'LinkedIn-to-Website Conversion for Service Businesses | Ghufran Hasan',
     description: 'Diagnose and improve the handoff between LinkedIn positioning, website messaging, proof, and CTA.',
     url: 'https://ghufranhasan.com',
     siteName: 'Ghufran Hasan',
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LinkedIn-to-Website Conversion for B2B Agencies | Ghufran Hasan',
+    title: 'LinkedIn-to-Website Conversion for Service Businesses | Ghufran Hasan',
     description: 'Diagnose and improve the handoff between LinkedIn positioning, website messaging, proof, and CTA.',
     images: ['/images/profile.png'],
   },

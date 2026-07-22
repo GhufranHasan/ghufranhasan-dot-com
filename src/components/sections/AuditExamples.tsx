@@ -54,7 +54,7 @@ const beforeFlow = [
 const afterFlow = [
   {
     label: 'LinkedIn',
-    text: 'Helping founder-led B2B agencies stop losing warm LinkedIn visitors on unclear websites.',
+    text: 'Helping LinkedIn-active service businesses stop losing warm visitors on unclear websites.',
     icon: Linkedin,
   },
   {
@@ -64,7 +64,7 @@ const afterFlow = [
   },
   {
     label: 'CTA',
-    text: 'Apply for a Funnel Check',
+    text: 'Request Free Review',
     icon: MousePointerClick,
   },
 ]
@@ -244,7 +244,7 @@ export default function AuditExamples() {
           </p>
           <div className="mt-5">
             <Button href="/free-audit" variant="primary" className="whitespace-nowrap">
-              Apply for Funnel Check
+              Request Free Review
               <ArrowRight size={17} />
             </Button>
           </div>

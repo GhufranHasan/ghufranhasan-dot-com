@@ -7,7 +7,7 @@ import SectionBadge from '@/components/ui/SectionBadge'
 export const metadata: Metadata = {
   title: 'Website Conversion Strategy for LinkedIn Visitors',
   description:
-    'Why a founder-led B2B agency website should act as the decision room after LinkedIn creates attention.',
+    'Why a LinkedIn-active service business website should act as the decision room after LinkedIn creates attention.',
   alternates: {
     canonical: '/website-conversion-strategy',
   },
@@ -62,7 +62,7 @@ export default function WebsiteConversionStrategyPage() {
               href="/free-audit#request-audit"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-7 py-4 font-bold text-white transition-all hover:shadow-glow-hover"
             >
-              Apply for a Funnel Check
+              Request Free Review
               <ArrowRight size={18} />
             </Link>
           </div>

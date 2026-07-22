@@ -59,7 +59,7 @@ export default function StickyCTA() {
         <div className="flex items-center gap-2">
           <Button href="/free-audit#request-audit" variant="primary" className="flex-1 whitespace-nowrap">
             <ClipboardCheck size={16} />
-            Apply for Check
+            Request Free Review
           </Button>
           <button
             onClick={() => setIsVisible(false)}

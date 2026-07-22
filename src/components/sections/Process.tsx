@@ -29,7 +29,7 @@ const steps = [
     description: 'I turn the strategy into copy, layout, and a responsive website section flow built for trust and action.',
     icon: Pen,
     timeline: '5-7 days',
-    details: ['Conversion copy', 'Responsive design', 'Next.js build'],
+    details: ['Conversion copy', 'Mobile-friendly design', 'Website build'],
     deliverable: 'Wireframe, copy structure, and responsive website build',
   },
   {
@@ -113,8 +113,8 @@ export default function Process() {
         >
           <div className="glass-card p-8 md:p-12 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bebas mb-3">Ready to find the risk in your LinkedIn-to-website path?</h3>
-            <p className="text-white/70 mb-6">Apply for a short check and I will show whether audit, implementation, or no project makes sense.</p>
-            <Button href="/free-audit" variant="primary" size="large">Apply for a Funnel Check</Button>
+            <p className="text-white/70 mb-6">Request a short review and I will show whether audit, implementation, or no project makes sense.</p>
+            <Button href="/free-audit" variant="primary" size="large">Request Free Review</Button>
           </div>
         </motion.div>
       </div>
