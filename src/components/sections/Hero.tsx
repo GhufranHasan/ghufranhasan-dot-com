@@ -89,11 +89,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.43 }}
-              className="mb-8 inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-orange-500/25 bg-white/[0.055] px-4 py-2 text-sm text-white/70 shadow-[0_16px_48px_rgba(0,0,0,0.24)] backdrop-blur-md"
+              className="mb-8 inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-orange-500/25 bg-white/5.5 px-4 py-2 text-sm text-white/70 shadow-[0_16px_48px_rgba(0,0,0,0.24)] backdrop-blur-md"
             >
               <span>Best for LinkedIn-active</span>
               <span className="sr-only">B2B agency founders, consultants, coaches, and fractional leaders.</span>
-              <span className="relative inline-flex h-5 min-w-[11.5rem] items-center overflow-hidden text-left font-semibold text-orange-300" aria-hidden="true">
+              <span className="relative inline-flex h-5 min-w-46 items-center overflow-hidden text-left font-semibold text-orange-300" aria-hidden="true">
                 {audiencePills.map((audience, index) => (
                   <motion.span
                     key={audience}
@@ -167,7 +167,7 @@ export default function Hero() {
                 width={620}
                 height={720}
                 priority
-                className="hero-portrait-cutout h-auto w-full max-w-[31rem]"
+                className="hero-portrait-cutout h-auto w-full max-w-124"
               />
             </div>
             <motion.div

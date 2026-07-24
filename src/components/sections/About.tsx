@@ -41,7 +41,7 @@ export default function About() {
                 alt="Ghufran Hasan"
                 width={500}
                 height={600}
-                className="hero-portrait-cutout h-auto w-full max-w-[28rem] object-contain"
+                className="hero-portrait-cutout h-auto w-full max-w-md object-contain"
               />
             </div>
           </motion.div>

@@ -1,135 +1,327 @@
-# Newsletter Setup with Resend
+# Supabase and Resend Setup
 
-This guide walks you through setting up the newsletter subscription feature with Resend.
+Last updated: July 23, 2026
 
-## Step 1: Create a Resend Account
+This guide covers the backend pieces used by the website:
 
-1. Go to [https://resend.com](https://resend.com)
-2. Sign up for a free account
-3. Verify your email address
+- Funnel Review applications
+- Newsletter subscribers
+- First-party dashboard tracking
+- Resend notification and confirmation emails
+- Optional Resend newsletter audience sync
 
-## Step 2: Get Your API Key
+## 1. Supabase Project
 
-1. Navigate to the **API Keys** section in your Resend dashboard
-2. Click **Create API Key** (or copy the existing one)
-3. Give it a descriptive name like "Portfolio Newsletter"
-4. Copy the API key (starts with `re_`)
+Create or open a Supabase project, then copy:
 
-## Step 3: Create an Audience
+- Project URL
+- Service role key
 
-1. In the Resend dashboard, go to **Audiences**
-2. Click **Create Audience**
-3. Name it something like "Newsletter Subscribers"
-4. Click **Create**
-5. Copy the **Audience ID** (you'll need this)
-
-## Step 4: Configure Environment Variables
-
-Create a `.env.local` file in the root of your project (copy from `.env.example`):
+Add them to `.env.local`:
 
 ```bash
-RESEND_API_KEY=re_your_api_key_here
-RESEND_SUBSCRIBER_LIST_ID=your_audience_id_here
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-ref.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 ```
 
-**Example:**
+Keep `SUPABASE_SERVICE_ROLE_KEY` private. It is only used in server-side files.
+
+## 2. Run Database Migrations
+
+The schema lives in:
+
+```text
+supabase/migrations
+```
+
+Run the migrations in Supabase SQL Editor or through the Supabase CLI.
+
+Required tables:
+
+- `audit_requests`
+- `newsletter_subscribers`
+- `site_events`
+
+The migrations also enable row level security and grant the required service role permissions.
+
+If Supabase returns a schema cache error after creating a table, run:
+
+```sql
+notify pgrst, 'reload schema';
+```
+
+## 3. Audit Requests Table
+
+Table name:
+
+```text
+audit_requests
+```
+
+Purpose:
+
+Stores Funnel Review applications from `/free-audit`.
+
+Important fields:
+
+- `name`
+- `email`
+- `linkedin_url`
+- `website_url`
+- `agency_service`
+- `business_type`
+- `average_client_value`
+- `current_lead_source`
+- `traffic_snapshot`
+- `desired_website_action`
+- `main_problem`
+- `desired_outcome`
+- `timeline`
+- `implementation_budget`
+- `engagement_intent`
+- `what_tried`
+- `status`
+- `created_at`
+- `updated_at`
+
+Allowed status values:
+
+```text
+new
+reviewed
+audit_sent
+call_booked
+converted
+not_fit
+```
+
+## 4. Newsletter Subscribers Table
+
+Table name:
+
+```text
+newsletter_subscribers
+```
+
+Purpose:
+
+Stores newsletter and resource subscriber emails before optional sync to Resend.
+
+Important fields:
+
+- `email`
+- `name`
+- `source`
+- `resource_slug`
+- `status`
+- `created_at`
+- `updated_at`
+
+Allowed status values:
+
+```text
+active
+unsubscribed
+bounced
+```
+
+The app uses an upsert on email, so repeat signups update the existing subscriber instead of throwing a duplicate email error.
+
+## 5. Site Events Table
+
+Table name:
+
+```text
+site_events
+```
+
+Purpose:
+
+Stores first-party dashboard tracking.
+
+Tracked event types:
+
+```text
+page_view
+section_view
+cta_click
+download
+form_submission
+system
+```
+
+This powers the private dashboard metrics for visits, CTA clicks, downloads, section views, and recent events.
+
+## 6. Dashboard Login
+
+Add:
+
 ```bash
-RESEND_API_KEY=re_1234567890abcdef
-RESEND_SUBSCRIBER_LIST_ID=8f5e6d7c-9a0b-1c2d-3e4f-5g6h7i8j9k0l
+DASHBOARD_PASSWORD=your-private-dashboard-password
+DASHBOARD_SESSION_SECRET=use-32-or-more-random-characters
 ```
 
-## Step 5: Test the Newsletter
+Open:
 
-1. Start your development server:
-   ```bash
-   npm run dev
-   ```
-
-2. Navigate to the newsletter section on your site
-3. Enter your email address and click "Join Free"
-4. Check:
-   - ✅ Success message appears
-   - ✅ Email is added to your Resend audience
-   - ✅ Confirmation email is sent (optional, configure in Resend)
-
-## Step 6: Verify in Resend Dashboard
-
-1. Go to your Resend dashboard
-2. Click on your audience
-3. You should see the new subscriber in the list
-
-## Deployment to Vercel
-
-When deploying to Vercel:
-
-1. Go to your Vercel project settings
-2. Navigate to **Environment Variables**
-3. Add:
-   - `RESEND_API_KEY`: Your API key
-   - `RESEND_SUBSCRIBER_LIST_ID`: Your audience ID
-4. Deploy your changes
-
-## Troubleshooting
-
-### "Newsletter service not configured"
-- ❌ Missing `RESEND_API_KEY` in environment variables
-- ✅ Add it to `.env.local` locally or Vercel environment settings for production
-
-### "You are already subscribed"
-- This is normal - the same email can't subscribe twice
-- Users get a success message to confirm
-
-### "Invalid email address"
-- The email didn't pass validation
-- Ensure the email format is correct
-
-### No subscribers showing up
-- Check that `RESEND_SUBSCRIBER_LIST_ID` is correct
-- Verify the API key has proper permissions
-- Check the browser console for error messages
-
-## API Endpoint
-
-**Endpoint:** `POST /api/newsletter/subscribe`
-
-**Request:**
-```json
-{
-  "email": "user@example.com"
-}
+```text
+http://localhost:3000/dashboard
 ```
 
-**Response (Success):**
-```json
-{
-  "message": "Successfully subscribed",
-  "email": "user@example.com",
-  "id": "subscriber_id"
-}
+The dashboard checks Supabase connectivity and shows whether the key tables are readable.
+
+## 7. Resend Email Setup
+
+Create a Resend account and API key, then add:
+
+```bash
+RESEND_API_KEY=re_your_api_key
+RESEND_FROM_EMAIL=Ghufran Hasan <hello@your-verified-domain.com>
+AUDIT_NOTIFICATION_EMAIL=your-inbox@example.com
 ```
 
-**Response (Error):**
-```json
-{
-  "error": "Error message here"
-}
+Important:
+
+- Do not use a normal `gmail.com` address as `RESEND_FROM_EMAIL`.
+- Resend requires the sending domain to be allowed or verified.
+- `AUDIT_NOTIFICATION_EMAIL` can be your Gmail inbox. The sender is what must be valid in Resend.
+
+Audit application email flow:
+
+```text
+User submits /free-audit form
+-> application saved in Supabase
+-> notification email sent to AUDIT_NOTIFICATION_EMAIL
+-> confirmation email sent to the applicant
+-> user redirects to /thank-you
 ```
 
-## Features Implemented
+If `RESEND_FROM_EMAIL` is missing or invalid, the application can still be saved in Supabase, but email delivery will fail or be skipped.
 
-✅ Email validation  
-✅ Duplicate subscriber detection  
-✅ Error handling and user-friendly messages  
-✅ Loading states  
-✅ Success confirmation  
-✅ Environment variable configuration  
-✅ API rate limiting ready (add if needed)  
+## 8. Optional Resend Newsletter Audience Sync
 
-## Optional: Send Welcome Email
+If you want newsletter subscribers to also appear in a Resend audience, create an audience in Resend and add:
 
-To send a welcome email when users subscribe, update the API route to use Resend's email sending API. Contact support for help if needed.
+```bash
+RESEND_SUBSCRIBER_LIST_ID=your-resend-audience-id
+```
 
-## Support
+Newsletter signup flow:
 
-- Resend Docs: https://resend.com/docs
-- API Reference: https://resend.com/docs/api-reference/intro
+```text
+User submits newsletter form
+-> email upserted into Supabase
+-> email optionally synced to Resend audience
+-> user receives a clear success message
+```
+
+If the Resend audience sync is not configured, Supabase storage still works.
+
+## 9. Google Analytics
+
+For Google Analytics, add:
+
+```bash
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+This loads Google Analytics with `lazyOnload`.
+
+Google Analytics is separate from the private dashboard:
+
+- Google Analytics: external analytics dashboard.
+- Supabase `site_events`: private first-party dashboard inside the website.
+
+## 10. Local Testing
+
+Start the website:
+
+```bash
+npm run dev
+```
+
+Test audit form:
+
+```text
+http://localhost:3000/free-audit
+```
+
+Test dashboard:
+
+```text
+http://localhost:3000/dashboard
+```
+
+Expected audit form result:
+
+- A new row appears in `audit_requests`.
+- The dashboard shows the new application.
+- Email notification is sent if Resend is configured correctly.
+
+Expected newsletter result:
+
+- A row appears or updates in `newsletter_subscribers`.
+- Resend audience sync succeeds only if `RESEND_API_KEY` and `RESEND_SUBSCRIBER_LIST_ID` are valid.
+
+## 11. Common Errors
+
+### Could not find the table in the schema cache
+
+The table does not exist yet or Supabase REST has not refreshed.
+
+Fix:
+
+- Run the migrations.
+- Run `notify pgrst, 'reload schema';`.
+
+### Permission denied for table
+
+The service role grants are missing.
+
+Fix:
+
+- Run the grant migration.
+- Confirm the request uses `SUPABASE_SERVICE_ROLE_KEY`, not the anon key.
+
+### Supabase fetch failed or ENOTFOUND
+
+The Supabase URL is wrong, the project ref is wrong, or the network cannot resolve the host.
+
+Fix:
+
+- Confirm `NEXT_PUBLIC_SUPABASE_URL` uses `https://PROJECT_REF.supabase.co`.
+- Confirm the project still exists.
+- Restart the local website server after editing `.env.local`.
+
+### The gmail.com domain is not verified
+
+The sender email is invalid for Resend.
+
+Fix:
+
+- Use a verified sender/domain for `RESEND_FROM_EMAIL`.
+- Keep your Gmail address as `AUDIT_NOTIFICATION_EMAIL` if you want to receive notifications there.
+
+### Dashboard says needs setup
+
+The required environment variables are missing or the server was not restarted.
+
+Fix:
+
+- Add `NEXT_PUBLIC_SUPABASE_URL`.
+- Add `SUPABASE_SERVICE_ROLE_KEY`.
+- Restart the local website server.
+
+## 12. Production Checklist
+
+Before production:
+
+- Add all environment variables in Vercel.
+- Run all Supabase migrations.
+- Confirm dashboard login works.
+- Submit a test Funnel Review application.
+- Delete test rows from the dashboard after testing.
+- Confirm Resend notification and confirmation emails.
+- Confirm Google Analytics appears in the Google dashboard.
+- Run `npm run lint`.
+- Run `npm run build`.
+
