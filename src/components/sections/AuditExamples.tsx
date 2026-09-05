@@ -2,6 +2,7 @@
 
 import { ArrowDown, ArrowRight, FileSearch, Linkedin, MousePointerClick, PanelsTopLeft } from 'lucide-react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { Button } from '@/components/ui/Button'
 import SectionBadge from '@/components/ui/SectionBadge'
 
@@ -152,6 +153,50 @@ export default function AuditExamples() {
             assumptions that need tracking data.
           </p>
         </motion.div>
+
+        <motion.figure
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="mb-10 overflow-hidden rounded-3xl border border-orange-500/20 bg-purple-950/45 shadow-[0_24px_70px_rgba(0,0,0,0.26)]"
+        >
+          <div className="grid gap-4 p-5 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:p-6">
+            <figcaption className="rounded-2xl border border-orange-500/15 bg-background-card/75 p-5 lg:p-6">
+              <p className="text-xs font-semibold uppercase tracking-wider text-orange-300">
+                Visual diagnosis
+              </p>
+              <h3 className="mt-3 text-2xl font-bebas text-white md:text-3xl">
+                The buyer should feel one continuous path
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-white/66">
+                The audit checks whether the same promise moves from profile
+                interest to website trust, then into one qualified action.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {['Promise', 'Trust', 'CTA', 'Enquiry'].map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-orange-500/20 bg-orange-500/10 px-3 py-1 text-xs font-semibold text-orange-200"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </figcaption>
+            <div className="relative min-h-[230px] overflow-hidden rounded-2xl border border-white/10 bg-black/20 md:min-h-[320px]">
+              <Image
+                src="/images/linkedin-website-path.svg"
+                alt="Visual map of the LinkedIn profile, website trust, CTA path, and qualified enquiry journey"
+                width={1200}
+                height={760}
+                sizes="(max-width: 1024px) 100vw, 720px"
+                className="h-full w-full object-cover"
+                unoptimized
+              />
+            </div>
+          </div>
+        </motion.figure>
 
         <motion.div
           initial={{ opacity: 0, y: 22 }}

@@ -21,7 +21,7 @@ const pageDescription =
 const pageUrl = 'https://ghufranhasan.com/linkedin-website-funnel'
 
 export const metadata: Metadata = {
-  title: `${pageTitle} | Ghufran Hasan`,
+  title: pageTitle,
   description: pageDescription,
   alternates: {
     canonical: '/linkedin-website-funnel',

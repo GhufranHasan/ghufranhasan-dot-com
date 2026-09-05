@@ -1,0 +1,88 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0D061B"/>
+      <stop offset="0.55" stop-color="#220638"/>
+      <stop offset="1" stop-color="#061827"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="230" y1="100" x2="954" y2="638" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFB25A"/>
+      <stop offset="0.46" stop-color="#FF7A18"/>
+      <stop offset="1" stop-color="#FF5CCB"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="724" y1="187" x2="1028" y2="490" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#42D7FF"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 1 0 1 0 0 0.42 0 0 1 0 0.08 0 0 0 0.62 0"/>
+      <feBlend in="SourceGraphic" mode="screen"/>
+    </filter>
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.2" fill="white" fill-opacity="0.08"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="760" rx="44" fill="url(#bg)"/>
+  <rect width="1200" height="760" rx="44" fill="url(#dots)"/>
+  <circle cx="222" cy="158" r="204" fill="#FF7A18" opacity="0.12"/>
+  <circle cx="976" cy="628" r="232" fill="#44D7FF" opacity="0.11"/>
+
+  <rect x="82" y="70" width="1036" height="620" rx="36" fill="#130923" fill-opacity="0.86" stroke="white" stroke-opacity="0.1" stroke-width="2"/>
+  <rect x="82" y="70" width="1036" height="78" rx="36" fill="white" fill-opacity="0.045"/>
+  <circle cx="132" cy="109" r="10" fill="#FF6B6B"/>
+  <circle cx="166" cy="109" r="10" fill="#FFB25A"/>
+  <circle cx="200" cy="109" r="10" fill="#45E3A2"/>
+  <text x="244" y="117" fill="#FAF7FF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Conversion signals dashboard</text>
+  <rect x="856" y="92" width="190" height="34" rx="17" fill="#FF8A00" fill-opacity="0.14" stroke="#FF8A00" stroke-opacity="0.28"/>
+  <text x="884" y="115" fill="#FFD4A1" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">No fake claims</text>
+
+  <g filter="url(#softGlow)">
+    <rect x="126" y="190" width="224" height="132" rx="24" fill="#1B0D32" stroke="#FF8A00" stroke-opacity="0.35"/>
+    <text x="154" y="235" fill="#D9CFE8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">CTA actions</text>
+    <text x="154" y="280" fill="white" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900">Tracked</text>
+    <rect x="154" y="296" width="138" height="10" rx="5" fill="#FF8A00" fill-opacity="0.45"/>
+  </g>
+
+  <g>
+    <rect x="386" y="190" width="224" height="132" rx="24" fill="#1B0D32" stroke="#FF5CCB" stroke-opacity="0.28"/>
+    <text x="414" y="235" fill="#D9CFE8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Form journey</text>
+    <text x="414" y="280" fill="white" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900">Visible</text>
+    <rect x="414" y="296" width="154" height="10" rx="5" fill="#FF5CCB" fill-opacity="0.38"/>
+  </g>
+
+  <g>
+    <rect x="646" y="190" width="224" height="132" rx="24" fill="#11162E" stroke="#44D7FF" stroke-opacity="0.28"/>
+    <text x="674" y="235" fill="#D9CFE8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Review status</text>
+    <text x="674" y="280" fill="white" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900">Clear</text>
+    <rect x="674" y="296" width="116" height="10" rx="5" fill="#44D7FF" fill-opacity="0.42"/>
+  </g>
+
+  <g>
+    <rect x="906" y="190" width="166" height="132" rx="24" fill="#1B0D32" stroke="white" stroke-opacity="0.12"/>
+    <text x="934" y="235" fill="#D9CFE8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Fit check</text>
+    <path d="M942 278L970 306L1024 248" stroke="url(#accent)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <rect x="126" y="370" width="578" height="242" rx="28" fill="#180C2E" stroke="white" stroke-opacity="0.09"/>
+  <text x="158" y="416" fill="white" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Section attention path</text>
+  <path d="M166 556C234 504 279 528 336 470C403 401 458 526 518 473C567 430 604 420 662 438" stroke="url(#accent)" stroke-width="8" stroke-linecap="round" filter="url(#softGlow)"/>
+  <path d="M166 584H664" stroke="white" stroke-opacity="0.08" stroke-width="2"/>
+  <path d="M166 534H664" stroke="white" stroke-opacity="0.08" stroke-width="2"/>
+  <path d="M166 484H664" stroke="white" stroke-opacity="0.08" stroke-width="2"/>
+  <path d="M166 434H664" stroke="white" stroke-opacity="0.08" stroke-width="2"/>
+  <circle cx="336" cy="470" r="9" fill="#FF8A00"/>
+  <circle cx="518" cy="473" r="9" fill="#FF5CCB"/>
+  <circle cx="662" cy="438" r="9" fill="#44D7FF"/>
+
+  <rect x="744" y="370" width="328" height="242" rx="28" fill="#11172D" stroke="white" stroke-opacity="0.09"/>
+  <text x="776" y="416" fill="white" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Lead handling</text>
+  <rect x="776" y="456" width="240" height="18" rx="9" fill="white" fill-opacity="0.12"/>
+  <rect x="776" y="494" width="206" height="18" rx="9" fill="white" fill-opacity="0.09"/>
+  <rect x="776" y="532" width="258" height="18" rx="9" fill="white" fill-opacity="0.12"/>
+  <rect x="776" y="570" width="168" height="18" rx="9" fill="url(#blue)" fill-opacity="0.55"/>
+
+  <rect x="126" y="638" width="410" height="28" rx="14" fill="#FF8A00" fill-opacity="0.12"/>
+  <text x="148" y="658" fill="#FFD4A1" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Used to improve the journey, not inflate claims.</text>
+</svg>

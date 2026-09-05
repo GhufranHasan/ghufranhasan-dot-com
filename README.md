@@ -184,11 +184,19 @@ Optional for Google Analytics:
 NEXT_PUBLIC_GA_MEASUREMENT_ID=
 ```
 
+Accepted aliases:
+
+```bash
+NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=
+NEXT_PUBLIC_GTAG_ID=
+```
+
 Notes:
 
 - `RESEND_FROM_EMAIL` must use a sender that Resend allows. A normal `gmail.com` address cannot be used as the sending domain.
-- `AUDIT_NOTIFICATION_EMAIL` is where new Funnel Review notifications are sent. If omitted, the app falls back to `hello@ghufranhasan.com`.
+- `AUDIT_NOTIFICATION_EMAIL` is where new Funnel Review notifications are sent. If omitted, the app falls back to `ghufran@ghufranhasan.com`.
 - `DASHBOARD_SESSION_SECRET` should be at least 32 random characters.
+- Google Analytics only appears on the deployed site after the public measurement ID is added to Vercel and the site is redeployed.
 
 ## Local Development
 
@@ -248,6 +256,7 @@ Before deploying:
 - Confirm service role grants are applied.
 - Verify Resend sender domain before enabling email notifications.
 - Add `NEXT_PUBLIC_GA_MEASUREMENT_ID` if Google Analytics is needed.
+- Verify `/robots.txt` returns plain robots text and references `/sitemap.xml`.
 - Run `npm run lint`.
 - Run `npm run build`.
 - Test `/free-audit` form submission.

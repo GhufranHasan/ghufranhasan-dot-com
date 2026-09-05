@@ -13,7 +13,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import SectionBadge from '@/components/ui/SectionBadge'
 
 export const metadata: Metadata = {
-  title: 'Contact Ghufran Hasan',
+  title: 'Contact',
   description:
     'Contact Ghufran Hasan for general questions, collaborations, or direct communication. Serious Funnel Review requests should use the dedicated application page.',
   alternates: {
@@ -35,7 +35,7 @@ const contactOptions = [
     title: 'Email',
     description:
       'Best for collaborations, partnerships, media, support, or a question that does not need the full Funnel Review form.',
-    href: 'mailto:hello@ghufranhasan.com',
+    href: 'mailto:ghufran@ghufranhasan.com',
     label: 'Send email',
     icon: Mail,
   },

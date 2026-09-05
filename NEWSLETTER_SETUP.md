@@ -224,6 +224,13 @@ For Google Analytics, add:
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
 
+The code also accepts these public aliases:
+
+```bash
+NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
+NEXT_PUBLIC_GTAG_ID=G-XXXXXXXXXX
+```
+
 This loads Google Analytics with `lazyOnload`.
 
 Google Analytics is separate from the private dashboard:
@@ -322,6 +329,7 @@ Before production:
 - Delete test rows from the dashboard after testing.
 - Confirm Resend notification and confirmation emails.
 - Confirm Google Analytics appears in the Google dashboard.
+- Confirm `/robots.txt` returns plain robots text and includes the sitemap URL.
 - Run `npm run lint`.
 - Run `npm run build`.
 

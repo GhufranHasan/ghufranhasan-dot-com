@@ -19,7 +19,7 @@ const extraLinks = [
   {
     label: 'Email',
     description: 'Direct questions, collaborations, and project conversations',
-    href: 'mailto:hello@ghufranhasan.com',
+    href: 'mailto:ghufran@ghufranhasan.com',
     icon: Mail,
   },
   {

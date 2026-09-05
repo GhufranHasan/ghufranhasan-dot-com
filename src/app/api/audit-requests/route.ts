@@ -247,7 +247,7 @@ export async function POST(request: NextRequest) {
       const safeEngagementIntent = escapeHtml(engagementIntent)
       const safeWhatTried = escapeHtml(whatTried)
       const notificationEmail =
-        process.env.AUDIT_NOTIFICATION_EMAIL || 'hello@ghufranhasan.com'
+        process.env.AUDIT_NOTIFICATION_EMAIL || 'ghufran@ghufranhasan.com'
 
       const [notificationSent, confirmationSent] = await Promise.all([
         sendEmail({
