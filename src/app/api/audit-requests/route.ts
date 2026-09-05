@@ -61,6 +61,9 @@ const isRateLimited = (key: string) => {
 const cleanText = (value: unknown, maxLength: number) =>
   typeof value === 'string' ? value.trim().slice(0, maxLength) : ''
 
+const cleanEnvValue = (value: string | undefined) =>
+  value?.trim().replace(/^['"]|['"]$/g, '') || ''
+
 const parseHttpUrl = (value: string) => {
   try {
     const url = new URL(value)
@@ -89,7 +92,7 @@ async function sendEmail(payload: {
   subject: string
   html: string
 }) {
-  const apiKey = process.env.RESEND_API_KEY
+  const apiKey = cleanEnvValue(process.env.RESEND_API_KEY)
   if (!apiKey) return false
 
   const response = await fetch('https://api.resend.com/emails', {
@@ -131,7 +134,14 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const body = await request.json()
+    let body: Record<string, unknown>
+
+    try {
+      body = await request.json()
+    } catch {
+      return NextResponse.json({ error: 'Invalid Funnel Review request.' }, { status: 400 })
+    }
+
     const honeypot = cleanText(body.company, 200)
 
     if (honeypot) {
@@ -226,7 +236,7 @@ export async function POST(request: NextRequest) {
       whatTried,
     })
 
-    const fromEmail = process.env.RESEND_FROM_EMAIL
+    const fromEmail = cleanEnvValue(process.env.RESEND_FROM_EMAIL)
     let emailsSent = false
 
     if (fromEmail) {
@@ -247,7 +257,7 @@ export async function POST(request: NextRequest) {
       const safeEngagementIntent = escapeHtml(engagementIntent)
       const safeWhatTried = escapeHtml(whatTried)
       const notificationEmail =
-        process.env.AUDIT_NOTIFICATION_EMAIL || 'ghufran@ghufranhasan.com'
+        cleanEnvValue(process.env.AUDIT_NOTIFICATION_EMAIL) || 'ghufran@ghufranhasan.com'
 
       const [notificationSent, confirmationSent] = await Promise.all([
         sendEmail({
