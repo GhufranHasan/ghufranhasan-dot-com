@@ -4,12 +4,22 @@ import { ArrowRight, Compass } from 'lucide-react'
 import SectionBadge from '@/components/ui/SectionBadge'
 
 export const metadata: Metadata = {
-  title: 'Find the Right Page | Ghufran Hasan',
+  title: 'Find the Right Page',
   description:
     'Choose the right page for services, process, proof, pricing, FAQ, resources, or the Funnel Review application.',
+  alternates: {
+    canonical: '/',
+  },
   robots: {
     index: false,
     follow: true,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: true,
+      noimageindex: true,
+      'max-snippet': -1,
+    },
   },
 }
 
