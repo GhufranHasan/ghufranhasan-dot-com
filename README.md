@@ -162,6 +162,7 @@ Required for dashboard login:
 ```bash
 DASHBOARD_PASSWORD=
 DASHBOARD_SESSION_SECRET=
+DASHBOARD_2FA_EMAIL=
 ```
 
 Recommended for audit request emails:
@@ -195,6 +196,7 @@ Notes:
 
 - `RESEND_FROM_EMAIL` must use a sender that Resend allows. A normal `gmail.com` address cannot be used as the sending domain.
 - `AUDIT_NOTIFICATION_EMAIL` is where new Funnel Review notifications are sent. If omitted, the app falls back to `ghufran@ghufranhasan.com`.
+- `DASHBOARD_2FA_EMAIL` is where private dashboard login codes are sent. This can be a Gmail inbox.
 - `DASHBOARD_SESSION_SECRET` should be at least 32 random characters.
 - Google Analytics only appears on the deployed site after the public measurement ID is added to Vercel and the site is redeployed.
 

@@ -159,6 +159,7 @@ Add:
 ```bash
 DASHBOARD_PASSWORD=your-private-dashboard-password
 DASHBOARD_SESSION_SECRET=use-32-or-more-random-characters
+DASHBOARD_2FA_EMAIL=your-gmail-or-admin-inbox@example.com
 ```
 
 Open:
@@ -184,6 +185,7 @@ Important:
 - Do not use a normal `gmail.com` address as `RESEND_FROM_EMAIL`.
 - Resend requires the sending domain to be allowed or verified.
 - `AUDIT_NOTIFICATION_EMAIL` can be your Gmail inbox. The sender is what must be valid in Resend.
+- `DASHBOARD_2FA_EMAIL` can also be your Gmail inbox. The dashboard sends a six-digit code there after the password is accepted.
 
 Audit application email flow:
 
