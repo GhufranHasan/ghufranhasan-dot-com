@@ -2,11 +2,24 @@
 
 import { useState, type FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
-import { LockKeyhole, LoaderCircle } from 'lucide-react'
+import { ArrowLeft, LockKeyhole, LoaderCircle, MailCheck } from 'lucide-react'
+
+type LoginStep = 'password' | 'code'
+
+type LoginResult = {
+  error?: string
+  requiresTwoFactor?: boolean
+  destination?: string
+  expiresInMinutes?: number
+}
 
 export default function DashboardLoginForm() {
   const router = useRouter()
+  const [step, setStep] = useState<LoginStep>('password')
   const [password, setPassword] = useState('')
+  const [code, setCode] = useState('')
+  const [destination, setDestination] = useState('')
+  const [expiresInMinutes, setExpiresInMinutes] = useState(10)
   const [error, setError] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -19,12 +32,21 @@ export default function DashboardLoginForm() {
       const response = await fetch('/api/dashboard/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify(step === 'password' ? { password } : { code }),
       })
-      const result = await response.json()
+      const result = (await response.json()) as LoginResult
 
       if (!response.ok) {
         setError(result.error || 'Dashboard could not be unlocked.')
+        return
+      }
+
+      if (result.requiresTwoFactor) {
+        setStep('code')
+        setPassword('')
+        setCode('')
+        setDestination(result.destination || 'your email')
+        setExpiresInMinutes(result.expiresInMinutes || 10)
         return
       }
 
@@ -46,22 +68,40 @@ export default function DashboardLoginForm() {
       </div>
       <h1 className="text-3xl font-bebas text-white">Dashboard Access</h1>
       <p className="mt-3 text-sm leading-relaxed text-white/65">
-        Enter your private dashboard password to review visits, applications,
-        subscribers, downloads, and database health.
+        {step === 'password'
+          ? 'Enter your private dashboard password to start secure access.'
+          : `Enter the six-digit code sent to ${destination}. It expires in ${expiresInMinutes} minutes.`}
       </p>
 
-      <label className="mt-6 block text-sm font-semibold text-white">
-        Dashboard Password
-        <input
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          autoComplete="current-password"
-          required
-          className="mt-2 w-full rounded-lg border border-orange-500/20 bg-purple-950/55 px-4 py-3 text-sm text-white outline-none transition-colors placeholder:text-white/35 focus:border-orange-500/60 focus:ring-2 focus:ring-orange-500/10"
-          placeholder="Enter password"
-        />
-      </label>
+      {step === 'password' ? (
+        <label className="mt-6 block text-sm font-semibold text-white">
+          Dashboard Password
+          <input
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            autoComplete="current-password"
+            required
+            className="mt-2 w-full rounded-lg border border-orange-500/20 bg-purple-950/55 px-4 py-3 text-sm text-white outline-none transition-colors placeholder:text-white/35 focus:border-orange-500/60 focus:ring-2 focus:ring-orange-500/10"
+            placeholder="Enter password"
+          />
+        </label>
+      ) : (
+        <label className="mt-6 block text-sm font-semibold text-white">
+          Verification Code
+          <input
+            type="text"
+            value={code}
+            onChange={(event) => setCode(event.target.value.replace(/\D/g, '').slice(0, 6))}
+            autoComplete="one-time-code"
+            inputMode="numeric"
+            pattern="[0-9]{6}"
+            required
+            className="mt-2 w-full rounded-lg border border-orange-500/20 bg-purple-950/55 px-4 py-3 text-center text-lg font-bold tracking-[0.45em] text-white outline-none transition-colors placeholder:text-white/35 focus:border-orange-500/60 focus:ring-2 focus:ring-orange-500/10"
+            placeholder="000000"
+          />
+        </label>
+      )}
 
       {error && (
         <p className="mt-4 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">
@@ -77,12 +117,32 @@ export default function DashboardLoginForm() {
         {isSubmitting ? (
           <>
             <LoaderCircle size={18} className="animate-spin" />
-            Unlocking...
+            {step === 'password' ? 'Sending code...' : 'Verifying...'}
+          </>
+        ) : step === 'password' ? (
+          <>
+            Send verification code
+            <MailCheck size={18} />
           </>
         ) : (
-          'Open Dashboard'
+          'Verify and open dashboard'
         )}
       </button>
+
+      {step === 'code' && (
+        <button
+          type="button"
+          onClick={() => {
+            setStep('password')
+            setCode('')
+            setError('')
+          }}
+          className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-orange-500/25 px-6 py-3 text-sm font-bold text-white transition-all hover:bg-orange-500/10"
+        >
+          <ArrowLeft size={16} />
+          Use a different password
+        </button>
+      )}
     </form>
   )
 }

@@ -43,9 +43,16 @@ function DashboardSetupNotice() {
             DASHBOARD_PASSWORD=choose-a-strong-private-password
             {'\n'}
             DASHBOARD_SESSION_SECRET=use-32-or-more-random-characters
+            {'\n'}
+            DASHBOARD_2FA_EMAIL=your-gmail-or-admin-inbox@example.com
+            {'\n'}
+            RESEND_API_KEY=your-resend-api-key
+            {'\n'}
+            RESEND_FROM_EMAIL=Ghufran Hasan &lt;ghufran@ghufranhasan.com&gt;
           </code>
           <p className="mt-3 text-sm text-white/58">
-            Restart the local website server after adding it.
+            The 2FA email can be Gmail. The sender email must be verified in Resend.
+            Restart the local website server after adding these values.
           </p>
         </div>
       </section>

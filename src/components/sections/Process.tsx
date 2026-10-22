@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
-import { ClipboardList, ChartLine, Pen, Rocket } from 'lucide-react'
+import SectionBadge from '@/components/ui/SectionBadge'
+import { ArrowRight, ClipboardList, ChartLine, Pen, Rocket, Route } from 'lucide-react'
 
 const steps = [
   {
@@ -47,76 +48,87 @@ export default function Process() {
   return (
     <section id="process" className="texture-dots neon-deep section-padding">
       <div className="container-custom">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-5xl font-bebas mb-4">How we fix the funnel</h2>
-          <p className="text-white/80 max-w-2xl mx-auto">
-            A simple 4-step process: diagnose the leak, align the message, build the path, and launch with one clear CTA.
-          </p>
-        </motion.div>
+        <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="h-fit lg:sticky lg:top-28"
+          >
+            <SectionBadge icon={Route} className="mb-5">From diagnosis to launch</SectionBadge>
+            <h2 className="text-3xl font-bebas md:text-5xl">How I fix the funnel</h2>
+            <p className="mt-5 max-w-md text-lg leading-relaxed text-white/68">
+              A focused four-step process: diagnose the leak, align the message, build the path, and launch with one clear CTA.
+            </p>
+            <div className="mt-8 hidden items-center gap-3 text-sm text-white/48 lg:flex">
+              <span className="h-px w-12 bg-orange-500/60" />
+              10-day focused implementation
+            </div>
+          </motion.div>
 
-        <div className="max-w-3xl mx-auto relative">
-          <div className="absolute left-5 md:left-18 top-0 bottom-0 w-px bg-linear-to-b from-orange-500 to-transparent hidden md:block" />
+          <div className="border-b border-white/10">
+            {steps.map((step, index) => (
+              <motion.article
+                key={step.label}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className="group grid gap-5 border-t border-white/10 py-8 sm:grid-cols-[5rem_1fr] md:py-10"
+              >
+                <div className="flex items-start justify-between sm:block">
+                  <span className="text-4xl font-bebas text-orange-400/85">0{index + 1}</span>
+                  <div className="mt-4 flex h-11 w-11 items-center justify-center rounded-xl border border-orange-500/20 bg-orange-500/8 text-orange-400 transition-all group-hover:border-orange-500/45 group-hover:bg-orange-500/12">
+                    <step.icon size={20} />
+                  </div>
+                </div>
 
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.label}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="flex flex-col md:flex-row gap-6 mb-12 relative"
-            >
-              <div className="md:w-24 shrink-0">
-                <div className="bg-linear-to-r from-orange-500 to-orange-600 text-white px-4 py-2 rounded-full text-center font-bold text-sm">
-                  {step.label}
-                </div>
-              </div>
-
-              <div className="flex-1 glass-card p-6 hover:border-orange-500 transition-all duration-300">
-                <div className="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center mb-4">
-                  <step.icon size={24} className="text-orange-500" />
-                </div>
-                <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                  <h3 className="text-xl font-bold">{step.title}</h3>
-                  <span className="w-fit rounded-full border border-orange-500/25 bg-orange-500/10 px-3 py-1 text-xs font-semibold text-orange-300">
-                    {step.timeline}
-                  </span>
-                </div>
-                <p className="text-white/70 mb-4">{step.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {step.details.map((detail) => (
-                    <span key={detail} className="text-xs bg-orange-500/5 px-3 py-1 rounded-full text-white/60">
-                      {detail}
+                <div>
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-orange-300">{step.label}</p>
+                      <h3 className="mt-2 text-2xl font-bebas text-white md:text-3xl">{step.title}</h3>
+                    </div>
+                    <span className="w-fit rounded-full border border-orange-500/25 bg-orange-500/8 px-3 py-1 text-xs font-semibold text-orange-300">
+                      {step.timeline}
                     </span>
-                  ))}
+                  </div>
+                  <p className="mt-4 leading-relaxed text-white/66">{step.description}</p>
+                  <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+                    {step.details.map((detail) => (
+                      <span key={detail} className="inline-flex items-center gap-2 text-sm text-white/55">
+                        <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
+                        {detail}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-6 border-l border-orange-500/40 pl-4">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-orange-300">Deliverable</p>
+                    <p className="mt-1 text-sm leading-relaxed text-white/68">{step.deliverable}</p>
+                  </div>
                 </div>
-                <div className="mt-5 rounded-xl border border-orange-500/15 bg-orange-500/5 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-orange-300">Deliverable</p>
-                  <p className="mt-1 text-sm leading-relaxed text-white/72">{step.deliverable}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              </motion.article>
+            ))}
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <div className="glass-card p-8 md:p-12 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bebas mb-3">Ready to find the risk in your LinkedIn-to-website path?</h3>
-            <p className="text-white/70 mb-6">Request a short review and I will show whether audit, implementation, or no project makes sense.</p>
-            <Button href="/free-audit" variant="primary" size="large">Request Free Review</Button>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="grid gap-6 border-t border-white/10 py-9 sm:grid-cols-[1fr_auto] sm:items-center"
+            >
+              <div>
+                <h3 className="text-2xl font-bebas">Ready to find the risk in your current path?</h3>
+                <p className="mt-2 max-w-xl text-sm leading-relaxed text-white/62">
+                  Request a short review and I will show whether audit, implementation, or no project makes sense.
+                </p>
+              </div>
+              <Button href="/free-audit" variant="primary" className="w-full whitespace-nowrap sm:w-auto">
+                Request Free Review <ArrowRight size={17} />
+              </Button>
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

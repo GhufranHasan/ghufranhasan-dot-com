@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import {
   dashboardCookieName,
+  dashboardTwoFactorCookieName,
   getDashboardCookieOptions,
+  getDashboardTwoFactorCookieOptions,
 } from '@/lib/dashboard/auth'
 import { isSameOriginRequest } from '@/lib/security/request'
 
@@ -12,6 +14,11 @@ export async function POST(request: NextRequest) {
 
   const response = NextResponse.json({ message: 'Dashboard locked.' })
   response.cookies.set(dashboardCookieName, '', getDashboardCookieOptions(0))
+  response.cookies.set(
+    dashboardTwoFactorCookieName,
+    '',
+    getDashboardTwoFactorCookieOptions(0)
+  )
 
   return response
 }

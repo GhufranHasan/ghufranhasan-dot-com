@@ -34,43 +34,49 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`site-navigation fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || isOpen ? 'bg-purple-950/95 backdrop-blur-md border-b border-orange-500/20' : 'bg-transparent'
-      }`}
+      className="site-navigation fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4"
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
+        <div
+          className={`nav-shell flex h-16 items-center justify-between rounded-2xl border px-4 transition-all duration-300 md:px-5 ${
+            scrolled || isOpen
+              ? 'border-orange-500/25 bg-purple-950/90 shadow-[0_16px_50px_rgba(0,0,0,0.34)]'
+              : 'border-white/10 bg-background/45'
+          }`}
+        >
           {/* Logo */}
-          <Link href="/#home" className="inline-flex items-center gap-3 text-3xl font-bebas tracking-wider">
+          <Link href="/#home" className="inline-flex items-center gap-3 text-2xl font-bebas">
             <Image
               src="/images/brand-logo.png"
               alt="Ghufran Hasan logo"
-              width={42}
-              height={42}
+              width={38}
+              height={38}
               priority
-              className="h-10 w-10 rounded-full border border-orange-500/40 object-cover"
+              className="h-9 w-9 rounded-full border border-orange-500/40 object-cover"
             />
             <span>Ghufran<span className="text-orange-500">.</span></span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden items-center gap-5 lg:flex">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm text-white/80 hover:text-orange-500 transition-colors font-lato"
+                className="relative text-sm text-white/68 transition-colors after:absolute after:-bottom-2 after:left-0 after:h-px after:w-0 after:bg-orange-500 after:transition-all hover:text-white hover:after:w-full"
               >
                 {item.name}
               </Link>
             ))}
-            <Button href="/free-audit" variant="primary">Free Review</Button>
+            <Button href="/free-audit" variant="primary" className="rounded-xl px-5 py-2.5 text-sm">Free Review</Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white p-2"
+            className="rounded-lg p-2 text-white transition-colors hover:bg-white/8 lg:hidden"
+            aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isOpen}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -84,15 +90,15 @@ export default function Navigation() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden overflow-hidden"
+              className="overflow-hidden lg:hidden"
             >
-              <div className="flex flex-col gap-4 py-6 border-t border-orange-500/20">
+              <div className="mt-2 flex flex-col gap-2 rounded-2xl border border-orange-500/20 bg-purple-950/95 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.42)] backdrop-blur-xl">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-white/80 hover:text-orange-500 transition-colors py-2"
+                    className="rounded-lg px-3 py-2.5 text-white/80 transition-colors hover:bg-orange-500/10 hover:text-orange-300"
                   >
                     {item.name}
                   </Link>

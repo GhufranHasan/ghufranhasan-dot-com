@@ -49,46 +49,51 @@ export default function Services() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          className="text-center max-w-3xl mx-auto mb-12"
+          className="mb-12 grid items-end gap-8 lg:grid-cols-[1fr_auto] lg:border-b lg:border-white/10 lg:pb-10"
         >
-          <SectionBadge icon={Map} className="mb-4">Specialist sprint</SectionBadge>
-          <h2 className="text-3xl md:text-5xl font-bebas mb-4">What this engagement combines</h2>
-          <p className="text-white/70 text-lg">
-            This is not a full-service agency menu. It is one focused sprint for one primary offer, one conversion page, and one measurable next step.
-          </p>
+          <div className="max-w-3xl">
+            <SectionBadge icon={Map} className="mb-5">Specialist sprint</SectionBadge>
+            <h2 className="text-3xl font-bebas md:text-5xl">What this engagement combines</h2>
+            <p className="mt-4 text-lg leading-relaxed text-white/68">
+              This is not a full-service agency menu. It is one focused sprint for one primary offer, one conversion page, and one measurable next step.
+            </p>
+          </div>
+          <Link
+            href="/linkedin-website-funnel"
+            className="group inline-flex items-center gap-3 text-sm font-semibold text-orange-300 transition-colors hover:text-orange-200"
+          >
+            Explore the specialist offer
+            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-orange-500/30 transition-all group-hover:border-orange-500/60 group-hover:bg-orange-500/10">
+              <ArrowRight size={17} />
+            </span>
+          </Link>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid border-b border-white/10 lg:grid-cols-2">
           {services.map((service, index) => (
-            <motion.div
+            <motion.article
               key={service.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ delay: index * 0.12 }}
-              className="glass-card p-6 md:p-8 h-full border border-orange-500/20 hover:border-orange-500/50 transition-all"
+              transition={{ delay: index * 0.08 }}
+              className="group relative grid min-h-56 grid-cols-[auto_1fr] gap-5 border-t border-white/10 px-0 py-7 transition-colors hover:bg-white/[0.025] sm:p-7 lg:[&:nth-child(odd)]:border-r lg:[&:nth-child(odd)]:pr-10 lg:[&:nth-child(even)]:pl-10"
             >
-              <div className="w-14 h-14 rounded-xl bg-orange-500/10 flex items-center justify-center mb-6">
-                <service.icon size={28} className="text-orange-500" />
+              <div className="flex flex-col items-center gap-4">
+                <span className="text-xs font-bold text-orange-400">0{index + 1}</span>
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-orange-500/20 bg-orange-500/8 transition-all group-hover:border-orange-500/45 group-hover:bg-orange-500/12">
+                  <service.icon size={22} className="text-orange-400" />
+                </div>
               </div>
-              <h3 className="text-xl md:text-2xl font-bold mb-3">{service.title}</h3>
-              <p className="text-white/70 leading-relaxed">{service.description}</p>
-            </motion.div>
+              <div className="flex min-w-0 flex-col">
+                <div className="flex items-start justify-between gap-4">
+                  <h3 className="text-2xl font-bebas text-white md:text-3xl">{service.title}</h3>
+                  <ArrowRight size={18} className="mt-1 shrink-0 text-white/25 transition-all group-hover:translate-x-1 group-hover:text-orange-400" />
+                </div>
+                <p className="mt-3 max-w-xl leading-relaxed text-white/64">{service.description}</p>
+              </div>
+            </motion.article>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ delay: 0.45 }}
-          className="text-center mt-12 md:mt-16"
-        >
-          <Link
-            href="/linkedin-website-funnel"
-            className="inline-flex items-center gap-3 px-8 py-3 rounded-full bg-linear-to-r from-orange-500 to-orange-600 text-white font-semibold hover:shadow-glow-hover transition-all"
-          >
-            Explore the specialist offer <ArrowRight size={18} />
-          </Link>
-        </motion.div>
       </div>
     </section>
   )
