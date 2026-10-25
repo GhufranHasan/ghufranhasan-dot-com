@@ -63,7 +63,7 @@ const pricingOffers = [
 
 export default function Packages() {
   return (
-    <section id="packages" className="texture-band neon-magenta section-padding">
+    <section id="packages" className="texture-band neon-magenta relative overflow-x-clip border-b border-white/[0.06] section-padding">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -92,11 +92,10 @@ export default function Packages() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.08 }}
-              whileHover={{ y: -6 }}
-              className={`relative flex min-h-full flex-col rounded-2xl border p-6 transition-all ${
+              className={`relative flex min-h-full flex-col rounded-xl border p-6 transition-[border-color,background-color,box-shadow,transform] duration-300 hover:-translate-y-1 motion-reduce:hover:translate-y-0 ${
                 offer.featured
-                  ? 'border-orange-500/45 bg-orange-500/10 shadow-[0_0_40px_rgba(255,132,3,0.22)]'
-                  : 'border-orange-500/20 bg-purple-950/42 hover:border-orange-500/40'
+                  ? 'border-orange-500/55 bg-orange-500/10 shadow-[0_0_40px_rgba(255,132,3,0.22)] hover:shadow-[0_0_52px_rgba(255,132,3,0.27)]'
+                  : 'border-orange-500/20 bg-purple-950/42 hover:border-orange-500/40 hover:shadow-glow'
               }`}
             >
               {offer.featured && (
@@ -113,7 +112,7 @@ export default function Packages() {
               </p>
               <h3 className="mt-3 text-2xl font-bebas text-white">{offer.title}</h3>
               <p className="mt-3 text-3xl font-bold text-orange-400">{offer.price}</p>
-              <p className="mt-4 flex-1 text-sm leading-relaxed text-white/66">
+              <p className="mt-4 flex-1 text-sm leading-relaxed text-white/72">
                 {offer.description}
               </p>
 
@@ -139,7 +138,7 @@ export default function Packages() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mx-auto mt-12 max-w-4xl rounded-2xl border border-orange-500/25 bg-purple-950/48 p-6 text-center md:p-8"
+          className="mx-auto mt-12 max-w-4xl rounded-xl border border-orange-500/25 bg-purple-950/48 p-6 text-center md:p-8"
         >
           <p className="text-sm leading-relaxed text-white/70 md:text-base">
             The sprint starts from $1,200 because scope can grow when lead magnets,

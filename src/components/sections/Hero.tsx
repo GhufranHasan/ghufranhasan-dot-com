@@ -4,6 +4,8 @@
 
 import Image from 'next/image'
 
+import heroPortrait from '../../../public/images/ghufran-portrait.png'
+
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 
 import { useEffect, useState } from 'react'
@@ -11,6 +13,8 @@ import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/Button'
 
 import SectionBadge from '@/components/ui/SectionBadge'
+
+import HeroJourneyScene from '@/components/visuals/HeroJourneyScene'
 
 import {
 
@@ -120,7 +124,7 @@ export default function Hero() {
 
   return (
 
-    <section id="home" className="hero-editorial relative flex min-h-screen items-center overflow-hidden pb-14 pt-24 lg:pb-10 lg:pt-28">
+    <section id="home" className="hero-editorial relative flex min-h-screen items-center overflow-hidden border-b border-white/[0.06] pb-10 pt-24 sm:pb-14 lg:pb-10 lg:pt-28">
 
       <div className="hero-premium-bg" aria-hidden="true">
 
@@ -132,6 +136,8 @@ export default function Hero() {
 
       </div>
 
+      <HeroJourneyScene />
+
       <div className="hero-prism hero-prism-one" aria-hidden="true" />
 
       <div className="hero-prism hero-prism-two" aria-hidden="true" />
@@ -140,7 +146,7 @@ export default function Hero() {
 
       <div className="container-custom relative z-10 w-full">
 
-        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] xl:gap-16">
+        <div className="grid items-center gap-7 sm:gap-10 lg:grid-cols-[1.05fr_0.95fr] xl:gap-16">
 
           <motion.div
 
@@ -166,7 +172,13 @@ export default function Hero() {
 
             >
 
-              <SectionBadge icon={Linkedin}>LinkedIn-to-website conversion for founder-led B2B agencies</SectionBadge>
+              <SectionBadge icon={Linkedin}>
+
+                <span className="sm:hidden">LinkedIn-to-website conversion</span>
+
+                <span className="hidden sm:inline">LinkedIn-to-website conversion for founder-led B2B agencies</span>
+
+              </SectionBadge>
 
             </motion.div>
 
@@ -198,7 +210,7 @@ export default function Hero() {
 
               transition={{ delay: 0.4 }}
 
-              className="mb-4 max-w-2xl text-base leading-relaxed text-white/72 xl:text-lg"
+              className="mb-4 max-w-2xl text-base leading-relaxed text-white/78 xl:text-lg"
 
             >
 
@@ -216,7 +228,7 @@ export default function Hero() {
 
               transition={{ delay: 0.43 }}
 
-              className="mb-5 inline-flex max-w-full flex-wrap items-center gap-2 border-l border-orange-500/55 py-1 pl-4 text-sm text-white/62"
+              className="mb-5 inline-flex max-w-full flex-wrap items-center gap-2 border-l border-orange-500/55 py-1 pl-4 text-sm text-white/68"
 
             >
 
@@ -224,7 +236,7 @@ export default function Hero() {
 
               <span className="sr-only">B2B agency founders, consultants, coaches, and fractional leaders.</span>
 
-              <span className="relative inline-flex h-5 min-w-46 items-center overflow-hidden text-left font-semibold text-orange-300" aria-hidden="true">
+              <span className="relative inline-flex h-5 min-w-40 items-center overflow-hidden text-left font-semibold text-orange-300 sm:min-w-46" aria-hidden="true">
 
                 <AnimatePresence mode="wait" initial={false}>
 
@@ -268,15 +280,15 @@ export default function Hero() {
 
             >
 
-              <Button href="#audit-examples" variant="primary" size="large" className="whitespace-nowrap">
+              <Button href="/free-audit" variant="primary" size="large" className="whitespace-nowrap px-6 py-3 text-base sm:px-10 sm:py-4 sm:text-lg">
 
-                See a Sample Audit <ArrowRight size={18} />
+                Request Free Review
 
               </Button>
 
-              <Button href="/free-audit" variant="secondary" size="large" className="whitespace-nowrap">
+              <Button href="#audit-examples" variant="secondary" size="large" className="whitespace-nowrap px-6 py-3 text-base sm:px-10 sm:py-4 sm:text-lg">
 
-                Request Free Review
+                See a Sample Audit <ArrowRight size={18} />
 
               </Button>
 
@@ -292,7 +304,7 @@ export default function Hero() {
 
               transition={{ delay: 0.53 }}
 
-              className="mt-5 max-w-2xl text-sm leading-relaxed text-white/52"
+              className="mt-5 max-w-2xl text-sm leading-relaxed text-white/62"
 
             >
 
@@ -312,15 +324,15 @@ export default function Hero() {
 
             transition={{ duration: 0.6, delay: 0.2 }}
 
-            className="relative mx-auto w-full max-w-2xl lg:mx-0"
+            className="relative mx-auto w-full max-w-sm sm:max-w-2xl lg:mx-0"
 
           >
 
-            <div className="hero-dark-canvas-card group relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-b from-purple-950/40 via-[#0d031a]/85 to-[#07010f]/98 p-3 pb-0 shadow-[0_24px_70px_rgba(0,0,0,0.55)] backdrop-blur-2xl transition-all duration-500 hover:border-orange-500/25">
+            <div className="hero-dark-canvas-card group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-purple-950/40 via-[#0d031a]/85 to-[#07010f]/98 p-2 pb-0 shadow-[0_24px_70px_rgba(0,0,0,0.55)] backdrop-blur-2xl transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-orange-500/25 motion-reduce:hover:translate-y-0 sm:p-3 sm:pb-0">
 
               <div
 
-                className="pointer-events-none absolute -top-12 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-gradient-to-br from-orange-500/15 via-purple-600/20 to-transparent blur-3xl"
+                className="pointer-events-none absolute inset-x-10 top-0 h-48 bg-linear-to-b from-orange-500/10 via-purple-600/8 to-transparent blur-2xl"
 
                 aria-hidden="true"
 
@@ -330,17 +342,15 @@ export default function Hero() {
 
                 <Image
 
-                  src="/images/ghufran-portrait.png"
+                  src={heroPortrait}
 
                   alt="Ghufran Hasan"
 
-                  width={620}
-
-                  height={740}
-
                   priority
 
-                  className="relative z-10 h-auto w-full max-w-125 object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.65)]"
+                  sizes="(max-width: 639px) 72vw, 432px"
+
+                  className="relative z-10 h-auto max-h-[23rem] w-auto max-w-full object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.65)] sm:max-h-[36rem]"
 
                 />
 
@@ -356,7 +366,7 @@ export default function Hero() {
 
               transition={{ delay: 0.55, duration: 0.5 }}
 
-              className="hero-journey-dock relative z-20 -mt-12 ml-auto w-[94%] rounded-2xl border border-orange-500/25 bg-purple-950/88 p-4 shadow-[0_22px_60px_rgba(0,0,0,0.38)] backdrop-blur-xl"
+              className="hero-journey-dock relative z-20 -mt-8 ml-auto w-full rounded-xl border border-orange-500/25 bg-purple-950/88 p-3 shadow-[0_22px_60px_rgba(0,0,0,0.38)] backdrop-blur-xl sm:-mt-12 sm:w-[94%] sm:p-4"
 
             >
 
@@ -372,11 +382,11 @@ export default function Hero() {
 
               </div>
 
-              <div className="grid gap-3 sm:grid-cols-3">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3">
 
                 {journeySteps.map((step, index) => (
 
-                  <div key={step.title} className="relative rounded-xl border border-white/10 bg-white/4 p-3">
+                  <div key={step.title} className="relative min-w-0 rounded-lg border border-white/10 bg-white/4 p-2.5 transition-[border-color,background-color,transform] duration-300 hover:-translate-y-0.5 hover:border-orange-500/30 hover:bg-orange-500/[0.06] motion-reduce:hover:translate-y-0 sm:rounded-xl sm:p-3">
 
                     {index < journeySteps.length - 1 && (
 
@@ -384,15 +394,15 @@ export default function Hero() {
 
                     )}
 
-                    <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-orange-500/10 text-orange-400">
+                    <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500/10 text-orange-400 sm:h-9 sm:w-9">
 
                       <step.icon size={17} />
 
                     </div>
 
-                    <p className="text-sm font-bold text-white">{step.title}</p>
+                    <p className="text-xs font-bold text-white sm:text-sm">{step.title}</p>
 
-                    <p className="mt-1 text-xs leading-snug text-white/60">{step.text}</p>
+                    <p className="mt-1 text-[10px] leading-snug text-white/66 sm:text-xs">{step.text}</p>
 
                   </div>
 
@@ -416,7 +426,7 @@ export default function Hero() {
 
           transition={{ delay: 0.65, duration: 0.5 }}
 
-          className="mt-10 grid border-y border-white/10 sm:grid-cols-3 lg:mt-8"
+          className="mt-8 grid border-y border-white/10 sm:grid-cols-3 lg:mt-8"
 
         >
 
@@ -434,7 +444,7 @@ export default function Hero() {
 
               <CheckCircle2 size={17} className="mt-0.5 shrink-0 text-orange-500" />
 
-              <span className="text-sm leading-relaxed text-white/66">{point}</span>
+              <span className="text-sm leading-relaxed text-white/72">{point}</span>
 
             </div>
 

@@ -1,6 +1,11 @@
 import 'server-only'
 
 import { supabaseAdminRequest } from '@/lib/supabase/admin'
+import {
+  saveLocalAuditRequest,
+  updateLocalAuditRequestStatus,
+  deleteLocalAuditRequest,
+} from '@/lib/storage/localStore'
 
 export type AuditRequestRecord = {
   id: string
@@ -47,38 +52,91 @@ export type CreateAuditRequestInput = {
 export async function createAuditRequest(
   input: CreateAuditRequestInput
 ): Promise<AuditRequestRecord> {
-  const [savedRequest] = await supabaseAdminRequest<AuditRequestRecord[]>(
-    'audit_requests',
-    {
-      method: 'POST',
-      prefer: 'return=representation',
-      body: {
-        name: input.name,
-        email: input.email,
-        linkedin_url: input.linkedinUrl,
-        website_url: input.websiteUrl,
-        agency_service: input.agencyService,
-        business_type: input.businessType,
-        average_client_value: input.averageClientValue,
-        current_lead_source: input.currentLeadSource,
-        traffic_snapshot: input.trafficSnapshot,
-        desired_website_action: input.desiredWebsiteAction,
-        main_problem: input.mainProblem,
-        desired_outcome: input.desiredOutcome,
-        timeline: input.timeline,
-        implementation_budget: input.implementationBudget,
-        engagement_intent: input.engagementIntent,
-        what_tried: input.whatTried,
-        status: 'new',
-      },
-    }
-  )
+  try {
+    const [savedRequest] = await supabaseAdminRequest<AuditRequestRecord[]>(
+      'audit_requests',
+      {
+        method: 'POST',
+        prefer: 'return=representation',
+        body: {
+          name: input.name,
+          email: input.email,
+          linkedin_url: input.linkedinUrl,
+          website_url: input.websiteUrl,
+          agency_service: input.agencyService,
+          business_type: input.businessType,
+          average_client_value: input.averageClientValue,
+          current_lead_source: input.currentLeadSource,
+          traffic_snapshot: input.trafficSnapshot,
+          desired_website_action: input.desiredWebsiteAction,
+          main_problem: input.mainProblem,
+          desired_outcome: input.desiredOutcome,
+          timeline: input.timeline,
+          implementation_budget: input.implementationBudget,
+          engagement_intent: input.engagementIntent,
+          what_tried: input.whatTried,
+          status: 'new',
+        },
+      }
+    )
 
-  if (!savedRequest?.id) {
-    throw new Error('Supabase did not return the saved Funnel Review application')
+    if (savedRequest?.id) {
+      return savedRequest
+    }
+  } catch (error) {
+    console.warn(
+      '[Audit Requests] Full Supabase insert failed:',
+      error instanceof Error ? error.message : error
+    )
+
+    // If Supabase table is missing newer diagnostic columns (error 42703), retry with base schema
+    if (
+      error instanceof Error &&
+      (error.message.includes('42703') || error.message.includes('traffic_snapshot'))
+    ) {
+      try {
+        const [savedBase] = await supabaseAdminRequest<AuditRequestRecord[]>(
+          'audit_requests',
+          {
+            method: 'POST',
+            prefer: 'return=representation',
+            body: {
+              name: input.name,
+              email: input.email,
+              linkedin_url: input.linkedinUrl,
+              website_url: input.websiteUrl,
+              agency_service: input.agencyService,
+              business_type: input.businessType,
+              average_client_value: input.averageClientValue,
+              current_lead_source: input.currentLeadSource,
+              main_problem: input.mainProblem,
+              desired_outcome: input.desiredOutcome,
+              timeline: input.timeline,
+              implementation_budget: input.implementationBudget,
+              engagement_intent: input.engagementIntent,
+              status: 'new',
+            },
+          }
+        )
+
+        if (savedBase?.id) {
+          // Preserve full diagnostic fields in local storage
+          saveLocalAuditRequest(input)
+          return {
+            ...savedBase,
+            traffic_snapshot: input.trafficSnapshot,
+            desired_website_action: input.desiredWebsiteAction,
+            what_tried: input.whatTried,
+          }
+        }
+      } catch (retryError) {
+        console.warn('[Audit Requests] Retry with base columns failed:', retryError)
+      }
+    }
   }
 
-  return savedRequest
+  // Fallback to resilient local storage so leads are never lost
+  return saveLocalAuditRequest(input)
 }
 
 export const auditRequestStatuses = [
@@ -96,35 +154,54 @@ export async function updateAuditRequestStatus(
   id: string,
   status: AuditRequestStatus
 ) {
-  const [updatedRequest] = await supabaseAdminRequest<AuditRequestRecord[]>(
-    'audit_requests',
-    {
-      method: 'PATCH',
-      query: `id=eq.${id}`,
-      prefer: 'return=representation',
-      body: {
-        status,
-        updated_at: new Date().toISOString(),
-      },
-    }
-  )
+  try {
+    const [updatedRequest] = await supabaseAdminRequest<AuditRequestRecord[]>(
+      'audit_requests',
+      {
+        method: 'PATCH',
+        query: `id=eq.${id}`,
+        prefer: 'return=representation',
+        body: {
+          status,
+          updated_at: new Date().toISOString(),
+        },
+      }
+    )
 
-  if (!updatedRequest?.id) {
-    throw new Error('Supabase did not return the updated Funnel Review application')
+    if (updatedRequest?.id) {
+      return updatedRequest
+    }
+  } catch (error) {
+    console.warn(
+      '[Audit Requests] Supabase update failed, attempting local update:',
+      error instanceof Error ? error.message : error
+    )
   }
 
-  return updatedRequest
+  const localUpdated = updateLocalAuditRequestStatus(id, status)
+  if (localUpdated) return localUpdated
+
+  throw new Error('Could not find or update the Funnel Review application')
 }
 
 export async function deleteAuditRequest(id: string) {
-  const deletedRequests = await supabaseAdminRequest<AuditRequestRecord[]>(
-    'audit_requests',
-    {
-      method: 'DELETE',
-      query: `id=eq.${id}`,
-      prefer: 'return=representation',
-    }
-  )
+  try {
+    const deletedRequests = await supabaseAdminRequest<AuditRequestRecord[]>(
+      'audit_requests',
+      {
+        method: 'DELETE',
+        query: `id=eq.${id}`,
+        prefer: 'return=representation',
+      }
+    )
 
-  return deletedRequests[0] ?? null
+    if (deletedRequests?.[0]) return deletedRequests[0]
+  } catch (error) {
+    console.warn(
+      '[Audit Requests] Supabase delete failed, attempting local delete:',
+      error instanceof Error ? error.message : error
+    )
+  }
+
+  return deleteLocalAuditRequest(id)
 }

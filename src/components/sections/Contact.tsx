@@ -49,7 +49,7 @@ export default function Contact() {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
-    <section ref={ref} id="contact" className="texture-grid neon-deep relative overflow-hidden py-20 md:py-28">
+    <section ref={ref} id="contact" className="texture-grid neon-deep relative overflow-hidden border-b border-white/[0.06] py-20 md:py-28">
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute inset-0 opacity-5"
@@ -74,7 +74,7 @@ export default function Contact() {
               <h2 className="mb-4 text-3xl font-bebas md:text-4xl lg:text-5xl">
                 Start with the Funnel Review application, not a sales call.
               </h2>
-              <p className="text-lg leading-relaxed text-white/70">
+              <p className="text-lg leading-relaxed text-white/76">
                 Share the context once. I will review where your LinkedIn-to-website
                 journey is breaking before you decide whether a call or paid project
                 makes sense.
@@ -89,13 +89,13 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white">{item.title}</h3>
-                    <p className="text-sm text-white/60">{item.sub}</p>
+                    <p className="text-sm text-white/68">{item.sub}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-4 text-xs text-white/50">
+            <div className="flex flex-wrap gap-4 text-xs text-white/62">
               <div className="flex items-center gap-2">
                 <Clock3 size={14} className="text-orange-500" />
                 About 2 minutes
@@ -115,14 +115,14 @@ export default function Contact() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ delay: 0.1 }}
-            className="glass-card border border-orange-500/25 p-6 md:p-8"
+            className="glass-card rounded-xl border border-orange-500/25 p-6 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-glow-hover motion-reduce:hover:translate-y-0 md:p-8"
           >
             <div className="border-b border-orange-500/15 pb-6 text-center">
               <ClipboardCheck size={32} className="mx-auto text-orange-500" />
               <h3 className="mt-3 text-2xl font-bold text-white">
                 Request a Free Funnel Review
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/60">
+              <p className="mt-2 text-sm leading-relaxed text-white/68">
                 Every free review, paid audit, and sprint starts with the same short
                 intake, so qualified buyers get one clear path.
               </p>
@@ -139,7 +139,7 @@ export default function Contact() {
                   </span>
                   <div>
                     <p className="font-semibold text-white">{step.title}</p>
-                    <p className="mt-1 text-sm leading-relaxed text-white/60">
+                    <p className="mt-1 text-sm leading-relaxed text-white/68">
                       {step.text}
                     </p>
                   </div>
@@ -155,7 +155,7 @@ export default function Contact() {
               <ArrowRight size={18} />
             </Link>
 
-            <p className="mt-5 flex items-center justify-center gap-2 text-center text-sm text-white/50">
+            <p className="mt-5 flex items-center justify-center gap-2 text-center text-sm text-white/62">
               <Route size={15} className="text-orange-400" />
               Intake first. Optional call second.
             </p>

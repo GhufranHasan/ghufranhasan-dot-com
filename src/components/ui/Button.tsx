@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, HTMLMotionProps } from 'framer-motion'
+import { motion, HTMLMotionProps, useReducedMotion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import React from 'react'
 
@@ -16,6 +16,7 @@ type ButtonProps =
   | (SharedButtonProps & Omit<HTMLMotionProps<'button'>, 'onDrag' | 'onDragStart' | 'onDragEnd'> & { href?: undefined })
 
 export const Button: React.FC<ButtonProps> = (props) => {
+  const shouldReduceMotion = useReducedMotion()
   const {
     variant = 'primary',
     size = 'default',
@@ -23,11 +24,11 @@ export const Button: React.FC<ButtonProps> = (props) => {
     className,
   } = props
 
-  const baseStyles = "inline-flex items-center justify-center gap-2 rounded-lg text-center font-bold transition-all duration-300 cursor-pointer"
+  const baseStyles = "inline-flex items-center justify-center gap-2 rounded-lg text-center font-bold transition-[color,background-color,border-color,box-shadow,transform] duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background motion-reduce:transform-none"
 
   const variants = {
-    primary: "bg-linear-to-r from-orange-500 to-orange-600 text-white hover:translate-y-[-3px] hover:shadow-glow-hover",
-    secondary: "bg-transparent border-2 border-orange-500 text-white hover:bg-orange-500/10 hover:translate-y-[-3px] hover:shadow-glow",
+    primary: "bg-linear-to-r from-orange-500 to-orange-600 text-white hover:-translate-y-0.5 hover:shadow-glow-hover motion-reduce:hover:translate-y-0",
+    secondary: "bg-transparent border-2 border-orange-500 text-white hover:bg-orange-500/10 hover:-translate-y-0.5 hover:shadow-glow motion-reduce:hover:translate-y-0",
   }
 
   const sizes = {
@@ -49,8 +50,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
     return (
       <motion.a
         href={href}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
+        whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
         className={buttonClasses}
         {...(anchorProps as Omit<HTMLMotionProps<'a'>, 'onDrag' | 'onDragStart' | 'onDragEnd'>)}
       >
@@ -68,8 +68,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
 
   return (
     <motion.button
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
+      whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
       className={buttonClasses}
       {...(buttonProps as Omit<HTMLMotionProps<'button'>, 'onDrag' | 'onDragStart' | 'onDragEnd'>)}
     >

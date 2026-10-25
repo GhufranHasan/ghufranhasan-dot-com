@@ -43,7 +43,7 @@ export default function CaseStudies() {
   const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   return (
-    <section ref={ref} id="proof" className="texture-band neon-orange relative overflow-hidden py-20 md:py-28">
+    <section ref={ref} id="proof" className="texture-band neon-orange relative overflow-hidden border-b border-white/[0.06] py-20 md:py-28">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -53,7 +53,7 @@ export default function CaseStudies() {
         >
           <SectionBadge icon={Route} className="mb-4">Proof before pricing</SectionBadge>
           <h2 className="text-3xl md:text-5xl font-bebas mb-4">Proof you can inspect without inflated claims</h2>
-          <p className="text-white/70 text-lg">
+          <p className="text-white/76 text-lg">
             I do not use imaginary client wins as proof. The current evidence is visible strategy, public teardown thinking, and implementation ability.
           </p>
         </motion.div>
@@ -62,7 +62,7 @@ export default function CaseStudies() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ delay: 0.1, duration: 0.5 }}
-          className="mb-8 rounded-2xl border border-orange-500/25 bg-purple-950/45 p-6 md:p-8"
+          className="mb-8 rounded-xl border border-orange-500/25 bg-purple-950/45 p-6 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-glow motion-reduce:hover:translate-y-0 md:p-8"
         >
           <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
@@ -70,7 +70,7 @@ export default function CaseStudies() {
                 Self-initiated rebuild - not a client result
               </div>
               <h3 className="text-2xl md:text-3xl font-bebas text-white">{ownSiteCaseStudy.title}</h3>
-              <p className="mt-3 text-sm text-white/65">
+              <p className="mt-3 text-sm text-white/72">
                 This is a transparent example of how I apply the same thinking to my own brand before stronger client evidence is available.
               </p>
             </div>
@@ -103,7 +103,7 @@ export default function CaseStudies() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ delay: index * 0.12, duration: 0.5 }}
-              className="glass-card p-6 md:p-7 border border-orange-500/20"
+              className="glass-card rounded-xl border border-orange-500/20 p-6 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-glow motion-reduce:hover:translate-y-0 md:p-7"
             >
               <div className="inline-block px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 text-xs font-bold mb-5">
                 {item.label}
@@ -131,7 +131,7 @@ export default function CaseStudies() {
         >
           <Link
             href="/free-audit"
-            className="inline-flex items-center gap-3 px-8 py-3 rounded-full bg-linear-to-r from-orange-500 to-orange-600 text-white font-semibold hover:shadow-glow-hover transition-all"
+            className="inline-flex items-center gap-3 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-8 py-3 font-semibold text-white transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-glow-hover motion-reduce:hover:translate-y-0"
           >
             Request Free Review <ArrowRight size={18} />
           </Link>

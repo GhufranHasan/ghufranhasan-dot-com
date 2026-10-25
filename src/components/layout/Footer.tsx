@@ -76,7 +76,7 @@ export default function Footer() {
             <h3 className="text-white font-bold mb-4">Site</h3>
             <div className="space-y-3">
               {services.map((item) => (
-                <Link key={item.label} href={item.href} className="block text-white/60 hover:text-orange-500 text-sm">
+                <Link key={item.label} href={item.href} className="block text-sm text-white/68 transition-colors hover:text-orange-400">
                   {item.label}
                 </Link>
               ))}
@@ -87,7 +87,7 @@ export default function Footer() {
             <h3 className="text-white font-bold mb-4">Resources</h3>
             <div className="space-y-3">
               {resources.map((item) => (
-                <Link key={item.label} href={item.href} className="block text-white/60 hover:text-orange-500 text-sm">
+                <Link key={item.label} href={item.href} className="block text-sm text-white/68 transition-colors hover:text-orange-400">
                   {item.label}
                 </Link>
               ))}
@@ -97,7 +97,7 @@ export default function Footer() {
           <LeadMagnet />
         </div>
 
-        <div className="pt-6 border-t border-orange-500/20 text-white/50 text-sm flex flex-col md:flex-row gap-3 justify-between">
+        <div className="flex flex-col justify-between gap-3 border-t border-orange-500/20 pt-6 text-sm text-white/60 md:flex-row">
           <span>&copy; {new Date().getFullYear()} Ghufran Hasan. All rights reserved.</span>
           <span>Profile promise. Website message. Proof. CTA.</span>
         </div>

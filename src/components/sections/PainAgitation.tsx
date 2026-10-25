@@ -83,7 +83,7 @@ const fixes = [
 
 export default function PainAgitation() {
   return (
-    <section id="problem" className="texture-dots neon-purple relative overflow-hidden py-20 md:py-28">
+    <section id="problem" className="texture-dots neon-purple relative overflow-hidden border-b border-white/[0.06] py-20 md:py-28">
       <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-orange-500/60 to-transparent" />
       <div className="container-custom relative z-10">
         <motion.div
@@ -108,7 +108,7 @@ export default function PainAgitation() {
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="self-start overflow-hidden rounded-3xl border border-orange-500/25 bg-purple-950/55 p-5 shadow-glow backdrop-blur-md md:p-6"
+            className="self-start overflow-hidden rounded-2xl border border-orange-500/25 bg-purple-950/55 p-5 shadow-glow backdrop-blur-md transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-glow-hover motion-reduce:hover:translate-y-0 md:p-6"
           >
             <div className="mb-5 flex items-start justify-between gap-4 border-b border-orange-500/15 pb-5">
               <div>
@@ -132,7 +132,7 @@ export default function PainAgitation() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08 }}
-                className="group grid grid-cols-[auto_1fr] gap-4 rounded-2xl border border-white/10 bg-white/[0.035] p-4 transition-all hover:border-orange-500/40 hover:bg-orange-500/[0.07]"
+                className="group grid grid-cols-[auto_1fr] gap-4 rounded-xl border border-white/10 bg-white/[0.035] p-4 transition-[border-color,background-color,transform] duration-300 hover:-translate-y-0.5 hover:border-orange-500/40 hover:bg-orange-500/[0.07] motion-reduce:hover:translate-y-0"
               >
                 <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-orange-500/10 ring-1 ring-orange-500/20 transition-all group-hover:bg-orange-500/15">
                   <pain.icon size={21} className="text-orange-400" />
@@ -142,7 +142,7 @@ export default function PainAgitation() {
                 </div>
                 <div className="min-w-0">
                   <h3 className="text-base font-bold text-white">{pain.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-white/62">{pain.text}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-white/68">{pain.text}</p>
                   <p className="mt-3 rounded-lg border border-orange-500/15 bg-orange-500/8 px-3 py-2 text-xs font-semibold text-orange-200">
                     Recommendation: {pain.recommendation}
                   </p>
@@ -150,11 +150,11 @@ export default function PainAgitation() {
               </motion.div>
             ))}
 
-            <div className="mt-5 rounded-2xl border border-orange-500/20 bg-orange-500/10 p-4">
+            <div className="mt-5 rounded-xl border border-orange-500/20 bg-orange-500/10 p-4">
               <p className="text-sm font-semibold text-white">
                 The difference:
               </p>
-              <p className="mt-1 text-sm leading-relaxed text-white/66">
+              <p className="mt-1 text-sm leading-relaxed text-white/72">
                 I do not sell a redesign as the default answer. I look for the point where the buyer journey stops making sense.
               </p>
             </div>
@@ -165,9 +165,9 @@ export default function PainAgitation() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-3xl border border-orange-500/25 bg-background-card p-6 shadow-glow backdrop-blur-xl md:p-8"
+            className="relative overflow-hidden rounded-2xl border border-orange-500/25 bg-background-card p-6 shadow-glow backdrop-blur-xl transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-glow-hover motion-reduce:hover:translate-y-0 md:p-8"
           >
-            <div className="absolute right-0 top-0 h-32 w-32 rounded-bl-full bg-orange-500/10" />
+            <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-orange-400/70 to-transparent" />
             <div className="relative z-10">
               <div className="mb-7 flex items-start justify-between gap-5">
                 <div>
@@ -186,7 +186,7 @@ export default function PainAgitation() {
                 {journeySteps.map((step, index) => {
                   return (
                     <div key={step.title}>
-                      <div className="grid grid-cols-[auto_1fr] gap-4 rounded-2xl border border-orange-500/20 bg-orange-500/5 p-4">
+                      <div className="grid grid-cols-[auto_1fr] gap-4 rounded-xl border border-orange-500/20 bg-orange-500/5 p-4 transition-colors duration-300 hover:border-orange-500/35 hover:bg-orange-500/[0.08]">
                         <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-500/10">
                           <CheckCircle2 size={20} className="text-orange-400" />
                         </div>
@@ -197,8 +197,8 @@ export default function PainAgitation() {
                               failure to check
                             </span>
                           </div>
-                          <p className="text-sm text-white/62">{step.text}</p>
-                          <p className="mt-2 text-xs leading-relaxed text-white/48">
+                          <p className="text-sm text-white/68">{step.text}</p>
+                          <p className="mt-2 text-xs leading-relaxed text-white/58">
                             Possible risk: {step.risk}
                           </p>
                         </div>
@@ -213,7 +213,7 @@ export default function PainAgitation() {
                 })}
               </div>
 
-              <div className="mt-7 rounded-2xl border border-orange-500/25 bg-orange-500/10 p-5">
+              <div className="mt-7 rounded-xl border border-orange-500/25 bg-orange-500/10 p-5">
                 <div className="mb-4 flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-orange-400">
                   <Sparkles size={16} />
                   What fixes it
@@ -236,9 +236,9 @@ export default function PainAgitation() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
-          className="mx-auto mt-10 max-w-4xl rounded-2xl border border-orange-500/25 bg-purple-950/45 p-5 text-center backdrop-blur-md"
+          className="mx-auto mt-10 max-w-4xl rounded-xl border border-orange-500/25 bg-purple-950/45 p-5 text-center backdrop-blur-md"
         >
-          <p className="text-sm text-white/65 md:text-base">
+          <p className="text-sm text-white/72 md:text-base">
             The fix is not a louder website. It is a tighter path: <span className="font-semibold text-white">attention</span>
             <ArrowRight size={15} className="mx-2 inline text-orange-500" />
             <span className="font-semibold text-white">trust</span>

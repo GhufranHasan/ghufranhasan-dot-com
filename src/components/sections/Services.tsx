@@ -44,7 +44,7 @@ export default function Services() {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
-    <section ref={ref} id="services" className="texture-grid neon-deep relative overflow-hidden py-20 md:py-28">
+    <section ref={ref} id="services" className="texture-grid neon-deep relative overflow-hidden border-b border-white/[0.06] py-20 md:py-28">
       <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -54,7 +54,7 @@ export default function Services() {
           <div className="max-w-3xl">
             <SectionBadge icon={Map} className="mb-5">Specialist sprint</SectionBadge>
             <h2 className="text-3xl font-bebas md:text-5xl">What this engagement combines</h2>
-            <p className="mt-4 text-lg leading-relaxed text-white/68">
+            <p className="mt-4 text-lg leading-relaxed text-white/74">
               This is not a full-service agency menu. It is one focused sprint for one primary offer, one conversion page, and one measurable next step.
             </p>
           </div>
@@ -76,7 +76,7 @@ export default function Services() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ delay: index * 0.08 }}
-              className="group relative grid min-h-56 grid-cols-[auto_1fr] gap-5 border-t border-white/10 px-0 py-7 transition-colors hover:bg-white/[0.025] sm:p-7 lg:[&:nth-child(odd)]:border-r lg:[&:nth-child(odd)]:pr-10 lg:[&:nth-child(even)]:pl-10"
+              className="group relative grid min-h-56 grid-cols-[auto_1fr] gap-5 border-t border-white/10 px-0 py-7 transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:bg-white/[0.025] motion-reduce:hover:translate-y-0 sm:p-7 lg:[&:nth-child(odd)]:border-r lg:[&:nth-child(odd)]:pr-10 lg:[&:nth-child(even)]:pl-10"
             >
               <div className="flex flex-col items-center gap-4">
                 <span className="text-xs font-bold text-orange-400">0{index + 1}</span>
@@ -89,7 +89,7 @@ export default function Services() {
                   <h3 className="text-2xl font-bebas text-white md:text-3xl">{service.title}</h3>
                   <ArrowRight size={18} className="mt-1 shrink-0 text-white/25 transition-all group-hover:translate-x-1 group-hover:text-orange-400" />
                 </div>
-                <p className="mt-3 max-w-xl leading-relaxed text-white/64">{service.description}</p>
+                <p className="mt-3 max-w-xl leading-relaxed text-white/70">{service.description}</p>
               </div>
             </motion.article>
           ))}

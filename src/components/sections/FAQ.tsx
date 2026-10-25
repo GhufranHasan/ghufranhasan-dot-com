@@ -47,7 +47,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section ref={ref} id="faqs" className="texture-dots neon-purple py-20 md:py-28">
+    <section ref={ref} id="faqs" className="texture-dots neon-purple relative overflow-x-clip border-b border-white/[0.06] py-20 md:py-28">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -56,7 +56,7 @@ export default function FAQ() {
         >
           <SectionBadge icon={MessageCircle} className="mb-4">Objections answered</SectionBadge>
           <h2 className="text-3xl md:text-5xl font-bebas mb-4">Questions founders ask before fixing the funnel</h2>
-          <p className="text-white/70">
+          <p className="text-white/76">
             The goal is not to overwhelm you with details. It is to remove the doubts that usually stop a good-fit founder from taking the next step.
           </p>
         </motion.div>
@@ -66,7 +66,7 @@ export default function FAQ() {
             initial={{ opacity: 0, y: 24 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
             transition={{ delay: 0.08 }}
-            className="rounded-2xl border border-orange-500/20 bg-purple-950/45 p-6 md:p-7"
+            className="rounded-xl border border-orange-500/20 bg-purple-950/45 p-6 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-orange-500/35 hover:shadow-glow motion-reduce:hover:translate-y-0 md:p-7"
           >
             <div className="mb-6 flex items-start gap-4">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-orange-500/10 text-orange-400">
@@ -74,7 +74,7 @@ export default function FAQ() {
               </div>
               <div>
                 <h3 className="text-2xl font-bebas text-white">What this clears up</h3>
-                <p className="mt-2 text-sm text-white/62">
+                <p className="mt-2 text-sm text-white/70">
                   Outcome, fit, guarantees, timeline, and whether your current site can be improved.
                 </p>
               </div>
@@ -86,7 +86,7 @@ export default function FAQ() {
                   <point.icon size={18} className="mt-0.5 shrink-0 text-orange-400" />
                   <div>
                     <p className="text-sm font-semibold text-white">{point.label}</p>
-                    <p className="mt-1 text-sm leading-relaxed text-white/60">{point.text}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-white/68">{point.text}</p>
                   </div>
                 </div>
               ))}
@@ -111,7 +111,7 @@ export default function FAQ() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ delay: index * 0.04 }}
-                  className={`overflow-hidden rounded-2xl border transition-all ${
+                  className={`overflow-hidden rounded-xl border transition-[border-color,background-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 motion-reduce:hover:translate-y-0 ${
                     isOpen
                       ? 'border-orange-500/40 bg-orange-500/10 shadow-[0_0_34px_rgba(255,132,3,0.12)]'
                       : 'border-orange-500/20 bg-purple-950/35 hover:border-orange-500/35'
@@ -124,7 +124,7 @@ export default function FAQ() {
                     className="flex w-full items-start justify-between gap-4 px-5 py-5 text-left md:px-6"
                   >
                     <span className="flex min-w-0 items-start gap-4">
-                      <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border text-sm font-bold ${
+                      <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border text-sm font-bold ${
                         isOpen
                           ? 'border-orange-500/40 bg-orange-500/15 text-orange-300'
                           : 'border-white/10 bg-white/4 text-white/60'
@@ -191,13 +191,13 @@ export default function FAQ() {
         </div>
 
         <div className="mt-12 text-center">
-          <div className="mx-auto max-w-2xl rounded-2xl border border-orange-500/20 bg-linear-to-r from-orange-500/10 to-purple-500/10 p-8">
+          <div className="mx-auto max-w-2xl rounded-xl border border-orange-500/20 bg-linear-to-r from-orange-500/10 to-purple-500/10 p-8">
             <Sparkles size={24} className="text-orange-500 mx-auto mb-3" />
             <h3 className="text-xl font-bold text-white mb-2">Want a sharper read on your current path?</h3>
             <p className="text-white/70 mb-6">Request a limited Funnel Review and I will look for the biggest observable LinkedIn-to-website risk.</p>
             <Link
               href="/free-audit"
-              className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-orange-500 to-orange-600 px-6 py-3 font-semibold text-white transition-all hover:shadow-glow-hover"
+              className="inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-6 py-3 font-semibold text-white transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-glow-hover motion-reduce:hover:translate-y-0"
             >
               <MessageCircle size={18} />
               Request Free Review

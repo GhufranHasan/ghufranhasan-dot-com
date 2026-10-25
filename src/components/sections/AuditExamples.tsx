@@ -83,7 +83,7 @@ function FlowPanel({
 
   return (
     <div
-      className={`rounded-3xl border p-5 md:p-6 ${
+      className={`rounded-2xl border p-5 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 motion-reduce:hover:translate-y-0 md:p-6 ${
         isAfter
           ? 'border-orange-500/35 bg-orange-500/10 shadow-[0_0_38px_rgba(255,132,3,0.16)]'
           : 'border-white/10 bg-purple-950/45'
@@ -103,7 +103,7 @@ function FlowPanel({
       <div className="space-y-3">
         {steps.map((step, index) => (
           <div key={step.label}>
-            <div className="rounded-2xl border border-orange-500/15 bg-purple-950/45 p-4">
+            <div className="rounded-xl border border-orange-500/15 bg-purple-950/45 p-4">
               <div className="mb-3 flex items-center gap-3">
                 <div
                   className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${
@@ -114,7 +114,7 @@ function FlowPanel({
                 </div>
                 <p className="font-semibold text-white">{step.label}</p>
               </div>
-              <p className="text-sm leading-relaxed text-white/68">{step.text}</p>
+              <p className="text-sm leading-relaxed text-white/72">{step.text}</p>
             </div>
             {index < steps.length - 1 && (
               <div className="flex justify-center py-2">
@@ -133,7 +133,7 @@ function FlowPanel({
 
 export default function AuditExamples() {
   return (
-    <section id="audit-examples" className="texture-dots neon-deep section-padding">
+    <section id="audit-examples" className="texture-dots neon-deep relative overflow-x-clip border-b border-white/[0.06] section-padding">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
@@ -148,7 +148,7 @@ export default function AuditExamples() {
           <h2 className="mb-4 text-3xl font-bebas md:text-5xl">
             See What a Conversion Leak Looks Like
           </h2>
-          <p className="text-white/75">
+          <p className="text-white/78">
             A practical example of how I separate visible observations from
             assumptions that need tracking data.
           </p>
@@ -159,17 +159,17 @@ export default function AuditExamples() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-10 overflow-hidden rounded-3xl border border-orange-500/20 bg-purple-950/45 shadow-[0_24px_70px_rgba(0,0,0,0.26)]"
+          className="mb-10 overflow-hidden rounded-2xl border border-orange-500/20 bg-purple-950/45 shadow-[0_24px_70px_rgba(0,0,0,0.26)] transition-[border-color,box-shadow] duration-300 hover:border-orange-500/35 hover:shadow-[0_28px_80px_rgba(0,0,0,0.34)]"
         >
           <div className="grid gap-4 p-5 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:p-6">
-            <figcaption className="rounded-2xl border border-orange-500/15 bg-background-card/75 p-5 lg:p-6">
+            <figcaption className="rounded-xl border border-orange-500/15 bg-background-card/75 p-5 lg:p-6">
               <p className="text-xs font-semibold uppercase tracking-wider text-orange-300">
                 Visual diagnosis
               </p>
               <h3 className="mt-3 text-2xl font-bebas text-white md:text-3xl">
                 The buyer should feel one continuous path
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-white/66">
+              <p className="mt-3 text-sm leading-relaxed text-white/72">
                 The audit checks whether the same promise moves from profile
                 interest to website trust, then into one qualified action.
               </p>
@@ -184,14 +184,20 @@ export default function AuditExamples() {
                 ))}
               </div>
             </figcaption>
-            <div className="relative min-h-[230px] overflow-hidden rounded-2xl border border-white/10 bg-black/20 md:min-h-[320px]">
+            <div className="relative min-h-[230px] overflow-hidden rounded-xl border border-white/10 bg-black/20 md:min-h-[320px]">
+              <div className="absolute inset-x-0 top-0 z-10 flex h-10 items-center gap-2 border-b border-white/10 bg-[#090b18]/92 px-4 backdrop-blur-md" aria-hidden="true">
+                <span className="h-2 w-2 rounded-full bg-orange-500" />
+                <span className="h-2 w-2 rounded-full bg-white/25" />
+                <span className="h-2 w-2 rounded-full bg-white/15" />
+                <span className="ml-2 text-[10px] font-semibold uppercase tracking-wider text-white/52">LinkedIn to enquiry map</span>
+              </div>
               <Image
                 src="/images/linkedin-website-path.svg"
                 alt="Visual map of the LinkedIn profile, website trust, CTA path, and qualified enquiry journey"
                 width={1200}
                 height={760}
                 sizes="(max-width: 1024px) 100vw, 720px"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover pt-10"
                 unoptimized
               />
             </div>
@@ -203,7 +209,7 @@ export default function AuditExamples() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-10 overflow-hidden rounded-3xl border border-orange-500/25 bg-purple-950/50 p-4 shadow-glow lg:p-0"
+          className="mb-10 overflow-hidden rounded-2xl border border-orange-500/25 bg-purple-950/50 p-4 shadow-glow lg:p-0"
         >
           <div className="hidden border-b border-orange-500/20 bg-orange-500/10 text-xs font-semibold uppercase tracking-wider text-orange-200 lg:grid lg:grid-cols-[0.8fr_1.1fr_1.1fr]">
             <div className="border-r border-orange-500/15 px-5 py-4">
@@ -218,7 +224,7 @@ export default function AuditExamples() {
             {comparisonRows.map((row) => (
               <div
                 key={row.touchpoint}
-                className="rounded-2xl border border-orange-500/18 bg-purple-950/55 p-4 lg:grid lg:grid-cols-[0.8fr_1.1fr_1.1fr] lg:rounded-none lg:border-x-0 lg:border-t-0 lg:border-b lg:border-orange-500/12 lg:bg-transparent lg:p-0 lg:last:border-b-0"
+                className="rounded-xl border border-orange-500/18 bg-purple-950/55 p-4 lg:grid lg:grid-cols-[0.8fr_1.1fr_1.1fr] lg:rounded-none lg:border-x-0 lg:border-t-0 lg:border-b lg:border-orange-500/12 lg:bg-transparent lg:p-0 lg:last:border-b-0"
               >
                 <div className="font-semibold text-white lg:border-r lg:border-orange-500/12 lg:px-5 lg:py-4">
                   <span className="mb-1 block text-[11px] font-semibold uppercase tracking-wider text-orange-200/75 lg:hidden">
@@ -226,7 +232,7 @@ export default function AuditExamples() {
                   </span>
                   {row.touchpoint}
                 </div>
-                <div className="mt-4 rounded-xl border border-white/10 bg-white/5 p-4 text-sm text-white/64 lg:mt-0 lg:rounded-none lg:border-0 lg:border-r lg:border-orange-500/12 lg:bg-transparent lg:px-5 lg:py-4">
+                <div className="mt-4 rounded-lg border border-white/10 bg-white/5 p-4 text-sm text-white/70 lg:mt-0 lg:rounded-none lg:border-0 lg:border-r lg:border-orange-500/12 lg:bg-transparent lg:px-5 lg:py-4">
                   <span className="mb-1 block text-[11px] font-semibold uppercase tracking-wider text-white/45 lg:hidden">
                     What I can observe
                   </span>
@@ -237,7 +243,7 @@ export default function AuditExamples() {
                     <ArrowDown size={18} />
                   </div>
                 </div>
-                <div className="rounded-xl border border-orange-500/20 bg-orange-500/10 p-4 text-sm font-semibold text-orange-200 lg:rounded-none lg:border-0 lg:bg-transparent lg:px-5 lg:py-4">
+                <div className="rounded-lg border border-orange-500/20 bg-orange-500/10 p-4 text-sm font-semibold text-orange-200 lg:rounded-none lg:border-0 lg:bg-transparent lg:px-5 lg:py-4">
                   <span className="mb-1 block text-[11px] uppercase tracking-wider text-orange-200/75 lg:hidden">
                     What I would test or change
                   </span>
@@ -280,9 +286,9 @@ export default function AuditExamples() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.45, ease: 'easeOut' }}
-          className="mx-auto mt-10 max-w-3xl rounded-2xl border border-orange-500/20 bg-purple-950/45 p-5 text-center"
+          className="mx-auto mt-10 max-w-3xl rounded-xl border border-orange-500/20 bg-purple-950/45 p-5 text-center"
         >
-          <p className="text-sm leading-relaxed text-white/66">
+          <p className="text-sm leading-relaxed text-white/72">
             This is the kind of visible diagnosis the review looks for: not a
             generic funnel theory, but a clearer match between promise, page,
             evidence, and action.

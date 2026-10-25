@@ -7,16 +7,14 @@ import { ArrowRight, FileText } from 'lucide-react'
 export default function LeadMagnet() {
   return (
     <motion.div
-      whileHover={{ y: -4, borderColor: 'rgba(255, 132, 3, 0.42)' }}
-      whileTap={{ scale: 0.99 }}
       transition={{ duration: 0.22, ease: 'easeOut' }}
-      className="glass-card p-5 border border-orange-500/20 hover:border-orange-500/40 transition-all text-left"
+      className="glass-card rounded-xl border border-orange-500/20 p-5 text-left transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-glow motion-reduce:hover:translate-y-0"
     >
       <div className="flex items-center gap-2 mb-2">
         <FileText size={18} className="text-orange-500" />
         <h3 className="font-bold text-white text-sm">Free Funnel Review</h3>
       </div>
-      <p className="text-white/60 text-xs mb-4">
+      <p className="mb-4 text-xs text-white/68">
         Apply with your profile, website, and business context so I can spot one observable conversion risk.
       </p>
       <Link

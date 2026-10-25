@@ -28,7 +28,7 @@ const secondaryFits = [
 
 export default function FitCheck() {
   return (
-    <section id="fit-check" className="texture-band neon-deep section-padding">
+    <section id="fit-check" className="texture-band neon-deep relative overflow-x-clip border-b border-white/[0.06] section-padding">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -38,7 +38,7 @@ export default function FitCheck() {
         >
           <SectionBadge icon={Filter} className="mb-4">Fit check</SectionBadge>
           <h2 className="text-3xl md:text-5xl font-bebas mb-4">Know if this path is actually for you</h2>
-          <p className="text-white/70 text-lg">
+          <p className="text-white/76 text-lg">
             The right project starts with the right fit. This is built for LinkedIn-active service providers who already have attention or a plan to drive qualified traffic.
           </p>
         </motion.div>
@@ -48,7 +48,7 @@ export default function FitCheck() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass-card p-6 md:p-8 border-orange-500/25"
+            className="glass-card rounded-xl border-orange-500/25 p-6 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-glow motion-reduce:hover:translate-y-0 md:p-8"
           >
             <div className="mb-6 flex items-center gap-3">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-500/10 text-orange-400">
@@ -58,7 +58,7 @@ export default function FitCheck() {
             </div>
             <div className="space-y-3">
               {goodFit.map((item) => (
-                <div key={item} className="flex items-start gap-3 rounded-xl border border-orange-500/15 bg-orange-500/5 p-4 text-sm text-white/75">
+                <div key={item} className="flex items-start gap-3 rounded-lg border border-orange-500/15 bg-orange-500/5 p-4 text-sm text-white/78">
                   <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-orange-400" />
                   <span>{item}</span>
                 </div>
@@ -71,7 +71,7 @@ export default function FitCheck() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.08 }}
-            className="glass-card p-6 md:p-8 border-white/10"
+            className="glass-card rounded-xl border-white/10 p-6 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_18px_48px_rgba(0,0,0,0.26)] motion-reduce:hover:translate-y-0 md:p-8"
           >
             <div className="mb-6 flex items-center gap-3">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 text-white/55">
@@ -81,7 +81,7 @@ export default function FitCheck() {
             </div>
             <div className="space-y-3">
               {notFit.map((item) => (
-                <div key={item} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm text-white/65">
+                <div key={item} className="flex items-start gap-3 rounded-lg border border-white/10 bg-white/[0.03] p-4 text-sm text-white/72">
                   <XCircle size={16} className="mt-0.5 shrink-0 text-white/45" />
                   <span>{item}</span>
                 </div>
@@ -95,7 +95,7 @@ export default function FitCheck() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.12 }}
-          className="mx-auto mt-6 max-w-5xl rounded-2xl border border-white/10 bg-white/[0.035] p-5 backdrop-blur-md"
+          className="mx-auto mt-6 max-w-5xl rounded-xl border border-white/10 bg-white/[0.035] p-5 backdrop-blur-md"
         >
           <p className="mb-4 text-sm font-semibold text-white/75">
             Also a strong fit when LinkedIn already creates attention:

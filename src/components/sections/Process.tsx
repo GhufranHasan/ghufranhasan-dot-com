@@ -46,7 +46,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="process" className="texture-dots neon-deep section-padding">
+    <section id="process" className="texture-dots neon-deep relative overflow-x-clip border-b border-white/[0.06] section-padding">
       <div className="container-custom">
         <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
           <motion.div
@@ -58,10 +58,10 @@ export default function Process() {
           >
             <SectionBadge icon={Route} className="mb-5">From diagnosis to launch</SectionBadge>
             <h2 className="text-3xl font-bebas md:text-5xl">How I fix the funnel</h2>
-            <p className="mt-5 max-w-md text-lg leading-relaxed text-white/68">
+            <p className="mt-5 max-w-md text-lg leading-relaxed text-white/74">
               A focused four-step process: diagnose the leak, align the message, build the path, and launch with one clear CTA.
             </p>
-            <div className="mt-8 hidden items-center gap-3 text-sm text-white/48 lg:flex">
+            <div className="mt-8 hidden items-center gap-3 text-sm text-white/58 lg:flex">
               <span className="h-px w-12 bg-orange-500/60" />
               10-day focused implementation
             </div>
@@ -75,7 +75,7 @@ export default function Process() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08 }}
-                className="group grid gap-5 border-t border-white/10 py-8 sm:grid-cols-[5rem_1fr] md:py-10"
+                className="group grid gap-5 border-t border-white/10 py-8 transition-colors duration-300 hover:bg-white/[0.02] sm:grid-cols-[5rem_1fr] md:py-10"
               >
                 <div className="flex items-start justify-between sm:block">
                   <span className="text-4xl font-bebas text-orange-400/85">0{index + 1}</span>
@@ -94,10 +94,10 @@ export default function Process() {
                       {step.timeline}
                     </span>
                   </div>
-                  <p className="mt-4 leading-relaxed text-white/66">{step.description}</p>
+                  <p className="mt-4 leading-relaxed text-white/72">{step.description}</p>
                   <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
                     {step.details.map((detail) => (
-                      <span key={detail} className="inline-flex items-center gap-2 text-sm text-white/55">
+                      <span key={detail} className="inline-flex items-center gap-2 text-sm text-white/64">
                         <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
                         {detail}
                       </span>
@@ -105,7 +105,7 @@ export default function Process() {
                   </div>
                   <div className="mt-6 border-l border-orange-500/40 pl-4">
                     <p className="text-xs font-semibold uppercase tracking-wider text-orange-300">Deliverable</p>
-                    <p className="mt-1 text-sm leading-relaxed text-white/68">{step.deliverable}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-white/72">{step.deliverable}</p>
                   </div>
                 </div>
               </motion.article>
@@ -119,7 +119,7 @@ export default function Process() {
             >
               <div>
                 <h3 className="text-2xl font-bebas">Ready to find the risk in your current path?</h3>
-                <p className="mt-2 max-w-xl text-sm leading-relaxed text-white/62">
+                <p className="mt-2 max-w-xl text-sm leading-relaxed text-white/70">
                   Request a short review and I will show whether audit, implementation, or no project makes sense.
                 </p>
               </div>

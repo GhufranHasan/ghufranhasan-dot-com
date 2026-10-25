@@ -36,7 +36,7 @@ const pathCards = [
 
 export default function AfterClickPath() {
   return (
-    <section id="lead-path" className="texture-band neon-deep relative overflow-hidden py-20 md:py-28">
+    <section id="lead-path" className="texture-band neon-deep relative overflow-hidden border-b border-white/[0.06] py-20 md:py-28">
       <div className="container-custom">
         <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
           <motion.div
@@ -56,11 +56,11 @@ export default function AfterClickPath() {
               They should enter a clear path: understand the offer, trust the proof,
               choose the next step, and receive a relevant follow-up.
             </p>
-            <div className="mt-7 rounded-2xl border border-orange-500/20 bg-orange-500/8 p-5">
+            <div className="mt-7 rounded-xl border border-orange-500/20 bg-orange-500/8 p-5">
               <p className="text-sm font-semibold text-white">
                 This keeps the offer focused:
               </p>
-              <p className="mt-2 text-sm leading-relaxed text-white/65">
+              <p className="mt-2 text-sm leading-relaxed text-white/72">
                 LinkedIn-to-website conversion first. Lead magnets, forms, and
                 follow-up become optional layers when the core path is clear.
               </p>
@@ -85,7 +85,7 @@ export default function AfterClickPath() {
                   visible: { opacity: 1, y: 0 },
                 }}
                 transition={{ duration: 0.45, ease: 'easeOut' }}
-                className="group rounded-2xl border border-orange-500/20 bg-purple-950/50 p-5 shadow-[0_18px_48px_rgba(0,0,0,0.2)] transition-all hover:-translate-y-1 hover:border-orange-500/45 hover:bg-orange-500/8"
+                className="group rounded-xl border border-orange-500/20 bg-purple-950/50 p-5 shadow-[0_18px_48px_rgba(0,0,0,0.2)] transition-[border-color,background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-orange-500/45 hover:bg-orange-500/8 hover:shadow-glow motion-reduce:hover:translate-y-0"
               >
                 <div className="mb-5 flex items-center justify-between gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-orange-500/25 bg-orange-500/10 text-orange-400">
@@ -96,7 +96,7 @@ export default function AfterClickPath() {
                   </span>
                 </div>
                 <h3 className="text-xl font-bold text-white">{card.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/64">{card.text}</p>
+                <p className="mt-3 text-sm leading-relaxed text-white/70">{card.text}</p>
                 <div className="mt-5 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-orange-300">
                   part of the handoff
                   <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />

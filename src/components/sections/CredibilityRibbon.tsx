@@ -40,14 +40,14 @@ export default function CredibilityRibbon() {
           {proofSignals.map((signal, index) => (
             <div
               key={signal.label}
-              className="group flex min-h-32 items-center gap-4 border-b border-orange-500/15 py-5 last:border-b-0 sm:px-5 sm:[&:nth-child(3)]:border-b-0 sm:[&:nth-child(4)]:border-b-0 lg:border-b-0 lg:border-r lg:first:pl-0 lg:last:border-r-0"
+              className="group flex min-h-32 items-center gap-4 border-b border-orange-500/15 py-5 transition-colors duration-300 hover:bg-white/[0.02] last:border-b-0 sm:px-5 sm:[&:nth-child(3)]:border-b-0 sm:[&:nth-child(4)]:border-b-0 lg:border-b-0 lg:border-r lg:first:pl-0 lg:last:border-r-0"
             >
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-orange-500/25 text-orange-400 transition-colors group-hover:bg-orange-500/10">
                 <signal.icon size={20} />
               </div>
               <div>
                 <p className="text-2xl font-bebas text-white">{signal.value}</p>
-                <p className="mt-1 text-xs leading-snug text-white/52">{signal.label}</p>
+                <p className="mt-1 text-xs leading-snug text-white/64">{signal.label}</p>
               </div>
               <span className="sr-only">Proof signal {index + 1}</span>
             </div>

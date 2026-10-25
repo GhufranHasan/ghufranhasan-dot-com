@@ -1,6 +1,7 @@
 import 'server-only'
 
 import { supabaseAdminRequest } from '@/lib/supabase/admin'
+import { saveLocalNewsletterSubscriber } from '@/lib/storage/localStore'
 
 export type NewsletterSubscriberRecord = {
   id: string
@@ -32,28 +33,35 @@ export type UpsertNewsletterSubscriberInput = {
 export async function upsertNewsletterSubscriber(
   input: UpsertNewsletterSubscriberInput
 ) {
-  const [subscriber] = await supabaseAdminRequest<NewsletterSubscriberRecord[]>(
-    'newsletter_subscribers',
-    {
-      method: 'POST',
-      query: 'on_conflict=email',
-      prefer: 'resolution=merge-duplicates,return=representation',
-      body: {
-        email: input.email,
-        name: input.name || null,
-        source: input.source || 'newsletter_section',
-        resource_slug: input.resourceSlug || null,
-        status: 'active',
-        updated_at: new Date().toISOString(),
-      },
-    }
-  )
+  try {
+    const [subscriber] = await supabaseAdminRequest<NewsletterSubscriberRecord[]>(
+      'newsletter_subscribers',
+      {
+        method: 'POST',
+        query: 'on_conflict=email',
+        prefer: 'resolution=merge-duplicates,return=representation',
+        body: {
+          email: input.email,
+          name: input.name || null,
+          source: input.source || 'newsletter_section',
+          resource_slug: input.resourceSlug || null,
+          status: 'active',
+          updated_at: new Date().toISOString(),
+        },
+      }
+    )
 
-  if (!subscriber?.id) {
-    throw new Error('Supabase did not return the saved newsletter subscriber')
+    if (subscriber?.id) {
+      return subscriber
+    }
+  } catch (error) {
+    console.warn(
+      '[Newsletter] Supabase unavailable, falling back to local storage:',
+      error instanceof Error ? error.message : error
+    )
   }
 
-  return subscriber
+  return saveLocalNewsletterSubscriber(input)
 }
 
 export async function updateNewsletterSubscriberStatus(

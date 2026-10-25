@@ -3,23 +3,27 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { useModal } from '@/contexts/ModalContext'
 
 const navItems = [
-  { name: 'Problem', href: '/#problem' },
-  { name: 'Sample Audit', href: '/#audit-examples' },
-  { name: 'Sprint', href: '/#services' },
-  { name: 'Proof', href: '/#proof' },
-  { name: 'Process', href: '/#process' },
-  { name: 'Pricing', href: '/#packages' },
+  { name: 'Problem', href: '/#problem', sectionId: 'problem' },
+  { name: 'Sample Audit', href: '/#audit-examples', sectionId: 'audit-examples' },
+  { name: 'Sprint', href: '/#services', sectionId: 'services' },
+  { name: 'Proof', href: '/#proof', sectionId: 'proof' },
+  { name: 'Process', href: '/#process', sectionId: 'process' },
+  { name: 'Pricing', href: '/#packages', sectionId: 'packages' },
 ]
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState<string | null>(null)
+  const pathname = usePathname()
+  const visibleActiveSection = pathname === '/' ? activeSection : null
   const { isModalOpen } = useModal()
 
   useEffect(() => {
@@ -30,6 +34,30 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    if (pathname !== '/') {
+      return
+    }
+
+    const sections = navItems
+      .map((item) => document.getElementById(item.sectionId))
+      .filter((section): section is HTMLElement => Boolean(section))
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+
+        if (visibleEntry) setActiveSection(visibleEntry.target.id)
+      },
+      { rootMargin: '-18% 0px -62% 0px', threshold: [0, 0.15, 0.4] },
+    )
+
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
+  }, [pathname])
+
   if (isModalOpen) return null
 
   return (
@@ -38,7 +66,7 @@ export default function Navigation() {
     >
       <div className="container-custom">
         <div
-          className={`nav-shell flex h-16 items-center justify-between rounded-2xl border px-4 transition-all duration-300 md:px-5 ${
+          className={`nav-shell flex h-16 items-center justify-between rounded-xl border px-4 transition-all duration-300 md:px-5 ${
             scrolled || isOpen
               ? 'border-orange-500/25 bg-purple-950/90 shadow-[0_16px_50px_rgba(0,0,0,0.34)]'
               : 'border-white/10 bg-background/45'
@@ -63,12 +91,17 @@ export default function Navigation() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="relative text-sm text-white/68 transition-colors after:absolute after:-bottom-2 after:left-0 after:h-px after:w-0 after:bg-orange-500 after:transition-all hover:text-white hover:after:w-full"
+                aria-current={visibleActiveSection === item.sectionId ? 'location' : undefined}
+                className={`relative rounded-md px-1.5 py-1 text-sm transition-colors after:absolute after:-bottom-1 after:left-1/2 after:h-px after:-translate-x-1/2 after:bg-orange-500 after:transition-all ${
+                  visibleActiveSection === item.sectionId
+                    ? 'bg-orange-500/10 text-orange-200 after:w-[calc(100%-0.75rem)]'
+                    : 'text-white/68 after:w-0 hover:text-white hover:after:w-[calc(100%-0.75rem)]'
+                }`}
               >
                 {item.name}
               </Link>
             ))}
-            <Button href="/free-audit" variant="primary" className="rounded-xl px-5 py-2.5 text-sm">Free Review</Button>
+            <Button href="/free-audit" variant="primary" className="px-5 py-2.5 text-sm">Free Review</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -92,13 +125,18 @@ export default function Navigation() {
               transition={{ duration: 0.3 }}
               className="overflow-hidden lg:hidden"
             >
-              <div className="mt-2 flex flex-col gap-2 rounded-2xl border border-orange-500/20 bg-purple-950/95 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.42)] backdrop-blur-xl">
+              <div className="mt-2 flex flex-col gap-2 rounded-xl border border-orange-500/20 bg-purple-950/95 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.42)] backdrop-blur-xl">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="rounded-lg px-3 py-2.5 text-white/80 transition-colors hover:bg-orange-500/10 hover:text-orange-300"
+                    aria-current={visibleActiveSection === item.sectionId ? 'location' : undefined}
+                    className={`rounded-lg px-3 py-2.5 transition-colors ${
+                      visibleActiveSection === item.sectionId
+                        ? 'bg-orange-500/12 text-orange-200'
+                        : 'text-white/80 hover:bg-orange-500/10 hover:text-orange-300'
+                    }`}
                   >
                     {item.name}
                   </Link>
