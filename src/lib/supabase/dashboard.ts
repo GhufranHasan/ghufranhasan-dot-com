@@ -596,7 +596,7 @@ export async function getDashboardData(
     `select=id,email,name,source,resource_slug,status,created_at,updated_at&created_at=gte.${since.toISOString()}&order=created_at.desc&limit=200`
   const eventsQuery = `select=id,event_type,event_name,path,section_id,resource_slug,visitor_id,session_id,referrer,user_agent,metadata,created_at&created_at=gte.${since.toISOString()}&order=created_at.desc&limit=1500`
 
-  let [auditResult, subscribersResult, eventsResult] = await Promise.all([
+  const [initialAuditResult, subscribersResult, eventsResult] = await Promise.all([
     safeSupabaseQuery<AuditRequestRecord>('audit_requests', auditQueryFull),
     safeSupabaseQuery<NewsletterSubscriberRecord>(
       'newsletter_subscribers',
@@ -605,6 +605,7 @@ export async function getDashboardData(
     safeSupabaseQuery<SiteEventRecord>('site_events', eventsQuery),
   ])
 
+  let auditResult = initialAuditResult
   let missingAuditColumns = false
   if (
     !auditResult.ok &&

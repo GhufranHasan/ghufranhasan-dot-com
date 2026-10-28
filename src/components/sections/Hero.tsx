@@ -1,20 +1,11 @@
-'use client'
-
-
-
 import Image from 'next/image'
 
 import heroPortrait from '../../../public/images/ghufran-portrait.png'
 
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-
-import { useEffect, useState } from 'react'
-
-import { Button } from '@/components/ui/Button'
-
 import SectionBadge from '@/components/ui/SectionBadge'
 
 import HeroJourneyScene from '@/components/visuals/HeroJourneyScene'
+import HeroAudience from './HeroAudience'
 
 import {
 
@@ -30,8 +21,6 @@ import {
 
 } from 'lucide-react'
 
-
-
 const proofPoints = [
 
   'Offer, website message, proof, CTA, and follow-up reviewed together',
@@ -41,22 +30,6 @@ const proofPoints = [
   'Tracking for the actions that matter before and after launch',
 
 ]
-
-
-
-const audiencePills = [
-
-  'B2B agency founders',
-
-  'consultants',
-
-  'coaches',
-
-  'fractional leaders',
-
-]
-
-
 
 const journeySteps = [
 
@@ -92,36 +65,7 @@ const journeySteps = [
 
 ]
 
-
-
 export default function Hero() {
-
-  const [audienceIndex, setAudienceIndex] = useState(0)
-
-  const shouldReduceMotion = useReducedMotion()
-
-
-
-  useEffect(() => {
-
-    if (shouldReduceMotion) return
-
-
-
-    const interval = window.setInterval(() => {
-
-      setAudienceIndex((current) => (current + 1) % audiencePills.length)
-
-    }, 2200)
-
-
-
-    return () => window.clearInterval(interval)
-
-  }, [shouldReduceMotion])
-
-
-
   return (
 
     <section id="home" className="hero-editorial relative flex min-h-screen items-center overflow-hidden border-b border-white/[0.06] pb-10 pt-24 sm:pb-14 lg:pb-10 lg:pt-28">
@@ -142,31 +86,17 @@ export default function Hero() {
 
       <div className="hero-prism hero-prism-two" aria-hidden="true" />
 
-
-
       <div className="container-custom relative z-10 w-full">
 
         <div className="grid items-center gap-7 sm:gap-10 lg:grid-cols-[1.05fr_0.95fr] xl:gap-16">
 
-          <motion.div
-
-            initial={{ opacity: 0, x: -30 }}
-
-            animate={{ opacity: 1, x: 0 }}
-
-            transition={{ duration: 0.6 }}
+          <div
 
             className="relative z-20"
 
           >
 
-            <motion.div
-
-              initial={{ opacity: 0, y: 20 }}
-
-              animate={{ opacity: 1, y: 0 }}
-
-              transition={{ delay: 0.2 }}
+            <div
 
               className="mb-4"
 
@@ -180,15 +110,9 @@ export default function Hero() {
 
               </SectionBadge>
 
-            </motion.div>
+            </div>
 
-            <motion.h1
-
-              initial={{ opacity: 0, y: 20 }}
-
-              animate={{ opacity: 1, y: 0 }}
-
-              transition={{ delay: 0.3 }}
+            <h1
 
               className="hero-headline mb-4 max-w-4xl text-4xl font-bebas font-medium leading-[1.04] text-white sm:text-5xl lg:text-5xl xl:text-6xl"
 
@@ -198,17 +122,9 @@ export default function Hero() {
 
               <span className="hero-gradient-text block">Your website should turn it into enquiries.</span>
 
-            </motion.h1>
+            </h1>
 
-
-
-            <motion.p
-
-              initial={{ opacity: 0, y: 20 }}
-
-              animate={{ opacity: 1, y: 0 }}
-
-              transition={{ delay: 0.4 }}
+            <p
 
               className="mb-4 max-w-2xl text-base leading-relaxed text-white/78 xl:text-lg"
 
@@ -216,17 +132,9 @@ export default function Hero() {
 
               I help LinkedIn-active service businesses turn warm profile visits into clearer website trust, stronger CTA paths, and qualified enquiries.
 
-            </motion.p>
+            </p>
 
-
-
-            <motion.div
-
-              initial={{ opacity: 0, y: 18 }}
-
-              animate={{ opacity: 1, y: 0 }}
-
-              transition={{ delay: 0.43 }}
+            <div
 
               className="mb-5 inline-flex max-w-full flex-wrap items-center gap-2 border-l border-orange-500/55 py-1 pl-4 text-sm text-white/68"
 
@@ -236,73 +144,31 @@ export default function Hero() {
 
               <span className="sr-only">B2B agency founders, consultants, coaches, and fractional leaders.</span>
 
-              <span className="relative inline-flex h-5 min-w-40 items-center overflow-hidden text-left font-semibold text-orange-300 sm:min-w-46" aria-hidden="true">
+              <HeroAudience />
 
-                <AnimatePresence mode="wait" initial={false}>
+            </div>
 
-                  <motion.span
-
-                    key={audiencePills[audienceIndex]}
-
-                    className="absolute left-0 whitespace-nowrap"
-
-                    initial={{ opacity: 0, y: 8 }}
-
-                    animate={{ opacity: 1, y: 0 }}
-
-                    exit={{ opacity: 0, y: -8 }}
-
-                    transition={{ duration: shouldReduceMotion ? 0 : 0.24, ease: 'easeOut' }}
-
-                  >
-
-                    {audiencePills[audienceIndex]}
-
-                  </motion.span>
-
-                </AnimatePresence>
-
-              </span>
-
-            </motion.div>
-
-
-
-            <motion.div
-
-              initial={{ opacity: 0, y: 20 }}
-
-              animate={{ opacity: 1, y: 0 }}
-
-              transition={{ delay: 0.5 }}
+            <div
 
               className="flex flex-col gap-4 sm:flex-row"
 
             >
 
-              <Button href="/free-audit" variant="primary" size="large" className="whitespace-nowrap px-6 py-3 text-base sm:px-10 sm:py-4 sm:text-lg">
+              <a href="/free-audit" className="inline-flex items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-6 py-3 text-center text-base font-bold whitespace-nowrap text-white transition-shadow hover:shadow-glow-hover focus-visible:outline-2 focus-visible:outline-orange-400 sm:px-10 sm:py-4 sm:text-lg">
 
                 Request Free Review
 
-              </Button>
+              </a>
 
-              <Button href="#audit-examples" variant="secondary" size="large" className="whitespace-nowrap px-6 py-3 text-base sm:px-10 sm:py-4 sm:text-lg">
+              <a href="#audit-examples" className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-orange-500 px-6 py-3 text-center text-base font-bold whitespace-nowrap text-white transition-colors hover:bg-orange-500/10 focus-visible:outline-2 focus-visible:outline-orange-400 sm:px-10 sm:py-4 sm:text-lg">
 
                 See a Sample Audit <ArrowRight size={18} />
 
-              </Button>
+              </a>
 
-            </motion.div>
+            </div>
 
-
-
-            <motion.p
-
-              initial={{ opacity: 0, y: 20 }}
-
-              animate={{ opacity: 1, y: 0 }}
-
-              transition={{ delay: 0.53 }}
+            <p
 
               className="mt-5 max-w-2xl text-sm leading-relaxed text-white/62"
 
@@ -310,19 +176,11 @@ export default function Hero() {
 
               One aligned message, one focused conversion page, one clear buyer path, and tracking for the actions that matter.
 
-            </motion.p>
+            </p>
 
-          </motion.div>
+          </div>
 
-
-
-          <motion.div
-
-            initial={{ opacity: 0, x: 30 }}
-
-            animate={{ opacity: 1, x: 0 }}
-
-            transition={{ duration: 0.6, delay: 0.2 }}
+          <div
 
             className="relative mx-auto w-full max-w-sm sm:max-w-2xl lg:mx-0"
 
@@ -358,13 +216,7 @@ export default function Hero() {
 
             </div>
 
-            <motion.div
-
-              initial={{ opacity: 0, y: 24 }}
-
-              animate={{ opacity: 1, y: 0 }}
-
-              transition={{ delay: 0.55, duration: 0.5 }}
+            <div
 
               className="hero-journey-dock relative z-20 -mt-8 ml-auto w-full rounded-xl border border-orange-500/25 bg-purple-950/88 p-3 shadow-[0_22px_60px_rgba(0,0,0,0.38)] backdrop-blur-xl sm:-mt-12 sm:w-[94%] sm:p-4"
 
@@ -410,21 +262,13 @@ export default function Hero() {
 
               </div>
 
-            </motion.div>
+            </div>
 
-          </motion.div>
+          </div>
 
         </div>
 
-
-
-        <motion.div
-
-          initial={{ opacity: 0, y: 20 }}
-
-          animate={{ opacity: 1, y: 0 }}
-
-          transition={{ delay: 0.65, duration: 0.5 }}
+        <div
 
           className="mt-8 grid border-y border-white/10 sm:grid-cols-3 lg:mt-8"
 
@@ -450,7 +294,7 @@ export default function Hero() {
 
           ))}
 
-        </motion.div>
+        </div>
 
       </div>
 

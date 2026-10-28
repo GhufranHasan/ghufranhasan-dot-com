@@ -7,10 +7,12 @@ import SocialLinksModal from '@/components/layout/SocialLinksModal'
 const services = [
   { label: 'Problem', href: '/#problem' },
   { label: 'Sample Audit', href: '/#audit-examples' },
-  { label: 'Sprint', href: '/#services' },
-  { label: 'Proof', href: '/#proof' },
-  { label: 'Process', href: '/#process' },
-  { label: 'Pricing', href: '/#packages' },
+  { label: 'Proof', href: '/proof' },
+  { label: 'Services', href: '/services' },
+  { label: 'Process', href: '/process' },
+  { label: 'Work', href: '/work' },
+  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
 ]
@@ -36,9 +38,9 @@ export default function Footer() {
   return (
     <footer className="site-footer texture-band neon-deep border-t border-orange-500/20 py-12">
       <div className="container-custom">
-        <div className="grid md:grid-cols-[1.2fr_0.8fr_0.8fr_1.2fr] gap-8 mb-10">
+        <div className="mb-10 grid items-start gap-8 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.7fr_1fr_1.25fr]">
           <div>
-            <Link href="/#home" className="mb-4 inline-flex items-center gap-3 text-3xl font-bebas tracking-wider">
+            <Link href="/#home" prefetch={false} className="mb-4 inline-flex items-center gap-3 text-3xl font-bebas tracking-wider">
               <Image
                 src="/images/brand-logo.png"
                 alt="Ghufran Hasan logo"
@@ -73,10 +75,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-bold mb-4">Site</h3>
+            <h2 className="text-white font-bold mb-4">Site</h2>
             <div className="space-y-3">
               {services.map((item) => (
-                <Link key={item.label} href={item.href} className="block text-sm text-white/68 transition-colors hover:text-orange-400">
+                <Link key={item.label} href={item.href} prefetch={false} className="block text-sm text-white/68 transition-colors hover:text-orange-400">
                   {item.label}
                 </Link>
               ))}
@@ -84,10 +86,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-bold mb-4">Resources</h3>
+            <h2 className="text-white font-bold mb-4">Resources</h2>
             <div className="space-y-3">
               {resources.map((item) => (
-                <Link key={item.label} href={item.href} className="block text-sm text-white/68 transition-colors hover:text-orange-400">
+                <Link key={item.label} href={item.href} prefetch={false} className="block text-sm text-white/68 transition-colors hover:text-orange-400">
                   {item.label}
                 </Link>
               ))}

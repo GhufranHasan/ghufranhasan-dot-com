@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/seo/metadata'
 import Link from 'next/link'
 import {
   ArrowRight,
@@ -13,15 +13,15 @@ import SectionBadge from '@/components/ui/SectionBadge'
 
 const calendlyUrl = 'https://calendly.com/ghufranhasan/1-1-consultation-call'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Funnel Review Application Received',
-  description:
-    'Your LinkedIn-to-website Funnel Review application has been received. Book an optional clarity call or explore conversion resources while you wait.',
+  description: 'Your LinkedIn-to-website Funnel Review application has been received. Book an optional clarity call or explore conversion resources while you wait.',
+  path: "/thank-you",
   robots: {
     index: false,
     follow: true,
   },
-}
+})
 
 const nextSteps = [
   'I review your LinkedIn positioning and profile promise.',

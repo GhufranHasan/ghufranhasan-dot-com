@@ -1,81 +1,50 @@
-import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/seo/metadata'
 import Link from 'next/link'
-import { ArrowRight, BookOpenText, FileSearch, ListChecks, Route } from 'lucide-react'
-import Breadcrumbs from '@/components/ui/Breadcrumbs'
-import SectionBadge from '@/components/ui/SectionBadge'
+import { ArrowRight, BookOpenText } from 'lucide-react'
+import ResourcePageHeader from '@/components/resources/ResourcePageHeader'
+import ResourceCards from '@/components/resources/ResourceCards'
+import ResourceCollectionSchema from '@/components/resources/ResourceCollectionSchema'
+import { guideSocialImage, resourceGuides, resourceTools, websiteGuide } from '@/data/resourceGuides'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Blog | LinkedIn-to-Website Conversion Resources',
-  description:
-    'Resource hub for LinkedIn-to-website conversion strategy, checklist pages, website comparison studies, and CTA clarity.',
-  alternates: {
-    canonical: '/blog',
-  },
-}
-
-const posts = [
-  {
-    icon: ListChecks,
-    title: 'LinkedIn-to-Website Funnel Checklist',
-    text: 'Score your profile, website, and CTA path with a public 10-point checklist.',
-    href: '/resources/linkedin-website-funnel-checklist',
-  },
-  {
-    icon: FileSearch,
-    title: 'LinkedIn Personal Brand Website Examples',
-    text: 'Study how public websites handle positioning, proof, pricing, and CTA clarity.',
-    href: '/linkedin-website-examples',
-  },
-  {
-    icon: Route,
-    title: 'Website Conversion Strategy',
-    text: 'Understand why the website should become the decision room after LinkedIn creates attention.',
-    href: '/website-conversion-strategy',
-  },
-]
+  description: 'Practical guides to LinkedIn profile positioning, website conversion strategy, and CTA clarity, plus a free funnel checklist and website comparison study.',
+  path: "/blog",
+  image: guideSocialImage(websiteGuide),
+})
 
 export default function BlogPage() {
   return (
     <article className="pt-20">
-      <header className="texture-grid neon-deep border-b border-orange-500/20 py-16 md:py-24">
-        <div className="container-custom">
-          <Breadcrumbs
-            items={[
-              { label: 'Home', href: '/#home' },
-              { label: 'Blog', href: '/blog' },
-            ]}
-          />
-          <div className="mx-auto max-w-4xl text-center">
-            <SectionBadge icon={BookOpenText} className="mb-6">
-              Blog and resources
-            </SectionBadge>
-            <h1 className="text-4xl font-bebas leading-tight text-white md:text-6xl">
-              Practical Notes on Turning LinkedIn Attention Into Enquiries
-            </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-white/70">
-              This page gives the blog URL a real home while the resource library grows.
-            </p>
-          </div>
-        </div>
-      </header>
+      <ResourceCollectionSchema name="LinkedIn-to-Website Conversion Blog" path="/blog" items={[...resourceGuides, ...resourceTools]} />
+      <ResourcePageHeader
+        title="LinkedIn-to-website field notes."
+        description="Practical field notes on what happens between a LinkedIn profile visit and a website enquiry. Start with the part of your journey that needs attention."
+        badge="Blog and resources"
+        icon={BookOpenText}
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Blog', href: '/blog' }]}
+        image={resourceTools[1].headerImage}
+        imageAlt="Transparent 3D website panels and a magnifying glass illustrating practical website analysis."
+      >
+            <Link href="/resources/linkedin-website-funnel-checklist" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-orange-300 hover:underline">
+              Not sure where to start? Use the free checklist <ArrowRight size={17} aria-hidden="true" />
+            </Link>
+      </ResourcePageHeader>
 
-      <section className="texture-dots neon-purple py-16 md:py-24">
+      <section className="texture-dots neon-purple py-12 md:py-16" aria-labelledby="practical-guides">
         <div className="container-custom">
-          <div className="grid gap-6 lg:grid-cols-3">
-            {posts.map((post) => (
-              <Link key={post.title} href={post.href} className="glass-card block border-orange-500/20 p-6 transition-all hover:-translate-y-1 hover:border-orange-500/45">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/10 text-orange-400">
-                  <post.icon size={24} />
-                </div>
-                <h2 className="mt-5 text-2xl font-bebas text-white">{post.title}</h2>
-                <p className="mt-3 text-sm leading-relaxed text-white/68">{post.text}</p>
-                <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-orange-300">
-                  Read more
-                  <ArrowRight size={16} />
-                </span>
-              </Link>
-            ))}
+          <p className="text-sm font-semibold text-orange-300">The three handoffs</p>
+          <h2 id="practical-guides" className="mb-7 mt-2 text-2xl font-medium text-white md:text-3xl">Profile. Website. Next step.</h2>
+          <ResourceCards items={resourceGuides} eagerImages={3} />
+        </div>
+      </section>
+      <section className="neon-deep border-t border-white/10 py-12 md:py-16" aria-labelledby="practical-tools">
+        <div className="container-custom">
+          <div className="mb-7 flex flex-wrap items-center justify-between gap-4">
+            <h2 id="practical-tools" className="text-2xl font-medium text-white md:text-3xl">Put the ideas into practice</h2>
+            <Link href="/resources" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-orange-300 hover:underline">All resources <ArrowRight size={17} aria-hidden="true" /></Link>
           </div>
+          <ResourceCards items={resourceTools} />
         </div>
       </section>
     </article>

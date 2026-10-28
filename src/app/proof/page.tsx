@@ -1,17 +1,14 @@
-import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/seo/metadata'
 import Link from 'next/link'
 import { ArrowRight, FileSearch, PanelsTopLeft, Rocket, ShieldCheck } from 'lucide-react'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import SectionBadge from '@/components/ui/SectionBadge'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Proof | Conversion Thinking and Website Execution',
-  description:
-    'Proof assets, public teardown examples, website transformation logic, and implementation evidence behind Ghufran Hasan’s LinkedIn-to-website conversion work.',
-  alternates: {
-    canonical: '/proof',
-  },
-}
+  description: 'Proof assets, public teardown examples, website transformation logic, and implementation evidence behind Ghufran Hasan’s LinkedIn-to-website conversion work.',
+  path: "/proof",
+})
 
 const proofItems = [
   {

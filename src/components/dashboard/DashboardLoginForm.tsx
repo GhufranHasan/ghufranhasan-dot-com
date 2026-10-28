@@ -13,7 +13,7 @@ type LoginResult = {
   expiresInMinutes?: number
 }
 
-export default function DashboardLoginForm() {
+export default function DashboardLoginForm({ available = true }: { available?: boolean }) {
   const router = useRouter()
   const [step, setStep] = useState<LoginStep>('password')
   const [password, setPassword] = useState('')
@@ -68,7 +68,7 @@ export default function DashboardLoginForm() {
       </div>
       <h1 className="text-3xl font-bebas text-white">Dashboard Access</h1>
       <p className="mt-3 text-sm leading-relaxed text-white/65">
-        {step === 'password'
+        {!available ? 'Secure sign-in is unavailable. Only the site owner can enable dashboard access.' : step === 'password'
           ? 'Enter your private dashboard password to start secure access.'
           : `Enter the six-digit code sent to ${destination}. It expires in ${expiresInMinutes} minutes.`}
       </p>
@@ -81,6 +81,8 @@ export default function DashboardLoginForm() {
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             autoComplete="current-password"
+            maxLength={256}
+            disabled={!available}
             required
             className="mt-2 w-full rounded-lg border border-orange-500/20 bg-purple-950/55 px-4 py-3 text-sm text-white outline-none transition-colors placeholder:text-white/35 focus:border-orange-500/60 focus:ring-2 focus:ring-orange-500/10"
             placeholder="Enter password"
@@ -96,6 +98,7 @@ export default function DashboardLoginForm() {
             autoComplete="one-time-code"
             inputMode="numeric"
             pattern="[0-9]{6}"
+            maxLength={6}
             required
             className="mt-2 w-full rounded-lg border border-orange-500/20 bg-purple-950/55 px-4 py-3 text-center text-lg font-bold tracking-[0.45em] text-white outline-none transition-colors placeholder:text-white/35 focus:border-orange-500/60 focus:ring-2 focus:ring-orange-500/10"
             placeholder="000000"
@@ -104,14 +107,14 @@ export default function DashboardLoginForm() {
       )}
 
       {error && (
-        <p className="mt-4 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+        <p role="alert" className="mt-4 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">
           {error}
         </p>
       )}
 
       <button
         type="submit"
-        disabled={isSubmitting}
+        disabled={isSubmitting || !available}
         className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-6 py-3 font-bold text-white transition-all hover:-translate-y-0.5 hover:shadow-glow-hover disabled:cursor-not-allowed disabled:opacity-60"
       >
         {isSubmitting ? (
@@ -140,7 +143,7 @@ export default function DashboardLoginForm() {
           className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-orange-500/25 px-6 py-3 text-sm font-bold text-white transition-all hover:bg-orange-500/10"
         >
           <ArrowLeft size={16} />
-          Use a different password
+          Start again
         </button>
       )}
     </form>

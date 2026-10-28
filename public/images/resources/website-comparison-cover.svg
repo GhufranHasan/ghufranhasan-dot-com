@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <title>Compare website positioning, proof, and CTA structure</title>
+  <defs><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" stroke="#FFFFFF" stroke-opacity=".045"/></pattern></defs>
+  <path fill="#0A1026" d="M0 0h1200v720H0z"/>
+  <path fill="url(#grid)" d="M0 0h1200v720H0z"/>
+  <text x="60" y="70" fill="#FFB268" font-family="Arial,sans-serif" font-size="24" font-weight="700">LOOK BEYOND THE FIRST IMPRESSION.</text>
+  <g stroke="#FFFFFF" stroke-opacity=".15" fill="#101A36">
+    <rect x="60" y="142" width="330" height="376" rx="8"/>
+    <rect x="435" y="142" width="330" height="376" rx="8"/>
+    <rect x="810" y="142" width="330" height="376" rx="8"/>
+    <path d="M60 192h330M435 192h330M810 192h330"/>
+  </g>
+  <g fill="#FF8403"><circle cx="86" cy="167" r="5"/><circle cx="461" cy="167" r="5"/><circle cx="836" cy="167" r="5"/></g>
+  <path d="M90 228h270v94H90z" fill="#60054A"/>
+  <path d="M465 228h270v94H465z" fill="#15364A"/>
+  <path d="M840 228h270v94H840z" fill="#422949"/>
+  <g stroke="#CBD3E5" stroke-opacity=".5" stroke-width="9" stroke-linecap="round"><path d="M94 355h260m-260 26h190m185-26h260m-260 26h190m185-26h260m-260 26h190"/></g>
+  <path d="M90 422h150v54H90zM465 422h150v54H465zM840 422h150v54H840z" fill="#FF8403"/>
+  <g font-family="Arial,sans-serif" font-size="38" font-weight="700" text-anchor="middle">
+    <text x="225" y="604" fill="#FFB268">Positioning</text>
+    <text x="600" y="604" fill="#F29BD5">Proof</text>
+    <text x="975" y="604" fill="#80D7E8">CTA clarity</text>
+  </g>
+</svg>

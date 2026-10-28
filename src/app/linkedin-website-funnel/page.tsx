@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import { createPageMetadata, personId, siteUrl } from '@/lib/seo/metadata'
 import Link from 'next/link'
 import {
   ArrowRight,
@@ -20,43 +20,23 @@ const pageDescription =
   'Ghufran Hasan helps LinkedIn-active service businesses identify and fix the gaps between LinkedIn positioning, website messaging, proof, and CTA.'
 const pageUrl = 'https://ghufranhasan.com/linkedin-website-funnel'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: pageTitle,
   description: pageDescription,
-  alternates: {
-    canonical: '/linkedin-website-funnel',
-  },
-  openGraph: {
-    title: `${pageTitle} | Ghufran Hasan`,
-    description: pageDescription,
-    url: pageUrl,
-    type: 'website',
-    images: [
-      {
-        url: '/images/profile.png',
-        width: 1200,
-        height: 630,
-        alt: 'Ghufran Hasan LinkedIn-to-Website Funnel Optimization',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: `${pageTitle} | Ghufran Hasan`,
-    description: pageDescription,
-    images: ['/images/profile.png'],
-  },
-}
+  path: "/linkedin-website-funnel",
+})
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
+  '@id': `${siteUrl}/#conversion-sprint`,
   name: 'LinkedIn-to-Website Funnel Optimization by Ghufran Hasan',
   serviceType: pageTitle,
   description: pageDescription,
   url: pageUrl,
   provider: {
     '@type': 'Person',
+    '@id': personId,
     name: 'Ghufran Hasan',
     jobTitle: 'LinkedIn-to-Website Funnel Strategist',
     url: 'https://ghufranhasan.com',

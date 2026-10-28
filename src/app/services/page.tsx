@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/seo/metadata'
 import Link from 'next/link'
 import {
   ArrowRight,
@@ -11,14 +11,11 @@ import {
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import SectionBadge from '@/components/ui/SectionBadge'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Services | LinkedIn-to-Website Conversion for Service Businesses',
-  description:
-    'Detailed service page for LinkedIn profile alignment, website conversion path, CTA system, conversion audit, and implementation sprint.',
-  alternates: {
-    canonical: '/services',
-  },
-}
+  description: 'Detailed service page for LinkedIn profile alignment, website conversion path, CTA system, conversion audit, and implementation sprint.',
+  path: "/services",
+})
 
 const services = [
   {

@@ -17,6 +17,10 @@ const DATA_DIR = path.join(process.cwd(), 'data')
 const AUDIT_FILE = path.join(DATA_DIR, 'audit_requests.json')
 const SUBSCRIBERS_FILE = path.join(DATA_DIR, 'newsletter_subscribers.json')
 
+export function canUseLocalStorage() {
+  return process.env.NODE_ENV !== 'production' && !process.env.VERCEL
+}
+
 function ensureDataDir() {
   if (!fs.existsSync(DATA_DIR)) {
     fs.mkdirSync(DATA_DIR, { recursive: true })
@@ -24,6 +28,7 @@ function ensureDataDir() {
 }
 
 function readJsonFile<T>(filePath: string): T[] {
+  if (!canUseLocalStorage()) return []
   ensureDataDir()
   if (!fs.existsSync(filePath)) {
     return []
@@ -38,6 +43,9 @@ function readJsonFile<T>(filePath: string): T[] {
 }
 
 function writeJsonFile<T>(filePath: string, data: T[]): void {
+  if (!canUseLocalStorage()) {
+    throw new Error('Durable database storage is required in production.')
+  }
   ensureDataDir()
   const tempPath = `${filePath}.tmp.${Date.now()}`
   fs.writeFileSync(tempPath, JSON.stringify(data, null, 2), 'utf-8')

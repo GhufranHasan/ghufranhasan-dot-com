@@ -1,17 +1,14 @@
 'use client'
 
-import { useEffect, useId, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import {
   BookOpenText,
   Grid3X3,
   Mail,
-  MessageCircle,
   Music2,
   Newspaper,
-  PenLine,
   Radio,
   X as XIcon,
-  Youtube,
 } from 'lucide-react'
 import { useModal } from '@/contexts/ModalContext'
 
@@ -21,12 +18,6 @@ const extraLinks = [
     description: 'Direct questions, collaborations, and project conversations',
     href: 'mailto:ghufran@ghufranhasan.com',
     icon: Mail,
-  },
-  {
-    label: 'WhatsApp',
-    description: 'Quick direct messages when the topic is simple',
-    href: 'https://wa.me/?text=Hi%20Ghufran%2C%20I%20visited%20your%20website%20and%20want%20to%20ask%20a%20quick%20question.',
-    icon: MessageCircle,
   },
   {
     label: 'X (Twitter)',
@@ -58,18 +49,6 @@ const extraLinks = [
     href: 'https://threads.net/@ghufranhasan_com',
     icon: Radio,
   },
-  {
-    label: 'YouTube',
-    description: 'Future videos, walkthroughs, and conversion breakdowns',
-    href: '/#contact',
-    icon: Youtube,
-  },
-  {
-    label: 'Future links',
-    description: 'Podcast, newsletter, and new platforms can live here later',
-    href: '/#contact',
-    icon: PenLine,
-  },
 ]
 
 type SocialLinksModalProps = {
@@ -81,25 +60,39 @@ type SocialLinksModalProps = {
 export default function SocialLinksModal({ className, label = 'Connect', iconOnly = false }: SocialLinksModalProps) {
   const [isOpen, setIsOpen] = useState(false)
   const titleId = useId()
+  const dialogRef = useRef<HTMLDialogElement>(null)
   const { openModal, closeModal } = useModal()
 
   useEffect(() => {
     if (!isOpen) return
 
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setIsOpen(false)
-        closeModal()
+    const dialog = dialogRef.current
+    const previousOverflow = document.body.style.overflow
+    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null
+    const keepFocusInDialog = (event: KeyboardEvent) => {
+      if (event.key !== 'Tab' || !dialog) return
+      const focusable = Array.from(dialog.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), [tabindex="0"]'))
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (!first || !last) return
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
       }
     }
-
+    dialog?.showModal()
+    dialog?.addEventListener('keydown', keepFocusInDialog)
     openModal()
     document.body.style.overflow = 'hidden'
-    window.addEventListener('keydown', handleKeyDown)
 
     return () => {
-      document.body.style.overflow = ''
-      window.removeEventListener('keydown', handleKeyDown)
+      dialog?.removeEventListener('keydown', keepFocusInDialog)
+      dialog?.close()
+      document.body.style.overflow = previousOverflow
+      previousFocus?.focus()
       closeModal()
     }
   }, [isOpen, openModal, closeModal])
@@ -120,23 +113,24 @@ export default function SocialLinksModal({ className, label = 'Connect', iconOnl
       </button>
 
       {isOpen && (
-        <div
-          className="fixed inset-0 z-100 flex items-center justify-center px-4 py-8"
-          role="dialog"
-          aria-modal="true"
+        <dialog
+          ref={dialogRef}
+          className="fixed inset-0 m-auto max-h-[90dvh] w-[calc(100%-2rem)] max-w-lg overflow-y-auto rounded-2xl border border-orange-500/30 bg-purple-950 p-0 text-white shadow-glow backdrop:bg-black/70 backdrop:backdrop-blur-sm"
           aria-labelledby={titleId}
-        >
-          <button
-            type="button"
-            aria-label="Close social links"
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-            onClick={() => {
+          onCancel={() => {
+            setIsOpen(false)
+            closeModal()
+          }}
+          onClick={(event) => {
+            if (event.target !== event.currentTarget) return
+            const rect = event.currentTarget.getBoundingClientRect()
+            if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) {
               setIsOpen(false)
               closeModal()
-            }}
-          />
-
-          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-orange-500/30 bg-purple-950 p-5 shadow-glow">
+            }
+          }}
+        >
+          <div className="relative p-5">
             <div className="flex items-start justify-between gap-4 mb-5">
               <div>
                 <p className="text-orange-500 text-xs uppercase tracking-wider font-bold mb-2">All links</p>
@@ -182,7 +176,7 @@ export default function SocialLinksModal({ className, label = 'Connect', iconOnl
               ))}
             </div>
           </div>
-        </div>
+        </dialog>
       )}
     </>
   )

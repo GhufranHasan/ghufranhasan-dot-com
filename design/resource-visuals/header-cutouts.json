@@ -1,0 +1,35 @@
+{
+  "generator": "Built-in image_gen tool, background-extraction edits with transparent_background=true",
+  "assets": [
+    {
+      "name": "linkedin-profile-blueprint",
+      "transparent": true,
+      "generatedFile": "exec-7147d215-e4a0-4c28-a182-1d022dfcc14d.png",
+      "prompt": "Edit target: the supplied 3D LinkedIn-profile-to-website illustration. Create a clean, realistic transparent-background cutout for the right side of an editorial page header. Keep the two physical glass-and-metal profile/browser panels, their short bases, and the orange connecting path; preserve their existing design, layout, orange/magenta accents, details, perspective, and realistic surface reflections. Remove the entire studio room, dark backdrop, tabletop, floor reflections, and everything outside those objects. The space around and between the objects must be genuinely transparent alpha, not dark paint, a white rectangle, a checkerboard graphic, or an opaque glow. Keep soft translucent edge highlights on the objects, crisp clean anti-aliased edges, and generous transparent margins. Center the whole object group in a landscape 5:4 canvas and keep every panel and connector completely in frame. No new text, logos, extra objects, or design changes. This is a background-extraction edit only."
+    },
+    {
+      "name": "website-decision-path",
+      "transparent": true,
+      "generatedFile": "exec-029319eb-24cf-4652-976d-83c38c9e42c5.png",
+      "prompt": "Edit only the background of the supplied realistic 3D website-strategy artwork. Keep the open graphite laptop and the three glass icon tiles (target, shield/check, and doorway/arrow), preserving their exact realistic design, screen content, perspective, orange connectors, magenta and orange accents, surface reflections and clear edge highlights. Extract this complete object group as a clean cutout on genuine transparent alpha. Remove the whole room, studio backdrop, tabletop, floor, and floor reflections. Empty spaces between objects must also be transparent. Do not replace the environment with black, white or a checkerboard graphic. Preserve physical thickness, crisp anti-aliased object edges and the connected arrangement. Center the whole subject with safe transparent margins in a landscape 5:4 canvas for the right side of a website article header. Nothing cropped. No new text, no redesign, no extra objects or decorative background glow."
+    },
+    {
+      "name": "cta-enquiry-flow",
+      "transparent": true,
+      "generatedFile": "exec-76783206-e08f-4d0f-8abd-1f467a99d857.png",
+      "prompt": "Background extraction only: keep the supplied three realistic glass interface panels, white pointer, glowing orange website button, intake form, confirmation checkmark, and the orange connecting path exactly as they are. Preserve the physical materials, perspective, surface reflections, magenta/orange accents and crisp realistic details. Remove every part of the studio background, tabletop, floor, floor reflections and environment. All space around and between the three objects must be genuinely transparent alpha, with clean anti-aliased cutout edges and only translucent highlights directly attached to the objects. No opaque black or white background, no checkerboard drawing, no new text or objects, no re-styling. Center the full group with comfortable transparent margins in a landscape 5:4 canvas, keeping all edges, the pointer and every connector in frame. Intended use: a frameless 3D illustration on the right of a dark website article header."
+    },
+    {
+      "name": "funnel-checklist-cover",
+      "transparent": true,
+      "generatedFile": "exec-98ac7f71-1b80-469d-baed-9c0c49accb78.png",
+      "prompt": "Extract only the realistic physical workbook, checklist clipboard, paper, metal clip and orange pen from the supplied illustration. Preserve exactly the existing object designs, ten checklist rows, proportions, camera perspective, fine material textures, orange spine, dark navy cover, magenta/cyan edge reflections, and realistic detail. Remove the entire background, studio environment, table, floor reflections and surrounding surface. The whole area around and between the objects must be true transparent alpha, not black, white or a checkerboard graphic. Clean anti-aliased cutout edges. No extra objects, new text, new cover design or decorative background glow. Keep all three objects in frame as one centered, coherent group with safe transparent margins on a landscape 5:4 canvas. This cutout will illustrate a resource-library page header against its existing background."
+    },
+    {
+      "name": "website-comparison-cover",
+      "transparent": true,
+      "generatedFile": "exec-f0536f0a-615f-48c0-8349-5414069e8352.png",
+      "prompt": "Background extraction only. Preserve the supplied three realistic physical glass website-browser panels and the magnifying glass as one coherent group, keeping their design, screen previews, perspective, metal materials, realistic reflections, orange and magenta details and object proportions unchanged. Remove every part of the studio room, backdrop, table, floor and floor reflections. All space around and between the panels and around the magnifying glass must have genuine transparent alpha. Do not paint a black or white background and do not create a checkerboard pattern. Keep clean anti-aliased cutout edges and soft translucent highlights attached to the objects only. Center the complete group with comfortable transparent margins in a landscape 5:4 canvas, no object or magnifier cropped. No new text, objects, logos, background effects or redesign. Intended use: a frameless 3D website-editorial visual on the right side of a blog header."
+    }
+  ]
+}

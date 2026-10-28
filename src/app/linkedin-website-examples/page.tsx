@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import { createPageMetadata, personId } from '@/lib/seo/metadata'
 import Link from 'next/link'
 import {
   ArrowRight,
@@ -29,33 +29,12 @@ const pageTitle = 'Best LinkedIn Personal Brand Website Examples Compared'
 const pageDescription = 'An updated conversion-focused ranking of LinkedIn personal brand websites, including positioning, proof, CTA flow, pricing clarity, and funnel structure.'
 const pageUrl = 'https://ghufranhasan.com/linkedin-website-examples'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: pageTitle,
   description: pageDescription,
-  alternates: {
-    canonical: '/linkedin-website-examples',
-  },
-  openGraph: {
-    title: pageTitle,
-    description: pageDescription,
-    url: pageUrl,
-    type: 'article',
-    images: [
-      {
-        url: '/images/profile.png',
-        width: 1200,
-        height: 630,
-        alt: 'Ghufran Hasan LinkedIn website comparison study',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: pageTitle,
-    description: pageDescription,
-    images: ['/images/profile.png'],
-  },
-}
+  path: "/linkedin-website-examples",
+  type: 'article',
+})
 
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -67,11 +46,13 @@ const articleSchema = {
   dateModified: rankingUpdatedIsoDate,
   author: {
     '@type': 'Person',
+    '@id': personId,
     name: 'Ghufran Hasan',
     url: 'https://ghufranhasan.com',
   },
   publisher: {
     '@type': 'Person',
+    '@id': personId,
     name: 'Ghufran Hasan',
     url: 'https://ghufranhasan.com',
   },

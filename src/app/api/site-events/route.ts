@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createSiteEvent, type SiteEventType } from '@/lib/supabase/siteEvents'
 import {
   getClientIp,
+  readJsonObject,
   hasJsonContentType,
   isPayloadTooLarge,
   isSameOriginRequest,
@@ -70,7 +71,8 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const body = await request.json()
+    const body = await readJsonObject(request, 8_192)
+    if (!body) return NextResponse.json({ accepted: false }, { status: 202 })
     const eventType = cleanText(body.eventType, 40) as SiteEventType
     const path = cleanText(body.path, 500)
 

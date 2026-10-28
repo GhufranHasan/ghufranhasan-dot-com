@@ -4,12 +4,9 @@ import { ArrowRight, Compass } from 'lucide-react'
 import SectionBadge from '@/components/ui/SectionBadge'
 
 export const metadata: Metadata = {
-  title: 'Find the Right Page',
+  title: { absolute: 'Page Not Found | Ghufran Hasan' },
   description:
     'Choose the right page for services, process, proof, pricing, FAQ, resources, or the Funnel Review application.',
-  alternates: {
-    canonical: '/',
-  },
   robots: {
     index: false,
     follow: true,
@@ -24,6 +21,7 @@ export const metadata: Metadata = {
 }
 
 const links = [
+  { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
   { label: 'Process', href: '/process' },
   { label: 'Proof', href: '/proof' },
@@ -33,21 +31,21 @@ const links = [
   { label: 'Free Funnel Review', href: '/free-audit' },
 ]
 
-export default function CatchAllPage() {
+export default function NotFound() {
   return (
     <article className="pt-20">
       <section className="texture-grid neon-deep min-h-[calc(100svh-5rem)] py-16 md:py-24">
         <div className="container-custom">
           <div className="mx-auto max-w-3xl text-center">
             <SectionBadge icon={Compass} className="mb-6">
-              Start here
+              Page not found
             </SectionBadge>
             <h1 className="text-4xl font-bebas leading-tight text-white md:text-6xl">
-              Choose the Page You Need
+              This page could not be found
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
-              This site now routes unclear or old URLs to a useful starting point
-              instead of leaving visitors at a dead end.
+              The link may be outdated or the address may be incorrect.
+              Choose a page below to continue, or return to the homepage.
             </p>
           </div>
 

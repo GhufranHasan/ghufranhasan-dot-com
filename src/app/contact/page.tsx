@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/seo/metadata'
 import Link from 'next/link'
 import {
   ArrowRight,
@@ -12,14 +12,11 @@ import {
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import SectionBadge from '@/components/ui/SectionBadge'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Contact',
-  description:
-    'Contact Ghufran Hasan for general questions, collaborations, or direct communication. Serious Funnel Review requests should use the dedicated application page.',
-  alternates: {
-    canonical: '/contact',
-  },
-}
+  description: 'Contact Ghufran Hasan for general questions, collaborations, or direct communication. Serious Funnel Review requests should use the dedicated application page.',
+  path: "/contact",
+})
 
 const contactOptions = [
   {

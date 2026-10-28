@@ -22,6 +22,42 @@ export function isPayloadTooLarge(request: NextRequest, maxBytes: number) {
   return Number.isFinite(parsedLength) && parsedLength > maxBytes
 }
 
+export async function readJsonObject(
+  request: NextRequest,
+  maxBytes: number,
+): Promise<Record<string, unknown> | null> {
+  if (!hasJsonContentType(request) || isPayloadTooLarge(request, maxBytes)) return null
+
+  const reader = request.body?.getReader()
+  if (!reader) return null
+
+  try {
+    const decoder = new TextDecoder('utf-8', { fatal: true })
+    let text = ''
+    let size = 0
+
+    while (true) {
+      const { done, value } = await reader.read()
+      if (done) break
+      size += value.byteLength
+      if (size > maxBytes) {
+        await reader.cancel()
+        return null
+      }
+      text += decoder.decode(value, { stream: true })
+    }
+
+    const body: unknown = JSON.parse(text + decoder.decode())
+    return body !== null && typeof body === 'object' && !Array.isArray(body)
+      ? body as Record<string, unknown>
+      : null
+  } catch {
+    return null
+  } finally {
+    reader.releaseLock()
+  }
+}
+
 export function isSameOriginRequest(request: NextRequest) {
   const host = request.headers.get('host') || request.nextUrl.host
   const expectedOrigin = `${request.nextUrl.protocol}//${host}`

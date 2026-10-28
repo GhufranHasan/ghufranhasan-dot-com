@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { createOptionalWebGLContext, releaseOptionalWebGLContext } from '@/lib/visuals/webgl'
 import type {
   BufferGeometry,
   Group,
@@ -23,14 +24,47 @@ export default function HeroJourneyScene() {
 
     if (!canvas || !sceneRoot) return
 
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const desktopPreference = window.matchMedia('(min-width: 768px) and (pointer: fine)')
+    const device = navigator as Navigator & {
+      deviceMemory?: number
+      connection?: EventTarget & { saveData?: boolean; effectiveType?: string }
+    }
+    const canLoadScene = () => !motionPreference.matches
+      && desktopPreference.matches
+      && !device.connection?.saveData
+      && !['slow-2g', '2g', '3g'].includes(device.connection?.effectiveType ?? '')
+      && (device.hardwareConcurrency === undefined || device.hardwareConcurrency > 4)
+      && (device.deviceMemory === undefined || device.deviceMemory > 4)
+      && 'WebGL2RenderingContext' in window
+
+    // Keep the CSS background; do not even download Three.js on constrained devices.
+    if (!canLoadScene()) {
+      sceneRoot.dataset.webgl = 'skipped'
+      return
+    }
+
     let cancelled = false
     let idleId: number | null = null
     let timeoutId: number | null = null
     let disposeScene = () => {}
 
     const initializeScene = async () => {
-      const THREE = await import('three')
-      if (cancelled) return
+      if (cancelled || !canLoadScene()) return
+
+      // Probe first: Three.js logs an error before throwing if it creates a missing context.
+      const context = createOptionalWebGLContext(canvas)
+      if (!context) {
+        sceneRoot.dataset.webgl = 'unavailable'
+        return
+      }
+      disposeScene = () => releaseOptionalWebGLContext(context)
+      const THREE = await import('three').catch(() => null)
+      if (!THREE || cancelled || !canLoadScene() || context.isContextLost()) {
+        disposeScene()
+        sceneRoot.dataset.webgl = cancelled ? 'skipped' : 'unavailable'
+        return
+      }
 
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
       const isCompact = window.matchMedia('(max-width: 767px)').matches
@@ -40,11 +74,13 @@ export default function HeroJourneyScene() {
       try {
         renderer = new THREE.WebGLRenderer({
           canvas,
+          context,
           alpha: true,
           antialias: !isCompact,
-          powerPreference: 'high-performance',
+          powerPreference: 'low-power',
         })
       } catch {
+        disposeScene()
         sceneRoot.dataset.webgl = 'unavailable'
         return
       }
@@ -196,6 +232,8 @@ export default function HeroJourneyScene() {
       let isIntersecting = true
       let isDocumentVisible = document.visibilityState === 'visible'
       let animationFrame = 0
+      let lastFrameTime = 0
+      let disposed = false
 
       const applyResponsiveLayout = () => {
         const compact = sceneRoot.clientWidth < 700
@@ -205,6 +243,7 @@ export default function HeroJourneyScene() {
       }
 
       const renderScene = () => {
+        if (disposed || context.isContextLost()) return
         const width = Math.max(sceneRoot.clientWidth, 1)
         const height = Math.max(sceneRoot.clientHeight, 1)
         renderer.setSize(width, height, false)
@@ -214,11 +253,19 @@ export default function HeroJourneyScene() {
         renderer.render(scene, camera)
       }
 
-      const animate = () => {
-        if (!isIntersecting || !isDocumentVisible) {
+      const animate = (now: number) => {
+        if (disposed || context.isContextLost() || !isIntersecting || !isDocumentVisible) {
           animationFrame = 0
           return
         }
+
+        // Decorative motion does not need a full-rate GPU render loop.
+        const frameInterval = 1000 / 30
+        if (now - lastFrameTime < frameInterval) {
+          animationFrame = window.requestAnimationFrame(animate)
+          return
+        }
+        lastFrameTime = now - ((now - lastFrameTime) % frameInterval)
 
         timer.update()
         const elapsed = timer.getElapsed()
@@ -246,6 +293,7 @@ export default function HeroJourneyScene() {
       }
 
       const startAnimation = () => {
+        if (disposed || context.isContextLost()) return
         if (prefersReducedMotion) {
           renderScene()
           return
@@ -265,6 +313,11 @@ export default function HeroJourneyScene() {
         isDocumentVisible = document.visibilityState === 'visible'
         startAnimation()
       }
+      const handleContextLost = (event: Event) => {
+        event.preventDefault()
+        sceneRoot.dataset.webgl = 'unavailable'
+        disposeScene()
+      }
 
       const resizeObserver = new ResizeObserver(renderScene)
       resizeObserver.observe(sceneRoot)
@@ -283,16 +336,15 @@ export default function HeroJourneyScene() {
       }
       document.addEventListener('visibilitychange', handleVisibilityChange)
 
-      renderScene()
-      sceneRoot.dataset.webgl = 'ready'
-      startAnimation()
-
       disposeScene = () => {
+        if (disposed) return
+        disposed = true
         window.cancelAnimationFrame(animationFrame)
         resizeObserver.disconnect()
         intersectionObserver.disconnect()
         window.removeEventListener('pointermove', handlePointerMove)
         document.removeEventListener('visibilitychange', handleVisibilityChange)
+        canvas.removeEventListener('webglcontextlost', handleContextLost)
         timer.dispose()
 
         scene.traverse((object) => {
@@ -307,9 +359,13 @@ export default function HeroJourneyScene() {
           }
         })
         renderer.dispose()
-        renderer.forceContextLoss()
+        releaseOptionalWebGLContext(context)
         clearScene(scene, journey)
       }
+      canvas.addEventListener('webglcontextlost', handleContextLost)
+      renderScene()
+      sceneRoot.dataset.webgl = 'ready'
+      startAnimation()
     }
 
     const idleWindow = window as unknown as {
@@ -317,14 +373,40 @@ export default function HeroJourneyScene() {
       cancelIdleCallback?: (handle: number) => void
     }
 
-    if (idleWindow.requestIdleCallback) {
-      idleId = idleWindow.requestIdleCallback(() => void initializeScene(), { timeout: 900 })
-    } else {
-      timeoutId = window.setTimeout(() => void initializeScene(), 240)
+    const scheduleScene = () => {
+      if (cancelled || !canLoadScene()) return
+      if (idleWindow.requestIdleCallback) {
+        idleId = idleWindow.requestIdleCallback(() => void initializeScene().catch(handleSceneFailure), { timeout: 3000 })
+      } else {
+        timeoutId = window.setTimeout(() => void initializeScene().catch(handleSceneFailure), 1500)
+      }
     }
+    const handlePreferenceChange = () => {
+      if (!canLoadScene()) {
+        cancelled = true
+        disposeScene()
+        disposeScene = () => {}
+        sceneRoot.dataset.webgl = 'skipped'
+      }
+    }
+    const handleSceneFailure = () => {
+      disposeScene()
+      sceneRoot.dataset.webgl = 'unavailable'
+    }
+
+    // Page-critical assets and the first paint take priority over decoration.
+    if (document.readyState === 'complete') scheduleScene()
+    else window.addEventListener('load', scheduleScene, { once: true })
+    motionPreference.addEventListener('change', handlePreferenceChange)
+    desktopPreference.addEventListener('change', handlePreferenceChange)
+    device.connection?.addEventListener('change', handlePreferenceChange)
 
     return () => {
       cancelled = true
+      window.removeEventListener('load', scheduleScene)
+      motionPreference.removeEventListener('change', handlePreferenceChange)
+      desktopPreference.removeEventListener('change', handlePreferenceChange)
+      device.connection?.removeEventListener('change', handlePreferenceChange)
       if (idleId !== null) idleWindow.cancelIdleCallback?.(idleId)
       if (timeoutId !== null) window.clearTimeout(timeoutId)
       disposeScene()

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import { createPageMetadata, personId } from '@/lib/seo/metadata'
 import {
   BadgeCheck,
   CheckCircle2,
@@ -14,42 +14,23 @@ const pageDescription =
   'Request a limited LinkedIn-to-website funnel review for LinkedIn-active agencies, consultants, and coaches with an active offer and working website.'
 const pageUrl = 'https://ghufranhasan.com/free-audit'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: pageTitle,
   description: pageDescription,
-  alternates: {
-    canonical: '/free-audit',
-  },
-  openGraph: {
-    title: pageTitle,
-    description: pageDescription,
-    url: pageUrl,
-    type: 'website',
-    images: [
-      {
-        url: '/images/profile.png',
-        width: 1200,
-        height: 630,
-        alt: 'Free LinkedIn-to-Website Funnel Review with Ghufran Hasan',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: pageTitle,
-    description: pageDescription,
-    images: ['/images/profile.png'],
-  },
-}
+  path: "/free-audit",
+})
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
+  '@id': `${pageUrl}#service`,
+  serviceType: 'Free LinkedIn-to-website funnel review',
   name: pageTitle,
   description: pageDescription,
   url: pageUrl,
   provider: {
     '@type': 'Person',
+    '@id': personId,
     name: 'Ghufran Hasan',
     url: 'https://ghufranhasan.com',
   },

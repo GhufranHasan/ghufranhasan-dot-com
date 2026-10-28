@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import {
@@ -632,12 +632,49 @@ function AuditRequestCard({
 
 export default function DashboardView({ data }: { data: DashboardData }) {
   const router = useRouter()
+  const [isLocked, setIsLocked] = useState(false)
   const [auditRequests, setAuditRequests] = useState(data.auditRequests)
   const [subscribers, setSubscribers] = useState(data.newsletterSubscribers)
   const [recentEvents, setRecentEvents] = useState(data.recentEvents)
   const [updatingId, setUpdatingId] = useState('')
   const [notice, setNotice] = useState('')
   const [error, setError] = useState('')
+
+  useEffect(() => {
+    const idleMs = 30 * 60_000
+    let lastActivity = Date.now()
+    let locked = false
+    let idleTimer: ReturnType<typeof setTimeout>
+    const lock = () => {
+      if (locked) return
+      locked = true
+      setIsLocked(true)
+      void fetch('/api/dashboard/logout', { method: 'POST' })
+        .catch(() => undefined).finally(() => router.refresh())
+    }
+    const onActivity = () => {
+      if (locked) return
+      lastActivity = Date.now()
+      clearTimeout(idleTimer)
+      idleTimer = setTimeout(lock, idleMs)
+    }
+    const onReturn = () => {
+      if (Date.now() - lastActivity >= idleMs) lock()
+    }
+    const events = ['pointerdown', 'keydown', 'scroll'] as const
+    events.forEach((name) => window.addEventListener(name, onActivity, { passive: true }))
+    document.addEventListener('visibilitychange', onReturn)
+    window.addEventListener('pageshow', onReturn)
+    const absoluteTimer = setTimeout(lock, 2 * 60 * 60_000)
+    onActivity()
+    return () => {
+      clearTimeout(idleTimer)
+      clearTimeout(absoluteTimer)
+      events.forEach((name) => window.removeEventListener(name, onActivity))
+      document.removeEventListener('visibilitychange', onReturn)
+      window.removeEventListener('pageshow', onReturn)
+    }
+  }, [router])
 
   const funnelStats = useMemo(
     () => ({
@@ -648,6 +685,16 @@ export default function DashboardView({ data }: { data: DashboardData }) {
     }),
     [auditRequests.length, data]
   )
+
+  const dashboardFetch = async (url: string, options: RequestInit) => {
+    const response = await fetch(url, options)
+    if (response.status === 401) {
+      setIsLocked(true)
+      router.refresh()
+      throw new Error('Your dashboard session expired. Sign in again.')
+    }
+    return response
+  }
 
   const runAction = async (
     action: () => Promise<void>,
@@ -671,7 +718,7 @@ export default function DashboardView({ data }: { data: DashboardData }) {
   const handleStatusChange = async (id: string, status: string) => {
     setUpdatingId(id)
     await runAction(async () => {
-      const response = await fetch(`/api/dashboard/audit-requests/${id}`, {
+      const response = await dashboardFetch(`/api/dashboard/audit-requests/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status }),
@@ -702,7 +749,7 @@ export default function DashboardView({ data }: { data: DashboardData }) {
 
     setUpdatingId(request.id)
     await runAction(async () => {
-      const response = await fetch(`/api/dashboard/audit-requests/${request.id}`, {
+      const response = await dashboardFetch(`/api/dashboard/audit-requests/${request.id}`, {
         method: 'DELETE',
       })
       const result = await response.json()
@@ -722,7 +769,7 @@ export default function DashboardView({ data }: { data: DashboardData }) {
   const handleSubscriberStatusChange = async (id: string, status: string) => {
     setUpdatingId(id)
     await runAction(async () => {
-      const response = await fetch(`/api/dashboard/newsletter-subscribers/${id}`, {
+      const response = await dashboardFetch(`/api/dashboard/newsletter-subscribers/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status }),
@@ -753,7 +800,7 @@ export default function DashboardView({ data }: { data: DashboardData }) {
 
     setUpdatingId(subscriber.id)
     await runAction(async () => {
-      const response = await fetch(
+      const response = await dashboardFetch(
         `/api/dashboard/newsletter-subscribers/${subscriber.id}`,
         { method: 'DELETE' }
       )
@@ -782,7 +829,7 @@ export default function DashboardView({ data }: { data: DashboardData }) {
 
     setUpdatingId(event.id)
     await runAction(async () => {
-      const response = await fetch(`/api/dashboard/site-events/${event.id}`, {
+      const response = await dashboardFetch(`/api/dashboard/site-events/${event.id}`, {
         method: 'DELETE',
       })
       const result = await response.json()
@@ -806,7 +853,7 @@ export default function DashboardView({ data }: { data: DashboardData }) {
 
     setUpdatingId('bulk-events')
     await runAction(async () => {
-      const response = await fetch('/api/dashboard/site-events', {
+      const response = await dashboardFetch('/api/dashboard/site-events', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -827,9 +874,22 @@ export default function DashboardView({ data }: { data: DashboardData }) {
   }
 
   const handleLogout = async () => {
-    await fetch('/api/dashboard/logout', { method: 'POST' })
-    router.refresh()
+    setIsLocked(true)
+    try {
+      await fetch('/api/dashboard/logout', { method: 'POST' })
+    } finally {
+      router.refresh()
+    }
   }
+
+  if (isLocked) return (
+    <main className="flex min-h-screen items-center justify-center px-4 text-center">
+      <div>
+        <h1 className="text-3xl font-bebas text-white">Dashboard locked</h1>
+        <Link href="/dashboard" className="mt-5 inline-flex rounded-lg border border-orange-500 px-6 py-3 text-white">Sign in again</Link>
+      </div>
+    </main>
+  )
 
   return (
     <main className="min-h-screen lg:grid lg:grid-cols-[17rem_1fr]">

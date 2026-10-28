@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <title>Website conversion strategy: promise, evidence, and action</title>
+  <defs><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" stroke="#FFFFFF" stroke-opacity=".045"/></pattern></defs>
+  <path fill="#0A1026" d="M0 0h1200v720H0z"/>
+  <path fill="url(#grid)" d="M0 0h1200v720H0z"/>
+  <text x="60" y="66" fill="#FFB268" font-family="Arial,sans-serif" font-size="24" font-weight="700">ATTENTION IS THE START. CLARITY IS THE HANDOFF.</text>
+  <rect x="60" y="112" width="1080" height="546" rx="8" fill="#101A36" stroke="#FFFFFF" stroke-opacity=".18"/>
+  <path d="M60 167h1080" stroke="#FFFFFF" stroke-opacity=".15"/>
+  <circle cx="92" cy="140" r="6" fill="#FF8403"/><circle cx="114" cy="140" r="6" fill="#F29BD5"/><circle cx="136" cy="140" r="6" fill="#80D7E8"/>
+  <text x="600" y="148" text-anchor="middle" fill="#CBD3E5" font-family="Arial,sans-serif" font-size="22">YOUR WEBSITE</text>
+  <text x="100" y="238" fill="#FFFFFF" font-family="Arial,sans-serif" font-size="44" font-weight="700">Continue the promise.</text>
+  <text x="100" y="285" fill="#CBD3E5" font-family="Arial,sans-serif" font-size="30">Help the right visitor make a confident decision.</text>
+  <path d="M264 444h670m-16-13 16 13-16 13" stroke="#FF8403" stroke-width="4"/>
+  <rect x="100" y="354" width="296" height="180" rx="8" fill="#1B213A" stroke="#FF8403"/>
+  <rect x="452" y="354" width="296" height="180" rx="8" fill="#241731" stroke="#F29BD5" stroke-opacity=".7"/>
+  <rect x="804" y="354" width="296" height="180" rx="8" fill="#122A39" stroke="#80D7E8" stroke-opacity=".7"/>
+  <g font-family="Arial,sans-serif" text-anchor="middle">
+    <text x="248" y="405" fill="#FFB268" font-size="26">01 / PROMISE</text>
+    <text x="248" y="460" fill="#FFFFFF" font-size="40" font-weight="700">Is this for me?</text>
+    <text x="600" y="405" fill="#F29BD5" font-size="26">02 / EVIDENCE</text>
+    <text x="600" y="460" fill="#FFFFFF" font-size="40" font-weight="700">Can I trust it?</text>
+    <text x="952" y="405" fill="#80D7E8" font-size="26">03 / ACTION</text>
+    <text x="952" y="460" fill="#FFFFFF" font-size="40" font-weight="700">What next?</text>
+    <text x="600" y="602" fill="#CBD3E5" font-size="30">One page. Three decisions. One clear next step.</text>
+  </g>
+</svg>

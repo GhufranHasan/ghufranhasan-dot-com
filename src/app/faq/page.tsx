@@ -1,18 +1,15 @@
-import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/seo/metadata'
 import Link from 'next/link'
 import { ArrowRight, HelpCircle, MessageCircle } from 'lucide-react'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import SectionBadge from '@/components/ui/SectionBadge'
 import { faqs, getFaqPlainAnswer } from '@/data/faqs'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'FAQ | LinkedIn-to-Website Funnel Optimization',
-  description:
-    'Full FAQ for LinkedIn-active agencies, consultants, and coaches considering a LinkedIn-to-website Funnel Review, conversion audit, or implementation sprint.',
-  alternates: {
-    canonical: '/faq',
-  },
-}
+  description: 'Full FAQ for LinkedIn-active agencies, consultants, and coaches considering a LinkedIn-to-website Funnel Review, conversion audit, or implementation sprint.',
+  path: "/faq",
+})
 
 const faqSchema = {
   '@context': 'https://schema.org',

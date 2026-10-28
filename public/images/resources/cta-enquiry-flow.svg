@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <title>CTA funnel: review request, short intake, confirmation, optional call</title>
+  <defs><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" stroke="#FFFFFF" stroke-opacity=".045"/></pattern></defs>
+  <path fill="#0A1026" d="M0 0h1200v720H0z"/>
+  <path fill="url(#grid)" d="M0 0h1200v720H0z"/>
+  <text x="60" y="66" fill="#FFB268" font-family="Arial,sans-serif" font-size="24" font-weight="700">A CLEAR CTA IS A JOURNEY, NOT JUST A BUTTON.</text>
+  <path d="M570 234h65m-15-12 15 12-15 12M895 355v70m-12-15 12 15 12-15M635 548h-65m15-12-15 12 15 12" stroke="#FFB268" stroke-width="4"/>
+  <rect x="60" y="120" width="510" height="235" rx="8" fill="#1B213A" stroke="#FF8403"/>
+  <rect x="635" y="120" width="505" height="235" rx="8" fill="#241731" stroke="#F29BD5" stroke-opacity=".7"/>
+  <rect x="635" y="425" width="505" height="235" rx="8" fill="#122A39" stroke="#80D7E8" stroke-opacity=".7"/>
+  <rect x="60" y="425" width="510" height="235" rx="8" fill="#101A36" stroke="#FFFFFF" stroke-opacity=".25" stroke-dasharray="8 8"/>
+  <g font-family="Arial,sans-serif">
+    <text x="94" y="168" fill="#FFB268" font-size="26">01 / INVITATION</text>
+    <rect x="94" y="202" width="442" height="80" rx="6" fill="#FF8403"/>
+    <text x="315" y="252" text-anchor="middle" fill="#0A1026" font-size="36" font-weight="700">Request free review</text>
+    <text x="669" y="168" fill="#F29BD5" font-size="26">02 / CONTEXT</text>
+    <text x="669" y="225" fill="#FFFFFF" font-size="40" font-weight="700">Short intake</text>
+    <path d="M671 263h430M671 302h300" stroke="#F29BD5" stroke-opacity=".45" stroke-width="12" stroke-linecap="round"/>
+    <text x="669" y="475" fill="#80D7E8" font-size="26">03 / CONFIRMATION</text>
+    <text x="669" y="536" fill="#FFFFFF" font-size="40" font-weight="700">Request received</text>
+    <text x="669" y="595" fill="#CBD3E5" font-size="30">Explain what happens next.</text>
+    <text x="94" y="475" fill="#CBD3E5" font-size="26">04 / OPTIONAL CALL</text>
+    <text x="94" y="536" fill="#FFFFFF" font-size="40" font-weight="700">Talk it through</text>
+    <text x="94" y="595" fill="#CBD3E5" font-size="30">A choice, not another hurdle.</text>
+  </g>
+</svg>

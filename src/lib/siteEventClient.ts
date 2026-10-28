@@ -67,8 +67,7 @@ export function trackSiteEvent(payload: SiteEventPayload) {
 
   if ('sendBeacon' in navigator) {
     const blob = new Blob([body], { type: 'application/json' })
-    navigator.sendBeacon('/api/site-events', blob)
-    return
+    if (navigator.sendBeacon('/api/site-events', blob)) return
   }
 
   void fetch('/api/site-events', {
@@ -76,5 +75,7 @@ export function trackSiteEvent(payload: SiteEventPayload) {
     headers: { 'Content-Type': 'application/json' },
     body,
     keepalive: true,
+  }).catch(() => {
+    // Analytics must not interrupt navigation or form interactions.
   })
 }

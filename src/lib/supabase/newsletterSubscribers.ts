@@ -1,7 +1,7 @@
 import 'server-only'
 
 import { supabaseAdminRequest } from '@/lib/supabase/admin'
-import { saveLocalNewsletterSubscriber } from '@/lib/storage/localStore'
+import { canUseLocalStorage, saveLocalNewsletterSubscriber } from '@/lib/storage/localStore'
 
 export type NewsletterSubscriberRecord = {
   id: string
@@ -54,7 +54,10 @@ export async function upsertNewsletterSubscriber(
     if (subscriber?.id) {
       return subscriber
     }
+
+    throw new Error('The database did not confirm the saved subscriber.')
   } catch (error) {
+    if (!canUseLocalStorage()) throw error
     console.warn(
       '[Newsletter] Supabase unavailable, falling back to local storage:',
       error instanceof Error ? error.message : error

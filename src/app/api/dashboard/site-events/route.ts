@@ -3,6 +3,7 @@ import { isDashboardAuthenticated } from '@/lib/dashboard/auth'
 import { dashboardPeriods, normalizeDashboardPeriod } from '@/lib/supabase/dashboard'
 import { deleteSiteEventsFromDate } from '@/lib/supabase/siteEvents'
 import {
+  readJsonObject,
   hasJsonContentType,
   isPayloadTooLarge,
   isSameOriginRequest,
@@ -23,7 +24,8 @@ export async function DELETE(request: NextRequest) {
     return NextResponse.json({ error: 'Dashboard access required.' }, { status: 401 })
   }
 
-  const body = await request.json().catch(() => ({}))
+  const body = await readJsonObject(request, 1_024)
+  if (!body) return NextResponse.json({ error: 'Invalid dashboard cleanup request.' }, { status: 400 })
   const periodDays = normalizeDashboardPeriod(body.periodDays)
   const confirmation = typeof body.confirmation === 'string' ? body.confirmation : ''
 

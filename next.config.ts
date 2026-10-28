@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 const contentSecurityPolicy = [
   "default-src 'self'",
   "base-uri 'self'",
@@ -9,10 +11,10 @@ const contentSecurityPolicy = [
   "img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com",
   "font-src 'self' data:",
   "style-src 'self' 'unsafe-inline'",
-  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com",
-  "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://stats.g.doubleclick.net",
+  `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ''} https://www.googletagmanager.com https://www.google-analytics.com`,
+  `connect-src 'self'${isDevelopment ? ' ws: wss:' : ''} https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://stats.g.doubleclick.net`,
   "frame-src 'self' https://calendly.com",
-  "upgrade-insecure-requests",
+  ...(!isDevelopment ? ['upgrade-insecure-requests'] : []),
 ].join('; ')
 
 const securityHeaders = [
@@ -43,6 +45,14 @@ const securityHeaders = [
 ]
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [{
+      source: '/:path*',
+      has: [{ type: 'host', value: 'www\\.ghufranhasan\\.com' }],
+      destination: 'https://ghufranhasan.com/:path*',
+      permanent: true,
+    }]
+  },
   async headers() {
     return [
       {

@@ -1,17 +1,14 @@
-import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/seo/metadata'
 import Link from 'next/link'
 import { ArrowRight, BadgeDollarSign, CheckCircle2 } from 'lucide-react'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import SectionBadge from '@/components/ui/SectionBadge'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Pricing | Free Review, Conversion Audit, Conversion Sprint',
-  description:
-    'Pricing path for the Free Funnel Review, $300 Conversion Audit, LinkedIn-to-Website Conversion Sprint starting from $1,200, and custom add-ons.',
-  alternates: {
-    canonical: '/pricing',
-  },
-}
+  description: 'Pricing path for the Free Funnel Review, $300 Conversion Audit, LinkedIn-to-Website Conversion Sprint starting from $1,200, and custom add-ons.',
+  path: "/pricing",
+})
 
 const offers = [
   {

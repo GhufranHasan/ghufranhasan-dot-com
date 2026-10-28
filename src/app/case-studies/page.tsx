@@ -1,17 +1,14 @@
-import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/seo/metadata'
 import Link from 'next/link'
 import { ArrowRight, FileSearch, ShieldCheck } from 'lucide-react'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import SectionBadge from '@/components/ui/SectionBadge'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Case Studies | Conversion Examples in Progress',
-  description:
-    'Current case-study approach for LinkedIn-to-website conversion work, including honest proof status and public teardown examples.',
-  alternates: {
-    canonical: '/case-studies',
-  },
-}
+  description: 'Current case-study approach for LinkedIn-to-website conversion work, including honest proof status and public teardown examples.',
+  path: "/case-studies",
+})
 
 export default function CaseStudiesPage() {
   return (

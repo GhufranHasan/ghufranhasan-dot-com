@@ -2,6 +2,7 @@ import 'server-only'
 
 import { supabaseAdminRequest } from '@/lib/supabase/admin'
 import {
+  canUseLocalStorage,
   saveLocalAuditRequest,
   updateLocalAuditRequestStatus,
   deleteLocalAuditRequest,
@@ -83,7 +84,10 @@ export async function createAuditRequest(
     if (savedRequest?.id) {
       return savedRequest
     }
+
+    throw new Error('The database did not confirm the saved audit request.')
   } catch (error) {
+    if (!canUseLocalStorage()) throw error
     console.warn(
       '[Audit Requests] Full Supabase insert failed:',
       error instanceof Error ? error.message : error
@@ -135,7 +139,7 @@ export async function createAuditRequest(
     }
   }
 
-  // Fallback to resilient local storage so leads are never lost
+  // Local-only fallback for development; deployed leads require durable storage.
   return saveLocalAuditRequest(input)
 }
 

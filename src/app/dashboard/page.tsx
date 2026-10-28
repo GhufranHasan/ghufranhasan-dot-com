@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/seo/metadata'
 import { connection } from 'next/server'
 import { Database } from 'lucide-react'
 import DashboardLoginForm from '@/components/dashboard/DashboardLoginForm'
@@ -12,15 +12,15 @@ import {
   normalizeDashboardPeriod,
 } from '@/lib/supabase/dashboard'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Private Website Dashboard',
-  description:
-    'Private dashboard for Ghufran Hasan to monitor website visits, forms, downloads, subscribers, and database status.',
+  description: 'Private dashboard for Ghufran Hasan to monitor website visits, forms, downloads, subscribers, and database status.',
+  path: "/dashboard",
   robots: {
     index: false,
     follow: false,
   },
-}
+})
 
 function DashboardSetupNotice() {
   return (
@@ -33,14 +33,14 @@ function DashboardSetupNotice() {
           Dashboard Setup Needed
         </h1>
         <p className="mt-4 leading-relaxed text-white/68">
-          Add a private password and session secret before opening this dashboard.
+          Finish the required security setup before opening this dashboard.
           This keeps your applications, subscribers, and analytics away from public
           visitors.
         </p>
         <div className="mt-6 rounded-xl border border-orange-500/20 bg-orange-500/8 p-4">
           <p className="text-sm font-semibold text-white">Add this to `.env.local`:</p>
           <code className="mt-3 block overflow-x-auto rounded-lg bg-purple-950/80 p-4 text-sm text-orange-100">
-            DASHBOARD_PASSWORD=choose-a-strong-private-password
+            DASHBOARD_PASSWORD=use-a-unique-password-with-at-least-16-characters
             {'\n'}
             DASHBOARD_SESSION_SECRET=use-32-or-more-random-characters
             {'\n'}
@@ -51,8 +51,9 @@ function DashboardSetupNotice() {
             RESEND_FROM_EMAIL=Ghufran Hasan &lt;ghufran@ghufranhasan.com&gt;
           </code>
           <p className="mt-3 text-sm text-white/58">
-            The 2FA email can be Gmail. The sender email must be verified in Resend.
-            Restart the local website server after adding these values.
+            Email verification is required. The recipient can be Gmail; the sender
+            must be verified in Resend. Apply the dashboard security migration in
+            Supabase and restart the local server after updating your configuration.
           </p>
         </div>
       </section>
@@ -68,6 +69,9 @@ export default async function DashboardPage({
   await connection()
 
   if (!isDashboardConfigured()) {
+    if (process.env.NODE_ENV === 'production') {
+      return <main className="flex min-h-screen items-center px-4 py-10 md:px-8"><DashboardLoginForm available={false} /></main>
+    }
     return <DashboardSetupNotice />
   }
 

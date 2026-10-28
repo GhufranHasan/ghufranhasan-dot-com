@@ -89,7 +89,7 @@ export default function SiteAnalyticsTracker() {
           })
         })
       },
-      { threshold: 0.45 }
+      { threshold: 0.1 }
     )
 
     sections.forEach((section) => observer.observe(section))

@@ -7,6 +7,7 @@ import {
   type NewsletterSubscriberStatus,
 } from '@/lib/supabase/newsletterSubscribers'
 import {
+  readJsonObject,
   hasJsonContentType,
   isPayloadTooLarge,
   isSameOriginRequest,
@@ -39,7 +40,8 @@ export async function PATCH(
   }
 
   const { id } = await context.params
-  const body = await request.json().catch(() => ({}))
+  const body = await readJsonObject(request, 1_024)
+  if (!body) return NextResponse.json({ error: 'Invalid dashboard update request.' }, { status: 400 })
   const status = cleanText(body.status, 80)
 
   if (!isUuid(id) || !validStatuses.has(status)) {

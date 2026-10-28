@@ -10,31 +10,37 @@ const services = [
   {
     icon: SearchCheck,
     title: 'Positioning diagnosis',
+    href: '/process#diagnosis',
     description: 'Find whether the gap is traffic, offer clarity, sales follow-up, or the LinkedIn-to-website handoff.',
   },
   {
     icon: MessageSquareText,
     title: 'Conversion copy',
+    href: '/website-conversion-strategy#message-match',
     description: 'Continue the buyer context from LinkedIn into the hero, offer, proof, objections, and CTA.',
   },
   {
     icon: Route,
     title: 'Buyer path structure',
+    href: '/website-conversion-strategy#decision-sequence',
     description: 'Put information in the order a skeptical buyer needs before applying, booking, or requesting the next step.',
   },
   {
     icon: LayoutTemplate,
     title: 'Website implementation',
+    href: '/process#implementation',
     description: 'Turn the strategy into a fast, mobile-friendly page instead of leaving you with another document waiting to be used.',
   },
   {
     icon: MousePointerClick,
     title: 'CTA and form path',
+    href: '/cta-funnel-clarity#intake-confirmation',
     description: 'Make the next step clear, qualified, and measurable with an application-first journey.',
   },
   {
     icon: PenLine,
     title: 'Tracking',
+    href: '/cta-funnel-clarity#measure-the-path',
     description: 'Observe sample-audit views, CTA clicks, form starts, submissions, and the actions that matter.',
   },
 ]
@@ -76,8 +82,9 @@ export default function Services() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ delay: index * 0.08 }}
-              className="group relative grid min-h-56 grid-cols-[auto_1fr] gap-5 border-t border-white/10 px-0 py-7 transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:bg-white/[0.025] motion-reduce:hover:translate-y-0 sm:p-7 lg:[&:nth-child(odd)]:border-r lg:[&:nth-child(odd)]:pr-10 lg:[&:nth-child(even)]:pl-10"
+              className="group relative border-t border-white/10 transition-colors hover:bg-white/[0.025] focus-within:bg-white/[0.025] lg:[&:nth-child(odd)]:border-r"
             >
+              <Link href={service.href} prefetch={false} className="grid h-full min-h-56 grid-cols-[auto_1fr] gap-5 py-7 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-orange-400 sm:p-7 lg:group-odd:pr-10 lg:group-even:pl-10">
               <div className="flex flex-col items-center gap-4">
                 <span className="text-xs font-bold text-orange-400">0{index + 1}</span>
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-orange-500/20 bg-orange-500/8 transition-all group-hover:border-orange-500/45 group-hover:bg-orange-500/12">
@@ -87,10 +94,11 @@ export default function Services() {
               <div className="flex min-w-0 flex-col">
                 <div className="flex items-start justify-between gap-4">
                   <h3 className="text-2xl font-bebas text-white md:text-3xl">{service.title}</h3>
-                  <ArrowRight size={18} className="mt-1 shrink-0 text-white/25 transition-all group-hover:translate-x-1 group-hover:text-orange-400" />
+                  <ArrowRight size={18} aria-hidden="true" className="mt-1 shrink-0 text-orange-300 transition-transform group-hover:translate-x-1" />
                 </div>
                 <p className="mt-3 max-w-xl leading-relaxed text-white/70">{service.description}</p>
               </div>
+              </Link>
             </motion.article>
           ))}
         </div>

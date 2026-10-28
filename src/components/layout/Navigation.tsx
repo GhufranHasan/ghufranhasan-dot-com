@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -12,8 +12,8 @@ import { useModal } from '@/contexts/ModalContext'
 const navItems = [
   { name: 'Problem', href: '/#problem', sectionId: 'problem' },
   { name: 'Sample Audit', href: '/#audit-examples', sectionId: 'audit-examples' },
-  { name: 'Sprint', href: '/#services', sectionId: 'services' },
   { name: 'Proof', href: '/#proof', sectionId: 'proof' },
+  { name: 'Sprint', href: '/#services', sectionId: 'services' },
   { name: 'Process', href: '/#process', sectionId: 'process' },
   { name: 'Pricing', href: '/#packages', sectionId: 'packages' },
 ]
@@ -25,6 +25,19 @@ export default function Navigation() {
   const pathname = usePathname()
   const visibleActiveSection = pathname === '/' ? activeSection : null
   const { isModalOpen } = useModal()
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    if (!isOpen) return
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false)
+        menuButtonRef.current?.focus()
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [isOpen])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,8 +52,8 @@ export default function Navigation() {
       return
     }
 
-    const sections = navItems
-      .map((item) => document.getElementById(item.sectionId))
+    const sections = ['home', ...navItems.map((item) => item.sectionId)]
+      .map((id) => document.getElementById(id))
       .filter((section): section is HTMLElement => Boolean(section))
 
     const observer = new IntersectionObserver(
@@ -106,10 +119,13 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
+            ref={menuButtonRef}
+            type="button"
             onClick={() => setIsOpen(!isOpen)}
             className="rounded-lg p-2 text-white transition-colors hover:bg-white/8 lg:hidden"
             aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -119,6 +135,7 @@ export default function Navigation() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
+              id="mobile-navigation"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}

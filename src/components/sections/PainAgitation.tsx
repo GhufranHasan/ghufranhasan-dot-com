@@ -95,9 +95,9 @@ export default function PainAgitation() {
           <SectionBadge icon={Flame} emphasis="strong" className="mb-5">
             Diagnostic first
           </SectionBadge>
-          <p className="text-3xl md:text-4xl lg:text-5xl font-bebas mb-5">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bebas mb-5">
             A website is not always the problem.
-          </p>
+          </h2>
           <p className="text-white/70">
             Weak enquiries can come from several constraints. The first job is to identify which one is actually limiting the journey.
           </p>

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { upsertNewsletterSubscriber } from '@/lib/supabase/newsletterSubscribers'
 import {
   getClientIp,
+  readJsonObject,
   hasJsonContentType,
   isPayloadTooLarge,
   isSameOriginRequest,
@@ -51,7 +52,10 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const body = await request.json()
+    const body = await readJsonObject(request, 4_096)
+    if (!body) {
+      return NextResponse.json({ error: 'Invalid newsletter signup request.' }, { status: 400 })
+    }
     const email = typeof body.email === 'string' ? body.email.trim().toLowerCase() : ''
     const website = typeof body.website === 'string' ? body.website.trim() : ''
 
@@ -62,7 +66,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    if (!email || !isValidEmail(email)) {
+    if (!email || email.length > 254 || !isValidEmail(email)) {
       return NextResponse.json(
         { error: 'Please provide a valid email address' },
         { status: 400 }
@@ -91,17 +95,28 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const response = await fetch('https://api.resend.com/audiences/subscribers', {
+    const response = await fetch(`https://api.resend.com/audiences/${encodeURIComponent(SUBSCRIBER_LIST_ID)}/contacts`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${RESEND_API_KEY}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        audience_id: SUBSCRIBER_LIST_ID,
         email,
+        unsubscribed: false,
       }),
+      signal: AbortSignal.timeout(10_000),
+    }).catch((error: unknown) => {
+      console.error('Newsletter audience sync error:', error)
+      return null
     })
+
+    if (!response) {
+      return NextResponse.json(
+        { message: 'Successfully subscribed.', email, id: subscriber.id, resendSynced: false },
+        { status: 201 }
+      )
+    }
 
     if (!response.ok) {
       const error = await response.json()

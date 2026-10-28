@@ -82,6 +82,12 @@ export default function BrandedSelect({
     }
   }, [isOpen, updateMenuPlacement])
 
+  useEffect(() => {
+    if (isOpen) {
+      document.getElementById(`${selectId}-option-${activeIndex}`)?.scrollIntoView({ block: 'nearest' })
+    }
+  }, [activeIndex, isOpen, selectId])
+
   const openMenu = () => {
     const selectedIndex = options.indexOf(value)
     setActiveIndex(selectedIndex >= 0 ? selectedIndex : 0)
@@ -96,6 +102,10 @@ export default function BrandedSelect({
   }
 
   const handleKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
+    if (event.key === 'Tab') {
+      setIsOpen(false)
+      return
+    }
     if (event.key === 'Escape') {
       setIsOpen(false)
       return
@@ -166,6 +176,9 @@ export default function BrandedSelect({
         }
         onClick={() => (isOpen ? setIsOpen(false) : openMenu())}
         onKeyDown={handleKeyDown}
+        onBlur={(event) => {
+          if (!rootRef.current?.contains(event.relatedTarget)) setIsOpen(false)
+        }}
         className={cn(
           'mt-2 flex min-h-12 w-full items-center justify-between gap-3 rounded-lg border bg-purple-950/60 px-4 py-3 text-left text-sm outline-none transition-all',
           isOpen

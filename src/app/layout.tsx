@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import ClientProviders from './providers'
 import AppShell from '@/components/layout/AppShell'
+import Footer from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ghufranhasan.com'),
@@ -24,31 +25,6 @@ export const metadata: Metadata = {
   authors: [{ name: 'Ghufran Hasan' }],
   creator: 'Ghufran Hasan',
   publisher: 'Ghufran Hasan',
-  alternates: {
-    canonical: '/',
-  },
-  openGraph: {
-    title: 'LinkedIn-to-Website Conversion for Service Businesses | Ghufran Hasan',
-    description: 'Diagnose and improve the handoff between LinkedIn positioning, website messaging, proof, and CTA.',
-    url: 'https://ghufranhasan.com',
-    siteName: 'Ghufran Hasan',
-    type: 'website',
-    locale: 'en_US',
-    images: [
-      {
-        url: '/images/profile.png',
-        width: 1200,
-        height: 630,
-        alt: 'Ghufran Hasan',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'LinkedIn-to-Website Conversion for Service Businesses | Ghufran Hasan',
-    description: 'Diagnose and improve the handoff between LinkedIn positioning, website messaging, proof, and CTA.',
-    images: ['/images/profile.png'],
-  },
   robots: {
     index: true,
     follow: true,
@@ -71,7 +47,7 @@ export default function RootLayout({
       <body className="antialiased">
         <div className="site-backdrop" aria-hidden="true" />
         <ClientProviders>
-          <AppShell>{children}</AppShell>
+          <AppShell footer={<Footer />}>{children}</AppShell>
         </ClientProviders>
       </body>
     </html>

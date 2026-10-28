@@ -1,22 +1,20 @@
-import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/seo/metadata'
 import Link from 'next/link'
 import { ArrowRight, ChartLine, ClipboardList, Pen, Rocket } from 'lucide-react'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import SectionBadge from '@/components/ui/SectionBadge'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Process | LinkedIn-to-Website Conversion Sprint',
-  description:
-    'A detailed look at the audit, strategy, design, build, launch, and tracking process behind the LinkedIn-to-Website Conversion Sprint.',
-  alternates: {
-    canonical: '/process',
-  },
-}
+  description: 'A detailed look at the audit, strategy, design, build, launch, and tracking process behind the LinkedIn-to-Website Conversion Sprint.',
+  path: "/process",
+})
 
 const steps = [
   {
     icon: ClipboardList,
     title: 'Audit the current path',
+    id: 'diagnosis',
     timeline: '1 day',
     description:
       'I review the profile promise, website hero, offer explanation, trust sequence, CTA path, form friction, and mobile scan experience.',
@@ -25,6 +23,7 @@ const steps = [
   {
     icon: ChartLine,
     title: 'Map the conversion strategy',
+    id: 'strategy',
     timeline: '1-2 days',
     description:
       'We define the ideal visitor, page promise, section order, objection flow, CTA action, and what the page must prove before asking for action.',
@@ -33,6 +32,7 @@ const steps = [
   {
     icon: Pen,
     title: 'Write, design, and build',
+    id: 'implementation',
     timeline: '5-7 days',
     description:
       'I turn the strategy into conversion copy, mobile-friendly layout, branded sections, and a maintainable website path.',
@@ -41,6 +41,7 @@ const steps = [
   {
     icon: Rocket,
     title: 'Launch and refine',
+    id: 'launch',
     timeline: '1-2 days',
     description:
       'I handle QA, mobile checks, CTA tracking, launch support, and a walkthrough so you understand how the path works.',
@@ -78,7 +79,7 @@ export default function ProcessPage() {
         <div className="container-custom">
           <div className="mx-auto max-w-4xl space-y-6">
             {steps.map((step, index) => (
-              <article key={step.title} className="glass-card border-orange-500/20 p-6 md:p-7">
+              <article key={step.title} id={step.id} className="glass-card scroll-mt-28 border-orange-500/20 p-6 md:p-7">
                 <div className="flex flex-col gap-5 md:flex-row">
                   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-orange-500/10 text-orange-400">
                     <step.icon size={26} />

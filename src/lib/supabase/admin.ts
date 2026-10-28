@@ -65,6 +65,7 @@ export async function supabaseAdminRequest<T>(
       },
       body: options.body === undefined ? undefined : JSON.stringify(options.body),
       cache: 'no-store',
+      signal: AbortSignal.timeout(10_000),
     })
   } catch (error) {
     throw new Error(

@@ -1,17 +1,14 @@
-import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/seo/metadata'
 import Link from 'next/link'
 import { ArrowRight, FileSearch, PanelsTopLeft, Rocket } from 'lucide-react'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import SectionBadge from '@/components/ui/SectionBadge'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Work | Strategy and Launch Proof',
-  description:
-    'Work and proof assets showing website transformation thinking, launch ability, and public teardown examples.',
-  alternates: {
-    canonical: '/work',
-  },
-}
+  description: 'Work and proof assets showing website transformation thinking, launch ability, and public teardown examples.',
+  path: "/work",
+})
 
 const workItems = [
   {

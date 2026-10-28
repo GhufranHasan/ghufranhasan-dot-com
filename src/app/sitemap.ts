@@ -1,7 +1,8 @@
 import type { MetadataRoute } from 'next'
+import { resourceUpdatedDate } from '@/data/resourceGuides'
 
 const siteUrl = 'https://ghufranhasan.com'
-const latestContentUpdate = '2026-09-05'
+const latestContentUpdate = '2026-10-27'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -73,25 +74,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${siteUrl}/blog`,
-      lastModified: latestContentUpdate,
+      lastModified: resourceUpdatedDate,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${siteUrl}/website-conversion-strategy`,
-      lastModified: latestContentUpdate,
+      lastModified: resourceUpdatedDate,
+      images: [`${siteUrl}/images/resources/website-decision-path-3d.webp`],
       changeFrequency: 'monthly',
       priority: 0.74,
     },
     {
       url: `${siteUrl}/linkedin-profile-optimization`,
-      lastModified: latestContentUpdate,
+      lastModified: resourceUpdatedDate,
+      images: [`${siteUrl}/images/resources/linkedin-profile-blueprint-3d.webp`],
       changeFrequency: 'monthly',
       priority: 0.74,
     },
     {
       url: `${siteUrl}/cta-funnel-clarity`,
-      lastModified: latestContentUpdate,
+      lastModified: resourceUpdatedDate,
+      images: [`${siteUrl}/images/resources/cta-enquiry-flow-3d.webp`],
       changeFrequency: 'monthly',
       priority: 0.74,
     },
@@ -109,7 +113,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${siteUrl}/resources`,
-      lastModified: latestContentUpdate,
+      lastModified: resourceUpdatedDate,
       changeFrequency: 'monthly',
       priority: 0.7,
     },

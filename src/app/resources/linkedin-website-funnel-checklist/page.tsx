@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import { createPageMetadata, personId } from '@/lib/seo/metadata'
 import Link from 'next/link'
 import {
   ArrowRight,
@@ -21,39 +21,14 @@ const seoTitle = 'Free LinkedIn-to-Website Funnel Checklist for Service Provider
 const pageDescription =
   'Use this free 10-point checklist to find where your LinkedIn profile, website, and CTA may be losing qualified actions.'
 const pageUrl = 'https://ghufranhasan.com/resources/linkedin-website-funnel-checklist'
-const ogImage = '/images/brand-logo-checklist.png'
 const linkedInUrl = 'https://linkedin.com/in/ghufranhasan/'
 const calendlyUrl = 'https://calendly.com/ghufranhasan/1-1-consultation-call'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: seoTitle,
   description: pageDescription,
-  alternates: {
-    canonical: '/resources/linkedin-website-funnel-checklist',
-  },
-  openGraph: {
-    title: pageTitle,
-    description:
-      'Check if your profile, website, and CTA are aligned to move LinkedIn visitors toward a qualified next step.',
-    url: pageUrl,
-    type: 'website',
-    images: [
-      {
-        url: ogImage,
-        width: 1200,
-        height: 630,
-        alt: '10-Point LinkedIn-to-Website Funnel Checklist',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: pageTitle,
-    description:
-      'Check if your profile, website, and CTA are aligned to move LinkedIn visitors toward a qualified next step.',
-    images: [ogImage],
-  },
-}
+  path: "/resources/linkedin-website-funnel-checklist",
+})
 
 const webpageSchema = {
   '@context': 'https://schema.org',
@@ -64,6 +39,7 @@ const webpageSchema = {
   dateModified: '2026-06-29',
   author: {
     '@type': 'Person',
+    '@id': personId,
     name: 'Ghufran Hasan',
     url: 'https://ghufranhasan.com',
   },

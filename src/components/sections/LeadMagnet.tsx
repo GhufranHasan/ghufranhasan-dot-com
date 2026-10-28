@@ -1,28 +1,32 @@
-'use client'
-
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { ArrowRight, FileText } from 'lucide-react'
+import { ArrowRight, Check, ScanSearch } from 'lucide-react'
 
 export default function LeadMagnet() {
   return (
-    <motion.div
-      transition={{ duration: 0.22, ease: 'easeOut' }}
-      className="glass-card rounded-xl border border-orange-500/20 p-5 text-left transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-glow motion-reduce:hover:translate-y-0"
+    <aside
+      aria-labelledby="footer-review-title"
+      className="relative self-start overflow-hidden rounded-lg border border-orange-500/40 bg-purple-950/80 p-6 text-left shadow-[inset_0_3px_0_#ff8403,0_12px_36px_rgba(0,0,0,0.18)]"
     >
-      <div className="flex items-center gap-2 mb-2">
-        <FileText size={18} className="text-orange-500" />
-        <h3 className="font-bold text-white text-sm">Free Funnel Review</h3>
+      <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-orange-300">
+        <ScanSearch size={20} aria-hidden="true" />
+        A clearer next step
       </div>
-      <p className="mb-4 text-xs text-white/68">
-        Apply with your profile, website, and business context so I can spot one observable conversion risk.
+      <h2 id="footer-review-title" className="text-2xl font-medium leading-tight text-white">Free Funnel Review</h2>
+      <p className="mt-3 text-sm leading-7 text-white/75">
+        Find the first gap between LinkedIn attention and your website enquiry path.
       </p>
+      <ul className="my-5 space-y-2.5 text-sm text-white/80">
+        {['Your profile promise', 'Your website message', 'Your next-step clarity'].map((item) => (
+          <li key={item} className="flex items-center gap-2.5"><Check size={16} className="shrink-0 text-orange-400" aria-hidden="true" />{item}</li>
+        ))}
+      </ul>
       <Link
         href="/free-audit#request-audit"
-        className="inline-flex items-center gap-2 text-orange-500 text-xs font-semibold hover:text-orange-400"
+        className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-orange-500 px-4 py-3 text-center text-sm font-semibold text-purple-950 transition-colors hover:bg-orange-600 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-300"
       >
-        Request free review <ArrowRight size={14} />
+        Request free review <ArrowRight size={17} aria-hidden="true" />
       </Link>
-    </motion.div>
+      <p className="mt-3 text-center text-xs leading-6 text-white/60">One application. No pressure.</p>
+    </aside>
   )
 }
